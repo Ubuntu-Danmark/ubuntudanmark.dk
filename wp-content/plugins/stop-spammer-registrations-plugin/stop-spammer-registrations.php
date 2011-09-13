@@ -399,6 +399,15 @@ function kpg_stop_sp_reg_check_email($email,$author='') {
 		sfs_errorsonoff('off');
 		return $email;
 	}
+
+	// Auto submit to sfs
+	if(! empty($apikey)) {
+		$query  = "http://www.stopforumspam.com/add?api_key=$apikey";
+		$query .= "&ip_addr=$ip";
+		$query .= "&username=$author";
+		$query .= "&email=$email";
+		kpg_stop_sp_reg_getafile($query);
+	}
 	
 	// update the history files.
 	// record the last few guys that have  tried to spam
