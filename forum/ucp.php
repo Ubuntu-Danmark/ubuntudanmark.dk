@@ -86,6 +86,9 @@ switch ($mode)
 		{
 			$user->session_kill();
 			$user->session_begin();
+//-- mod : AJenbo - instant logout
+    	    redirect(append_sid("{$phpbb_root_path}"));
+//-- fin mod : instant logout
 			$message = $user->lang['LOGOUT_REDIRECT'];
 		}
 		else

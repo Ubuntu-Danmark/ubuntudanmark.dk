@@ -1132,6 +1132,9 @@ if ($submit || $preview || $refresh)
 
 			// The last parameter tells submit_post if search indexer has to be run
 			$redirect_url = submit_post($mode, $post_data['post_subject'], $post_data['username'], $post_data['topic_type'], $poll, $data, $update_message, ($update_message || $update_subject) ? true : false);
+//-- mod : AJenbo - direct posting
+    	    redirect(str_replace('&amp;', '&', $redirect_url));
+//-- fin mod : direct posting end
 
 			if ($config['enable_post_confirm'] && !$user->data['is_registered'] && (isset($captcha) && $captcha->is_solved() === true) && ($mode == 'post' || $mode == 'reply' || $mode == 'quote'))
 			{
