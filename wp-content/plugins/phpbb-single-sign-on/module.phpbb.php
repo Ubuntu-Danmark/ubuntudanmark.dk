@@ -25,7 +25,9 @@ class wpbb_phpBB3 {
             return false;
         }
         
-        define('IN_PHPBB', true);
+        if(!defined('IN_PHPBB')) {
+            define('IN_PHPBB', true);
+        }
         global $phpbb_root_path, $phpEx, $auth, $template, $cache, $db, $config, $user;
 
         $prp = $phpbb_root_path = ABSPATH . PHPBBPATH;
@@ -160,7 +162,7 @@ class wpbb_phpBB3 {
         global $db;
 
         $hashed = phpbb_hash($password);
-        $sql = 'UPDATE ' . USERS_TABLE . ' SET user_password="' . $hashed . '",user_pass_convert=0,user_last_search=1 WHERE username = "' . $username . '"';
+        $sql = 'UPDATE ' . USERS_TABLE . ' SET user_password="' . $hashed . '",user_pass_convert=0,user_last_search=1 WHERE username_clean = "' . utf8_clean_string($username) . '"';
 
         $result = $db->sql_query($sql);
     }
@@ -200,7 +202,7 @@ class wpbb_phpBB3 {
         define('USERS_TABLE', $table_prefix . 'users');
 
         $sql = 'SELECT user_id, username, user_password, user_passchg, user_pass_convert, user_email, user_type, user_login_attempts
-                FROM ' . USERS_TABLE . " WHERE username = '" . $name . "'";
+                FROM ' . USERS_TABLE . " WHERE username_clean = '" .utf8_clean_string($name) . "'";
 
         $result = mysql_query($sql);
         if ($result) {
