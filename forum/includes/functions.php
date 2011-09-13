@@ -4069,6 +4069,19 @@ function obtain_guest_count($item_id = 0, $item = 'forum')
 	$guests_online = (int) $db->sql_fetchfield('num_guests');
 	$db->sql_freeresult($result);
 
+    if(function_exists('fb')) {
+	    //Spy on guests
+	    $sql = 'SELECT s.session_ip, s.session_page, s.session_browser
+		    FROM ' . SESSIONS_TABLE . ' s
+		    WHERE s.session_user_id = ' . ANONYMOUS . '
+			    AND s.session_time >= ' . ($time - ((int) ($time % 60))) .
+		    $reading_sql .
+		    ' GROUP BY s.session_ip';
+	    $users = $db->sql_query($sql);
+	    while ($user = $db->sql_fetchrow($users)) {
+		    fb($user);
+	    }
+	}
 	return $guests_online;
 }
 
