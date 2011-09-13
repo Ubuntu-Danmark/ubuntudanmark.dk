@@ -753,4 +753,9 @@ $lang = array_merge($lang, array(
 	'LOG_WORD_EDIT'			=> '<strong>Ændret ordcensur</strong><br />» %s',
 ));
 
+// ----- Start mod - Log Failed Login -------- //
+$lang = array_merge($lang, array(
+	'FAILED_USER_LOGIN'		=> '<strong>Failed Login Attempt</strong><br />» %s',
+));
+// ----- End mod - Log Failed Login -------- //
 ?>

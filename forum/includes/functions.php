@@ -3094,6 +3094,12 @@ function login_box($redirect = '', $l_explain = '', $l_success = '', $admin = fa
 					$err = (!$config['board_contact']) ? sprintf($user->lang[$result['error_msg']], '', '') : sprintf($user->lang[$result['error_msg']], '<a href="mailto:' . htmlspecialchars($config['board_contact']) . '">', '</a>');
 				}
 
+// ----- Start mod - Log Failed Login -------- //
+				if ($config['log_failed_user_login'] == true && $result['error_msg'] == 'LOGIN_ERROR_PASSWORD')
+				{
+					add_log('user', '', 'FAILED_USER_LOGIN', $username);
+				}
+// ----- End mod - Log Failed Login -------- //
 			break;
 		}
 	}

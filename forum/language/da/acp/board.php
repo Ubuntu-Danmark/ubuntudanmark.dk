@@ -559,4 +559,11 @@ $lang = array_merge($lang, array(
 	'JAB_USERNAME_EXPLAIN'		=> 'Angiv en tilmeldt Jabberkonto eller et gyldigt JID. Brugernavnets gyldighed kontrolleres ikke. Anfører du alene brugernavn, sættes dit JID som dette og serveren som specificeret ovenfor. Ellers angives et gyldigt JID, eksempelvis user@jabber.org.',
 ));
 
+// ----- Start mod - Log Failed Login -------- //
+$lang = array_merge($lang, array(
+	'LOG_FAILED_LOGINS'				=> 'Log failed login attempts',
+	'LOG_FAILED_LOGINS_EXPLAIN'			=> 'Add failed login attempts for a users account to the User log.',
+));
+// ----- End mod - Log Failed Login -------- //
+
 ?>
