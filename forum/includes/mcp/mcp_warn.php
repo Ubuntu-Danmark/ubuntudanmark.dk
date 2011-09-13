@@ -309,7 +309,7 @@ class mcp_warn
 		}
 
 		$rank_title = $rank_img = '';
-		$avatar_img = get_user_avatar($user_row['user_avatar'], $user_row['user_avatar_type'], $user_row['user_avatar_width'], $user_row['user_avatar_height']);
+		$avatar_img = get_user_avatar($user_row['user_avatar'], $user_row['user_avatar_type'], $user_row['user_avatar_width'], $user_row['user_avatar_height'], NULL, NULL, $user_row['user_email']);
 
 		$template->assign_vars(array(
 			'U_POST_ACTION'		=> $this->u_action,
@@ -414,7 +414,7 @@ class mcp_warn
 		}
 
 		$rank_title = $rank_img = '';
-		$avatar_img = get_user_avatar($user_row['user_avatar'], $user_row['user_avatar_type'], $user_row['user_avatar_width'], $user_row['user_avatar_height']);
+		$avatar_img = get_user_avatar($user_row['user_avatar'], $user_row['user_avatar_type'], $user_row['user_avatar_width'], $user_row['user_avatar_height'], NULL, NULL, $user_row['user_email']);
 
 		// OK, they didn't submit a warning so lets build the page for them to do so
 		$template->assign_vars(array(

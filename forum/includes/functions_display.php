@@ -1299,13 +1299,27 @@ function get_user_rank($user_rank, $user_posts, &$rank_title, &$rank_img, &$rank
 *
 * @return string Avatar image
 */
-function get_user_avatar($avatar, $avatar_type, $avatar_width, $avatar_height, $alt = 'USER_AVATAR', $ignore_config = false)
+function get_user_avatar($avatar, $avatar_type, $avatar_width, $avatar_height, $alt = 'USER_AVATAR', $ignore_config = false, $user_email = false)
 {
 	global $user, $config, $phpbb_root_path, $phpEx;
 
 	if (empty($avatar) || !$avatar_type || (!$config['allow_avatar'] && !$ignore_config))
 	{
-		return '';
+		//TODO listen to 
+		if ($user_email) {
+			$grav_id = md5(strtolower($user_email));
+			//TODO make configurable
+			$grav_default = 'mm';
+			//TODO make configurable
+			$grav_rating = 'R';
+			//TODO get from max config
+			$grav_size = 80;
+			$grav_url = "http://www.gravatar.com/avatar.php?gravatar_id=$grav_id&amp;default=$grav_default&amp;size=$grav_size&amp;rating=$grav_rating";
+
+			return '<img src="' . $grav_url . '" width="' . $grav_size . '" height="' . $grav_size . '" alt="' . ((!empty($user->lang[$alt])) ? $user->lang[$alt] : $alt) . '" />';
+		} else {
+			return '';
+		}
 	}
 
 	$avatar_img = '';
@@ -1337,7 +1351,7 @@ function get_user_avatar($avatar, $avatar_type, $avatar_width, $avatar_height, $
 	}
 
 	$avatar_img .= $avatar;
-	return '<img src="' . (str_replace(' ', '%20', $avatar_img)) . '" width="' . $avatar_width . '" height="' . $avatar_height . '" alt="' . ((!empty($user->lang[$alt])) ? $user->lang[$alt] : $alt) . '" />';
+	return '<img src="' . (str_replace(' ', '%20', $avatar_img)) . '" height="' . $avatar_height . '" alt="' . ((!empty($user->lang[$alt])) ? $user->lang[$alt] : $alt) . '" />';
 }
 
 ?>

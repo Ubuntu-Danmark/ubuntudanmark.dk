@@ -1094,7 +1094,7 @@ while ($row = $db->sql_fetchrow($result))
 				'sig_bbcode_bitfield'	=> '',
 
 				'online'			=> false,
-				'avatar'			=> ($user->optionget('viewavatars')) ? get_user_avatar($row['user_avatar'], $row['user_avatar_type'], $row['user_avatar_width'], $row['user_avatar_height']) : '',
+				'avatar'			=> ($user->optionget('viewavatars')) ? get_user_avatar($row['user_avatar'], $row['user_avatar_type'], $row['user_avatar_width'], $row['user_avatar_height'], NULL, NULL, $row['user_email']) : '',
 				'rank_title'		=> '',
 				'rank_image'		=> '',
 				'rank_image_src'	=> '',
@@ -1146,7 +1146,7 @@ while ($row = $db->sql_fetchrow($result))
 				'viewonline'	=> $row['user_allow_viewonline'],
 				'allow_pm'		=> $row['user_allow_pm'],
 
-				'avatar'		=> ($user->optionget('viewavatars')) ? get_user_avatar($row['user_avatar'], $row['user_avatar_type'], $row['user_avatar_width'], $row['user_avatar_height']) : '',
+				'avatar'		=> ($user->optionget('viewavatars')) ? get_user_avatar($row['user_avatar'], $row['user_avatar_type'], $row['user_avatar_width'], $row['user_avatar_height'], NULL, NULL, $row['user_email']) : '',
 				'age'			=> '',
 
 				'rank_title'		=> '',
@@ -1533,7 +1533,6 @@ for ($i = 0, $end = sizeof($post_list); $i < $end; ++$i)
 		'POSTER_AGE'		=> $user_cache[$poster_id]['age'],
 
 		'POST_DATE'			=> $user->format_date($row['post_time'], false, ($view == 'print') ? true : false),
-		'POST_SUBJECT'		=> $row['post_subject'],
 		'MESSAGE'			=> $message,
 		'SIGNATURE'			=> ($row['enable_sig']) ? $user_cache[$poster_id]['sig'] : '',
 		'EDITED_MESSAGE'	=> $l_edited_by,

@@ -225,6 +225,9 @@ $lang = array_merge($lang, array(
 	'FWD_TO'					=> 'To: %s',
 
 	'GLOBAL_ANNOUNCEMENT'		=> 'Global announcement',
+	
+	'GRAVATAR_AVATAR'			=> 'Use Gravatar',
+	'GRAVATAR_AVATAR_EXPLAIN'	=> 'Use the Gravatar linked with the email to this forum account. Visit <a href="http://gravatar.com/">Gravatar.com</a> to get one today.',
 
 	'HIDE_ONLINE'				=> 'Hide my online status',
 	'HIDE_ONLINE_EXPLAIN'		=> 'Changing this setting won’t become effective until your next visit to the board.',

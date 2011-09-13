@@ -237,6 +237,9 @@ $lang = array_merge($lang, array(
 	'FWD_TO'					=> 'Til: %s',
 
 	'GLOBAL_ANNOUNCEMENT'		=> 'Global bekendtgørelse',
+	
+	'GRAVATAR_AVATAR'			=> 'Brug Gravatar',
+	'GRAVATAR_AVATAR_EXPLAIN'	=> 'Opsæt Gravatar med e-mail-adressen du bruger på dette forum, så vil dit billed automatisk blive anvendt. Besøg <a href="http://da.gravatar.com/">Gravatar.com</a> for at sætte det op.',
 
 	'HIDE_ONLINE'				=> 'Skjul min onlinestatus',
 	'HIDE_ONLINE_EXPLAIN'		=> 'Ændres indstillingen, bliver din nye onlinestatus først effektiv ved næste besøg på boardet.',
@@ -253,8 +256,8 @@ $lang = array_merge($lang, array(
 	'JOIN_SELECTED'				=> 'Tilslut valgte',
 
 	'LANGUAGE'					=> 'Sprog',
-	'LINK_REMOTE_AVATAR'		=> 'Link off-site',
-	'LINK_REMOTE_AVATAR_EXPLAIN'=> 'Indtast URL\'en for stedet der indeholder den avatar du ønsker at linke til.',
+	'LINK_REMOTE_AVATAR'		=> 'Eget billed link',
+	'LINK_REMOTE_AVATAR_EXPLAIN'=> 'Indtast en URL til et billed du ønsker at bruge.',
 	'LINK_REMOTE_SIZE'			=> 'Avatardimensioner',
 	'LINK_REMOTE_SIZE_EXPLAIN'	=> 'Angiv bredden og højden af avataren, lad være tom for at forsøge automatisk verifikation.',
 	'LOGIN_EXPLAIN_UCP'			=> 'Log venligst ind for adgang til brugerkontrolpanelet.',
