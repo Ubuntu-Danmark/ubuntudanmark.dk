@@ -86,7 +86,7 @@ class bbcode_firstpass extends bbcode
 		// Ok, seems like users instead want the no-parsing of urls, smilies, etc. after and before and within quote tags being tagged as "not a bug".
 		// Fine by me ;) Will ease our live... but do not come back and cry at us, we won't hear you.
 
-		/* Add newline at the end and in front of each quote block to prevent parsing errors (urls, smilies, etc.)
+		/* Add newline at the end and in front of each quote block to prevent parsing errors (urls, smilies, etc.)*/
 		if (strpos($this->message, '[quote') !== false && strpos($this->message, '[/quote]') !== false)
 		{
 			$this->message = str_replace("\r\n", "\n", $this->message);
@@ -94,7 +94,6 @@ class bbcode_firstpass extends bbcode
 			// We strip newlines and spaces after and before quotes in quotes (trimming) and then add exactly one newline
 			$this->message = preg_replace('#\[quote(=&quot;.*?&quot;)?\]\s*(.*?)\s*\[/quote\]#siu', '[quote\1]' . "\n" . '\2' ."\n[/quote]", $this->message);
 		}
-		*/
 
 		// Add other checks which needs to be placed before actually parsing anything (be it bbcodes, smilies, urls...)
 	}
