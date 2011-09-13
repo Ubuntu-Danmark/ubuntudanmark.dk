@@ -2,18 +2,22 @@
 Tags: spam, registration, spammers, MU
 Donate link: http://www.amazon.com/gp/product/1456336584?ie=UTF8&tag=thenewjt30page&linkCode=as2&camp=1789&creative=390957&creativeASIN=1456336584
 Requires at least: 2.8
-Tested up to: 3.1
+Tested up to: 3.2
 Contributors: Keith Graham
-Stable tag: 2.0
+Stable tag: 2.20
 
-This plugin checks against StopForumSpam.com, Project Honeypot and BotScout to to prevent spammers from registering or making comments.
+The Stop Spammer Registrations Plugin checks against StopForumSpam.com, Project Honeypot and BotScout to to prevent spammers from registering or making comments.
 
 == Description ==
-This plugin checks against StopForumSpam.com, Project Honeypot and BotScout to to prevent spammers from registering or making comments.
+The Stop Spammer Registrations Plugin checks against StopForumSpam.com, Project Honeypot and BotScout to to prevent spammers from registering or making comments.
 
-The Stop Spammer Registrations plugin works by checking the IP address, email and user id of anyone who tries to register, login, or leave a comment. This effectively blocks spammers who try to register on blogs or leave spam. It checks a users credentials against up to three databases: <a href="http://www.stopforumspam.com/">Stop Forum Spam</a>, <a href="http://www.projecthoneypot.org/">Project Honeypot</a>, and <a href="http://www.botscout.com/">BotScout</a>. In order to use the Project HoneyPot or BotScout spam databases you will need to register at those sites and get a free API key. Stop Forum Spam does not require a key so this plugin will work immediately without getting a key. The API key for Stop Forum Spam is only used for reporting spam.
+The Stop Spammer Registrations Plugin works by checking the IP address, email and user id of anyone who tries to register, login, or leave a comment. This effectively blocks spammers who try to register on blogs or leave spam. It checks a users credentials against up to three databases: <a href="http://www.stopforumspam.com/">Stop Forum Spam</a>, <a href="http://www.projecthoneypot.org/">Project Honeypot</a>, and <a href="http://www.botscout.com/">BotScout</a>. In order to use the Project HoneyPot or BotScout spam databases you will need to register at those sites and get a free API key. Stop Forum Spam does not require a key so this plugin will work immediately without getting a key. The API key for Stop Forum Spam is only used for reporting spam.
 
-This plugin keeps track of the last 25 spammer emails and IP addresses in a cache to avoid pinging databases more often than necessary. The results of the last 25 checks are saved and displayed.
+In addition to checking on the top forum spam databases, the plugin will optionally check agains several email spam DNSBL sites such as spamhaus, dsbl, sorbs, spamcop, ordb, and njabl. In testing, this sometimes caught spam that the comment spam databases missed.
+
+Optionally, a webmaster can specify that disposable emails be denied. These disposable emails are frequently used by spammers to hide their identity. They have a certain legitimate use in that they can provide anonymity to users. Legitimate commenters will probably not feel the need to remain annonymous, though. The plugin detects about 500 disposable email domains, but there are probably many more.
+
+This plugin keeps track of a number spammer emails and IP addresses in a cache to avoid pinging databases more often than necessary. The results of the most recent checks are saved and displayed under settings. The size of the history and bad user lists can be set from 10 to 100. This information is stored in an array in the WP options table. The size of the array can raise the resource requirements of WordPress, which is already pushing the resource limits of some hosts, so keep the cache small.
 
 In case a user results in a false positive on one of the spam databases there is a white list that can be entered of email address or IP addresses. This will allow such users to register, login and comment on the bog.
 
@@ -21,13 +25,15 @@ Requirements: The plugin uses the WP_Http class to query the spam databases. Nor
 
 The plugin is ON when it is installed and enabled. To turn it off just disable the plugin from the plugin menu..
 
-The plugin keeps a count of the spammers that it has blocked and displays this on the WordPress dashboard. It also displays the last 25 hits on email or IP and it also shows a history of the last 25 times it has made a check, showing rejections, passing emails and errors. When there is data to display there will also be a button to clear out the data.
+The plugin keeps a count of the spammers that it has blocked and displays this on the WordPress dashboard. 
 
 The plugin will also reject registrations, comments and pings where the HTTP_ACCEPT header is missing. This header is present in all browsers and its absence indicates that a program, not a human, is attempting to leave spam.
 
 If you are running a networked WPMU system of blogs, you can optionally control this plugin from the control panel of the main blog. By checking the "Networked ON" radio button, the individual blogs will not see the options page. The API keyes will only have to entered in one place and the history will only appear in one place, making the plugin easier to use for administrating many blogs. The comments, however, still must be maintained from each blog. The Network buttons only appear if you have a Networked installation.
 
 The plugin adds links to the Comment Moderation page to check a comment's credentials agains the spam databases. If you have entered the Stop Forum Spam API key you can also report the spammer to the SFS database. Please make sure that the comment is actually spam and not from some clueless commentor who likes to salt his comments with spammy links. (I find that comments that do not specifically reference the post are always spam. "Nice Blog" comments I tend to report immediately.)
+
+The Stop Forum Spam site requires an email and an api key to report spam. If the commentor did not leave an email address (as in a pingback) then the link to report the spam will not be visible.
 
 Problems: In systems with constraints on memory and many other plugins, this plugin will sometimes fail trying to retrieve its options. This results in resetting the configuration. The plugin uses two or three thousand bytes to store the history, cache, and settings. This is not very much, but some plugins use much more memory, and they will cause this plugin to fail. The solution is to remove or disable some of the plugins that are hogging all the memory.
 
@@ -41,7 +47,7 @@ Watch the <a href="http://www.youtube.com/watch?v=EKrUX0hHAx8" target="_blank">y
 1. Download the plugin.
 2. Upload the plugin to your wp-content/plugins directory.
 3. Activate the plugin.
-4. Add the appropriate API keys (optional). Update the white list.
+4. Under the settings, add the appropriate API keys (optional). Update the white list. Set any of the optional items and limits.
 
 == Changelog ==
 
@@ -102,8 +108,14 @@ This has some functions partially complete, but I had to release as is to fix th
 Made the plugin WPMU aware. Streamlined some of the code. Limited the cached spam sizes to reduce memory overhead.
 Changed the way that the plugin decides when to check an ip and email. This will help it when working with other plugins. It also checks in multiple places in case the is_email() function is not called. It allows admins to change the minimum requirements for spam, forgiving spammers who have few incidents or have not spammed for a period of time.
 
+= 2.10 =
+Fixed the way the cache is sorted. Added DNSBL support for spamhaus, dsbl, sorbs, spamcop, ordb, and njabl. These are email spam databases and they get only a small portion of the comment spam, but some is better than none. Added a list of common disposable email sites so that users who use disposable sites can be blocked. The list is only popular sites and is not exhaustive. Real commentators probably won't use the disposable sites, but some bloggers may be nervous about blocking them, so it is optional. Divided the options into a stats and a parameters wp_option array. Something in spam, probably a foreign language character, has been breaking the options causing the blog to "forget" when the stored array is broken. Now, when the stats array breaks, the configuration items will still be available. Rewrote the MU options, although it is not tested on subdomain installations.
+
+= 2.20 =
+Fixed several networked blog issues. Added a dummy email address so that pingbacks can be reported. Added Multisite Maintenance. Fixed a few minor bugs. Testing use of X-Forwarded-For HTTP ip address when the blog is behind a proxy. I cannot test this because I don't have access to a site behind a proxy. Please report if the X-forwarded-for header handling is broken.
 
 == Support ==
-This plugin is free and I expect nothing in return. If you wish to support my programming, buy the book: 
+This plugin is free and I expect nothing in return. Please rate the plugin at http://wordpress.org/extend/plugins/stop-spammer-registrations-plugin/. 
+If you wish to support my programming, please buy my Science Fiction book. The Kindle version is less thana buck. 
 <a href="http://www.amazon.com/gp/product/1456336584?ie=UTF8&tag=thenewjt30page&linkCode=as2&camp=1789&creative=390957&creativeASIN=1456336584">Error Message Eyes: A Programmer's Guide to the Digital Soul</a>
 
