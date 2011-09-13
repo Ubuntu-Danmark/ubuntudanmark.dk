@@ -81,11 +81,12 @@ function mcp_front_view($id, $mode, $action)
 
 			if ($total)
 			{
-				$sql = 'SELECT p.post_id, p.post_subject, p.post_time, p.poster_id, p.post_username, u.username, u.username_clean, u.user_colour, t.topic_id, t.topic_title, t.topic_first_post_id, p.forum_id
-					FROM ' . POSTS_TABLE . ' p, ' . TOPICS_TABLE . ' t, ' . USERS_TABLE . ' u
+				$sql = 'SELECT p.post_id, p.post_subject, p.post_time, p.poster_id, p.post_username, u.username, u.username_clean, u.user_colour, t.topic_id, t.topic_title, t.topic_first_post_id, p.forum_id, f.forum_solve_text, f.forum_solve_color, f.forum_allow_solve, t.topic_solved
+					FROM ' . POSTS_TABLE . ' p, ' . TOPICS_TABLE . ' t, ' . USERS_TABLE . ' u, ' . FORUMS_TABLE . ' f
 					WHERE ' . $db->sql_in_set('p.post_id', $post_list) . '
 						AND t.topic_id = p.topic_id
 						AND p.poster_id = u.user_id
+												AND f.forum_id = p.forum_id
 					ORDER BY p.post_time DESC';
 				$result = $db->sql_query($sql);
 
@@ -112,6 +113,9 @@ function mcp_front_view($id, $mode, $action)
 						'FORUM_NAME'	=> (!$global_topic) ? $forum_names[$row['forum_id']] : $user->lang['GLOBAL_ANNOUNCEMENT'],
 						'POST_ID'		=> $row['post_id'],
 						'TOPIC_TITLE'	=> $row['topic_title'],
+// BEGIN Topic solved
+						'TOPIC_TITLE'		=> ($row['topic_solved'] && $row['forum_allow_solve'] && !$global_topic) ? $row['topic_title'] . (($row['forum_solve_text']) ? (($row['forum_solve_color']) ? '<span style="color: #' . $row['forum_solve_color'] . '">' : '') . $row['forum_solve_text'] . (($row['forum_solve_color']) ? '</span>' : '') : $user->img('icon_topic_solved_list', 'TOPIC_SOLVED')) : $row['topic_title'],
+// END Topic solved
 						'SUBJECT'		=> ($row['post_subject']) ? $row['post_subject'] : $user->lang['NO_SUBJECT'],
 						'POST_TIME'		=> $user->format_date($row['post_time']))
 					);
@@ -169,7 +173,7 @@ function mcp_front_view($id, $mode, $action)
 				$global_id = $forum_list[0];
 
 				$sql = $db->sql_build_query('SELECT', array(
-					'SELECT'	=> 'r.report_time, p.post_id, p.post_subject, p.post_time, u.username, u.username_clean, u.user_colour, u.user_id, u2.username as author_name, u2.username_clean as author_name_clean, u2.user_colour as author_colour, u2.user_id as author_id, t.topic_id, t.topic_title, f.forum_id, f.forum_name',
+					'SELECT'	=> 'r.report_time, p.post_id, p.post_subject, p.post_time, u.username, u.username_clean, u.user_colour, u.user_id, u2.username as author_name, u2.username_clean as author_name_clean, u2.user_colour as author_colour, u2.user_id as author_id, t.topic_id, t.topic_title, f.forum_id, f.forum_name, f.forum_solve_text, f.forum_solve_color, f.forum_allow_solve, t.topic_solved',
 
 					'FROM'		=> array(
 						REPORTS_TABLE			=> 'r',
@@ -227,6 +231,9 @@ function mcp_front_view($id, $mode, $action)
 						'FORUM_NAME'	=> (!$global_topic) ? $row['forum_name'] : $user->lang['GLOBAL_ANNOUNCEMENT'],
 						'TOPIC_TITLE'	=> $row['topic_title'],
 						'SUBJECT'		=> ($row['post_subject']) ? $row['post_subject'] : $user->lang['NO_SUBJECT'],
+// BEGIN Topic solved
+						'SUBJECT'		=> ($row['topic_solved'] && $row['forum_allow_solve'] && !$global_topic) ? (($row['post_subject']) ? $row['post_subject'] : $user->lang['NO_SUBJECT']) . '&nbsp;&nbsp;' . (($row['forum_solve_text']) ? (($row['forum_solve_color']) ? '<span style="color: #' . $row['forum_solve_color'] . '">' : '') . $row['forum_solve_text'] . (($row['forum_solve_color']) ? '</span>' : '') : $user->img('icon_topic_solved_list', 'TOPIC_SOLVED')) : (($row['post_subject']) ? $row['post_subject'] : $user->lang['NO_SUBJECT']),
+// END Topic solved
 						'REPORT_TIME'	=> $user->format_date($row['report_time']),
 						'POST_TIME'		=> $user->format_date($row['post_time']),
 					));

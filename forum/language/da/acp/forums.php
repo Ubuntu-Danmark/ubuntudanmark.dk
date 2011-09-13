@@ -52,6 +52,18 @@ if (empty($lang) || !is_array($lang))
 
 // Forum Admin
 $lang = array_merge($lang, array(
+	'ALLOW_SOLVE' => 'Tillad emner at blive markeret som løst',
+	'ALLOW_SOLVE_EXPLAIN' => 'Giv brugeren der oprettede emnet eller redaktør muligheden for at sætte et emne som løst. Redaktør kan løse emner ved begge ja-valg.',
+	'ALLOW_UNSOLVE' => 'Tillad at emner genåbnes',
+	'ALLOW_UNSOLVE_EXPLAIN' => 'Giv brugere eller redaktør evnen til skifte et emne tilbage til ikke løst. Redaktør kan fjerne løst fra emner ved begge ja-valg.',
+	'LOCK_SOLVED' => 'Lås løste emner',
+	'LOCK_SOLVED_EXPLAIN' => 'Bemærk kun redaktør kan gen åbne et låst emne.',
+	'TOPIC_SOLVED_SETTINGS' => 'Emne løst indstillinger',
+	'FORUM_SOLVE_TEXT' => 'Brug tekst i stedet for løst-billed',
+	'FORUM_SOLVE_TEXT_EXPLAIN' => 'Du kan bruge tekst istedet for det pæne emne-løst-billede. F.eks. [LØST], [SOLGT] eller noget andet. Lad feltet være tomt for at bruge emne-løst-billedet.',
+	'FORUM_SOLVE_COLOR' => 'Farve til teksten',
+	'FORUM_SOLVE_COLOR_EXPLAIN' => 'Vælg en farve for teksten. Lad feltet være tomt for at bruge standard farven.',
+	'YES_MOD' => 'Ja, redaktør',
 	'AUTO_PRUNE_DAYS'			=> 'Autobeskær efter tid siden seneste indlæg',
 	'AUTO_PRUNE_DAYS_EXPLAIN'	=> 'Antal dage siden seneste indlæg, hvorefter emnet fjernes.',
 	'AUTO_PRUNE_FREQ'			=> 'Frekvens for autobeskæring',

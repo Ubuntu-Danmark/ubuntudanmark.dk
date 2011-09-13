@@ -973,6 +973,16 @@ function topic_review($topic_id, $forum_id, $mode = 'topic_review', $cur_post_id
 {
 	global $user, $auth, $db, $template, $bbcode, $cache;
 	global $config, $phpbb_root_path, $phpEx;
+// BEGIN Topic solved
+	// Is this topic solved?
+	$sql = 'SELECT t.topic_solved, f.forum_solve_text, f.forum_solve_color, f.forum_allow_solve
+		FROM ' . TOPICS_TABLE . ' t, ' . FORUMS_TABLE . ' f
+		WHERE t.topic_id = ' . $topic_id . '
+		AND f.forum_id = ' . $forum_id;
+	$result = $db->sql_query($sql);
+	$solved_row = $db->sql_fetchrow($result);
+	$db->sql_freeresult($result);
+// END Topic solved
 
 	// Go ahead and pull all data for this topic
 	$sql = 'SELECT p.post_id
@@ -1124,7 +1134,9 @@ function topic_review($topic_id, $forum_id, $mode = 'topic_review', $cur_post_id
 			'S_IGNORE_POST'		=> ($row['foe']) ? true : false,
 			'L_IGNORE_POST'		=> ($row['foe']) ? sprintf($user->lang['POST_BY_FOE'], get_username_string('full', $poster_id, $row['username'], $row['user_colour'], $row['post_username']), "<a href=\"{$u_show_post}\" onclick=\"dE('{$post_anchor}', 1); return false;\">", '</a>') : '',
 
-			'POST_SUBJECT'		=> $post_subject,
+// BEGIN Topic solved
+			'POST_SUBJECT'		=> ($solved_row['topic_solved'] == $row['post_id']) ? $post_subject . '&nbsp;&nbsp;' . (($solved_row['forum_solve_text']) ? (($solved_row['forum_solve_color']) ? '<span style="color: #' . $solved_row['forum_solve_color'] . '">' : '') . $solved_row['forum_solve_text'] . (($solved_row['forum_solve_color']) ? '</span>' : '') : $user->img('icon_topic_solved_post', 'TOPIC_SOLVED')) : $post_subject,
+// END Topic solved
 			'MINI_POST_IMG'		=> $user->img('icon_post_target', $user->lang['POST']),
 			'POST_DATE'			=> $user->format_date($row['post_time']),
 			'MESSAGE'			=> $message,

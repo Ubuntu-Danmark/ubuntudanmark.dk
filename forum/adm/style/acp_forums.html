@@ -54,6 +54,16 @@
 				dE('forum_rules_options', 1);
 				dE('forum_cat_options', 1);
 			}
+// BEGIN Topic solved
+			if(value == {FORUM_POST})
+			{
+				dE('topic_solved_options', 1);
+			}
+			else
+			{
+				dE('topic_solved_options', -1);
+			}
+// END Topic solved
 		}
 
 		/**
@@ -75,6 +85,7 @@
 			<!-- ENDIF -->
 
 			<!-- IF not S_FORUM_POST -->
+				dE('topic_solved_options', -1);
 				dE('forum_post_options', -1);
 			<!-- ENDIF -->
 
@@ -323,6 +334,7 @@
 		</fieldset>
 	</div>
 
+	<!-- INCLUDE acp_topic_solved.html -->
 	<fieldset class="submit-buttons">
 		<legend>{L_SUBMIT}</legend>
 		<input class="button1" type="submit" id="submit" name="update" value="{L_SUBMIT}" />&nbsp;

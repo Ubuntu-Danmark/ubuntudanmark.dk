@@ -209,6 +209,10 @@ define('CAPTCHA_MIN_CHARS', 4);
 define('CAPTCHA_MAX_CHARS', 7);
 
 // Additional constants
+// BEGIN Topic solved
+define('TOPIC_SOLVED_YES', 1); // Topic starter and moderators
+define('TOPIC_SOLVED_MOD', 2); // Only moderators
+// END Topic solved
 define('VOTE_CONVERTED', 127);
 
 // Table names

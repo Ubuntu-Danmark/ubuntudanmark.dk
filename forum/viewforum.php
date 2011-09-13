@@ -651,6 +651,11 @@ if (sizeof($topic_list))
 
 		// Send vars to template
 		$template->assign_block_vars('topicrow', array(
+// BEGIN Topic solved
+			'SOLVED_TOPIC'		=> ($row['topic_solved'] && $row['topic_type'] != POST_GLOBAL) ? (($forum_data['forum_solve_text']) ? $forum_data['forum_solve_text'] : $user->img('icon_topic_solved_list', 'TOPIC_SOLVED')) : '',
+			'U_SOLVED_TOPIC'	=> ($row['topic_solved'] && $row['topic_type'] != POST_GLOBAL) ? $view_topic_url . '&amp;p=' . $row['topic_solved'] . '#p' . $row['topic_solved'] : '',
+			'SOLVED_STYLE' => ($forum_data['forum_solve_color']) ? ' style="color: #' . $forum_data['forum_solve_color'] . '"' : '',
+// END Topic solved
 			'FORUM_ID'					=> $topic_forum_id,
 			'TOPIC_ID'					=> $topic_id,
 			'TOPIC_AUTHOR'				=> get_username_string('username', $row['topic_poster'], $row['topic_first_poster_name'], $row['topic_first_poster_colour']),

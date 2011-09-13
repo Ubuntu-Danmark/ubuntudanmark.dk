@@ -43,6 +43,10 @@ $search_child	= request_var('sc', true);
 $sort_days		= request_var('st', 0);
 $sort_key		= request_var('sk', 't');
 $sort_dir		= request_var('sd', 'd');
+// BEGIN Topic solved
+$search_solv	= request_var('sv', 0);
+$show_results	= ($search_solv) ? 'topics' : $show_results;
+// END Topic solved
 
 $return_chars	= request_var('ch', ($topic_id) ? -1 : 300);
 $search_forum	= request_var('fid', array(0));
@@ -302,7 +306,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 		}
 	}
 
-	if (!$keywords && sizeof($author_id_ary))
+	if (!$keywords && sizeof($author_id_ary) && !$search_solv)
 	{
 		// if it is an author search we want to show topics by default
 		$show_results = ($topic_id) ? 'posts' : request_var('sr', ($search_id == 'egosearch') ? 'topics' : 'posts');
@@ -319,6 +323,59 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 		switch ($search_id)
 		{
 			// Oh holy Bob, bring us some activity...
+// BEGIN Topic Solved
+			case 'unsolved_topics':
+				$l_search_title = $user->lang['SEARCH_UNSOLVED'];
+				$show_results = 'topics';
+				$sort_key = 't';
+				$sort_dir = 'd';
+				$sort_days = request_var('st', 7);
+				$sort_by_sql['t'] = 't.topic_last_post_time';
+
+				gen_sort_selects($limit_days, $sort_by_text, $sort_days, $sort_key, $sort_dir, $s_limit_days, $s_sort_key, $s_sort_dir, $u_sort_param);
+				$s_sort_key = $s_sort_dir = '';
+
+				$last_post_time_sql = ($sort_days) ? ' AND t.topic_last_post_time > ' . (time() - ($sort_days * 24 * 3600)) : '';
+
+				$sql = 'SELECT t.topic_last_post_time, t.topic_id, t.topic_solved, t.forum_id, f.forum_id, f.forum_allow_solve
+					FROM ' . TOPICS_TABLE . ' t, ' . FORUMS_TABLE . " f
+					WHERE t.topic_solved = 0
+					AND t.forum_id = f.forum_id
+					AND f.forum_allow_solve = 1
+					$last_post_time_sql
+						" . str_replace(array('p.', 'post_'), array('t.', 'topic_'), $m_approve_fid_sql) . '
+						' . ((sizeof($ex_fid_ary)) ? ' AND ' . $db->sql_in_set('t.forum_id', $ex_fid_ary, true) : '') . '
+					ORDER BY t.topic_last_post_time DESC';
+				$field = 'topic_id';
+			break;
+
+			case 'your_unsolved_topics':
+				$l_search_title = $user->lang['SEARCH_YOUR_UNSOLVED'];
+				$show_results = 'topics';
+				$sort_key = 't';
+				$sort_dir = 'd';
+				$sort_days = request_var('st', 7);
+				$sort_by_sql['t'] = 't.topic_last_post_time';
+
+				gen_sort_selects($limit_days, $sort_by_text, $sort_days, $sort_key, $sort_dir, $s_limit_days, $s_sort_key, $s_sort_dir, $u_sort_param);
+				$s_sort_key = $s_sort_dir = '';
+
+				$last_post_time_sql = ($sort_days) ? ' AND t.topic_last_post_time > ' . (time() - ($sort_days * 24 * 3600)) : '';
+
+				$sql = 'SELECT t.topic_last_post_time, t.topic_poster, t.topic_id, t.topic_solved, t.forum_id, f.forum_id, f.forum_allow_solve
+					FROM ' . TOPICS_TABLE . ' t, ' . FORUMS_TABLE . " f
+					WHERE t.topic_solved = 0
+					AND t.forum_id = f.forum_id
+					AND f.forum_allow_solve = 1
+					AND t.topic_poster = " . $user->data['user_id'] . "
+					$last_post_time_sql
+						" . str_replace(array('p.', 'post_'), array('t.', 'topic_'), $m_approve_fid_sql) . '
+						' . ((sizeof($ex_fid_ary)) ? ' AND ' . $db->sql_in_set('t.forum_id', $ex_fid_ary, true) : '') . '
+					ORDER BY t.topic_last_post_time DESC';
+				$field = 'topic_id';
+			break;
+// END Topic Solved
+
 			case 'active_topics':
 				$l_search_title = $user->lang['SEARCH_ACTIVE_TOPICS'];
 				$show_results = 'topics';
@@ -524,6 +581,9 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 	if (sizeof($id_ary))
 	{
 		$sql_where .= $db->sql_in_set(($show_results == 'posts') ? 'p.post_id' : 't.topic_id', $id_ary);
+// BEGIN Topic solved
+		$sql_where .= ($search_solv) ? ' AND t.topic_solved > 0 ' : '';
+// END Topic solved
 		$sql_where .= (sizeof($ex_fid_ary)) ? ' AND (' . $db->sql_in_set('f.forum_id', $ex_fid_ary, true) . ' OR f.forum_id IS NULL)' : '';
 		$sql_where .= ($show_results == 'posts') ? $m_approve_fid_sql : str_replace(array('p.post_approved', 'p.forum_id'), array('t.topic_approved', 't.forum_id'), $m_approve_fid_sql);
 	}
@@ -564,6 +624,9 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 	$u_search_forum = implode('&amp;fid%5B%5D=', $search_forum);
 
 	$u_search = append_sid("{$phpbb_root_path}search.$phpEx", $u_sort_param . $u_show_results);
+// BEGIN Topic solved
+	$u_search .= ($search_solv) ? '&amp;sv=' . $search_solv : '';
+// END Topic solved
 	$u_search .= ($search_id) ? '&amp;search_id=' . $search_id : '';
 	$u_search .= ($u_hilit) ? '&amp;keywords=' . urlencode(htmlspecialchars_decode($keywords)) : '';
 	$u_search .= ($search_terms != 'all') ? '&amp;terms=' . $search_terms : '';
@@ -617,7 +680,7 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 			}
 			$db->sql_freeresult($result);
 
-			$sql = 'SELECT p.*, f.forum_id, f.forum_name, t.*, u.username, u.username_clean, u.user_sig, u.user_sig_bbcode_uid, u.user_colour
+			$sql = 'SELECT p.*, f.forum_id, f.forum_name, f.forum_solve_text, f.forum_solve_color, t.*, u.username, u.username_clean, u.user_sig, u.user_sig_bbcode_uid, u.user_colour
 				FROM ' . POSTS_TABLE . ' p
 					LEFT JOIN ' . TOPICS_TABLE . ' t ON (p.topic_id = t.topic_id)
 					LEFT JOIN ' . FORUMS_TABLE . ' f ON (p.forum_id = f.forum_id)
@@ -630,6 +693,9 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 				LEFT JOIN ' . FORUMS_TABLE . ' f ON (f.forum_id = t.forum_id)
 				' . (($sort_key == 'a') ? ' LEFT JOIN ' . USERS_TABLE . ' u ON (u.user_id = t.topic_poster) ' : '');
 			$sql_select = 't.*, f.forum_id, f.forum_name';
+// BEGIN Topic solved
+			$sql_select .= ', f.forum_solve_text, f.forum_solve_color';
+// END Topic solved
 
 			if ($user->data['is_registered'])
 			{
@@ -706,6 +772,10 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 					$row = array_merge($row, array(
 						'topic_moved_id'	=> $rowset[$orig_topic_id]['topic_moved_id'],
 						'topic_status'		=> $rowset[$orig_topic_id]['topic_status'],
+// BEGIN Topic solved
+						'forum_solve_text'		=> $rowset[$orig_topic_id]['forum_solve_text'],
+						'forum_solve_color'		=> $rowset[$orig_topic_id]['forum_solve_color'],
+// END Topic solved
 						'forum_name'		=> $rowset[$orig_topic_id]['forum_name'])
 					);
 
@@ -987,8 +1057,25 @@ if ($keywords || $author || $author_id || $search_id || $submit)
 					'MESSAGE'			=> $row['post_text']
 				);
 			}
+// BEGIN Topic solved
+			$solved_link = '';
+			if($row['topic_solved'])
+			{
+				if($show_results == 'posts' && $row['post_id'] == $row['topic_solved'])
+				{
+					$solved_link = '&nbsp;' . (($row['forum_solve_text']) ? (($row['forum_solve_color']) ? '<span style="color: #' . $row['forum_solve_color'] . '">' : '') . $row['forum_solve_text'] . (($row['forum_solve_color']) ? '</span>' : '') : $user->img('icon_topic_solved_list', 'TOPIC_SOLVED'));
+				}
+				else
+				{
+					$solved_link = '&nbsp;<a class="topictitle" href="' . append_sid("{$phpbb_root_path}viewtopic.$phpEx", "f=$forum_id&amp;t=" . $row['topic_id'] . '&amp;p=' . $row['topic_solved'] . (($u_hilit) ? '&amp;hilit=' . $u_hilit : '') . '&amp;#p' . $row['topic_solved']) . '"' . (($row['forum_solve_color']) ? ' style="color: #' . $row['forum_solve_color'] . '"' : '') . '>' . (($row['forum_solve_text']) ? $row['forum_solve_text'] : $user->img('icon_topic_solved_list', 'TOPIC_SOLVED')) . '</a>';
+				}
+			}
+// END Topic solved
 
 			$template->assign_block_vars('searchresults', array_merge($tpl_ary, array(
+// BEGIN Topic solved
+				'SOLVED_LINK'		=> $solved_link,
+// END Topic solved
 				'FORUM_ID'			=> $forum_id,
 				'TOPIC_ID'			=> $result_topic_id,
 				'POST_ID'			=> ($show_results == 'posts') ? $row['post_id'] : false,

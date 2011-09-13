@@ -886,7 +886,12 @@ $lang = array_merge($lang, array(
 	// The default dateformat which will be used on new installs in this language
 	// Translators should change this if a the usual date format is different
 	'default_dateformat'	=> 'D M d, Y g:i a', // Mon Jan 01, 2007 1:37 pm
-
+	'SEARCH_UNSOLVED'				=> 'View unsolved topics',
+	'SEARCH_YOUR_UNSOLVED'			=> 'View your unsolved topics',
+	'SEARCH_SOLVED'					=> 'Search only in solved topics',
+	'TOPIC_SOLVED'					=> 'Topic is solved',
+	'SET_TOPIC_SOLVED'				=> 'Accept this answer',
+	'SET_TOPIC_NOT_SOLVED'			=> 'Set topic as unsolved',
 ));
 
 ?>

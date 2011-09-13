@@ -117,7 +117,7 @@ class mcp_reports
 					$template->assign_vars(array(
 						'S_TOPIC_REVIEW'	=> true,
 						'S_BBCODE_ALLOWED'	=> $post_info['enable_bbcode'],
-						'TOPIC_TITLE'		=> $post_info['topic_title'])
+						'TOPIC_TITLE'		=> $post_info['topic_title'] . (($post_info['topic_solved'] && $post_info['topic_type'] != POST_GLOBAL) ? ' ' . (($post_info['forum_solve_text']) ? $post_info['forum_solve_text'] : $user->img('icon_topic_solved_list', 'TOPIC_SOLVED')) : ''))
 					);
 				}
 
@@ -228,7 +228,9 @@ class mcp_reports
 					'U_VIEW_REPORTER_PROFILE'	=> get_username_string('profile', $report['user_id'], $report['username'], $report['user_colour']),
 
 					'POST_PREVIEW'			=> $message,
-					'POST_SUBJECT'			=> ($post_info['post_subject']) ? $post_info['post_subject'] : $user->lang['NO_SUBJECT'],
+// BEGIN Topic solved
+					'POST_SUBJECT'		=> ($post_info['topic_solved'] == $post_info['post_id'] && $post_info['forum_allow_solve'] && $post_info['topic_type'] != POST_GLOBAL) ? (($post_info['post_subject']) ? $post_info['post_subject'] : $user->lang['NO_SUBJECT']) . '&nbsp;&nbsp;' . (($post_info['forum_solve_text']) ? (($post_info['forum_solve_color']) ? '<span style="color: #' . $post_info['forum_solve_color'] . '">' : '') . $post_info['forum_solve_text'] . (($post_info['forum_solve_color']) ? '</span>' : '') : $user->img('icon_topic_solved_post', 'TOPIC_SOLVED')) : (($post_info['post_subject']) ? $post_info['post_subject'] : $user->lang['NO_SUBJECT']),
+// END Topic solved
 					'POST_DATE'				=> $user->format_date($post_info['post_time']),
 					'POST_IP'				=> $post_info['poster_ip'],
 					'POST_IPADDR'			=> ($auth->acl_get('m_info', $post_info['forum_id']) && request_var('lookup', '')) ? @gethostbyaddr($post_info['poster_ip']) : '',
@@ -369,13 +371,14 @@ class mcp_reports
 
 				if (sizeof($report_ids))
 				{
-					$sql = 'SELECT t.forum_id, t.topic_id, t.topic_title, p.post_id, p.post_subject, p.post_username, p.poster_id, p.post_time, u.username, u.username_clean, u.user_colour, r.user_id as reporter_id, ru.username as reporter_name, ru.user_colour as reporter_colour, r.report_time, r.report_id
-						FROM ' . REPORTS_TABLE . ' r, ' . POSTS_TABLE . ' p, ' . TOPICS_TABLE . ' t, ' . USERS_TABLE . ' u, ' . USERS_TABLE . ' ru
+					$sql = 'SELECT f.forum_solve_text, f.forum_solve_color, f.forum_allow_solve, t.topic_solved, t.forum_id, t.topic_id, t.topic_title, p.post_id, p.post_subject, p.post_username, p.poster_id, p.post_time, u.username, u.username_clean, u.user_colour, r.user_id as reporter_id, ru.username as reporter_name, ru.user_colour as reporter_colour, r.report_time, r.report_id
+						FROM ' . REPORTS_TABLE . ' r, ' . POSTS_TABLE . ' p, ' . TOPICS_TABLE . ' t, ' . USERS_TABLE . ' u, ' . USERS_TABLE . ' ru, ' . FORUMS_TABLE . ' f
 						WHERE ' . $db->sql_in_set('r.report_id', $report_ids) . '
 							AND t.topic_id = p.topic_id
 							AND r.post_id = p.post_id
 							AND u.user_id = p.poster_id
 							AND ru.user_id = r.user_id
+							AND f.forum_id = t.forum_id
 							AND r.pm_id = 0
 						ORDER BY ' . $sort_order_sql;
 					$result = $db->sql_query($sql);
@@ -406,7 +409,9 @@ class mcp_reports
 
 							'FORUM_NAME'	=> (!$global_topic) ? $forum_data[$row['forum_id']]['forum_name'] : $user->lang['GLOBAL_ANNOUNCEMENT'],
 							'POST_ID'		=> $row['post_id'],
-							'POST_SUBJECT'	=> ($row['post_subject']) ? $row['post_subject'] : $user->lang['NO_SUBJECT'],
+// BEGIN Topic solved
+							'POST_SUBJECT'		=> ($row['topic_solved'] && $row['forum_allow_solve'] && !$global_topic) ? (($row['post_subject']) ? $row['post_subject'] : $user->lang['NO_SUBJECT']) . '&nbsp;&nbsp;' . (($row['forum_solve_text']) ? (($row['forum_solve_color']) ? '<span style="color: #' . $row['forum_solve_color'] . '">' : '') . $row['forum_solve_text'] . (($row['forum_solve_color']) ? '</span>' : '') : $user->img('icon_topic_solved_list', 'TOPIC_SOLVED')) : (($row['post_subject']) ? $row['post_subject'] : $user->lang['NO_SUBJECT']),
+// END Topic solved
 							'POST_TIME'		=> $user->format_date($row['post_time']),
 							'REPORT_ID'		=> $row['report_id'],
 							'REPORT_TIME'	=> $user->format_date($row['report_time']),

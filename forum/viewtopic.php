@@ -27,6 +27,10 @@ $forum_id	= request_var('f', 0);
 $topic_id	= request_var('t', 0);
 $post_id	= request_var('p', 0);
 $voted_id	= request_var('vote_id', array('' => 0));
+// BEGIN Topic solved
+$solved_id	= request_var('ys', 0);
+$unsolved	= request_var('ns', 0);
+// END Topic solved
 
 $voted_id = (sizeof($voted_id) > 1) ? array_unique($voted_id) : $voted_id;
 
@@ -570,7 +574,48 @@ $topic_mod .= ($allow_change_type && $auth->acl_get('f_sticky', $forum_id) && $t
 $topic_mod .= ($allow_change_type && $auth->acl_get('f_announce', $forum_id) && $topic_data['topic_type'] != POST_ANNOUNCE) ? '<option value="make_announce">' . $user->lang['MAKE_ANNOUNCE'] . '</option>' : '';
 $topic_mod .= ($allow_change_type && $auth->acl_get('f_announce', $forum_id) && $topic_data['topic_type'] != POST_GLOBAL) ? '<option value="make_global">' . $user->lang['MAKE_GLOBAL'] . '</option>' : '';
 $topic_mod .= ($auth->acl_get('m_', $forum_id)) ? '<option value="topic_logs">' . $user->lang['VIEW_TOPIC_LOGS'] . '</option>' : '';
+// BEGIN Topic solved
+if(($solved_id || $unsolved) && $topic_data['topic_type'] != POST_GLOBAL)
+{
+	$ok_solve = $ok_unsolve = FALSE;
+	if($solved_id && $topic_data['forum_allow_solve'])
+	{
+		// Check if the user has permission to solve this topic
+		$ok_solve = (($topic_data['forum_allow_solve'] == TOPIC_SOLVED_MOD || $topic_data['forum_allow_solve'] == TOPIC_SOLVED_YES) && $topic_mod != '') ? TRUE : FALSE;
+		$ok_solve = (($topic_data['forum_allow_solve'] == TOPIC_SOLVED_YES) && $topic_data['topic_poster'] == $user->data['user_id'] && $topic_data['topic_status'] == ITEM_UNLOCKED) ? TRUE : $ok_solve;
 
+		// Check that the post_id in $solved_id is actually in this topic.
+		$sql = 'SELECT topic_id FROM ' . POSTS_TABLE . '
+			WHERE post_id = ' . $solved_id;
+		$result = $db->sql_query($sql);
+		$solve_row = $db->sql_fetchrow($result);
+		$db->sql_freeresult($result);
+
+		$ok_solve = ($solve_row['topic_id'] == $topic_data['topic_id']) ? $ok_solve : FALSE;
+
+		$set_solved = $solved_id;
+		$lock_solved = ($topic_data['forum_lock_solved']) ? ', topic_status = ' . ITEM_LOCKED : '';
+	}
+	else if($unsolved && $topic_data['forum_allow_unsolve'])
+	{
+		// Check if the user has permission to unsolve this topic.
+		$ok_unsolve = (($topic_data['forum_allow_unsolve'] == TOPIC_SOLVED_MOD || $topic_data['forum_allow_unsolve'] == TOPIC_SOLVED_YES) && $topic_mod != '') ? TRUE : FALSE;
+		$ok_unsolve = (($topic_data['forum_allow_unsolve'] == TOPIC_SOLVED_YES) && $topic_data['topic_poster'] == $user->data['user_id'] && $topic_data['topic_status'] == ITEM_UNLOCKED) ? TRUE : $ok_unsolve;
+
+		$set_solved = 0;
+		$lock_solved = '';
+	}
+
+	if($ok_solve || $ok_unsolve)
+	{
+		$sql = 'UPDATE ' . TOPICS_TABLE . '
+			SET topic_solved = ' . $set_solved . $lock_solved . '
+			WHERE topic_id = ' . $topic_id;
+		$db->sql_query($sql);
+		redirect(append_sid("{$phpbb_root_path}viewtopic.$phpEx", "f=$forum_id&amp;t=$topic_id&amp;p=$post_id"));
+	}
+}
+// END Topic solved
 // If we've got a hightlight set pass it on to pagination.
 $pagination = generate_pagination(append_sid("{$phpbb_root_path}viewtopic.$phpEx", "f=$forum_id&amp;t=$topic_id" . ((strlen($u_sort_param)) ? "&amp;$u_sort_param" : '') . (($highlight_match) ? "&amp;hilit=$highlight" : '')), $total_posts, $config['posts_per_page'], $start);
 
@@ -611,6 +656,30 @@ if (!empty($_EXTRA_URL))
 	}
 }
 
+// BEGIN Topic solved
+$ok_unsolve = FALSE;
+// Check if the user has permission to unsolve this topic and that this topic can be unsolved.
+$ok_unsolve = (($topic_data['forum_allow_unsolve'] == TOPIC_SOLVED_MOD || $topic_data['forum_allow_unsolve'] == TOPIC_SOLVED_YES) && $topic_mod != '') ? TRUE : FALSE;
+$ok_unsolve = (($topic_data['forum_allow_unsolve'] == TOPIC_SOLVED_YES) && $topic_data['topic_poster'] == $user->data['user_id'] && $topic_data['topic_status'] == ITEM_UNLOCKED) ? TRUE : $ok_unsolve;
+$ok_unsolve = ($topic_data['topic_type'] == POST_GLOBAL) ? FALSE : $ok_unsolve;
+
+$u_set_solved = '';
+if($ok_unsolve && $topic_data['topic_solved'])
+{
+	$u_set_solved = append_sid("{$phpbb_root_path}viewtopic.{$phpEx}", 'ns=1&amp;f=' . $forum_id . '&amp;t=' . $topic_data['topic_id'], true);
+}
+
+$topic_solved_title = '';
+if($topic_data['topic_solved'] && $topic_data['forum_allow_solve'] && $topic_data['topic_type'] != POST_GLOBAL) {
+    if($ok_unsolve && $topic_data['topic_solved'])
+    {
+        $topic_solved_title = ' <a href="' . $u_set_solved . '"' . (($topic_data['forum_solve_color']) ? ' style="color: #' . $topic_data['forum_solve_color'] . '"' : '') . '>' . (($topic_data['forum_solve_text']) ? $topic_data['forum_solve_text'] : $user->img('icon_topic_solved_list', 'SET_TOPIC_NOT_SOLVED')) . '</a>';
+    } else {
+        $topic_solved_title = ' <span' . (($topic_data['forum_solve_color']) ? ' style="color: #' . $topic_data['forum_solve_color'] . '"' : '') . '>' . (($topic_data['forum_solve_text']) ? $topic_data['forum_solve_text'] : $user->img('icon_topic_solved_list', 'TOPIC_SOLVED')) . '</span>';
+    }
+}
+// END Topic solved
+
 // Send vars to template
 $template->assign_vars(array(
 	'FORUM_ID' 		=> $forum_id,
@@ -618,6 +687,9 @@ $template->assign_vars(array(
 	'FORUM_DESC'	=> generate_text_for_display($topic_data['forum_desc'], $topic_data['forum_desc_uid'], $topic_data['forum_desc_bitfield'], $topic_data['forum_desc_options']),
 	'TOPIC_ID' 		=> $topic_id,
 	'TOPIC_TITLE' 	=> $topic_data['topic_title'],
+// BEGIN Topic solved
+	'TOPIC_SOLVED_TITLE'	=> $topic_solved_title,
+// END Topic solved
 	'TOPIC_POSTER'	=> $topic_data['topic_poster'],
 
 	'TOPIC_AUTHOR_FULL'		=> get_username_string('full', $topic_data['topic_poster'], $topic_data['topic_first_poster_name'], $topic_data['topic_first_poster_colour']),
@@ -650,6 +722,10 @@ $template->assign_vars(array(
 	'REPORTED_IMG'		=> $user->img('icon_topic_reported', 'POST_REPORTED'),
 	'UNAPPROVED_IMG'	=> $user->img('icon_topic_unapproved', 'POST_UNAPPROVED'),
 	'WARN_IMG'			=> $user->img('icon_user_warn', 'WARN_USER'),
+// BEGIN Topic Solved. Only used with subsilver2
+	'SOLVED_SET_IMG'	=> $user->img('icon_topic_solved_set', 'SET_TOPIC_SOLVED'),
+	'SOLVED_UNSET_IMG'	=> $user->img('icon_topic_solved_unset', 'SET_TOPIC_NOT_SOLVED'),
+// END Topic Solved. Only used with subsilver2
 
 	'S_IS_LOCKED'			=> ($topic_data['topic_status'] == ITEM_UNLOCKED && $topic_data['forum_status'] == ITEM_UNLOCKED) ? false : true,
 	'S_SELECT_SORT_DIR' 	=> $s_sort_dir,
@@ -1498,6 +1574,31 @@ for ($i = 0, $end = sizeof($post_list); $i < $end; ++$i)
 	{
 		$s_first_unread = $first_unread = true;
 	}
+// BEGIN Topic solved
+	$ok_solve = $ok_unsolve = FALSE;
+	// Check if the user has permission tp solve this topic and that this topic can be solved.
+	$ok_solve = (($topic_data['forum_allow_solve'] == TOPIC_SOLVED_MOD || $topic_data['forum_allow_solve'] == TOPIC_SOLVED_YES) && $topic_mod != '') ? TRUE : FALSE;
+	$ok_solve = (($topic_data['forum_allow_solve'] == TOPIC_SOLVED_YES) && $topic_data['topic_poster'] == $user->data['user_id'] && $topic_data['topic_status'] == ITEM_UNLOCKED) ? TRUE : $ok_solve;
+	$ok_solve = ($topic_data['topic_type'] == POST_GLOBAL) ? FALSE : $ok_solve;
+
+	// Check if the user has permission to unsolve this topic and that this topic can be unsolved.
+	$ok_unsolve = (($topic_data['forum_allow_unsolve'] == TOPIC_SOLVED_MOD || $topic_data['forum_allow_unsolve'] == TOPIC_SOLVED_YES) && $topic_mod != '') ? TRUE : FALSE;
+	$ok_unsolve = (($topic_data['forum_allow_unsolve'] == TOPIC_SOLVED_YES) && $topic_data['topic_poster'] == $user->data['user_id'] && $topic_data['topic_status'] == ITEM_UNLOCKED) ? TRUE : $ok_unsolve;
+	$ok_unsolve = ($topic_data['topic_type'] == POST_GLOBAL) ? FALSE : $ok_unsolve;
+
+	$u_set_solved = '';
+	if($ok_solve || $ok_unsolve)
+	{
+		if($ok_unsolve && $topic_data['topic_solved'])
+		{
+			$u_set_solved = append_sid("{$phpbb_root_path}viewtopic.{$phpEx}", 'ns=1&amp;f=' . $forum_id . '&amp;t=' . $topic_data['topic_id'] . '&amp;p=' . $row['post_id'] . '#p' . $row['post_id'], true);
+		}
+		else if($ok_solve && !$topic_data['topic_solved'])
+		{
+			$u_set_solved = append_sid("{$phpbb_root_path}viewtopic.{$phpEx}", 'ys=' . $row['post_id'] . '&amp;f=' . $forum_id . '&amp;t=' . $topic_data['topic_id'] . '&amp;p=' . $row['post_id'] . '#p' . $row['post_id'], true);
+		}
+	}
+// END Topic solved
 
 	$edit_allowed = ($user->data['is_registered'] && ($auth->acl_get('m_edit', $forum_id) || (
 		$user->data['user_id'] == $poster_id &&
@@ -1533,6 +1634,11 @@ for ($i = 0, $end = sizeof($post_list); $i < $end; ++$i)
 		'POSTER_AGE'		=> $user_cache[$poster_id]['age'],
 
 		'POST_DATE'			=> $user->format_date($row['post_time'], false, ($view == 'print') ? true : false),
+// BEGIN Topic solved CHANGED 		'POST_SUBJECT'		=> $row['post_subject'],
+		'POST_SUBJECT'		=> ($topic_data['topic_solved'] == $row['post_id'] && $topic_data['topic_type'] != POST_GLOBAL) ? $row['post_subject'] . ' ' . (($topic_data['forum_solve_text']) ? (($topic_data['forum_solve_color']) ? '<span style="color: #' . $topic_data['forum_solve_color'] . '">' : '') . $topic_data['forum_solve_text'] . (($topic_data['forum_solve_color']) ? '</span>' : '') : '<span class="solved">&nbsp;</span>') : $row['post_subject'],
+		'U_SET_SOLVED'		=> $u_set_solved,
+		'S_TOPIC_SOLVED'	=> $topic_data['topic_solved'],
+// END Topic solved
 		'MESSAGE'			=> $message,
 		'SIGNATURE'			=> ($row['enable_sig']) ? $user_cache[$poster_id]['sig'] : '',
 		'EDITED_MESSAGE'	=> $l_edited_by,

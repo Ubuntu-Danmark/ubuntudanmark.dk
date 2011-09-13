@@ -257,6 +257,9 @@ $lang = array_merge($lang, array(
 	'IMG_ICON_TOPIC_NEWEST'			=> 'Seneste ulæste indlæg',
 	'IMG_ICON_TOPIC_REPORTED'		=> 'Rapporterede indlæg',
 	'IMG_ICON_TOPIC_UNAPPROVED'		=> 'Ikke godkendte indlæg',
+	'IMG_ICON_TOPIC_SOLVED_READ'	=> 'Emnet er løst',
+	'IMG_ICON_TOPIC_SOLVED_LIST'	=> 'Emnet er løst',
+	'IMG_ICON_TOPIC_SOLVED_LINK'	=> 'Emnet er løst',
 
 	'IMG_ICON_USER_ONLINE'		=> 'Bruger online',
 	'IMG_ICON_USER_OFFLINE'		=> 'Bruger offline',

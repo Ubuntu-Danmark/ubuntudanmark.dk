@@ -220,6 +220,11 @@ function mcp_forum_view($id, $mode, $action, $forum_info)
 		$u_mcp_queue = ($topic_unapproved || $posts_unapproved) ? $url . '&amp;i=queue&amp;mode=' . (($topic_unapproved) ? 'approve_details' : 'unapproved_posts') . '&amp;t=' . $row['topic_id'] : '';
 
 		$topic_row = array(
+// BEGIN Topic solved
+			'SOLVED_TOPIC'		=> ($row['topic_solved'] && $row['topic_type'] != POST_GLOBAL) ? (($forum_info['forum_solve_text']) ? $forum_info['forum_solve_text'] : $user->img('icon_topic_solved_list', 'TOPIC_SOLVED')) : '',
+			'U_SOLVED_TOPIC'	=> ($row['topic_solved']) ? append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'p=' . $row['topic_solved'] . '#p' . $row['topic_solved']) : '',
+			'SOLVED_STYLE' => ($forum_info['forum_solve_color']) ? ' style="color: #' . $forum_info['forum_solve_color'] . '"' : '',
+// END Topic solved
 			'ATTACH_ICON_IMG'		=> ($auth->acl_get('u_download') && $auth->acl_get('f_download', $row['forum_id']) && $row['topic_attachment']) ? $user->img('icon_topic_attach', $user->lang['TOTAL_ATTACHMENTS']) : '',
 			'TOPIC_FOLDER_IMG'		=> $user->img($folder_img, $folder_alt),
 			'TOPIC_FOLDER_IMG_SRC'	=> $user->img($folder_img, $folder_alt, false, '', 'src'),

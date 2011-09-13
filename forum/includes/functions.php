@@ -4542,6 +4542,10 @@ function page_header($page_title = '', $display_online_list = true, $item_id = 0
 
 	// The following assigns all _common_ variables that may be used at any point in a template.
 	$template->assign_vars(array(
+// BEGIN Topic solved
+		'U_SEARCH_UNSOLVED_TOPICS'		=> append_sid("{$phpbb_root_path}search.$phpEx", 'search_id=unsolved_topics'),
+		'U_SEARCH_YOUR_UNSOLVED_TOPICS'	=> append_sid("{$phpbb_root_path}search.$phpEx", 'search_id=your_unsolved_topics'),
+// END Topic solved
 		'SITENAME'						=> $config['sitename'],
 		'SITE_DESCRIPTION'				=> $config['site_desc'],
 		'PAGE_TITLE'					=> $page_title,

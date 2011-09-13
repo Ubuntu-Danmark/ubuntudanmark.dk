@@ -670,7 +670,7 @@ class ucp_main
 		if ($mode == 'subscribed')
 		{
 			$sql_array = array(
-				'SELECT'	=> 't.*, f.forum_name',
+				'SELECT'	=> 't.*, f.forum_name, f.forum_solve_text, f.forum_solve_color, f.forum_allow_solve',
 
 				'FROM'		=> array(
 					TOPICS_WATCH_TABLE	=> 'tw',
@@ -690,7 +690,7 @@ class ucp_main
 		else
 		{
 			$sql_array = array(
-				'SELECT'	=> 't.*, f.forum_name, b.topic_id as b_topic_id',
+				'SELECT'	=> 't.*, f.forum_name, f.forum_solve_text, f.forum_solve_color, f.forum_allow_solve, b.topic_id as b_topic_id',
 
 				'FROM'		=> array(
 					BOOKMARKS_TABLE		=> 'b',
@@ -827,6 +827,11 @@ class ucp_main
 				'U_LAST_POST'			=> append_sid("{$phpbb_root_path}viewtopic.$phpEx", $view_topic_url_params . '&amp;p=' . $row['topic_last_post_id']) . '#p' . $row['topic_last_post_id'],
 				'U_VIEW_TOPIC'			=> $view_topic_url,
 				'U_VIEW_FORUM'			=> append_sid("{$phpbb_root_path}viewforum.$phpEx", 'f=' . $forum_id),
+// BEGIN Topic solved
+				'SOLVED_TOPIC'		=> ($row['topic_solved'] && $row['forum_allow_solve']) ? (($row['forum_solve_text']) ? $row['forum_solve_text'] : $user->img('icon_topic_solved_list', 'TOPIC_SOLVED')) : '',
+				'U_SOLVED_TOPIC'	=> ($row['topic_solved'] && $row['forum_allow_solve']) ? append_sid("{$phpbb_root_path}viewtopic.$phpEx", 'p=' . $row['topic_solved'] . '#p' . $row['topic_solved']) : '',
+				'SOLVED_STYLE' => ($row['forum_solve_color']) ? ' style="color: #' . $row['forum_solve_color'] . '"' : '',
+// END Topic solved
 			));
 		}
 	}

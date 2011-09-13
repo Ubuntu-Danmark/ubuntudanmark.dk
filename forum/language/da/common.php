@@ -889,6 +889,12 @@ $lang = array_merge($lang, array(
 	// The default dateformat which will be used on new installs in this language
 	// Translators should change this if a the usual date format is different
 	'default_dateformat'	=> '|D j. M Y| H:i',
+	'SEARCH_UNSOLVED'				=> 'Vis uløste emner',
+	'SEARCH_YOUR_UNSOLVED'			=> 'Vis dine uløste emner',
+	'SEARCH_SOLVED'					=> 'Søg kun blandt løste emner',
+	'TOPIC_SOLVED'					=> 'Emnet er løst',
+	'SET_TOPIC_SOLVED'				=> 'Accepter dette svar',
+	'SET_TOPIC_NOT_SOLVED'			=> 'Sæt emnet som uløst',
 ));
 
 ?>
