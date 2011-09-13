@@ -235,15 +235,6 @@ class ucp_register
 				}
 			}
 
-			// DNSBL check
-			if ($config['check_dnsbl'])
-			{
-				if (($dnsbl = $user->check_dnsbl('register')) !== false)
-				{
-					$error[] = sprintf($user->lang['IP_BLACKLISTED'], $user->ip, $dnsbl[1]);
-				}
-			}
-
 			// validate custom profile fields
 			$cp->submit_cp_field('register', $user->get_iso_lang_id(), $cp_data, $error);
 
@@ -257,6 +248,15 @@ class ucp_register
 				if ($data['email'] != $data['email_confirm'])
 				{
 					$error[] = $user->lang['NEW_EMAIL_ERROR'];
+				}
+			}
+
+			// DNSBL check
+			if (!sizeof($error) && $config['check_dnsbl'])
+			{
+				if (($dnsbl = $user->check_dnsbl('register')) !== false)
+				{
+					$error[] = sprintf($user->lang['IP_BLACKLISTED'], $user->ip, $dnsbl[1]);
 				}
 			}
 
