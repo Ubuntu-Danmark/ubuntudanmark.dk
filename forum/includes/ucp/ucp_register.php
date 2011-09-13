@@ -260,6 +260,38 @@ class ucp_register
 				}
 			}
 
+			// StopForumSpam check
+			if (!sizeof($error) && ($stopforumspam = $user->check_stopforumspam(request_var('username', '', true), $data['email'])) !== false)
+			{
+				$query  = 'http://www.stopforumspam.com/add?api_key=1cPdU8gwVLrpD0&evidence=';
+				$query .= '?api_key=1cPdU8gwVLrpD0';
+				$query .= '&evidence=';
+				$query .= '&username='.rawurlencode(request_var('username', '', true));
+				$query .= '&email='.rawurlencode($data['email']);
+				$query .= '&ip_addr='.rawurlencode($user->ip);
+	            
+				if($stopforumspam['ip']) {
+					$error[] = sprintf($user->lang['IP_BLACKLISTED'], $user->ip, 'http://www.stopforumspam.com/');
+					@file_get_contents($query);
+				} elseif($stopforumspam['email']) {
+					$error[] = $user->lang['BAN_TRIGGERED_BY_EMAIL'];
+					@file_get_contents($query);
+
+				} elseif($stopforumspam['username'] > 15) {
+					$error[] = $user->lang['BAN_TRIGGERED_BY_USER'];
+				}
+
+				if($stopforumspam['ip']) {
+					user_ban('ip', $user->ip, 0, 0, 0, 'StopForumSpam', '');
+				}
+				if($stopforumspam['email']) {
+					user_ban('email', $data['email'], 0, 0, 0, 'StopForumSpam', '');
+				}
+				if($stopforumspam['username'] > 15) {
+					user_ban('user', $data['username'], 0, 0, 0, 'StopForumSpam', '');
+				}
+			}
+
 			if (!sizeof($error))
 			{
 				$server_url = generate_board_url();

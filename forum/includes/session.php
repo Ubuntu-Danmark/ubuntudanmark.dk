@@ -1294,6 +1294,46 @@ class session
 	}
 
 	/**
+	* Check if ip, username or email is known for spamming
+	* This should be called only where absolutly necessary
+	*
+	* @author AJenbo
+	* @param string $username string $useremail
+	* @return false if ip, username and email is not blacklisted, else an array([variable], [hits])
+	*/
+	function check_stopforumspam($username, $useremail)
+	{
+	    $query  = '&username='.rawurlencode($username);
+	    $query .= '&email='.rawurlencode($useremail);
+	    $query .= '&ip='.rawurlencode($this->ip);
+
+	    $result = @file_get_contents("http://www.stopforumspam.com/api?f=serial".$query);
+
+	    //Was the request susesfull
+	    if($result !== false)
+		    $result = unserialize($result);
+	    else {
+	        add_log('user', '', 'FAILED_STOPFORUMSPAM', $username);
+    		return false;
+    	}
+
+	    $return = array();
+	    if(!empty($result["email"]["appears"]) && $result["email"]["appears"])
+    		$return['email'] = $result["email"]["frequency"];
+
+	    if(!empty($result["username"]["appears"]) && $result["username"]["appears"])
+    		$return['username'] = $result["username"]["frequency"];
+
+	    if(!empty($result["ip"]["appears"]) && $result["ip"]["appears"])
+    		$return['ip'] = $result["ip"]["frequency"];
+
+	    if(!empty($return))
+    		return $return;
+
+	    return false;
+	}
+
+	/**
 	* Check if URI is blacklisted
 	* This should be called only where absolutly necessary, for example on the submitted website field
 	* This function is not in use at the moment and is only included for testing purposes, it may not work at all!

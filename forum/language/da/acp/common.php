@@ -758,4 +758,14 @@ $lang = array_merge($lang, array(
 	'FAILED_USER_LOGIN'		=> '<strong>Failed Login Attempt</strong><br />» %s',
 ));
 // ----- End mod - Log Failed Login -------- //
+
+// ----- Start mod - StopForumSpam -------- //
+$lang = array_merge($lang, array(
+	'FAILED_STOPFORUMSPAM'		=> '<strong>StopForumSpam overbelastet</strong><br />» %s',
+	'FAILED_STOPFORUMSPAM_IP'	=> '<strong>StopForumSpam blokerede ip</strong><br />» %s',
+	'FAILED_STOPFORUMSPAM_EMAIL'	=> '<strong>StopForumSpam blokerede emailadresse</strong><br />» %s',
+	'FAILED_STOPFORUMSPAM_USERNAME'	=> '<strong>StopForumSpam blokerede brugernavn</strong><br />» %s',
+));
+// ----- End mod - StopForumSpam -------- //
+
 ?>
