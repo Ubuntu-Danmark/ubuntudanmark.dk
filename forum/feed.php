@@ -457,7 +457,7 @@ class phpbb_feed_base
 	/**
 	* Separator for title elements to separate items (for example forum / topic)
 	*/
-	var $separator = "\xE2\x80\xA2"; // &bull;
+	var $separator = "|";
 
 	/**
 	* Separator for the statistics row (Posted by, post date, replies, etc.)
