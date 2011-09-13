@@ -189,7 +189,7 @@ function validate_session_wpbb() {
         if ($auth->acl_get('u_chgname') && $config['allow_namechange']) {
             $check_ary['username'] = array(
                 array('string', false, $config['min_name_chars'], $config['max_name_chars']),
-                array('username')
+                array('username_phpbb')
             );
         }
 

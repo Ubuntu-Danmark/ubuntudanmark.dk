@@ -776,7 +776,7 @@ class acp_users
 						$check_ary += array(
 							'username'			=> array(
 								array('string', false, $config['min_name_chars'], $config['max_name_chars']),
-								array('username', $user_row['username'])
+								array('username_phpbb', $user_row['username'])
 							),
 						);
 					}
@@ -787,7 +787,7 @@ class acp_users
 						$check_ary += array(
 							'email'				=> array(
 								array('string', false, 6, 60),
-								array('email', $user_row['user_email'])
+								array('email_phpbb', $user_row['user_email'])
 							),
 							'email_confirm'		=> array('string', true, 6, 60)
 						);

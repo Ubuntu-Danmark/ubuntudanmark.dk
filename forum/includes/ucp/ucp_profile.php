@@ -64,7 +64,7 @@ class ucp_profile
 						'password_confirm'	=> array('string', true, $config['min_pass_chars'], $config['max_pass_chars']),
 						'email'				=> array(
 							array('string', false, 6, 60),
-							array('email')),
+							array('email_phpbb')),
 						'email_confirm'		=> array('string', true, 6, 60),
 					);
 
@@ -72,7 +72,7 @@ class ucp_profile
 					{
 						$check_ary['username'] = array(
 							array('string', false, $config['min_name_chars'], $config['max_name_chars']),
-							array('username'),
+							array('username_phpbb'),
 						);
 					}
 

@@ -1296,6 +1296,7 @@ function validate_data($data, $val_ary)
 		foreach ($val_seq as $validate)
 		{
 			$function = array_shift($validate);
+			if($function == 'username'){$function = 'phpbb_username';}
 			array_unshift($validate, $data[$var]);
 
 			if ($result = call_user_func_array('validate_' . $function, $validate))
@@ -1456,7 +1457,7 @@ function validate_language_iso_name($lang_iso)
 *
 * @return	mixed	Either false if validation succeeded or a string which will be used as the error message (with the variable name appended)
 */
-function validate_username($username, $allowed_username = false)
+function validate_username_phpbb($username, $allowed_username = false)
 {
 	global $config, $db, $user, $cache;
 
@@ -1694,7 +1695,7 @@ function validate_password($password)
 *
 * @return mixed Either false if validation succeeded or a string which will be used as the error message (with the variable name appended)
 */
-function validate_email($email, $allowed_email = false)
+function validate_email_phpbb($email, $allowed_email = false)
 {
 	global $config, $db, $user;
 
