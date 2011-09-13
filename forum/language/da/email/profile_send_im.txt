@@ -1,0 +1,7 @@
+
+Hej {TO_USERNAME}
+
+Beskeden er afsendt via din konto på "{SITENAME}". Afsender er boardets jabberkonto, og kan derfor ikke besvares. Finder du beskeden generende eller upassende, kan du rapportere den til boardets administratorer på denne emailadresse: {BOARD_CONTACT}. Kopier den fulde besked ind i emailen.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+{MESSAGE}

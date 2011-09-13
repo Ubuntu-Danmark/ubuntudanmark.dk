@@ -1,0 +1,7 @@
+Subject: Din anmodning gruppemedlemskab er godkendt
+
+Tillykke, din anmodning om medlemskab af gruppen "{GROUP_NAME}" på "{SITENAME}" er blevet godkendt.
+
+Du kan se information om din gruppe her: {U_GROUP}
+
+{EMAIL_SIG}
