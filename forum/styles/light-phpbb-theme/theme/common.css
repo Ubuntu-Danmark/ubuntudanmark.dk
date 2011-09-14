@@ -1,44 +1,31 @@
-/* General proSilver Markup Styles
+/* General light-phpbb Markup Styles
 ---------------------------------------- */
 
-* {
-	/* Reset browsers default margin, padding and font sizes */
-	margin: 0;
-	padding: 0;
+.entry-content img, dl {
+    margin:0;
 }
 
 html {
 	font-size: 100%;
-	/* Always show a scrollbar for short pages - stops the jump when the scrollbar appears. non-IE browsers */
-	height: 101%;
 }
 
-body {
+body#phpbb {
+	min-width: 0;
+	background:transparent;
+}
+
+.entry-content {
 	/* Text-Sizing with ems: http://www.clagnut.com/blog/348/ */
 	font-family: Verdana, Helvetica, Arial, sans-serif;
-	color: #828282;
-	background-color: #FFFFFF;
+	color: #333333;
 	/*font-size: 62.5%;			 This sets the default font size to be equivalent to 10px */
 	font-size: 10px;
-	margin: 0;
-	padding: 12px 0;
-}
-
-h1 {
-	/* Forum name */
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	margin-right: 200px;
-	color: #FFFFFF;
-	margin-top: 15px;
-	font-weight: bold;
-	font-size: 2em;
 }
 
 h2 {
 	/* Forum header titles */
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-family: ubuntu, Verdana, Helvetica, Arial, Sans-serif;
 	font-weight: normal;
-	color: #3f3f3f;
 	font-size: 2em;
 	margin: 0.8em 0 0.2em 0;
 }
@@ -57,12 +44,12 @@ h3 {
 	padding-bottom: 2px;
 	font-size: 1.05em;
 	color: #989898;
-	margin-top: 20px;
+	margin-top: 3px;
 }
 
 h4 {
 	/* Forum and topic list titles */
-	font-family: "Trebuchet MS", Verdana, Helvetica, Arial, Sans-serif;
+	font-family: ubuntu, Verdana, Helvetica, Arial, Sans-serif;
 	font-size: 1.3em;
 }
 
@@ -155,11 +142,6 @@ a#logo:hover {
 	border: 1px solid #b0b0b0;
 }
 
-/* .button1 style defined later, just a few tweaks for the search button version */
-#search-box input.button1 {
-	padding: 1px 5px;
-}
-
 #search-box li {
 	text-align: right;
 	margin-top: 4px;
@@ -195,14 +177,6 @@ a#logo:hover {
 }
 
 .forabg {
-	background: #b1b1b1 none repeat-x 0 0;
-	margin-bottom: 4px;
-	padding: 0 5px;
-	clear: both;
-}
-
-.forumbg {
-	background: #ebebeb none repeat-x 0 0;
 	margin-bottom: 4px;
 	padding: 0 5px;
 	clear: both;
@@ -211,7 +185,6 @@ a#logo:hover {
 .panel {
 	margin-bottom: 4px;
 	padding: 0 10px;
-	background-color: #f3f3f3;
 	color: #3f3f3f;
 }
 
@@ -230,8 +203,6 @@ a#logo:hover {
 	color: #000000;
 }
 
-.bg1	{ background-color: #f7f7f7;}
-.bg2	{ background-color: #f2f2f2; }
 .bg3	{ background-color: #ebebeb; }
 
 .rowbg {
@@ -299,6 +270,7 @@ span.corners-bottom span {
 ul.linklist {
 	display: block;
 	margin: 0;
+	clear:both;
 }
 
 ul.linklist li {
@@ -343,6 +315,7 @@ ul.rightside {
 ----------------------------------------*/
 table.table1 {
 	/* See tweaks.css */
+	margin-top:10px;
 }
 
 #ucp-main table.table1 {
@@ -354,26 +327,22 @@ table.table1 thead th {
 	text-transform: uppercase;
 	color: #FFFFFF;
 	line-height: 1.3em;
-	font-size: 1em;
-	padding: 0 0 4px 3px;
+	/*font-size: 1em;*/
+    font-size:10px;
+	padding: 0 0 2px 3px;
 }
 
 table.table1 thead th span {
 	padding-left: 7px;
 }
 
+table.table1 tbody {
+	background-color: #E7E5E3;
+}
+
 table.table1 tbody tr {
-	border: 1px solid #cfcfcf;
-}
-
-table.table1 tbody tr:hover, table.table1 tbody tr.hover {
-	background-color: #f6f6f6;
-	color: #000;
-}
-
-table.table1 td {
-	color: #6a6a6a;
-	font-size: 1.1em;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 2px solid #CCCCCC;
 }
 
 table.table1 tbody td {
@@ -405,6 +374,10 @@ table.table1 span.rank-img {
 	width: auto;
 }
 
+table.table1 tbody span.rank-img {
+	line-height: 43px;
+}
+
 table.info td {
 	padding: 3px;
 }
@@ -417,9 +390,35 @@ table.info tbody th {
 	font-weight: normal;
 }
 
-.forumbg table.table1 {
-	margin: 0 -2px -1px -1px;
+#memberlist {
+    border:0;
 }
+
+#memberlist td, #memberlist td * {
+    vertical-align:middle;
+}
+
+#memberlist td {
+	border-left: 1px solid #FFFFFF;
+}
+
+#memberlist td:first-child {
+	border-left:0;
+}
+
+#memberlist img {
+    max-height:43px;
+    max-width:43px;
+}
+
+#memberlist .avatar {
+    display:inline-block;
+    width:43px;
+    margin:0 5px 0 0;
+    text-align:center;
+}
+
+
 
 /* Misc layout styles
 ---------------------------------------- */
@@ -479,8 +478,8 @@ dl.details dd {
 	height: 1%; /* IE tweak (holly hack) */
 	width: auto;
 	text-align: right;
-	margin-top: 5px;
 	float: right;
+	text-transform:none;
 }
 
 .pagination span.page-sep {
@@ -491,17 +490,13 @@ li.pagination {
 	margin-top: 0;
 }
 
-.pagination strong, .pagination b {
-	font-weight: normal;
-}
-
 .pagination span strong {
 	padding: 0 2px;
 	margin: 0 2px;
 	font-weight: normal;
 	color: #FFFFFF;
-	background-color: #bfbfbf;
-	border: 1px solid #bfbfbf;
+	background-color: #772953;
+	border: 1px solid #772953;
 	font-size: 0.9em;
 }
 
@@ -517,9 +512,9 @@ li.pagination {
 	line-height: 1.5em;
 }
 
-.pagination span a:hover {
-	border-color: #d2d2d2;
-	background-color: #d2d2d2;
+#content .pagination span a:hover {
+	border-color: #DD4814;
+	background-color: #DD4814;
 	color: #FFF;
 	text-decoration: none;
 }
@@ -535,12 +530,13 @@ li.pagination {
 	width: auto;
 	margin-top: 0;
 	padding: 1px 0 1px 15px;
+	line-height:47px;
 	font-size: 0.9em;
 	background: none 0 50% no-repeat;
 }
 
 .row .pagination span a, li.pagination span a {
-	background-color: #FFFFFF;
+	background-color: #ECEDEE;
 }
 
 .row .pagination span a:hover, li.pagination span a:hover {
@@ -593,7 +589,7 @@ li.reported:hover {
 div.rules {
 	background-color: #ececec;
 	color: #bcbcbc;
-	padding: 0 10px;
+	padding: 10px;
 	margin: 10px 0;
 	font-size: 1.1em;
 }
@@ -629,4 +625,16 @@ p.rules a {
 	font-size: 1px;
 	line-height: 1px;
 	background: transparent;
+}
+
+#colour_palette td {
+    padding:0;
+}
+
+#colour_palette tr {
+    border:0;
+}
+
+#colour_palette table {
+    border:0;
 }

@@ -1,13 +1,8 @@
-/* proSilver Control Panel Styles
----------------------------------------- */
-
-
 /* Main CP box
 ----------------------------------------*/
 #cp-menu {
 	float:left;
-	width: 19%;
-	margin-top: 1em;
+	width: 174px;
 	margin-bottom: 5px;
 }
 
@@ -20,8 +15,24 @@
 	padding: 0;
 }
 
+#cp-main p, #cp-main h2 {
+    margin:0;
+    padding:0;
+}
+
+#viewprofile dt img {
+	max-width: 80px;
+	max-height: 80px;
+}
+
+.notopics {
+    clear:both;
+}
+
 #cp-main h3, #cp-main hr, #cp-menu hr {
 	border-color: #bfbfbf;
+	margin-left: 4px;
+	margin-right: 10px;
 }
 
 #cp-main .panel p {
@@ -66,9 +77,14 @@ ul.cplist {
 }
 
 #cp-main .pagination {
-	float: right;
 	width: auto;
 	padding-top: 1px;
+}
+
+#cp-main .postbody {
+	float:none;
+	border-left:0;
+	padding:0;
 }
 
 #cp-main .postbody p {
@@ -108,8 +124,11 @@ ul.cplist {
 ----------------------------------------*/
 #tabs {
 	line-height: normal;
-	margin: 20px 0 -1px 7px;
-	min-width: 570px;
+	margin: 5px 0;
+}
+
+#tabs .activetab button {
+	font-weight: bold;
 }
 
 #tabs ul {
@@ -129,11 +148,12 @@ ul.cplist {
 #tabs a {
 	float: left;
 	background: none no-repeat 0% -35px;
-	margin: 0 1px 0 0;
+	margin: 4px 0 0 4px;
 	padding: 0 0 0 5px;
 	text-decoration: none;
 	position: relative;
 	cursor: pointer;
+	-moz-box-shadow: 0 0 5px #BBBBBB;
 }
 
 #tabs a span {
@@ -141,17 +161,16 @@ ul.cplist {
 	display: block;
 	background: none no-repeat 100% -35px;
 	padding: 6px 10px 6px 5px;
-	color: #828282;
+	color: #777777;
 	white-space: nowrap;
 }
 
 #tabs a:hover span {
-	color: #bcbcbc;
+	color: #DD4814;
 }
 
 #tabs .activetab a {
 	background-position: 0 0;
-	border-bottom: 1px solid #ebebeb;
 }
 
 #tabs .activetab a span {
@@ -220,11 +239,11 @@ ul.cplist {
 /* Container for sub-navigation list */
 #navigation {
 	width: 100%;
-	padding-top: 36px;
 }
 
 #navigation ul {
 	list-style:none;
+	margin:0 10px 0 0;
 }
 
 /* Default list state */
@@ -239,23 +258,22 @@ ul.cplist {
 #navigation a {
 	display: block;
 	padding: 5px;
-	margin: 1px 0;
+	margin: 4px 0px 0 4px;
 	text-decoration: none;
 	font-weight: bold;
-	color: #333;
+	color: #333 !important;
 	background: #cfcfcf none repeat-y 100% 0;
 }
 
 #navigation a:hover {
 	text-decoration: none;
-	background-color: #c6c6c6;
-	color: #bcbcbc;
+	color: #DD4814 !important;
 	background-image: none;
 }
 
 #navigation #active-subsection a {
 	display: block;
-	color: #d3d3d3;
+	color: #DD4814 !important;
 	background-color: #F9F9F9;
 	background-image: none;
 }
@@ -269,12 +287,7 @@ ul.cplist {
 #cp-main h2 {
 	border-bottom: none;
 	padding: 0;
-	margin-left: 10px;
 	color: #333333;
-}
-
-#cp-main .panel {
-	background-color: #F9F9F9;
 }
 
 #cp-main .pm {
@@ -316,7 +329,6 @@ ul.cplist {
 
 /* Friends list */
 .cp-mini {
-	background-color: #f9f9f9;
 	padding: 0 5px;
 	margin: 10px 15px 10px 5px;
 }
@@ -327,7 +339,6 @@ ul.cplist {
 
 dl.mini dt {
 	font-weight: bold;
-	color: #676767;
 }
 
 dl.mini dd {

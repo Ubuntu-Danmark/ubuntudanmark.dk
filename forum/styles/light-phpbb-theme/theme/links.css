@@ -7,10 +7,22 @@ a {
 	unicode-bidi: embed;
 }
 
-a:link	{ color: #898989; text-decoration: none; }
-a:visited	{ color: #898989; text-decoration: none; }
-a:hover	{ color: #d3d3d3; text-decoration: underline; }
-a:active	{ color: #d2d2d2; text-decoration: none; }
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+#content a:visited {
+    color:#772953;
+}
+
+#content .entry-title, #content .entry-title a:visited {
+    color:#DD4814;
+}
+
+#content a:hover {
+    color:#DD4814;
+}
 
 /* Coloured usernames */
 .username-coloured {
@@ -19,88 +31,31 @@ a:active	{ color: #d2d2d2; text-decoration: none; }
 	padding: 0 !important;
 }
 
-/* Links on gradient backgrounds */
-#search-box a:link, .navbg a:link, .forumbg .header a:link, .forabg .header a:link, th a:link {
-	color: #FFFFFF;
-	text-decoration: none;
+#search-box a, .navbg a, .forumbg .header a, .forabg .header a, th a, #content th a:visited {
+    padding-left:2px;
+    padding-right:8px;
+    font:1.05em/0.9em Arial,Helvetica,sans-serif;
+    text-transform:uppercase;
+    color:#777777;
+    font-weight:bold;
 }
 
-#search-box a:visited, .navbg a:visited, .forumbg .header a:visited, .forabg .header a:visited, th a:visited {
-	color: #FFFFFF;
-	text-decoration: none;
-}
-
-#search-box a:hover, .navbg a:hover, .forumbg .header a:hover, .forabg .header a:hover, th a:hover {
-	color: #ffffff;
-	text-decoration: underline;
-}
-
-#search-box a:active, .navbg a:active, .forumbg .header a:active, .forabg .header a:active, th a:active {
-	color: #ffffff;
-	text-decoration: none;
+#content th a:hover {
+    color:#DD4814;
 }
 
 /* Links for forum/topic lists */
 a.forumtitle {
-	font-family: "Trebuchet MS", Helvetica, Arial, Sans-serif;
-	font-size: 1.2em;
+	font-family: Ubuntu, Verdana, Helvetica, Arial, Sans-serif;
+	font-size: 1.25em;
 	font-weight: bold;
-	color: #898989;
 	text-decoration: none;
-}
-
-/* a.forumtitle:visited { color: #898989; } */
-
-a.forumtitle:hover {
-	color: #bcbcbc;
-	text-decoration: underline;
-}
-
-a.forumtitle:active {
-	color: #898989;
 }
 
 a.topictitle {
-	font-family: "Trebuchet MS", Helvetica, Arial, Sans-serif;
-	font-size: 1.2em;
+	font-family: Ubuntu, Verdana, Helvetica, Arial, Sans-serif;
+	font-size: 1.25em;
 	font-weight: bold;
-	color: #898989;
-	text-decoration: none;
-}
-
-/* a.topictitle:visited { color: #d2d2d2; } */
-
-a.topictitle:hover {
-	color: #bcbcbc;
-	text-decoration: underline;
-}
-
-a.topictitle:active {
-	color: #898989;
-}
-
-/* Post body links */
-.postlink {
-	text-decoration: none;
-	color: #d2d2d2;
-	border-bottom: 1px solid #d2d2d2;
-	padding-bottom: 0;
-}
-
-.postlink:visited {
-	color: #bdbdbd;
-	border-bottom-style: dotted;
-	border-bottom-color: #666666;
-}
-
-.postlink:active {
-	color: #d2d2d2;
-}
-
-.postlink:hover {
-	background-color: #f6f6f6;
-	text-decoration: none;
-	color: #404040;
 }
 
 .signature a, .signature a:visited, .signature a:active, .signature a:hover {
@@ -183,26 +138,6 @@ a.down, a.down:link, a.down:active, a.down:visited {
 a.down:hover {
 	background-position: right bottom;
 	text-decoration: none;
-}
-
-a.left, a.left:active, a.left:visited {
-	padding-left: 12px;
-}
-
-a.left:hover {
-	color: #d2d2d2;
-	text-decoration: none;
-	background-position: 0 60%;
-}
-
-a.right, a.right:active, a.right:visited {
-	padding-right: 12px;
-}
-
-a.right:hover {
-	color: #d2d2d2;
-	text-decoration: none;
-	background-position: 100% 60%;
 }
 
 /* invisible skip link, used for accessibility  */

@@ -94,14 +94,15 @@ a.fontsize:hover {
 /* Poster profile icons
 ----------------------------------------*/
 ul.profile-icons {
-	padding-top: 10px;
+	padding:0;
+	margin:0;
 	list-style: none;
 }
 
 /* Rollover state */
 ul.profile-icons li {
 	float: left;
-	margin: 0 6px 3px 0;
+	margin: 0 6px 0;
 	background-position: 0 100%;
 }
 
@@ -126,6 +127,10 @@ ul.profile-icons li a:hover { background: none; }
 
 .postbody ul.profile-icons li {
 	margin: 0 3px;
+}
+
+span.profile-icons {
+    float:right;
 }
 
 /* Profile & navigation icons */
@@ -167,3 +172,19 @@ ul.profile-icons li.edit-icon	{ margin: 0 0 0 3px; }
 ul.profile-icons li.quote-icon	{ margin: 0 0 0 10px; }
 ul.profile-icons li.info-icon, ul.profile-icons li.report-icon	{ margin: 0 3px 0 0; }
 
+.ufbn {
+    font:14px/16px ubuntu,Arial,sans-serif;
+    text-transform:uppercase;
+}
+
+.ufbn .disabled {
+    color:#777;
+}
+
+.bnform {
+    display: inline; vertical-align: super;
+}
+
+button img {
+    vertical-align:text-bottom !important;
+}

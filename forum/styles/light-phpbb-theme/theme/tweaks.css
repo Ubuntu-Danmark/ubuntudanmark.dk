@@ -24,11 +24,6 @@ html>body table.table1 { width: 100%; }	/* Reset 100% for opera */
 /* Form styles */
 html>body dd label input { vertical-align: text-bottom; }	/* Align checkboxes/radio buttons nicely */
 
-* html input.button1, * html input.button2 {
-	padding-bottom: 0;
-	margin-bottom: 1px;
-}
-
 /* Misc layout styles */
 * html .column1, * html .column2 { width: 45%; }
 
@@ -55,7 +50,7 @@ html>body dd label input { vertical-align: text-bottom; }	/* Align checkboxes/ra
 
 /* navbar fix */
 * html .clearfix, * html .navbar, ul.linklist {
-	height: 4%;
+	/*height: 4%;*/
 	overflow: hidden;
 }
 
