@@ -4270,11 +4270,14 @@ function obtain_users_online_string($online_users, $item_id = 0, $item = 'forum'
 	unset($vars_online);
 
 	$l_online_users = sprintf($l_t_user_s, $online_users['total_online']);
-	$l_online_users .= sprintf($l_r_user_s, $online_users['visible_online']);
-	$l_online_users .= sprintf('%d bots, ', $online_users['bots_online']);
-	$l_online_users .= sprintf($l_h_user_s, $online_users['hidden_online']);
+	if($online_users['visible_online'])
+    	$l_online_users .= sprintf($l_r_user_s, $online_users['visible_online']);
+	if($online_users['bots_online'])
+	    $l_online_users .= sprintf('%d bots, ', $online_users['bots_online']);
+	if($online_users['hidden_online'])
+	    $l_online_users .= sprintf($l_h_user_s, $online_users['hidden_online']);
 
-	if ($config['load_online_guests'])
+	if ($config['load_online_guests'] && $online_users['guests_online'])
 	{
 		$l_online_users .= sprintf($l_g_user_s, $online_users['guests_online']);
 	}
