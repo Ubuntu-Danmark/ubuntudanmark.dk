@@ -7,14 +7,11 @@
 
 <form method="post" id="mcp" action="{S_MCP_ACTION}">
 
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
-
 	<!-- IF PAGINATION or TOTAL_TOPICS -->
 		<ul class="linklist">
 			<li class="rightside pagination">
 				<!-- IF TOTAL_TOPICS --> {TOTAL_TOPICS}<!-- ENDIF -->
-				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
+				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; {PAGE_NUMBER} &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
 			</li>
 		</ul>
 	<!-- ENDIF -->
@@ -76,13 +73,10 @@
 		<ul class="linklist">
 			<li class="rightside pagination">
 				<!-- IF TOTAL_TOPICS --> {TOTAL_TOPICS}<!-- ENDIF -->
-				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
+				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; {PAGE_NUMBER} &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
 			</li>
 		</ul>
 	<!-- ENDIF -->
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 
 <fieldset class="display-actions">
 	<!-- IF not S_MERGE_SELECT -->

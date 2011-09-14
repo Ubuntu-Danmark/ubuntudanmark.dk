@@ -3,9 +3,6 @@
 <h2<!-- IF GROUP_COLOR --> style="color:#{GROUP_COLOR};"<!-- ENDIF -->>{L_USERGROUPS}<!-- IF GROUP_NAME --> :: {GROUP_NAME}<!-- ENDIF --></h2>
 
 <form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
-
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
 	
 	<p>{L_GROUPS_EXPLAIN}</p>
 
@@ -45,11 +42,6 @@
 		<!-- ENDIF -->
 		</fieldset>
 
-	<span class="corners-bottom"><span></span></span></div>
-</div>
-
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
 	<h3>{L_GROUP_SETTINGS_SAVE}</h3>
 
 	<fieldset>
@@ -62,9 +54,6 @@
 		<dd><select name="group_rank" id="group_rank">{S_RANK_OPTIONS}</select></dd>
 	</dl>
 	</fieldset>
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 
 <!-- INCLUDE ucp_avatar_options.html -->
 
@@ -152,21 +141,15 @@
 
 	<ul class="linklist">
 		<li class="leftside pagination">
-			<!-- IF PAGINATION --><a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{S_ON_PAGE}</a> &bull; <span>{PAGINATION}</span><!-- ELSE -->{S_ON_PAGE}<!-- ENDIF -->
+			<!-- IF PAGINATION -->{S_ON_PAGE} <span>{PAGINATION}</span><!-- ELSE -->{S_ON_PAGE}<!-- ENDIF -->
 		</li>
 	</ul>
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 
 <fieldset class="display-actions">	
 	<select name="action"><option value="">{L_SELECT_OPTION}</option>{S_ACTION_OPTIONS}</select>
 	<input class="button2" type="submit" name="update" value="{L_SUBMIT}" />
 	<div><a href="#" onclick="marklist('ucp', 'mark', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="marklist('ucp', 'mark', false); return false;">{L_UNMARK_ALL}</a></div>
 </fieldset>
-
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
 
 	<h3>{L_ADD_USERS}</h3>
 
@@ -186,9 +169,6 @@
 		<dd><strong><a href="{U_FIND_USERNAME}" onclick="find_username(this.href); return false;">{L_FIND_USERNAME}</a></strong></dd>
 	</dl>
 	</fieldset>
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 
 <fieldset class="submit-buttons">
 	<input class="button1" type="submit" name="addusers" value="{L_SUBMIT}" />
@@ -222,9 +202,6 @@
 	<!-- ELSE -->
 		<p><strong>{L_NO_LEADERS}</strong></p>
 	<!-- ENDIF -->
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 
 <!-- ENDIF -->
 </form>

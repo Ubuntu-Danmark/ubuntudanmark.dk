@@ -92,24 +92,6 @@
 				<param name="console" value="ctrls_{_file.ATTACH_ID}" />
 				<embed name="ctrls_{_file.ATTACH_ID}" type="audio/x-pn-realaudio-plugin" width="200" height="36" controls="ControlPanel" console="ctrls_{_file.ATTACH_ID}"></embed>
 			</object>
-
-			<script type="text/javascript">
-			// <![CDATA[
-				if (document.rmstream_{_file.ATTACH_ID}.GetClipWidth)
-				{
-					while (!document.rmstream_{_file.ATTACH_ID}.GetClipWidth())
-					{
-					}
-
-					var width = document.rmstream_{_file.ATTACH_ID}.GetClipWidth();
-					var height = document.rmstream_{_file.ATTACH_ID}.GetClipHeight();
-
-					document.rmstream_{_file.ATTACH_ID}.width = width;
-					document.rmstream_{_file.ATTACH_ID}.height = height;
-					document.ctrls_{_file.ATTACH_ID}.width = width;
-				}
-			// ]]>
-			</script>
 		<!-- ENDIF -->
 
 		<!-- IF _file.S_WM_FILE or _file.S_RM_FILE or _file.S_FLASH_FILE or _file.S_QUICKTIME_FILE -->
