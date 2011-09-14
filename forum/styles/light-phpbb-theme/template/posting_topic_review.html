@@ -14,18 +14,14 @@
 
 	<!-- IF topic_review_row.S_IGNORE_POST -->
 	<div class="post bg3 post-ignore">
-		<div class="inner"><span class="corners-top"><span></span></span>
 			{topic_review_row.L_IGNORE_POST}
 	<!-- ELSE -->
 	<div class="post <!-- IF topic_review_row.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
-		<div class="inner"><span class="corners-top"><span></span></span>
 	<!-- ENDIF -->
 
 		<div class="postbody" id="pr{topic_review_row.POST_ID}">
 			<!-- IF topic_review_row.POSTER_QUOTE and topic_review_row.DECODED_MESSAGE -->
-			<ul class="profile-icons">
-				<li class="quote-icon"><a href="#postingbox" onclick="addquote({topic_review_row.POST_ID}, '{topic_review_row.POSTER_QUOTE}');" title="{L_QUOTE} {topic_review_row.POST_AUTHOR}"><span>{L_QUOTE} {topic_review_row.POST_AUTHOR}</span></a></li>
-			</ul>
+			<form onsubmit="return addquote({topic_review_row.POST_ID}, '{topic_review_row.POSTER_QUOTE}');" class="bnform" action="" method="post"><input type="submit" title="{L_QUOTE} {topic_review_row.POST_AUTHOR}" value="Citér" /></form>
 			<!-- ENDIF -->
 			<!-- IF topic_review_row.U_MCP_DETAILS --><div class="right-box"><a href="{topic_review_row.U_MCP_DETAILS}">{L_POST_DETAILS}</a></div><!-- ENDIF -->
 			<h3><a href="#pr{topic_review_row.POST_ID}">{topic_review_row.POST_SUBJECT}</a></h3>
@@ -45,7 +41,6 @@
 				<div id="message_{topic_review_row.POST_ID}" style="display: none;">{topic_review_row.DECODED_MESSAGE}</div>
 			<!-- ENDIF -->
 		</div>
-		<span class="corners-bottom"><span></span></span></div>
 	</div>
 	<!-- END topic_review_row -->
 </div>
@@ -53,7 +48,7 @@
 <hr />
 
 <!-- IF S_MCP_REPORT -->
-	<p><a href="#report" class="top2">{L_BACK_TO_TOP}</a></p>
+	<p><a href="#wrap" class="top2">{L_BACK_TO_TOP}</a></p>
 <!-- ELSE -->
-	<p><a href="#postingbox" class="top2">{L_BACK_TO_TOP}</a></p>
+	<p><a href="#format-buttons" class="top2">{L_BACK_TO_TOP}</a></p>
 <!-- ENDIF -->

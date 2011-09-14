@@ -4,9 +4,6 @@
 
 <h2>{L_TITLE}</h2>
 
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
-
 	<p>{L_BOOKMARKS_EXPLAIN}</p>
 
 <!-- IF S_NO_DISPLAY_BOOKMARKS -->
@@ -33,7 +30,7 @@
 			<!-- ELSE -->
 			<dl class="icon" style="background-image: url({topicrow.TOPIC_FOLDER_IMG_SRC}); background-repeat: no-repeat;">
 				<dt<!-- IF topicrow.TOPIC_ICON_IMG --> style="background-image: url({T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}); background-repeat: no-repeat;"<!-- ENDIF --> title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
-					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a>
+					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}">{NEWEST_POST_IMG}</a> <!-- ENDIF --><a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a><!-- IF topicrow.SOLVED_TOPIC -->&nbsp;&nbsp;<a href="{topicrow.U_SOLVED_TOPIC}" class="topictitle"{topicrow.SOLVED_STYLE}>{topicrow.SOLVED_TOPIC}</a><!-- ENDIF -->
 					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}">{topicrow.UNAPPROVED_IMG}</a> <!-- ENDIF -->
 					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF --><br />
 					<!-- IF topicrow.PAGINATION --><strong class="pagination"><span>{topicrow.PAGINATION}</span></strong><!-- ENDIF -->
@@ -51,7 +48,7 @@
 	<ul class="linklist">
 		<li class="rightside pagination">
 			<!-- IF TOTAL_TOPICS --> {TOTAL_TOPICS} <!-- ENDIF -->
-			<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
+			<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> | <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> | <span>{PAGINATION}</span><!-- ELSE --> | {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
 		</li>
 	</ul>
 <!-- ELSE -->
@@ -60,13 +57,10 @@
 
 <!-- ENDIF -->
 
-	<span class="corners-bottom"><span></span></span></div>
-</div>
-
 <!-- IF .topicrow and not S_NO_DISPLAY_BOOKMARKS -->
 	<fieldset class="display-actions">
 		<input type="submit" name="unbookmark" value="{L_REMOVE_BOOKMARK_MARKED}" class="button2" />
-		<div><a href="#" onclick="marklist('ucp', '', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="marklist('ucp', '', false); return false;">{L_UNMARK_ALL}</a></div>
+		<div><a href="#" onclick="marklist('ucp', '', true); return false;">{L_MARK_ALL}</a> | <a href="#" onclick="marklist('ucp', '', false); return false;">{L_UNMARK_ALL}</a></div>
 		{S_FORM_TOKEN}
 	</fieldset>
 <!-- ENDIF -->
