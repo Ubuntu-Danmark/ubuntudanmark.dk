@@ -4103,9 +4103,11 @@ function obtain_users_online($item_id = 0, $item = 'forum')
 
 	$online_users = array(
 		'online_users'			=> array(),
+		'bots_users'			=> array(),
 		'hidden_users'			=> array(),
 		'total_online'			=> 0,
 		'visible_online'		=> 0,
+		'bots_online'			=> 0,
 		'hidden_online'			=> 0,
 		'guests_online'			=> 0,
 	);
@@ -4122,7 +4124,8 @@ function obtain_users_online($item_id = 0, $item = 'forum')
 		FROM ' . SESSIONS_TABLE . ' s
 		WHERE s.session_time >= ' . ($time - ((int) ($time % 30))) .
 			$reading_sql .
-		' AND s.session_user_id <> ' . ANONYMOUS;
+		' AND s.session_user_id <> ' . ANONYMOUS .
+		' AND s.session_user_id NOT IN(SELECT user_id FROM ' . BOTS_TABLE . ' WHERE `bot_active` = 1)';
 	$result = $db->sql_query($sql);
 
 	while ($row = $db->sql_fetchrow($result))
@@ -4142,7 +4145,29 @@ function obtain_users_online($item_id = 0, $item = 'forum')
 			}
 		}
 	}
-	$online_users['total_online'] = $online_users['guests_online'] + $online_users['visible_online'] + $online_users['hidden_online'];
+
+	$sql = 'SELECT s.session_user_id, s.session_ip, s.session_viewonline
+		FROM ' . SESSIONS_TABLE . ' s
+		WHERE s.session_time >= ' . ($time - ((int) ($time % 30))) .
+			$reading_sql .
+		' AND s.session_user_id <> ' . ANONYMOUS .
+		' AND s.session_user_id IN(SELECT user_id FROM ' . BOTS_TABLE . ' WHERE `bot_active` = 1)';
+	$result = $db->sql_query($sql);
+
+	while ($row = $db->sql_fetchrow($result))
+	{
+		// Skip multiple sessions for one user
+		if (!isset($online_users['bots_users'][$row['session_user_id']]))
+		{
+			$online_users['bots_users'][$row['session_user_id']] = (int) $row['session_user_id'];
+			if ($row['session_viewonline'])
+			{
+				$online_users['bots_online']++;
+			}
+		}
+	}
+
+	$online_users['total_online'] = $online_users['guests_online'] + $online_users['visible_online'] + $online_users['bots_online'] + $online_users['hidden_online'];
 	$db->sql_freeresult($result);
 
 	return $online_users;
@@ -4246,6 +4271,7 @@ function obtain_users_online_string($online_users, $item_id = 0, $item = 'forum'
 
 	$l_online_users = sprintf($l_t_user_s, $online_users['total_online']);
 	$l_online_users .= sprintf($l_r_user_s, $online_users['visible_online']);
+	$l_online_users .= sprintf('%d bots, ', $online_users['bots_online']);
 	$l_online_users .= sprintf($l_h_user_s, $online_users['hidden_online']);
 
 	if ($config['load_online_guests'])
