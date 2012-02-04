@@ -60,6 +60,10 @@ function login_wpbb(&$username, &$password) {
         $sql = 'SELECT user_id, username, user_password, user_passchg, user_pass_convert, user_email, user_type, user_login_attempts
                 FROM ' . USERS_TABLE . "
                 WHERE username_clean = '" . $db->sql_escape(utf8_clean_string($username)) . "'";
+        if (function_exists('fb') && !headers_sent()) {
+            fb($username);
+            fb(utf8_clean_string($username));
+        }
         $result = $db->sql_query($sql);
         $phpBB_user = $db->sql_fetchrow($result);
 
