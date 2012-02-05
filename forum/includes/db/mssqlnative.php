@@ -50,7 +50,7 @@ class result_mssqlnative
 			}
 		}
 
-		$this->m_row_count = count($this->m_rows);
+		$this->m_row_count = sizeof($this->m_rows);
 	}
 
 	private function array_to_obj($array, &$obj)
@@ -259,6 +259,14 @@ class dbal_mssqlnative extends dbal
 	}
 
 	/**
+	* {@inheritDoc}
+	*/
+	function sql_buffer_nested_transactions()
+	{
+		return true;
+	}
+
+	/**
 	* SQL Transaction
 	* @access private
 	*/
@@ -388,7 +396,7 @@ class dbal_mssqlnative extends dbal
 	*/
 	function sql_affectedrows()
 	{
-		return ($this->db_connect_id) ? @sqlsrv_rows_affected($this->db_connect_id) : false;
+		return (!empty($this->query_result)) ? @sqlsrv_rows_affected($this->query_result) : false;
 	}
 
 	/**
@@ -628,7 +636,7 @@ class dbal_mssqlnative extends dbal
 			return false;
 		}
 	}
-	
+
 	/**
 	* Allows setting mssqlnative specific query options passed to sqlsrv_query as 4th parameter.
 	*/

@@ -227,10 +227,10 @@ function mcp_post_details($id, $mode, $action)
 
 	// Get User Notes
 	$log_data = array();
-	$log_count = 0;
+	$log_count = false;
 	view_log('user', $log_data, $log_count, $config['posts_per_page'], 0, 0, 0, $post_info['user_id']);
 
-	if ($log_count)
+	if (!empty($log_data))
 	{
 		$template->assign_var('S_USER_NOTES', true);
 
@@ -246,7 +246,7 @@ function mcp_post_details($id, $mode, $action)
 	}
 
 	// Get Reports
-	if ($auth->acl_get('m_', $post_info['forum_id']))
+	if ($auth->acl_get('m_report', $post_info['forum_id']))
 	{
 		$sql = 'SELECT r.*, re.*, u.user_id, u.username
 			FROM ' . REPORTS_TABLE . ' r, ' . USERS_TABLE . ' u, ' . REPORTS_REASONS_TABLE . " re
