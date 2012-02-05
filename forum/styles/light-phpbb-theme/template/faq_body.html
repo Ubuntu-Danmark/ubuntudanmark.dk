@@ -1,10 +1,6 @@
 <!-- INCLUDE overall_header.html -->
-
-<h2>{L_FAQ_TITLE}</h2>
-
-
-<div class="panel bg1" id="faqlinks">
-	<div class="inner"><span class="corners-top"><span></span></span>
+<h1 class="entry-title" id="faqlinks">{L_FAQ_TITLE}</h1>
+<div class="entry-content">
 		<div class="column1">
 		<!-- BEGIN faq_block -->
 			<!-- IF faq_block.SWITCH_COLUMN or (SWITCH_COLUMN_MANUALLY and faq_block.S_ROW_COUNT == 4) -->
@@ -21,17 +17,11 @@
 			</dl>
 		<!-- END faq_block -->
 		</div>
-	<span class="corners-bottom"><span></span></span></div>
-</div>
-
 
 
 <div class="clear"></div>
 
 <!-- BEGIN faq_block -->
-	<div class="panel <!-- IF faq_block.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
-		<div class="inner"><span class="corners-top"><span></span></span>
-
 		<div class="content">
 			<h2>{faq_block.BLOCK_TITLE}</h2>
 			<!-- BEGIN faq_row -->
@@ -43,10 +33,5 @@
 				<!-- IF not faq_block.faq_row.S_LAST_ROW --><hr class="dashed" /><!-- ENDIF -->
 			<!-- END faq_row -->
 		</div>
-
-		<span class="corners-bottom"><span></span></span></div>
-	</div>
 <!-- END faq_block -->
-
-<!-- INCLUDE jumpbox.html -->
 <!-- INCLUDE overall_footer.html -->

@@ -1,4 +1,6 @@
 <!-- INCLUDE overall_header.html -->
+<h1 class="entry-title">{SITENAME} - {L_REGISTRATION}</h1>
+<div class="entry-content">
 
 <script type="text/javascript">
 // <![CDATA[
@@ -20,11 +22,6 @@
 
 <form method="post" action="{S_UCP_ACTION}" id="register">
 
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
-
-	<h2>{SITENAME} - {L_REGISTRATION}</h2>
-
 	<fieldset class="fields2">
 	<!-- IF ERROR --><dl><dd class="error">{ERROR}</dd></dl><!-- ENDIF -->
 	<!-- IF L_REG_COND -->
@@ -32,34 +29,34 @@
 	<!-- ENDIF -->
 	<dl>
 		<dt><label for="username">{L_USERNAME}:</label><br /><span>{L_USERNAME_EXPLAIN}</span></dt>
-		<dd><input type="text" tabindex="1" name="username" id="username" size="25" value="{USERNAME}" class="inputbox autowidth" title="{L_USERNAME}" /></dd>
+		<dd><input type="text" tabindex="3" name="username" id="username" size="25" value="{USERNAME}" class="inputbox autowidth" title="{L_USERNAME}" /></dd>
 	</dl>
 	<dl>
 		<dt><label for="email">{L_EMAIL_ADDRESS}:</label></dt>
-		<dd><input type="text" tabindex="2" name="email" id="email" size="25" maxlength="100" value="{EMAIL}" class="inputbox autowidth" title="{L_EMAIL_ADDRESS}" /></dd>
+		<dd><input type="text" tabindex="4" name="email" id="email" size="25" maxlength="100" value="{EMAIL}" class="inputbox autowidth" title="{L_EMAIL_ADDRESS}" /></dd>
 	</dl>
 	<dl>
 		<dt><label for="email_confirm">{L_CONFIRM_EMAIL}:</label></dt>
-		<dd><input type="text" tabindex="3" name="email_confirm" id="email_confirm" size="25" maxlength="100" value="{EMAIL_CONFIRM}" class="inputbox autowidth" title="{L_CONFIRM_EMAIL}" /></dd>
+		<dd><input type="text" tabindex="5" name="email_confirm" id="email_confirm" size="25" maxlength="100" value="{EMAIL_CONFIRM}" class="inputbox autowidth" title="{L_CONFIRM_EMAIL}" /></dd>
 	</dl>
 	<dl>
 		<dt><label for="new_password">{L_PASSWORD}:</label><br /><span>{L_PASSWORD_EXPLAIN}</span></dt>
-		<dd><input type="password" tabindex="4" name="new_password" id="new_password" size="25" value="{PASSWORD}" class="inputbox autowidth" title="{L_NEW_PASSWORD}" /></dd>
+		<dd><input type="password" tabindex="6" name="new_password" id="new_password" size="25" value="{PASSWORD}" class="inputbox autowidth" title="{L_NEW_PASSWORD}" /></dd>
 	</dl>
 	<dl>
 		<dt><label for="password_confirm">{L_CONFIRM_PASSWORD}:</label></dt>
-		<dd><input type="password" tabindex="5" name="password_confirm" id="password_confirm" size="25" value="{PASSWORD_CONFIRM}" class="inputbox autowidth" title="{L_CONFIRM_PASSWORD}" /></dd>
+		<dd><input type="password" tabindex="7" name="password_confirm" id="password_confirm" size="25" value="{PASSWORD_CONFIRM}" class="inputbox autowidth" title="{L_CONFIRM_PASSWORD}" /></dd>
 	</dl>
 
 	<hr />
 
 	<dl>
 		<dt><label for="lang">{L_LANGUAGE}:</label></dt>
-		<dd><select name="lang" id="lang" onchange="change_language(this.value); return false;" tabindex="6" title="{L_LANGUAGE}">{S_LANG_OPTIONS}</select></dd>
+		<dd><select name="lang" id="lang" onchange="change_language(this.value); return false;" tabindex="8" title="{L_LANGUAGE}">{S_LANG_OPTIONS}</select></dd>
 	</dl>
 	<dl>
 		<dt><label for="tz">{L_TIMEZONE}:</label></dt>
-		<dd><select name="tz" id="tz" tabindex="7" class="autowidth">{S_TZ_OPTIONS}</select></dd>
+		<dd><select name="tz" id="tz" tabindex="9" class="autowidth">{S_TZ_OPTIONS}</select></dd>
 	</dl>
 
 	<!-- IF .profile_fields -->
@@ -76,8 +73,6 @@
 	<!-- ENDIF -->
 
 	</fieldset>
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 <!-- IF CAPTCHA_TEMPLATE -->
 	<!-- DEFINE $CAPTCHA_TAB_INDEX = 8 -->
 	<!-- INCLUDE {CAPTCHA_TEMPLATE} -->
@@ -85,29 +80,17 @@
 
 <!-- IF S_COPPA -->
 
-
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
-
 	<h4>{L_COPPA_COMPLIANCE}</h4>
 
 	<p>{L_COPPA_EXPLAIN}</p>
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 <!-- ENDIF -->
-
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
 
 	<fieldset class="submit-buttons">
 		{S_HIDDEN_FIELDS}
 		<input type="reset" value="{L_RESET}" name="reset" class="button2" />&nbsp;
-		<input type="submit" tabindex="9" name="submit" id="submit" value="{L_SUBMIT}" class="button1 default-submit-action" />
+		<input type="submit" tabindex="11" name="submit" id="submit" value="{L_SUBMIT}" class="button1 default-submit-action" />
 		{S_FORM_TOKEN}
 	</fieldset>
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 </form>
 
 <!-- INCLUDE overall_footer.html -->

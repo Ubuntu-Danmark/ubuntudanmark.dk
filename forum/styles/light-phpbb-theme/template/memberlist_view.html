@@ -1,10 +1,8 @@
 <!-- INCLUDE overall_header.html -->
-
-<h2>{PAGE_TITLE}</h2>
+<h1 class="entry-title">{PAGE_TITLE}</h1>
+<div class="entry-content">
 
 <form method="post" action="{S_PROFILE_ACTION}" id="viewprofile">
-<div class="panel bg1<!-- IF S_ONLINE --> online<!-- ENDIF -->">
-	<div class="inner"><span class="corners-top"><span></span></span>
 
 	<!-- IF AVATAR_IMG -->
 		<dl class="left-box">
@@ -48,12 +46,6 @@
 			<!-- ENDIF -->
 		<!-- ENDIF -->
 	</dl>
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
-
-<div class="panel bg2">
-	<div class="inner"><span class="corners-top"><span></span></span>
 	<div class="column1">
 
 		<h3>{L_CONTACT_USER} {USERNAME}</h3>
@@ -94,23 +86,15 @@
 			<!-- ENDIF -->
 		</dl>
 	</div>
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 
 <!-- IF SIGNATURE -->
-<div class="panel bg1">
-	<div class="inner"><span class="corners-top"><span></span></span>
 
 		<h3>{L_SIGNATURE}</h3>
 
 		<div class="postbody"><div class="signature" style="border-top:none; margin-top: 0;">{SIGNATURE}</div></div>
 
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 <!-- ENDIF -->
 
 </form>
-
-<!-- INCLUDE jumpbox.html -->
-
+<div style="clear:both;"></div>
 <!-- INCLUDE overall_footer.html -->

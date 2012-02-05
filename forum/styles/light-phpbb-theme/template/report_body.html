@@ -1,10 +1,8 @@
 <!-- INCLUDE overall_header.html -->
-
-<h2 class="titlespace"><!-- IF S_REPORT_POST -->{L_REPORT_POST}<!-- ELSE -->{L_REPORT_MESSAGE}<!-- ENDIF --></h2>
+<h1 class="titlespace"><!-- IF S_REPORT_POST -->{L_REPORT_POST}<!-- ELSE -->{L_REPORT_MESSAGE}<!-- ENDIF --></h1>
+<div class="entry-content">
 
 <form method="post" action="{S_REPORT_ACTION}" id="report">
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
 
 	<div class="content">
 		<p><!-- IF S_REPORT_POST -->{L_REPORT_POST_EXPLAIN}<!-- ELSE -->{L_REPORT_MESSAGE_EXPLAIN}<!-- ENDIF --></p>
@@ -30,12 +28,6 @@
 		</fieldset>
 	</div>
 
-	<span class="corners-bottom"><span></span></span></div>
-</div>
-
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
-
 	<div class="content">
 		<fieldset class="submit-buttons">
 			<input type="submit" name="submit" class="button1" value="{L_SUBMIT}" />&nbsp;
@@ -44,8 +36,6 @@
 		</fieldset>
 	</div>
 
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 </form>
 
 <!-- INCLUDE overall_footer.html -->

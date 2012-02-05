@@ -1,12 +1,10 @@
 <!-- INCLUDE overall_header.html -->
+<h1 class="entry-title">{L_SEND_PASSWORD}</h1>
+<div class="entry-content">
 
 <form action="{S_PROFILE_ACTION}" method="post" id="remind">
 
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
-
 	<div class="content">
-		<h2>{L_SEND_PASSWORD}</h2>
 
 		<fieldset>
 		<dl>
@@ -19,14 +17,11 @@
 		</dl>
 		<dl>
 			<dt>&nbsp;</dt>
-			<dd>{S_HIDDEN_FIELDS}<input type="submit" name="submit" id="submit" class="button1" value="{L_SUBMIT}" tabindex="2" />&nbsp; <input type="reset" value="{L_RESET}" name="reset" class="button2" /></dd>
+			<dd>{S_HIDDEN_FIELDS}<input type="submit" name="submit" id="submit" class="button1" value="{L_SUBMIT}" tabindex="4" />&nbsp; <input type="reset" value="{L_RESET}" name="reset" class="button2" /></dd>
 		</dl>
 		{S_FORM_TOKEN}
 		</fieldset>
 	</div>
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 </form>
 
 <!-- INCLUDE overall_footer.html -->

@@ -1,14 +1,6 @@
 <!-- INCLUDE overall_header.html -->
-
-<h2>{L_MCP}</h2>
-
-<!-- IF U_MCP -->
-	<p class="linkmcp">
-		[ <a href="{U_MCP}">{L_MCP}</a><!-- IF U_MCP_FORUM --> | <a href="{U_MCP_FORUM}">{L_MODERATE_FORUM}</a><!-- ENDIF -->
-		<!-- IF U_MCP_TOPIC --> | <a href="{U_MCP_TOPIC}">{L_MODERATE_TOPIC}</a><!-- ENDIF -->
-		<!-- IF U_MCP_POST --> | <a href="{U_MCP_POST}">{L_MODERATE_POST}</a><!-- ENDIF --> ]
-	</p>
-<!-- ENDIF -->
+<h1 class="entry-title">{L_MCP}</h1>
+<div class="entry-content">
 
 <div id="tabs">
 	<ul>
@@ -17,11 +9,7 @@
 		<!-- END l_block1 -->
 	</ul>
 </div>
-
-<div class="panel bg3">
-	<div class="inner"><span class="corners-top"><span></span></span>
-
-	<div style="width: 100%;">
+	<div style="width: 100%;" class="clearfix">
 
 	<div id="cp-menu">
 		<div id="navigation">

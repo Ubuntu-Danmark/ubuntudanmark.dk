@@ -8,18 +8,16 @@
 	{S_FORM_TOKEN}
 </fieldset>
 
-<h2>{L_TITLE}</h2>
-
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
-
-	<p>{L_EXPLAIN}</p>
+<div style="float:left">
+    <h2>{L_TITLE}</h2>
+    <p>{L_EXPLAIN}</p>
+</div>
 
 	<!-- IF .postrow -->
 		<ul class="linklist">
 			<li class="rightside pagination">
 				<!-- IF TOTAL --> {TOTAL}<!-- ENDIF -->
-				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
+				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> | <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> | <span>{PAGINATION}</span><!-- ELSE --> | {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
 			</li>
 		</ul>
 		<ul class="topiclist">
@@ -74,15 +72,12 @@
 		<ul class="linklist">
 			<li class="rightside pagination">
 				<!-- IF TOTAL -->{TOTAL}<!-- ENDIF -->
-				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
+				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> | <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> | <span>{PAGINATION}</span><!-- ELSE --> | {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
 			</li>
 		</ul>
 	<!-- ELSE -->
 		<p class="notopics"><strong><!-- IF S_TOPICS -->{L_NO_TOPICS_QUEUE}<!-- ELSE -->{L_UNAPPROVED_POSTS_ZERO_TOTAL}<!-- ENDIF --></strong></p>
 	<!-- ENDIF -->
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
 
 <!-- IF .postrow -->
 	<fieldset class="display-actions">
