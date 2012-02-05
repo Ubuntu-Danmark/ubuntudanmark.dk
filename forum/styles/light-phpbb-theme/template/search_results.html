@@ -54,7 +54,7 @@
 				<dl class="icon" style="background-image: url({searchresults.TOPIC_FOLDER_IMG_SRC}); background-repeat: no-repeat;">
 					<dt <!-- IF searchresults.TOPIC_ICON_IMG -->style="background-image: url({T_ICONS_PATH}{searchresults.TOPIC_ICON_IMG}); background-repeat: no-repeat;"<!-- ENDIF -->>
 						<!-- IF searchresults.PAGINATION --><span class="pagination">Side: <span>{searchresults.PAGINATION}</span></span><!-- ENDIF -->
-						<!-- IF searchresults.S_UNREAD_TOPIC --><a href="{searchresults.U_NEWEST_POST}" class="newstpost">&nbsp;</a><!-- ELSE --><div class="newstpost">&nbsp;</div><!-- ENDIF -->
+						<!-- IF searchresults.S_UNREAD_TOPIC --><a href="{searchresults.U_NEWEST_POST}" class="newstpost<!-- IF searchresults.SOLVED_LINK --> topicsolved<!-- ENDIF -->">&nbsp;</a><!-- ELSEIF searchresults.SOLVED_LINK --><a href="{searchresults.U_SOLVED_LINK}" class="topicsolved" title="Emnet er løst">&nbsp;</a><!-- ELSE --><div class="newstpost">&nbsp;</div><!-- ENDIF -->
 						<div style="padding-top:5px;"><a href="{searchresults.U_VIEW_TOPIC}" class="topictitle">{searchresults.TOPIC_TITLE}</a>
 						{searchresults.ATTACH_ICON_IMG}
 						<!-- IF searchresults.S_TOPIC_UNAPPROVED or searchresults.S_POSTS_UNAPPROVED --><a href="{searchresults.U_MCP_QUEUE}">{searchresults.UNAPPROVED_IMG}</a> <!-- ENDIF -->
@@ -87,7 +87,7 @@
 		</div>
 	<!-- ELSE -->
 		<div class="postbody">
-			<h3><a href="{searchresults.U_VIEW_POST}">{searchresults.POST_SUBJECT}</a></h3>
+			<h3><a href="{searchresults.U_VIEW_POST}">{searchresults.POST_SUBJECT}<!-- IF searchresults.SOLVED_LINK --> <span class="solved">&nbsp;</span><!-- ENDIF --></a></h3>
 			<div class="content">{searchresults.MESSAGE}</div>
 		</div>
 

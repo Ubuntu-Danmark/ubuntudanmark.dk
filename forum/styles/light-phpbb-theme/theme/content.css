@@ -133,7 +133,19 @@ dl.icon dt {
 	background-position: 5px 95%;		/* Position of topic icon */
 }
 
-.newstpost {
+a .solved {
+    display:inline-block;
+    width:16px;
+    height:16px;
+    margin-bottom:2px;
+	background:url("{IMG_ICON_TOPIC_SOLVED_LINK_SRC}");
+}
+
+a:hover .solved {
+	background:url("{IMG_ICON_TOPIC_SOLVED_LIST_SRC}");
+}
+
+.newstpost, .topicsolved {
     display:block;
     float:left;
     height:47px;
@@ -142,6 +154,14 @@ dl.icon dt {
     width:45px;
     background-position:20px 10px;
     background-repeat:no-repeat;
+}
+
+.topicsolved {
+    background-image:url("{IMG_ICON_TOPIC_SOLVED_READ_SRC}");
+}
+
+.newstpost.topicsolved {
+    background-image:url("{IMG_ICON_TOPIC_SOLVED_LIST_SRC}");
 }
 
 .forums .newstpost {

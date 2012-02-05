@@ -107,6 +107,7 @@
 					<!-- IF postrow.U_DELETE -->  <form method="post" action="{postrow.U_DELETE}" class="bnform"><input value="X" title="{L_DELETE_POST}" type="submit" /></form><!-- ENDIF -->
 					<!-- IF postrow.U_WARN --> <form method="post" action="{postrow.U_WARN}" class="bnform"><input value="Advar" title="{L_WARN_USER}" type="submit" /></form><!-- ENDIF -->
 					<!-- IF postrow.U_EDIT --> <form method="post" action="{postrow.U_EDIT}" class="bnform"><input value="Redigér" title="{L_EDIT_POST}" type="submit" /></form><!-- ENDIF -->
+					<!-- IF postrow.U_SET_SOLVED and not postrow.S_TOPIC_SOLVED --> <form method="post" action="{postrow.U_SET_SOLVED}" class="bnform"><button title="{L_SET_TOPIC_SOLVED}" type="submit"><img src="{T_THEME_PATH}/images/icon_topic_solved_button.png"></button></form><!-- ENDIF -->
 					<!-- IF postrow.U_QUOTE --> <form method="post" action="{postrow.U_QUOTE}" class="bnform"><input value="Citér" title="{L_REPLY_WITH_QUOTE}" type="submit" /></form><!-- ENDIF -->
 				</span>
 			<!-- ENDIF -->

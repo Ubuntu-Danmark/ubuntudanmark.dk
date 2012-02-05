@@ -23,6 +23,13 @@
 
 	<fieldset>
 	<dl>
+		<dt><label for="search_solv1">{L_SEARCH_SOLVED}:</label></dt>
+		<dd>
+			<label for="search_solv1"><input type="radio" name="sv" id="search_solv1" value="1" /> {L_YES}</label>
+			<label for="search_solv2"><input type="radio" name="sv" id="search_solv2" value="0" checked="checked" /> {L_NO}</label>
+		</dd>
+	</dl>
+	<dl>
 		<dt><label for="search_forum">{L_SEARCH_FORUMS}:</label><br /><span>{L_SEARCH_FORUMS_EXPLAIN}</span></dt>
 		<dd><select name="fid[]" id="search_forum" multiple="multiple" size="8" title="{L_SEARCH_FORUMS}">{S_FORUM_OPTIONS}</select></dd>
 	</dl>

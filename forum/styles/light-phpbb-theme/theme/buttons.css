@@ -150,6 +150,8 @@ span.profile-icons {
 .edit-icon, .edit-icon a			{ background: none top left no-repeat; }
 .delete-icon, .delete-icon a		{ background: none top left no-repeat; }
 .info-icon, .info-icon a			{ background: none top left no-repeat; }
+.solve-icon, .solve-icon a		{ background: none top left no-repeat; }
+.unsolve-icon, .unsolve-icon a		{ background: none top left no-repeat; }
 
 /* Set profile icon dimensions */
 ul.profile-icons li.email-icon		{ width: {IMG_ICON_CONTACT_EMAIL_WIDTH}px; height: {IMG_ICON_CONTACT_EMAIL_HEIGHT}px; }
@@ -166,6 +168,8 @@ ul.profile-icons li.edit-icon	{ width: {IMG_ICON_POST_EDIT_WIDTH}px; height: {IM
 ul.profile-icons li.delete-icon	{ width: {IMG_ICON_POST_DELETE_WIDTH}px; height: {IMG_ICON_POST_DELETE_HEIGHT}px; }
 ul.profile-icons li.info-icon	{ width: {IMG_ICON_POST_INFO_WIDTH}px; height: {IMG_ICON_POST_INFO_HEIGHT}px; }
 ul.profile-icons li.warn-icon	{ width: {IMG_ICON_USER_WARN_WIDTH}px; height: {IMG_ICON_USER_WARN_HEIGHT}px; }
+ul.profile-icons li.solve-icon	{ width: {IMG_ICON_TOPIC_SOLVED_SET_WIDTH}px; height: {IMG_ICON_TOPIC_SOLVED_SET_HEIGHT}px; }
+ul.profile-icons li.unsolve-icon	{ width: {IMG_ICON_TOPIC_SOLVED_UNSET_WIDTH}px; height: {IMG_ICON_TOPIC_SOLVED_UNSET_HEIGHT}px; }
 
 /* Fix profile icon default margins */
 ul.profile-icons li.edit-icon	{ margin: 0 0 0 3px; }
