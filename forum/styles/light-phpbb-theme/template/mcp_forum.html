@@ -1,31 +1,15 @@
 <!-- INCLUDE mcp_header.html -->
 
 <!-- DEFINE $CUSTOM_FIELDSET_CLASS = 'forum-selection2' -->
-<!-- INCLUDE jumpbox.html -->
-
-<h2><a href="{U_VIEW_FORUM}">{L_FORUM}: {FORUM_NAME}</a></h2>
-
+<h2 style="float:left;padding-top:8px;"><a href="{U_VIEW_FORUM}">{L_FORUM}: {FORUM_NAME}</a></h2>
 <form method="post" id="mcp" action="{S_MCP_ACTION}">
-
-<div class="panel">
-	<div class="inner"><span class="corners-top"><span></span></span>
-
-	<!-- IF PAGINATION or TOTAL_TOPICS -->
-		<ul class="linklist">
-			<li class="rightside pagination">
-				<!-- IF TOTAL_TOPICS --> {TOTAL_TOPICS}<!-- ENDIF -->
-				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
-			</li>
-		</ul>
-	<!-- ENDIF -->
-
 	<!-- IF .topicrow -->
 		<ul class="topiclist">
 			<li class="header">
 				<dl class="icon">
 					<dt>{L_TOPICS}</dt>
 					<dd class="posts">{L_REPLIES}</dd>
-					<dd class="lastpost"><span>{L_LAST_POST}</span></dd>
+					<dd class="lastpost">{L_LAST_POST}</dd>
 					<!-- IF not S_MERGE_SELECT --><dd class="mark">{L_MARK}</dd><!-- ENDIF -->
 				</dl>
 			</li>
@@ -36,20 +20,21 @@
 		<li class="row<!-- IF topicrow.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> reported<!-- ENDIF -->">
 			<dl class="icon" style="background-image: url({topicrow.TOPIC_FOLDER_IMG_SRC}); background-repeat: no-repeat;">
 				<dt <!-- IF topicrow.TOPIC_ICON_IMG -->style="background-image: url({T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}); background-repeat: no-repeat;"<!-- ENDIF -->>
+					<!-- IF topicrow.S_UNREAD_TOPIC --><a href="{topicrow.U_NEWEST_POST}" class="newstpost">&nbsp;</a><!-- ELSE --><div class="newstpost">&nbsp;</div><!-- ENDIF -->
 					<!-- IF topicrow.S_SELECT_TOPIC --><a href="{topicrow.U_SELECT_TOPIC}" class="topictitle">[ {L_SELECT_MERGE} ]</a>&nbsp;&nbsp; <!-- ENDIF -->
 					<a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a>
 					<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED --><a href="{topicrow.U_MCP_QUEUE}">{topicrow.UNAPPROVED_IMG}</a> <!-- ENDIF -->
 					<!-- IF topicrow.S_TOPIC_REPORTED --><a href="{topicrow.U_MCP_REPORT}">{REPORTED_IMG}</a><!-- ENDIF -->
-					<!-- IF topicrow.S_MOVED_TOPIC and S_CAN_DELETE -->&nbsp;<a href="{topicrow.U_DELETE_TOPIC}" class="topictitle">[ {L_DELETE_SHADOW_TOPIC} ]</a><!-- ENDIF -->
 					<br />
 					<!-- IF topicrow.PAGINATION --><strong class="pagination"><span>{topicrow.PAGINATION}</span></strong><!-- ENDIF -->
 					<!-- IF topicrow.ATTACH_ICON_IMG -->{topicrow.ATTACH_ICON_IMG} <!-- ENDIF -->{L_POST_BY_AUTHOR} {topicrow.TOPIC_AUTHOR_FULL} &raquo; {topicrow.FIRST_POST_TIME} </dt>
 				<dd class="posts">{topicrow.REPLIES} <dfn>{L_REPLIES}</dfn></dd>
-				<dd class="lastpost"><span><dfn>{L_LAST_POST} </dfn>{L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL}<br />{topicrow.LAST_POST_TIME}</span>
+				<dd class="lastpost"><span>{topicrow.LAST_POST_TIME}<br />{L_POST_BY_AUTHOR} {topicrow.LAST_POST_AUTHOR_FULL} <a href="{topicrow.U_LAST_POST}">{LAST_POST_IMG}</a></span>
 				</dd>
 				<!-- IF not S_MERGE_SELECT -->
 				<dd class="mark">
 					<!-- IF not topicrow.S_MOVED_TOPIC --><input type="checkbox" name="topic_id_list[]" value="{topicrow.TOPIC_ID}"<!-- IF topicrow.S_TOPIC_CHECKED --> checked="checked"<!-- ENDIF --> /><!-- ELSE -->&nbsp;<!-- ENDIF -->
+					<!-- IF topicrow.S_MOVED_TOPIC and S_CAN_DELETE --><form action="{topicrow.U_DELETE_TOPIC}" method="get"><input type="button" title="{L_DELETE_SHADOW_TOPIC}" class="ufbn" value="X" /></form><!-- ENDIF -->
 				</dd>
 				<!-- ENDIF -->
 			</dl>
@@ -76,14 +61,10 @@
 		<ul class="linklist">
 			<li class="rightside pagination">
 				<!-- IF TOTAL_TOPICS --> {TOTAL_TOPICS}<!-- ENDIF -->
-				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> &bull; <a href="#" onclick="jumpto(); return false;" title="{L_JUMP_TO_PAGE}">{PAGE_NUMBER}</a> &bull; <span>{PAGINATION}</span><!-- ELSE --> &bull; {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
+				<!-- IF PAGE_NUMBER --><!-- IF PAGINATION --> | <span>{PAGINATION}</span><!-- ELSE --> | {PAGE_NUMBER}<!-- ENDIF --><!-- ENDIF -->
 			</li>
 		</ul>
 	<!-- ENDIF -->
-
-	<span class="corners-bottom"><span></span></span></div>
-</div>
-
 <fieldset class="display-actions">
 	<!-- IF not S_MERGE_SELECT -->
 	<select name="action">
