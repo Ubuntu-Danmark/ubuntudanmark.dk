@@ -2,7 +2,7 @@
 Theme Name: Ubuntu Loco Light Theme
 Theme URI: http://launchpad.net/wordpress-loco
 Description: A child theme for Ubuntu Loco websites
-Version: 0.2-rc
+Version: 0.2
 Author: Stas Sușcov
 Author URI: http://stas.nerd.ro/
 Template: thematic
@@ -25,6 +25,9 @@ Colors: http://www.colourlovers.com/palette/1140455/Ubuntu_Lucid_Lynx
 
 /* Apply basic image styles */  
 @import url('../thematic/library/styles/images.css');  
+
+/* Import Ubuntu Web Font */
+@import url('http://fonts.googleapis.com/css?family=Ubuntu:regular,bold,italic');
 
 /*
 Real stuff starts here
@@ -78,6 +81,7 @@ body { background: transparent url("images/dotted-bg.png") top; }
 #secondary-header,
 #page-top,
 #main { border-left: 1px solid #CCC; border-right: 1px solid #CCC; }
+#main { min-height: 600px; }
 #primary,
 #secondary { float: right; clear: right; width: 250px; margin: 15px 10px; padding: 15px 10px; overflow: hidden; background-color: #F7F7F7; }
 #primary { margin-bottom: -20px; }
@@ -113,6 +117,7 @@ body.blog .entry-title { display: block; }
 #content .page .entry-content,
 body.error404 #content .entry-content,
 body.four04 #content .entry-content { border: 0; }
+body.search-no-results #content .entry-content { border-top: 1px solid #FFF; margin-top: 0; border-bottom: 0; }
 #content .entry-utility { border-top: 1px solid #FFF; }
 #content .entry-utility div { padding: 1px 2px; }
 #content .entry-utility div ul { display: inline; margin: 0; }
@@ -247,6 +252,22 @@ body.single #content .entry-title { font-weight: normal; text-decoration: none; 
 .widgettitle { font-size: 120%; }
 
 /*
+Ubuntu Font
+*/
+#access,
+#secondary-header,
+#blog-description,
+.awesome,
+h1,
+h2,
+h3,
+h4,
+h5,
+input[type="submit"],
+label,
+.nivo-caption { font-family: 'Ubuntu', sans-serif; }
+
+/*
 Additional Styles
 */
 blockquote { color:#666; font-style:italic; }
@@ -312,11 +333,13 @@ Slider customization
     Arrows
     Captipon
 */
+.slider { width: 100%; }
 .nivo-directionNav a { display:block; width:32px; height:34px; background:url("images/slider-arrows.png") no-repeat; text-indent:-9999px; border:0; }
 a.nivo-nextNav { background-position:-32px 0; right:10px; }
 a.nivo-prevNav { left:10px; }
 a.nivo-nextNav:hover { background-position:-32px -34px; right:10px; }
 a.nivo-prevNav:hover { background-position:0px -34px; left:10px; }
+.nivo-caption { opacity:0.8 !important; }
 .nivo-caption, .nivo-caption p { background: #FFF !important; color: #772953; font-weight: bold; }
 
 /*
@@ -336,3 +359,8 @@ Special blocks
 Light grid support rule
 */
 .dp50 {width:50%;  float:left;  display: inline;  *margin-right:-1px; }
+
+/*
+Hide WordPress.com Stats Smiley
+*/
+img#wpstats { height: 0; width: 0; }
