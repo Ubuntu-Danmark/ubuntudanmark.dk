@@ -4,8 +4,8 @@
 * acp_email [Danish]
 *
 * @package language
-* @version Id: email.php 8479 2008-03-29 00:22:48Z naderman $
-* @version $Id: email.php 39 2010-03-06 12:43:59Z jan skovsgaard $
+* @version Id: email.php 11096 2011-04-10 18:30:16Z git-gate $
+* @version $Id: email.php 131 2011-04-11 05:54:15Z jan skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -68,6 +68,8 @@ $lang = array_merge($lang, array(
 	'SEND_TO_USERS'			=> 'Send til brugere',
 	'SEND_TO_USERS_EXPLAIN'	=> 'Indtastning af navne her vil overskrive enhver gruppe valgt ovenfor. Indtast hvert brugernavn på en ny linie.',
 
+	'MAIL_BANNED'      => 'Send også email til udelukkede brugere',
+	'MAIL_BANNED_EXPLAIN'  => 'Når du sender en masse-email til en gruppe, kan du her vælge at også udelukkede brugere i gruppen, skal modtage emailen.',
 	'MAIL_HIGH_PRIORITY'	=> 'Høj',
 	'MAIL_LOW_PRIORITY'		=> 'Lav',
 	'MAIL_NORMAL_PRIORITY'	=> 'Normal',

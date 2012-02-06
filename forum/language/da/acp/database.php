@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: database.php 9765 2009-07-17 10:11:10Z bantu $
-* @version $Id: database.php 10 2010-02-06 18:13:13Z jan skovsgaard $
+* @version $Id: database.php 178 2011-11-20 08:36:08Z Jan Skovsgaard $
 * @source file is copyright (c) 2005,phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -74,6 +74,7 @@ $lang = array_merge($lang, array(
 	
 	'RESTORE_FAILURE'	=> 'Backupfilen kan være ødelagt.',
 	'RESTORE_OPTIONS'		=> 'Valgmuligheder for gendannelse',
+	'RESTORE_SELECTED_BACKUP'  => 'Er du sikker på at du ænsker at gendanne den valgte backup?',
 	'RESTORE_SUCCESS'		=> 'Gendannelsen af databasen lykkedes.<br /><br />Dit board skulle være tilbage i den stand det var i da backup\'en blev taget.',
 
 	'SELECT_ALL'	=> 'Vælg alle',

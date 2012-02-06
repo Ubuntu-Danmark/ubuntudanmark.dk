@@ -4,8 +4,8 @@
 * install [Danish]
 *
 * @package language
-* @version Id: install.php 10613 2010-05-14 00:45:13Z git-gate $
-* @version $Id: install.php 92 2010-11-07 08:36:36Z jan skovsgaard $
+* @version Id: install.php 10900 2010-12-29 22:00:07Z git-gate $
+* @version $Id: install.php 184 2011-11-29 20:00:51Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -143,7 +143,7 @@ $lang = array_merge($lang, array(
 	'DB_ERR_QUERY_FIRST_TABLE'	=> 'Fejl under behandling af <var>query_first</var>, %s ("%s").',
 	'DB_ERR_SELECT'				=> 'Fejl under kørsel af <code>SELECT</code>-forespørgsel.',
 	'DB_HOST'					=> 'Værtsnavn for databaseserver eller DSN',
-	'DB_HOST_EXPLAIN'			=> 'DSN står for Data Source Name og er kun relevant for ODBC-installationer. Ved PostgreSQL anvendes localhost til at forbinde til lokal server via UNIX domain socket og 127.0.0.1 til at forbinde via TCP.',
+	'DB_HOST_EXPLAIN'			=> 'DSN står for Data Source Name og er kun relevant for ODBC-installationer. Ved PostgreSQL anvendes localhost til at forbinde til lokal server via UNIX domain socket og 127.0.0.1 til at forbinde via TCP. Ved SQLite angives den komplette sti til databasefilen.',
 	'DB_NAME'					=> 'Databasenavn',
 	'DB_PASSWORD'				=> 'Kodeord for databasebruger',
 	'DB_PORT'					=> 'Port for databaseserver',
@@ -156,17 +156,17 @@ $lang = array_merge($lang, array(
 	'DEV_NO_TEST_FILE'			=> 'Ingen værdi er blevet angivet for test_file-variablen i konverteren. Hvis du er bruger af denne konverter, burde du ikke se denne fejl, rapporter venligst denne fejl til konverterforfatteren. Hvis du er en konverterforfatter, skal du angive navnet på en fil som eksisterer i kildeboardet for at muliggøre verifikation af stien til det.',
 	'DIRECTORIES_AND_FILES'		=> 'Opsætning for filer og mapper',
 	'DISABLE_KEYS'				=> 'Slår nøgler fra',
-	'DLL_FIREBIRD'				=> 'Firebird 1.5+',
+	'DLL_FIREBIRD'				=> 'Firebird',
 	'DLL_FTP'					=> 'Understøttelse for Remote FTP [ Installation ]',
 	'DLL_GD'					=> 'Understøttelse for GD-grafik [ Visuel bekræftelse ]',
 	'DLL_MBSTRING'				=> 'Understøttelse for Multi-byte character',
 	'DLL_MSSQL'					=> 'MSSQL Server 2000+',
 	'DLL_MSSQL_ODBC'	=> 'MSSQL Server 2000+ via ODBC',
 	'DLL_MSSQLNATIVE'	=> 'MSSQL Server 2005+ [ Native ]', 
-	'DLL_MYSQL'					=> 'MySQL 3.23.x/4.x',
-	'DLL_MYSQLI'				=> 'MySQL 4.1.x/5.x med MySQLi Extension',
+	'DLL_MYSQL'					=> 'MySQL',
+	'DLL_MYSQLI'				=> 'MySQL med MySQLi Extension',
 	'DLL_ORACLE'				=> 'Oracle',
-	'DLL_POSTGRES'				=> 'PostgreSQL 7.x/8.x',
+	'DLL_POSTGRES'				=> 'PostgreSQL',
 	'DLL_SQLITE'				=> 'SQLite',
 	'DLL_XML'					=> 'Understøttelse for XML [ Jabber ]',
 	'DLL_ZLIB'					=> 'Understøttelse for zlib-kompression [ gz, .tar.gz, .zip ]',
@@ -247,10 +247,11 @@ $lang = array_merge($lang, array(
 	'INST_ERR'					=> 'Installationsfejl',
 	'INST_ERR_DB_CONNECT'		=> 'Kunne ikke forbinde til databasen, se fejlmeddelelsen herunder.',
 	'INST_ERR_DB_FORUM_PATH'	=> 'Den angivne databasefil findes i dine boardmapper. Du bør anbringe denne fil et sted hvor den ikke kan tilgås fra nettet.',
+	'INST_ERR_DB_INVALID_PREFIX'=> 'Det angivne præfiks er ugyldigt. Præfikset skal begynde med et bogstav, og må ellers kun indeholde bogstaver, tal og underscores.',
 	'INST_ERR_DB_NO_ERROR'		=> 'Ingen fejlmeddelelse.',
 	'INST_ERR_DB_NO_MYSQLI'		=> 'Versionen af MySQL installeret på denne server er ikke kompatibel med den valgte indstilling "MySQL med MySQLi-udvidelse". Prøv venligst indstillingen "MySQL" i stedet for.',
 	'INST_ERR_DB_NO_SQLITE'		=> 'Den installerede version af SQLite udvidelsen er for gammel, den skal opdateres til mindst 2.8.2.',
-	'INST_ERR_DB_NO_ORACLE'		=> 'Den installerede version af Oracle på denne server kræver at du sætter parameteren <var>NLS_CHARACTERSET</var> til <var>UTF8</var>. Opdater venligst enten din installation til 9.2+ eller korriger indstilllingen af parameteren.',
+	'INST_ERR_DB_NO_ORACLE'		=> 'Den installerede version af Oracle på denne server kræver at du sætter parameteren <var>NLS_CHARACTERSET</var> til <var>UTF8</var>. Opdater venligst enten din installation til 9.2+ eller korriger indstillingen af parameteren.',
 	'INST_ERR_DB_NO_FIREBIRD'	=> 'Den installerede version af Firebird på denne server er ældre end 2.1, opdater venligst til en nyere version.',
 	'INST_ERR_DB_NO_FIREBIRD_PS'=> 'Den database du har valgt til Firebird har sidestørrelse mindre end 8192, den skal være på mindst 8192.',
 	'INST_ERR_DB_NO_POSTGRES'	=> 'Den valgte database blev ikke oprettet i <var>UNICODE</var>- eller <var>UTF8</var>-encoding. Prøv at installere med en database i <var>UNICODE</var>- eller <var>UTF8</var>-encoding.',
@@ -367,6 +368,7 @@ $lang = array_merge($lang, array(
 
 	'TABLES_MISSING'			=> 'Kunne ikke finde disse tabeller<br />» <strong>%s</strong>.',
 	'TABLE_PREFIX'				=> 'Præfiks for tabeller i database',
+	'TABLE_PREFIX_EXPLAIN'    => 'Præfikset skal starte med et bogstav, og må ellers kun indeholde bogstaver, tal og underscores.',
 	'TABLE_PREFIX_SAME'			=> 'Tabelpræfikset skal være det som bruges af softwaren du konverterer fra.<br />»  Angivet tabelpræfiks var %s.',
 	'TESTS_PASSED'				=> 'Tests gennemført',
 	'TESTS_FAILED'				=> 'Tests fejlede',
@@ -385,7 +387,7 @@ $lang = array_merge($lang, array(
 
 // Updater
 $lang = array_merge($lang, array(
-	'ALL_FILES_UP_TO_DATE'		=> 'Alle filer er opdaterede til den seneste version af phpBB. Du bør nu <a href="../ucp.php?mode=login&amp;redirect=adm/index.php%3Fi=send_statistics%26mode=send_statistics">logge ind på dit board</a> og kontrollere at alt fungerer efter hensigten. Husk at slette, omdøbe eller flytte install-mappen! Send os venligst de opdaterede statistiske data om din server- og boardkonfiguration via <a href="../ucp.php?mode=login&amp;redirect=adm/index.php%3Fi=send_statistics%26mode=send_statistics">statistikmodulet</a> i ACP.',
+	'ALL_FILES_UP_TO_DATE'		=> 'Alle filer er opdaterede til den seneste version af phpBB. Du bør nu <a href="../ucp.php?mode=login">logge ind på dit board</a> og kontrollere at alt fungerer efter hensigten. Husk at slette, omdøbe eller flytte install-mappen! Send os venligst de opdaterede statistiske data om din server- og boardkonfiguration via <a href="../ucp.php?mode=login&amp;redirect=adm/index.php%3Fi=send_statistics%26mode=send_statistics">statistikmodulet</a> i ACP.',
 	'ARCHIVE_FILE'				=> 'Kildefil i arkiv',
 
 	'BACK'		=> 'Tilbage',

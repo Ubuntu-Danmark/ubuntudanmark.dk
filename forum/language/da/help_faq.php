@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: help_faq.php 10716 2010-08-19 15:27:38Z git-gate $
-* @version $Id: help_faq.php 75 2010-08-22 08:02:08Z jan skovsgaard $
+* @version $Id: help_faq.php 164 2011-10-13 17:31:19Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group,
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -76,7 +76,7 @@ $help = array(
 	),
 	array(
 		0 => 'Jeg har tilmeldt mig for et stykke tid siden, og kan nu ikke logge ind længere?!',
-		1 => 'Der kan være flere grunde til, at du ikke kan logge ind. Først bør du sikre dig, at du taster brugernavn og kodeord korrekt. Husk, at der skelnes mellem store og små bogstaver i kodeordet - kontroller tasten "Caps Lock". Hvis du stadig har den email du modtog, da du tilmeldte dig, kan du kontrollere dit brugernavn og kodeord i den. Problemet kan også skyldes, at administratoren har slettet eller deaktiveret din konto, fordi du ikke har skrevet nogle indlæg. Det er normal procedure med jævne mellemrum at fjerne brugere, som aldrig har skrevet indlæg. Tilmeld dig igen for at blande dig i diskussionerne.'
+		1 => 'Der kan være flere grunde til, at du ikke kan logge ind. Først bør du sikre dig, at du taster brugernavn og kodeord korrekt. Husk, at der skelnes mellem store og små bogstaver i kodeordet - kontroller tasten "Caps Lock". Problemet kan også skyldes, at administratoren har slettet eller deaktiveret din konto, fordi du ikke har skrevet nogle indlæg. Det er normal procedure med jævne mellemrum at fjerne brugere, som aldrig har skrevet indlæg. Tilmeld dig igen for at blande dig i diskussionerne.'
 	),
 	array(
 		0 => 'Hvad er COPPA?',

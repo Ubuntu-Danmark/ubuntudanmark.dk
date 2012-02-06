@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: memberlist.php 9933 2009-08-06 09:12:21Z marshalrusty $
-* @version $Id: memberlist.php 10 2010-02-06 18:13:13Z jan skovsgaard $
+* @version $Id: memberlist.php 134 2011-05-11 13:52:05Z jan skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -131,7 +131,6 @@ $lang = array_merge($lang, array(
 	'REMOVE_FOE'			=> 'Fjern ignoreret bruger',
 	'REMOVE_FRIEND'			=> 'Slet ven',
 
-	'SEARCH_USER_POSTS'		=> 'Vis brugers indlæg',
 	'SELECT_MARKED'			=> 'Vælg markerede',
 	'SELECT_SORT_METHOD'	=> 'Vælg sorteringsmåde',
 	'SEND_AIM_MESSAGE'		=> 'Send besked med AIM',

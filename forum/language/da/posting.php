@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: posting.php 9742 2009-07-09 10:34:40Z bantu $
-* @version $Id: posting.php 39 2010-03-06 12:43:59Z jan skovsgaard $
+* @version $Id: posting.php 161 2011-07-31 06:30:59Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -63,7 +63,7 @@ $lang = array_merge($lang, array(
 	'BBCODE_A_HELP'				=> 'Vis vedhæftet fil inline: [attachment=]filnavn.ext[/attachment]',
 	'BBCODE_B_HELP'				=> 'Fed tekst: [b]tekst[/b]',
 	'BBCODE_C_HELP'				=> 'Kodevisning: [code]kode[/code]',
-	'BBCODE_E_HELP'				=> 'Liste: Tilføj listeelement',
+	'BBCODE_D_HELP'				=> 'Flash: [flash=bredde,højde]http://url[/flash]',
 	'BBCODE_F_HELP'				=> 'Fontstørrelse: [size=85]lille tekst[/size]',
 	'BBCODE_IS_OFF'				=> '%sBBkode%s er slået <em>FRA</em>',
 	'BBCODE_IS_ON'				=> '%sBBkode%s er slået <em>TIL</em>',
@@ -76,7 +76,7 @@ $lang = array_merge($lang, array(
 	'BBCODE_S_HELP'				=> 'Fontfarve: [color=red]tekst[/color]  Tip: du kan også bruge color=#FF0000',
 	'BBCODE_U_HELP'				=> 'Understreg tekst: [u]tekst[/u]',
 	'BBCODE_W_HELP'				=> 'Indsæt URL: [url]http://url[/url] eller [url=http://url]URL-tekst[/url]',
-	'BBCODE_D_HELP'				=> 'Flash: [flash=bredde,højde]http://url[/flash]',
+	'BBCODE_Y_HELP'				=> 'Liste: Tilføj listeelement',
 	'BUMP_ERROR'				=> 'Du kan ikke placere emnet øverst så hurtigt efter sidste indlæg.',
 
 	'CANNOT_DELETE_REPLIED'		=> 'Beklager, men du kan kun slette indlæg der ikke er blevet besvaret.',

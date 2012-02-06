@@ -4,8 +4,8 @@
 * acp_board [Danish]
 *
 * @package language
-* @version Id: board.php 10848 2010-11-07 14:00:05Z git-gate $
-* @version $Id: board.php 95 2010-11-08 08:28:14Z jan skovsgaard $
+* @version Id: board.php 11245 2011-06-16 14:15:09Z git-gate $
+* @version $Id: board.php 167 2011-10-17 18:01:17Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -69,7 +69,7 @@ $lang = array_merge($lang, array(
 	'SYSTEM_TIMEZONE'				=> 'Tidszone for gæster',
 	'SYSTEM_TIMEZONE_EXPLAIN'      => 'Den tidszone der vises for brugere der ikke er logget ind (gæster, botter). Tilmeldte brugere vælger selv foretrukken tidszone under tilmeldingen og kan ændre denne i brugerkontrolpanelet.',
 	'WARNINGS_EXPIRE'				=> 'Varighed for advarsler',
-	'WARNINGS_EXPIRE_EXPLAIN'		=> 'Antal dage fra en advarsel udstedes, til den fjernes fra brugeres profildata.',
+	'WARNINGS_EXPIRE_EXPLAIN'		=> 'Antal dage fra en advarsel udstedes, til den fjernes fra brugeres profildata. Angives 0, vil advarslen være permanent.',
 ));
 
 // Board Features
@@ -167,7 +167,7 @@ $lang = array_merge($lang, array(
 	'ALLOW_POST_FLASH_EXPLAIN'		=> 'Hvis anvendelse ikke er tilladt, er BBkode-tag\'en <code>[FLASH]</code> ikke synlig når der skrives indlæg. Ellers kan tilladelsessystemet anvendes til af definere hvilke brugere der må bruge BBkode-tag\'en<code>[FLASH]</code> .',
 
 	'BUMP_INTERVAL'					=> 'Interval for placer øverst',
-	'BUMP_INTERVAL_EXPLAIN'			=> 'Antal minutter, timer eller dage siden seneste indlæg i et emne, inden det kan placeres øverst. 0 deaktiverer denne begrænsning.',
+	'BUMP_INTERVAL_EXPLAIN'			=> 'Antal minutter, timer eller dage siden seneste indlæg i et emne, inden det kan placeres øverst. 0 deaktiverer muligheden for at placere et emne øverst.',
 	'CHAR_LIMIT'					=> 'Maksimalt antal tegn pr. meddelelse',
 	'CHAR_LIMIT_EXPLAIN'			=> 'Det maximale antal tegn tilladt i indlæg og private beskeder. 0 deaktiverer denne begrænsning.',
 	'DELETE_TIME'					=> 'Slettegrænse',
@@ -190,7 +190,7 @@ $lang = array_merge($lang, array(
 	'MAX_POST_URLS'					=> 'Maksimalt antal links i indlæg',
 	'MAX_POST_URLS_EXPLAIN'			=> 'Højeste antal URL\'er pr. indlæg. Sæt til 0 for ubegrænset antal links.',
 	'MIN_CHAR_LIMIT'					=> 'Mindste antal tegn pr. meddelelse',
-	'MIN_CHAR_LIMIT_EXPLAIN'	=> 'Indlæg og private beskeder skal indeholde minimum dette antal tegn.',
+	'MIN_CHAR_LIMIT_EXPLAIN'	=> 'Indlæg og private beskeder skal indeholde minimum dette antal tegn. 1 er den mindste værdi i denne indstilling.',
 	'POSTING'						=> 'Indlæg',
 	'POSTS_PER_PAGE'				=> 'Indlæg pr. side',
 	'QUOTE_DEPTH_LIMIT'				=> 'Maksimal dybde for citeringer',
@@ -224,16 +224,16 @@ $lang = array_merge($lang, array(
 	'ACP_REGISTER_SETTINGS_EXPLAIN'		=> 'Her kan du tilpasse tilmeldings- og profilrelaterede indstillinger.',
 
 	'ACC_ACTIVATION'			=> 'Kontoaktivering',
-	'ACC_ACTIVATION_EXPLAIN'	=> 'Bestemmer om brugere har øjeblikkelig adgang til boardet eller om der kræves anden form for bekræftelse. Du kan også deaktivere muligheden for at tilmelde sig boardet.',
+	'ACC_ACTIVATION_EXPLAIN'	=> 'Bestemmer om brugere har øjeblikkelig adgang til boardet eller om der kræves anden form for bekræftelse. Du kan også deaktivere muligheden for at tilmelde sig boardet. Boardets emailsystem skal være aktiveret for at anvende bruger- og administratoraktivering.',
 	'NEW_MEMBER_POST_LIMIT'					=> 'Øvre grænse for "Nye brugere"',
 	'NEW_MEMBER_POST_LIMIT_EXPLAIN' => 'Brugere forbliver medlem af gruppen <em>Nye brugere</em>, indtil dette antal indlæg er indsendt. Du kan også vælge at medlemmer af denne gruppe eksempelvis ikke må anvende PB-systemet eller at nye indlæg skal gennemses og godkendes. <strong>0 deaktiverer denne mulighed.</strong>',
 	'NEW_MEMBER_GROUP_DEFAULT'					=> 'Vælg "Nye brugere" som standardgruppe',
 	'NEW_MEMBER_GROUP_DEFAULT_EXPLAIN' => 'Bestem om gruppen <em>Nye brugere</em> også skal være nye brugeres standardgruppe. Forudsætningen er at der er defineret en øvre grænse for nye brugere. Det kan være nyttigt hvis du ønsker at at knytte en grupperang eller avatar til medlemmer af denne gruppe.',
 
 	'ACC_ADMIN'					=> 'Af administrator',
-	'ACC_DISABLE'				=> 'Deaktiveret',
-	'ACC_NONE'					=> 'Ingen',
-	'ACC_USER'					=> 'Af bruger',
+	'ACC_DISABLE'				=> 'Inaktiv',
+	'ACC_NONE'					=> 'Ingen (øjeblikkelig adgang)',
+	'ACC_USER'					=> 'Af bruger (verificeres pr email)',
 //	'ACC_USER_ADMIN'			=> 'User + Admin',
 	'ALLOW_EMAIL_REUSE'			=> 'Tillad genbrug af emailadresse',
 	'ALLOW_EMAIL_REUSE_EXPLAIN'	=> 'Forskellige brugere kan tilmelde sig med samme emailadresse.',
@@ -354,9 +354,9 @@ $lang = array_merge($lang, array(
 	'COOKIE_SECURE'		=> 'Sikker cookie',
 	'COOKIE_SECURE_EXPLAIN'	=> 'Sættes kun aktiv hvis din server kommunikerer via SSL. Sættes indstillingen aktiv på et domæne, der ikke kører SSL, vil det resultere i serverfejl ved viderestillinger.',
 	'ONLINE_LENGTH'				=> 'Varighed af onlineinformation',
-	'ONLINE_LENGTH_EXPLAIN'		=> 'Tid i minutter hvorefter inaktive brugere bliver fjernet fra "Hvem er online" listen. Jo større tidsrum, desto længere behandlingstid for at generere listen.',
+	'ONLINE_LENGTH_EXPLAIN'		=> 'Inaktive brugere fjernes fra "Hvem er online" listen efter den angivne periode. Jo større tidsrum, desto længere behandlingstid for at generere listen.',
 	'SESSION_LENGTH'			=> 'Sessionslængde',
-	'SESSION_LENGTH_EXPLAIN'	=> 'Sessioner vil udløbe efter denne tid, i sekunder.',
+	'SESSION_LENGTH_EXPLAIN'	=> 'Sessioner udløber automatisk efter dette tidsrum.',
 ));
 
 // Load Settings
@@ -478,8 +478,14 @@ $lang = array_merge($lang, array(
 	'FORWARDED_FOR_VALID_EXPLAIN'	=> 'Sessioner vil kun blive fortsat, hvis det sendte <var>X_FORWARDED_FOR</var>-hoved svarer til det, der blev sendt med den forrige anmodning. Udelukkelser bliver også kontrolleret imod IP-adresser i <var>X_FORWARDED_FOR</var>.',
 	'IP_VALID'						=> 'Validering af IP-adresser',
 	'IP_VALID_EXPLAIN'				=> 'Afgør hvor meget af brugeres IP-adresse, der bruges til at validere en session. <samp>Alle</samp> sammenligner hele adressen, <samp>A.B.C</samp> de første x.x.x, <samp>A.B</samp> de første x.x, <samp>Ingen</samp> slår kontrol fra. I IPv6 adresser vil <samp>A.B.C</samp> sammenligne de første 4 blokke og <samp>A.B</samp> de første 3 blokke.',
-	'MAX_LOGIN_ATTEMPTS'			=> 'Maksimalt antal loginforsøg',
-	'MAX_LOGIN_ATTEMPTS_EXPLAIN'	=> 'Efter dette antal mislykkede forsøg, udfordres bruger desuden med en CAPTCHA-opgave.',
+	'IP_LOGIN_LIMIT_MAX'      => 'Maksimalt antal loginforsøg pr. IP-adresse',
+	'IP_LOGIN_LIMIT_MAX_EXPLAIN'  => 'Overskrides denne grænse, udfordres bruger desuden med en CAPTCHA-opgave. 0 giver et ubegrænset antal loginforsøg.',
+	'IP_LOGIN_LIMIT_TIME'      => 'Udløbstid for loginforsøg pr. IP-adresse',
+	'IP_LOGIN_LIMIT_TIME_EXPLAIN'  => 'Det tidsrum loginforsøg accepteres fra en IP-adresse.',
+	'IP_LOGIN_LIMIT_USE_FORWARDED'  => 'Begræns loginforsøg pr. <var>X_FORWARDED_FOR</var>',
+	'IP_LOGIN_LIMIT_USE_FORWARDED_EXPLAIN'  => 'I stedet for at sætte grænsen for loginforsøg pr. IP-adresse, identificeres loginforsøg efter for værdierne i <var>X_FORWARDED_FOR</var>-hovedet. <br /><em><strong>Advarsel:</strong> Anvend kun denne identificering hvis din proxy-server sætter pålidelige værdier i <var>X_FORWARDED_FOR</var>.</em>',
+	'MAX_LOGIN_ATTEMPTS'			=> 'Maksimalt antal loginforsøg pr. bruger',
+	'MAX_LOGIN_ATTEMPTS_EXPLAIN'	=> 'Overskrides denne grænse, udfordres bruger desuden med en CAPTCHA-opgave. 0 giver et ubegrænset antal loginforsøg.',
 	'NO_IP_VALIDATION'				=> 'Ingen',
 	'NO_REF_VALIDATION'		=> 'Ingen',
 	'PASSWORD_TYPE'					=> 'Kodeordskompleksitet',

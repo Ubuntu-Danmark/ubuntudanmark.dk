@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: captcha_recaptcha.php 10830 2010-10-25 20:30:20Z git-gate $
-* @version $Id: captcha_recaptcha.php 87 2010-10-29 14:08:41Z jan skovsgaard $
+* @version $Id: captcha_recaptcha.php 135 2011-05-11 13:58:38Z jan skovsgaard $
 * @source file is copyright (c) 2009 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -52,14 +52,14 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'RECAPTCHA_LANG'				=> 'da',
-	'RECAPTCHA_NOT_AVAILABLE'		=> 'For at tage reCaptcha i brug, skal du tilmelde dig på <a href="http://recaptcha.net">reCaptcha.net</a>.',
+	'RECAPTCHA_NOT_AVAILABLE'		=> 'For at tage reCaptcha i brug, skal du tilmelde dig på <a href="http://www.google.com/recaptcha">www.google.com/recaptcha</a>.',
 	'CAPTCHA_RECAPTCHA'				=> 'reCaptcha',
 	'RECAPTCHA_INCORRECT'			=> 'Den angivne bekræftelseskode var ikke korrekt',
 
 	'RECAPTCHA_PUBLIC'				=> 'Offentlig reCaptcha-nøgle',
-	'RECAPTCHA_PUBLIC_EXPLAIN'		=> 'Din offentlige reCaptcha-nøgle. Nøgler udleveres fra <a href="http://recaptcha.net">reCaptcha.net</a>.',
+	'RECAPTCHA_PUBLIC_EXPLAIN'		=> 'Din offentlige reCaptcha-nøgle. Nøgler udleveres fra <a href="http://www.google.com/recaptcha">www.google.com/recaptcha</a>.',
 	'RECAPTCHA_PRIVATE'				=> 'Privat reCaptcha-nøgle',
-	'RECAPTCHA_PRIVATE_EXPLAIN'		=> 'Din private reCaptcha-nøgle. Nøgler udleveres fra <a href="http://recaptcha.net">reCaptcha.net</a>.',
+	'RECAPTCHA_PRIVATE_EXPLAIN'		=> 'Din private reCaptcha-nøgle. Nøgler udleveres fra <a href="http://www.google.com/recaptcha">www.google.com/recaptcha</a>.',
 
 	'RECAPTCHA_EXPLAIN'	=> 'Indtast venligst begge ord i teksfeltet umiddelbart herunder.',
 ));

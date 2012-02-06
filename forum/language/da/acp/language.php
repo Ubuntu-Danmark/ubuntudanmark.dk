@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: language.php language.php 9649 2009-06-21 19:17:20Z bantu $
-* @version $Id: language.php 10 2010-02-06 18:13:13Z jan skovsgaard $
+* @version $Id: language.php 180 2011-11-25 19:02:45Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -20,7 +20,7 @@
 * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
 * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 *
- * You should have received a copy of the GNU General Public License along with this language
+* You should have received a copy of the GNU General Public License along with this language
 * package. If not, see <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>.
 *
 */
@@ -74,6 +74,7 @@ $lang = array_merge($lang, array(
 	'LANGUAGE_PACK_DELETED'				=> 'Sprogpakken <strong>%s</strong> er nu fjernet og alle brugere, der havde valgt dette sprog, er blevet sat til at bruge boardets standardsprog.',
 	'LANGUAGE_PACK_DETAILS'				=> 'Sprogpakkeinformationer',
 	'LANGUAGE_PACK_INSTALLED'			=> 'Sprogpakken <strong>%s</strong> er blevet installeret.',
+	'LANGUAGE_PACK_CPF_UPDATE'      => 'De tilpassede profilfelters sprogspecifikke indstillinger blev kopieret fra standardsproget. Det er det muligt at oversætte feltet individuelt for hvert installeret sprog.',
 	'LANGUAGE_PACK_ISO'					=> 'ISO',
 	'LANGUAGE_PACK_LOCALNAME'			=> 'Lokalt navn',
 	'LANGUAGE_PACK_NAME'				=> 'Navn',

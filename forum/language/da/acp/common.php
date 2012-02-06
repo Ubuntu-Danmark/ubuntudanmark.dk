@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: common.php 10848 2010-11-07 14:00:05Z git-gate $
-* @version $Id: common.php 95 2010-11-08 08:28:14Z jan skovsgaard $
+* @version $Id: common.php 176 2011-11-16 13:21:57Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -342,6 +342,16 @@ $lang = array_merge($lang, array(
 	'DATABASE_SERVER_INFO'	=> 'Databaseserver',
 	'DATABASE_SIZE'			=> 'Databasestørrelse',
 
+	// Enviroment configuration checks, mbstring related
+	'ERROR_MBSTRING_FUNC_OVERLOAD'					=> 'Funktionen overloading er fejlkonfigureret',
+	'ERROR_MBSTRING_FUNC_OVERLOAD_EXPLAIN'			=> '<var>mbstring.func_overload</var> skal konfigureres til enten 0 eller 4. Den nuværende konfiguration kan kontrolleres under <samp>PHP-indstillinger</samp>.',
+	'ERROR_MBSTRING_ENCODING_TRANSLATION'			=> 'Transparent character encoding er fejlkonfigureret',
+	'ERROR_MBSTRING_ENCODING_TRANSLATION_EXPLAIN'	=> '<var>mbstring.encoding_translation</var> skal konfigureres til 0. Den nuværende konfiguration kan kontrolleres under <samp>PHP-indstillinger</samp>.',
+	'ERROR_MBSTRING_HTTP_INPUT'						=> 'HTTP input character conversion er fejlkonfigureret',
+	'ERROR_MBSTRING_HTTP_INPUT_EXPLAIN'				=> '<var>mbstring.http_input</var> skal konfigureres til <samp>pass</samp>. Den nuværende konfiguration kan kontrolleres under <samp>PHP-indstillinger</samp>.',
+	'ERROR_MBSTRING_HTTP_OUTPUT'					=> 'HTTP output character conversion er fejlkonfigureret',
+	'ERROR_MBSTRING_HTTP_OUTPUT_EXPLAIN'			=> '<var>mbstring.http_output</var> skal konfigureres til <samp>pass</samp>. Den nuværende konfiguration kan kontrolleres under <samp>PHP-indstillinger</samp>.',
+
 	'FILES_PER_DAY'		=> 'Antal vedhæftede filer pr. dag',
 	'FORUM_STATS'		=> 'Boardstatistikker',
 
@@ -357,6 +367,7 @@ $lang = array_merge($lang, array(
 	'PHP_VERSION_OLD'	=> 'Den PHP-version der er installeret på denne server understøttes ikke i fremtidige versioner af phpBB. %sDetails%s',
 
 	'POSTS_PER_DAY'		=> 'Indlæg pr. dag',
+
 	'PURGE_CACHE'		=> 'Tøm cachen',
 	'PURGE_CACHE_CONFIRM'	=> 'Er du sikker på du vil tømme cachen?', 
 	'PURGE_CACHE_EXPLAIN'	=> 'Sletter alt i cachen, dette inkluderer mellemlagrede skabelonfiler og søgninger.',
@@ -374,7 +385,7 @@ $lang = array_merge($lang, array(
 	'RESYNC_POSTCOUNTS_CONFIRM'	=> 'Er du sikker på at du vil synkronisere indlægstællere?',
 	'RESYNC_POST_MARKING'	=> 'Synkronisering af prikkede emner',
 	'RESYNC_POST_MARKING_CONFIRM'	=> 'Er du sikker på at du vil synkronisere prikkede emner?',
-	'RESYNC_POST_MARKING_EXPLAIN'	=> 'Først fravælges alle emner og derefter vælges emner med aktivitet i de seneste seks igen måneder korrekt.',
+	'RESYNC_POST_MARKING_EXPLAIN'	=> 'Alle prikkede emner nulstilles og efterfølgende opdateres emner med brugeres aktivitet de seneste seks måneder igen med en prik.',
 	'RESYNC_STATS'			=> 'Synkronisering af statistikker',
 	'RESYNC_STATS_CONFIRM'	=> 'Er du sikker på at du ønsker at synkronisere statistikkerne?',
 	'RESYNC_STATS_EXPLAIN'	=> 'Genberegner det samlede antal indlæg, emner, brugere og filer.',

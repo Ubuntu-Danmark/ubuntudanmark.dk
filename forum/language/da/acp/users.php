@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: users.php 10700 2010-08-19 15:27:05Z git-gate $
-* @version $Id: users.php 75 2010-08-22 08:02:08Z jan skovsgaard $
+* @version $Id: users.php 150 2011-07-09 06:20:42Z jan skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -72,7 +72,7 @@ $lang = array_merge($lang, array(
 	'CANNOT_SET_FOUNDER_INACTIVE'	=> 'Du skal aktivere brugere før du forfremmer dem til grundlæggere, kun aktive brugere kan forfremmes.',
 	'CONFIRM_EMAIL_EXPLAIN'			=> 'Du skal kun specificere dette, hvis du ændrer brugerens emailadresse.',
 
-	'DELETE_POSTS'			=> 'Slet indlæg',
+	'DELETE_POSTS'			=> 'Slet brugers indlæg',
 	'DELETE_USER'			=> 'Slet bruger',
 	'DELETE_USER_EXPLAIN'	=> 'Vær opmærksom på at når en bruger slettes er det definitivt, brugeren kan ikke gendannes.',
 
@@ -100,7 +100,7 @@ $lang = array_merge($lang, array(
 
 	'REGISTERED'			=> 'Tilmeldt',
 	'REGISTERED_IP'			=> 'Tilmeldt fra IP-adresse',
-	'RETAIN_POSTS'			=> 'Tilbagehold indlæg',
+	'RETAIN_POSTS'			=> 'Bibehold brugers indlæg',
 
 	'SELECT_FORM'			=> 'Vælg element',
 	'SELECT_USER'			=> 'Vælg bruger',
