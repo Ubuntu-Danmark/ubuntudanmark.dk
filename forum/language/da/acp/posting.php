@@ -4,8 +4,8 @@
 * acp_posting [Danish]
 *
 * @package language
-* @version Id: posting.php 10517 2010-02-21 11:35:45Z Kellanved $
-* @version $Id: posting.php 21 2010-02-21 15:09:48Z jan skovsgaard $
+* @version Id: posting.php 11098 2011-04-11 00:00:08Z git-gate $
+* @version $Id: posting.php 159 2011-07-17 09:40:13Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -107,9 +107,9 @@ $lang = array_merge($lang, array(
 $lang = array_merge($lang, array(
 	'ACP_ICONS_EXPLAIN'		=> 'Her kan du tilføje, fjerne og rette ikonerne som brugerne kan tilføje til deres emner eller indlæg. Disse ikoner vises generelt ved siden af emnetitler på forumoversigten, eller ved emnetitlerne i emnevisningerne. Du kan også installere og oprette nye ikonpakker.',
 	'ACP_SMILIES_EXPLAIN'	=> 'Smilies er typisk små, nogle gange animerede billeder der bruges til at give udtryk for en følelse eller mening. Fra denne side kan du tilføje, fjerne og rette de smilies som brugerne kan bruge i deres indlæg og private beskeder. Du kan også installere og oprette nye pakker med smilies.',
-	'ADD_SMILIES'			=> 'Tilføj mange smilies',
+	'ADD_SMILIES'			=> 'Tilføj smilies',
 	'ADD_SMILEY_CODE'		=> 'Tilføj yderligere smileykode',
-	'ADD_ICONS'				=> 'Tilføj mange ikoner',
+	'ADD_ICONS'				=> 'Tilføj ikoner',
 	'AFTER_ICONS'			=> 'Efter %s',
 	'AFTER_SMILIES'			=> 'Efter %s',
 
@@ -187,6 +187,7 @@ $lang = array_merge($lang, array(
 	'SMILIES_ONE_EDITED'		=> 'Smiley blev korrekt opdateret.',
 	'SMILIES_EDITED'			=> 'Smilies blev korrekt opdateret.',
 	'SMILIES_EMOTION'			=> 'Følelse',
+	'SMILIE_NO_FILE'			=> 'Smiley "%s" blev ignoreret, da filen mangler.',
 	'SMILIES_HEIGHT'			=> 'Smileyhøjde',
 	'SMILIES_IMAGE'				=> 'Smileybillede',
 	'SMILIES_IMPORTED'			=> 'Smiliespakken blev korrekt installeret.',
@@ -246,13 +247,13 @@ $lang = array_merge($lang, array(
 
 // Disallow Usernames
 $lang = array_merge($lang, array(
-	'ACP_DISALLOW_EXPLAIN'	=> 'Herfra kan du administrere hvilke brugernavne det ikke er tilladt at bruge. I definitionen af brugernavne kan anvendes (*) som ubekendt. Bemærk venligst at du ikke kan angive brugernavne som allerede er oprettede, du må først slette den pågældende bruger og derefter tilføje afvisning af brugernavnet.',
+	'ACP_DISALLOW_EXPLAIN'	=> 'Herfra kan du administrere hvilke brugernavne det ikke er tilladt at bruge. I definitionen af brugernavne kan anvendes (*) som ubekendt.',
 	'ADD_DISALLOW_EXPLAIN'	=> 'Du kan udvide antallet af brugernavne, som ikke er tilladte, ved at bruge (*) som ubekendt, for at matche ethvert tegn.',
 	'ADD_DISALLOW_TITLE'	=> 'Tilføj afvisning af brugernavn',
 
 	'DELETE_DISALLOW_EXPLAIN'	=> 'Du kan fjerne brugernavnes afvisning ved at vælge disse i nedenstående oversigt og klikke på udfør.',
 	'DELETE_DISALLOW_TITLE'		=> 'Fjern afvisning af brugernavn',
-	'DISALLOWED_ALREADY'		=> 'Det angivne brugernavn kunne ikke afvises. Det findes enten allerede i listen, i ordcensorlisten, eller et matchende brugernavn er allerede oprettet.',
+	'DISALLOWED_ALREADY'		=> 'Det angivne brugernavn er allerede afvist.',
 	'DISALLOWED_DELETED'		=> 'Afviste brugernavne er korrekt fjernet.',
 	'DISALLOW_SUCCESSFUL'		=> 'Afvisning af brugernavn er korrekt tilføjet.',
 

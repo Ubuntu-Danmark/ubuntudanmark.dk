@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: ucp.php 10329 2009-12-13 14:03:45Z Kellanved $  
-* @version $Id: ucp.php 88 2010-10-31 07:02:32Z jan skovsgaard $
+* @version $Id: ucp.php 175 2011-11-14 19:23:38Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -134,6 +134,7 @@ $lang = array_merge($lang, array(
 	'CANNOT_REMOVE_FOLDER'		=> 'Denne mappe kan ikke fjernes.',
 	'CHANGE_DEFAULT_GROUP'		=> 'Ændre standardgruppe',
 	'CHANGE_PASSWORD'			=> 'Ændre kodeord',
+	'CLICK_GOTO_FOLDER'      => '%1$sGå til din "%3$s" mappe%2$s',
 	'CLICK_RETURN_FOLDER'		=> '%1$sTilbage til din "%3$s" mappe%2$s',
 	'CONFIRMATION'				=> 'Bekræftelse på tilmelding',
 	'CONFIRM_CHANGES'			=> 'Bekræft ændringer',	
@@ -152,7 +153,8 @@ $lang = array_merge($lang, array(
 	'CURRENT_IMAGE'				=> 'Nuværende avatar',
 	'CURRENT_PASSWORD'			=> 'Nuværende kodeord',
 	'CURRENT_PASSWORD_EXPLAIN'	=> 'Du skal bekræfte dit <strong>nuværende</strong> kodeord, når du ændrer brugernavn, emailadresse eller kodeord.',
-	'CUR_PASSWORD_ERROR'		=> 'Det nuværende kodeord som du har indtastet er forkert.',
+	'CUR_PASSWORD_EMPTY'    => 'Du indtastede ikke dit nuværende kodeord.',
+	'CUR_PASSWORD_ERROR'		=> 'Det indtastede kodeord var ikke korrekt.',
 	'CUSTOM_DATEFORMAT'			=> 'Valgfri...',
 
 	'DEFAULT_ACTION'			=> 'Standardhandling',
@@ -209,6 +211,7 @@ $lang = array_merge($lang, array(
 	'FIELD_INVALID_CHARS_ALPHA_ONLY'	=> 'Feltet "%s" indeholder ugyldige tegn, alene alfanumeriske tegn er tilladt.',
 	'FIELD_INVALID_CHARS_SPACERS_ONLY'	=> 'Feltet "%s" indeholder ugyldige tegn, alene alfanumeriske tegn, mellemrum eller -, +, _, [ og ] er tilladt.',
 	'FIELD_INVALID_DATE'		=> 'Feltet "%s" indeholder en ugyldig dato.',
+	'FIELD_INVALID_VALUE'        => 'Feltet "%s" indeholder en ugyldig værdi.',
 
 	'FOE_MESSAGE'				=> 'Fra ignoreret bruger',
 	'FOES_EXPLAIN'				=> 'Ignorerede brugere er brugere som vil blive ignoreret som standard. Indlæg fra disse brugere vil ikke blive vist i fuld udstrækning. Personlige beskeder fra ignorerede brugere er imidlertid stadig tilladt. Bemærk venligst at du kan ikke ignorere redaktører og administratorer.',
@@ -284,10 +287,12 @@ $lang = array_merge($lang, array(
 	'MOVE_TO_FOLDER'			=> 'Flyt til mappe',
 	'MOVE_UP'					=> 'Flyt op',
 
-	'NEW_EMAIL_ERROR'			=> 'Den indtastede emailadresse passer ikke.',
+	'NEW_EMAIL_CONFIRM_EMPTY'    => 'Du indtastede ikke en bekræftende emailadresse.',
+	'NEW_EMAIL_ERROR'			=> 'De indtastede emailadresser er ikke identiske.',
 	'NEW_FOLDER_NAME'			=> 'Nyt mappenavn',
 	'NEW_PASSWORD'				=> 'Nyt kodeord',
-	'NEW_PASSWORD_ERROR'		=> 'Kodeordene du indtastede passer ikke.',
+	'NEW_PASSWORD_CONFIRM_EMPTY'  => 'Du indtastede ikke et bekræftende kodeord.',
+	'NEW_PASSWORD_ERROR'		=> 'De indtastede kodeord er ikke identiske.',
 	'NOTIFY_METHOD'				=> 'Jeg ønsker at modtage information med',
 	'NOTIFY_METHOD_BOTH'		=> 'Begge',
 	'NOTIFY_METHOD_EMAIL'		=> 'Kun email',

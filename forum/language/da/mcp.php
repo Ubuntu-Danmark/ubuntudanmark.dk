@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: mcp.php 10455 2010-01-26 14:06:00Z nickvergessen $
-* @version $Id: mcp.php 39 2010-03-06 12:43:59Z jan skovsgaard $
+* @version $Id: mcp.php 139 2011-05-26 19:11:21Z jan skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group,
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -224,9 +224,8 @@ $lang = array_merge($lang, array(
 	'MCP_WARN_POST'			=> 'Advarsler for et specifikt indlæg',
 	'MCP_WARN_USER'			=> 'Advar bruger',
 
-	'MERGE_POSTS'			=> 'Sammenlæg indlæg',
-	'MERGE_POSTS_CONFIRM'	=> 'Er du sikker på du ønsker at sammenlægge de valgte indlæg?',
-	'MERGE_TOPIC_EXPLAIN'	=> 'Ved at bruge nedenstående kan du sammenlægge de valgte indlæg med andet emne. Indlæggene bliver flyttet til nyt emne med uændrede indsendelsesdata og vil se ud som brugerne har skrevet dem i det nye emne.<br />Angiv venligst det emne indlæggene skal sammenlægges med, eller klik på "Vælg emne" knappen for at søge efter det.',
+	'MERGE_POSTS_CONFIRM'	=> 'Er du sikker på du ønsker at flytte de valgte indlæg?',
+	'MERGE_TOPIC_EXPLAIN'	=> 'Ved at bruge nedenstående kan du flytte valgte indlæg til et andet emne. Indlæg flyttes til nyt emne med uændrede indsendelsesdata og vil se ud som brugerne har skrevet dem i det nye emne.<br />Angiv venligst det emne indlæg skal flyttes til, eller klik på "Vælg emne" knappen for at søge efter det.',
 	'MERGE_TOPIC_ID'		=> 'Det modtagende emnes identifikationsnummer',
 	'MERGE_TOPICS'			=> 'Sammenlæg emner',
 	'MERGE_TOPICS_CONFIRM'	=> 'Er du sikker på du vil sammenlægge de valgte emner?',

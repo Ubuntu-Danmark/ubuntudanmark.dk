@@ -53,7 +53,7 @@ if ( file_exists( ABSPATH . 'wp-config.php') ) {
 	require_once( ABSPATH . '/wp-includes/functions.php' );
 	require_once( ABSPATH . '/wp-includes/plugin.php' );
 	$text_direction = /*WP_I18N_TEXT_DIRECTION*/'ltr'/*/WP_I18N_TEXT_DIRECTION*/;
-	wp_die(sprintf(/*WP_I18N_NO_CONFIG*/'Der ser ikke ud til at v&#230;re en <code>wp-config.php</code>-fil. Den skal jeg bruge for at vi kan starte. Beh&#248;ver du mere hj&#230;lp? <a href=\'http://codex.wordpress.org/Editing_wp-config.php\'>Vi har den</a>. Du kan lave en <code>wp-config.php</code>-fil via et web-interface, men det virker ikke p&#229; alle servere. Det sikreste er at lave filen manuelt.</p><p><a href=\'%ssetup-config.php\' class=\'button\'>Lav en konfigurationsfil</a>'/*/WP_I18N_NO_CONFIG*/, $path), /*WP_I18N_ERROR_TITLE*/'WordPress &rsaquo; Fejl'/*/WP_I18N_ERROR_TITLE*/, array('text_direction' => $text_direction));
+	wp_die(sprintf(/*WP_I18N_NO_CONFIG*/'<p>Der lader ikke til at være en <code>wp-config.php</code>-fil. Jeg har brug for denne, for at vi kan komme i gang.</p> <p>Har du brug for yderligere hjælp? <a href=\'http://codex.wordpress.org/Editing_wp-config.php\'>Den har vi</a>.</p> <p>Du kan oprette en <code>wp-config.php</code>-fil via denne webside, men det virker ikke på alle serveropsætninger. Den sikreste metode er at oprette filen manuelt. Prøv dog alligevel at klikke på knappen herunder først.</p><p><a href=\'%ssetup-config.php\' class=\'button\'>Opret en konfigurationsfil</a></p>'/*/WP_I18N_NO_CONFIG*/, $path), /*WP_I18N_ERROR_TITLE*/'WordPress &rsaquo; Fejl'/*/WP_I18N_ERROR_TITLE*/, array('text_direction' => $text_direction));
 
 }
 

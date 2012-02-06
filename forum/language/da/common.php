@@ -4,8 +4,8 @@
 * common [Danish]
 *
 * @package language
-* @version Id: common.php 10845 2010-11-07 02:30:13Z git-gate $
-* @version $Id: common.php 94 2010-11-07 14:03:46Z jan skovsgaard $
+* @version Id: common.php 11057 2011-03-13 04:45:12Z git-gate $
+* @version $Id: common.php 179 2011-11-25 08:07:09Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -55,7 +55,7 @@ if (empty($lang) || !is_array($lang))
 //
 
 $lang = array_merge($lang, array(
-	'TRANSLATION_INFO'	=> 'Danish translation by <a href="http://www.olympusdkteam.dk">Olympus DK Team</a>',
+	'TRANSLATION_INFO'	=> 'Danish translation &amp; support by <a href="http://www.olympusdkteam.dk">Olympus DK Team</a>',
 	'DIRECTION'	=> 'ltr',
 	'DATE_FORMAT'	=> '|j. M Y|',// 1. jan 2007 (med relative dage aktiveret)
 	'USER_LANG'			=> 'da',
@@ -180,6 +180,7 @@ $lang = array_merge($lang, array(
 	'EMPTY_MESSAGE_SUBJECT'	=> 'Du skal angive en titel når du skriver en ny besked.',
 	'ENABLED'	=> 'Aktiv',
 	'ENCLOSURE'	=> 'Bilag',
+	'ENTER_USERNAME'          => 'Angiv brugernavn',
 	'ERR_CHANGING_DIRECTORY'	=> 'Kunne ikke skifte mappe.',
 	'ERR_CONNECTING_SERVER'	=> 'Kunne ikke forbinde til server.',
 	'ERR_JAB_AUTH'			=> 'Kunne ikke autoriseres på Jabberserver.',
@@ -205,7 +206,7 @@ $lang = array_merge($lang, array(
 	'FORM_INVALID'			=> 'Den indsendte formular var ugyldig. Prøv at indsende igen.',
 	'FORUM'	=> 'Forum',
 	'FORUMS'	=> 'Fora',
-	'FORUMS_MARKED'	=> 'Alle fora er mærket som læste.',
+	'FORUMS_MARKED'	=> 'Valgte fora er markeret læste.',
 	'FORUM_CAT'	=> 'Forumkategori',
 	'FORUM_INDEX'	=> 'Boardindeks',
 	'FORUM_LINK'	=> 'Forumlink',
@@ -215,6 +216,8 @@ $lang = array_merge($lang, array(
 	'FORUM_RULES_LINK'	=> 'Klik venligst her for at læse forumreglerne',
 	'FROM'	=> 'fra',
 	'FSOCK_DISABLED'	=> 'Handlingen kunne ikke gennemføres fordi funktionen <var>fsockopen</var> er deaktiveret, eller fordi den forespurgte server ikke kunne findes.',
+	'FSOCK_TIMEOUT'      => 'Der opstod en timeout under læsning af network stream.',
+
 	'FTP_FSOCK_HOST'	=> 'FTP-vært',
 	'FTP_FSOCK_HOST_EXPLAIN'	=> 'FTP-server brugt til at forbinde dit site.',
 	'FTP_FSOCK_PASSWORD'	=> 'FTP-kodeord',
@@ -336,13 +339,14 @@ $lang = array_merge($lang, array(
 	'MARK'	=> 'Vælg',
 	'MARK_ALL'	=> 'Vælg alle',
 	'MARK_FORUMS_READ'	=> 'Afmærk fora som læste',
+	'MARK_SUBFORUMS_READ'	=> 'Afmærk subfora som læste',
 	'MB'	=> 'MB',
 	'MIB'	=> 'MiB',
 	'MCP'	=> 'Redaktørkontrolpanel',
 	'MEMBERLIST'	=> 'Tilmeldte brugere',
 	'MEMBERLIST_EXPLAIN'	=> 'Vis komplet liste over de tilmeldte brugere',
 	'MERGE'		=> 'Sammenlæg',
-	'MERGE_POSTS'	=> 'Sammenlæg indlæg',
+	'MERGE_POSTS'	=> 'Flyt indlæg',
 	'MERGE_TOPIC'	=> 'Sammenlæg emner',
 	'MESSAGE'	=> 'besked',
 	'MESSAGES'	=> 'beskeder',
@@ -543,6 +547,7 @@ $lang = array_merge($lang, array(
 	'SEARCH_TOPIC'				=> 'Søg i dette emne...',
 	'SEARCH_UNANSWERED'	=> 'Vis ubesvarede indlæg',
 	'SEARCH_UNREAD'			=> 'Vis ulæste indlæg',
+	'SEARCH_USER_POSTS'		=> 'Vis brugers indlæg',
 	'SECONDS'	=> 'sekunder',
 	'SELECT'	=> 'Vælg',
 	'SELECT_ALL_CODE'	=> 'Vælg alt',
@@ -664,6 +669,10 @@ $lang = array_merge($lang, array(
 	'UNREAD_PMS'	=> '<strong>%d</strong> ulæste beskeder',
 	'UNREAD_POST'      => 'Ulæst indlæg',
 	'UNREAD_POSTS'      => 'Ulæste indlæg',
+	'UNWATCH_FORUM_CONFIRM'    => 'Er du sikker på at du vil stoppe overvågning af dette forum?',
+	'UNWATCH_FORUM_DETAILED'  => 'Er du sikker på at du vil stoppe overvågning af forummet "%s"?',
+	'UNWATCH_TOPIC_CONFIRM'    => 'Er du sikker på at du vil stoppe overvågning af dette emne?',
+	'UNWATCH_TOPIC_DETAILED'  => 'Er du sikker på at du vil stoppe overvågning af emnet "%s"?',
 	'UNWATCHED_FORUMS'	=> 'Du overvåger ikke længere de valgte fora.',
 	'UNWATCHED_TOPICS'	=> 'Du overvåger ikke længere de valgte emner.',
 	'UNWATCHED_FORUMS_TOPICS'	=> 'Du overvåger ikke længere de valgte fora og emner.',
@@ -712,6 +721,10 @@ $lang = array_merge($lang, array(
 
 	'WARNINGS'	=> 'Advarsler',
 	'WARN_USER'	=> 'Advar bruger',
+	'WATCH_FORUM_CONFIRM'  => 'Er du sikker på at du ønsker at overvåge dette forum?',
+	'WATCH_FORUM_DETAILED'  => 'Er dy sikker på at du ønsker at overvåge forummet "%s"?',
+	'WATCH_TOPIC_CONFIRM'  => 'Er du sikker på at du ønsker at overvåge dette emne?',
+	'WATCH_TOPIC_DETAILED'  => 'Er du sikker på at du ønsker at overvåge emnet "%s"?',
 	'WELCOME_SUBJECT'	=> 'Velkommen til %s',
 	'WEBSITE'	=> 'Hjemmeside',
 	'WHOIS'	=> 'Whois',

@@ -69,10 +69,11 @@
 		}
 		strExt = strExt.toLowerCase();
 		
-		if(strExt != 'mp3'  && strExt != 'youtube' && strAutoStart == 'false') {
-			if(strExt == 'youtube') {
-				strMediaFile = strMediaFile+'.youtube';
-			}
+		if ( '' == strExt ) {
+			return '';
+		}
+		
+		if ( strExt != 'mp3'  && strExt != 'youtube' && strExt != '' && strAutoStart == 'false' ) {
 			return podPressGenerateVideoPreview(strPlayerDiv, strMediaFile, numWidth, numHeight, strPreviewImg);
 		}
 
@@ -117,7 +118,7 @@
 				strResult += '	<param name="autoplay" value="'+strAutoStart+'" />';
 				strResult += '	<param name="bgcolor" value="000000" />';
 				strResult += '	<param name="pluginspage" value="http://www.apple.com/quicktime/download/" />';
-				strResult += '	<embed src="'+strMediaFile+'" style="width:'+numWidth+'px; height:'+numHeight+'px; background-color:#000;" scale="aspect" cache="true" autoplay="'+strAutoStart+'" controller="true" src="'+strMediaFile+'" type="'+strMimeType+'" pluginspage="http://www.apple.com/quicktime/download/"></embed>';
+				strResult += '	<embed src="'+strMediaFile+'" width="'+numWidth+'" height="'+numHeight+'" style="width:'+numWidth+'px; height:'+numHeight+'px; background-color:#000;" scale="aspect" cache="true" autoplay="'+strAutoStart+'" controls="true" src="'+strMediaFile+'" type="'+strMimeType+'" pluginspage="http://www.apple.com/quicktime/download/"></embed>';
 				strResult += '</object><br/>';
 				break;
 			case 'wma':
@@ -255,8 +256,7 @@
 				strResult += '</object>';
 			break;
 			case 'mp3':
-			default:
-				// since 8.8.6 this is only for the Podango player
+				// since 8.8.6 this is only for MP3 player of Podango (see player settings)
 				if(strAutoStart == 'true') {
 					var localCopyPlayerOptions = podPressMP3PlayerOptions+'autostart=yes&amp;'; 
 				} else {

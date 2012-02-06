@@ -1,9 +1,9 @@
 === Facebook Members ===
-Contributors: arpitshah
-Tags: Facebook
-Requires at least: 3.1
-Tested up to: 3.2.1
-Stable tag: 2.9.9
+Contributors: netcrunched
+Tags: Facebook, Facebook Members
+Requires at least: 3.2
+Tested up to: 3.3.1
+Stable tag: 4.0.0
 
 Facebook Members is a WordPres Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website.
 
@@ -12,7 +12,16 @@ Facebook Members is a WordPres Social Plugin that enables Facebook Page owners t
 
 See how many users already like this page, and which of their friends like it too. Read recent posts from the page Like the page with one click, without needing to visit the page. Get more visitors and more traffic to your site by getting more Facebook Fans.
 
+**New**
+
+* New: Option to Show/Hide Faces Option 
+* New: Option to change Background Color 
+* New: Option to change Border Color 
+
 **[Screenshots - Admin Panel and Preview](http://wordpress.org/extend/plugins/facebook-members/screenshots/)**
+
+<a href="http://netcrunched.com/plugins/facebook-members/" target="_blank">Homepage</a>  
+<a href="https://www.facebook.com/NetCrunched" target="_blank">Facebook Page</a>
 
 **Features**
 
@@ -43,10 +52,27 @@ Tags: facebook, FB members, facebook plugin, like box, likebox, facebook like bo
 = What should I put in page name section? =
 * You need to provide whatever is after `facebook.com/`........ (URL).
 
-= Do you have any question? =
-* Please report your questions or bugs at Plugin <a href="http://bit.ly/facebook-members" target="_blank">Homepage</a>. 
+= Got a Question? =
+* Please report your questions or bugs at Plugin <a href="http://netcrunched.com/plugins/facebook-members/" target="_blank">Homepage</a> and stay tuned on NetCrunched <a href="https://www.facebook.com/NetCrunched" target="_blank">Facebook Page</a>.
+* NOTE: I created this plugin as of my personal interest only. 
 
 == Screenshots ==
-1. Admin Panel Options for Post/Page Widget
-2. Admin Panel Options for Sidebar Widget
-3. Sample Example
+1. Sample1 - Clean (No Faces, No Stream)
+2. Sample2 - Background Color + Border Color
+3. Sample3 - No Border 
+4. Sample4 - Background Color + Border Color
+5. Admin Panel Options for Post/Page Widget
+6. Admin Panel Options for Sidebar Widget
+7. Page/Post Sample Example
+
+== Changelog ==
+
+= 4.0.0 =
+
+* Major version upgrade
+* New: Option to Show/Hide Faces Option 
+* New: Option to change Background Color 
+* New: Option to change Border Color 
+* Fixed: upgraded to latest code
+* Look at screenshots to see changes
+

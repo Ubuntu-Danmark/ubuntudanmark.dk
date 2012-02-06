@@ -38,6 +38,10 @@ if (!isset($this->subscribe2_options['admin_email'])) {
 	$this->subscribe2_options['admin_email'] = "subs";
 } // option for sending new subscriber notifications to admins
 
+if (!isset($this->subscribe2_options['tracking'])) {
+        $this->subscribe2_options['tracking'] = "";
+} // option for tracking
+
 if(!isset($this->subscribe2_options['s2page'])) {
 	$this->subscribe2_options['s2page'] = 0;
 } // option for default WordPress page for Subscribe2 to use
@@ -86,6 +90,10 @@ if (!isset($this->subscribe2_options['show_button'])) {
 	$this->subscribe2_options['show_button'] = "1";
 } // option to show Subscribe2 button on Write page
 
+if (!isset($this->subscribe2_options['ajax'])) {
+	$this->subscribe2_options['ajax'] = "0";
+} // option to enable an AJAX style form
+
 if (!isset($this->subscribe2_options['widget'])) {
 	$this->subscribe2_options['widget'] = "0";
 } // option to enable Subscribe2 Widget
@@ -103,30 +111,34 @@ if (!isset($this->subscribe2_options['entries'])) {
 } // option for the number of subscribers displayed on each page
 
 if (!isset($this->subscribe2_options['barred'])) {
-	$this->subscribe2_options['barred'] = '';
+	$this->subscribe2_options['barred'] = "";
 } // option containing domains barred from public registration
 
+if (!isset($this->subscribe2_options['exclude_formats'])) {
+	$this->subscribe2_options['exclude_formats'] = "";
+} // option for excluding post formats as supported by the current theme
+
 if (!isset($this->subscribe2_options['mailtext'])) {
-	$this->subscribe2_options['mailtext'] = __("BLOGNAME has posted a new item, 'TITLE'\n\nPOST\n\nYou may view the latest post at\nPERMALINK\n\nYou received this e-mail because you asked to be notified when new updates are posted.\nBest regards,\nMYNAME\nEMAIL", "subscribe2");
+	$this->subscribe2_options['mailtext'] = __("{BLOGNAME} has posted a new item, '{TITLE}'\n\n{POST}\n\nYou may view the latest post at\n{PERMALINK}\n\nYou received this e-mail because you asked to be notified when new updates are posted.\nBest regards,\n{MYNAME}\n{EMAIL}", "subscribe2");
 } // Default notification email text
 
 if (!isset($this->subscribe2_options['notification_subject'])) {
-	$this->subscribe2_options['notification_subject'] = "[BLOGNAME] TITLE";
+	$this->subscribe2_options['notification_subject'] = "[{BLOGNAME}] TITLE";
 } // Default notification email subject
 
 if (!isset($this->subscribe2_options['confirm_email'])) {
-	$this->subscribe2_options['confirm_email'] = __("BLOGNAME has received a request to ACTION for this email address. To complete your request please click on the link below:\n\nLINK\n\nIf you did not request this, please feel free to disregard this notice!\n\nThank you,\nMYNAME.", "subscribe2");
+	$this->subscribe2_options['confirm_email'] = __("{BLOGNAME} has received a request to {ACTION} for this email address. To complete your request please click on the link below:\n\n{LINK}\n\nIf you did not request this, please feel free to disregard this notice!\n\nThank you,\n{MYNAME}.", "subscribe2");
 } // Default confirmation email text
 
 if (!isset($this->subscribe2_options['confirm_subject'])) {
-	$this->subscribe2_options['confirm_subject'] = "[BLOGNAME] " . __('Please confirm your request', 'subscribe2');
+	$this->subscribe2_options['confirm_subject'] = "[{BLOGNAME}] " . __('Please confirm your request', 'subscribe2');
 } // Default confirmation email subject
 
 if (!isset($this->subscribe2_options['remind_email'])) {
-	$this->subscribe2_options['remind_email'] = __("This email address was subscribed for notifications at BLOGNAME (BLOGLINK) but the subscription remains incomplete.\n\nIf you wish to complete your subscription please click on the link below:\n\nLINK\n\nIf you do not wish to complete your subscription please ignore this email and your address will be removed from our database.\n\nRegards,\nMYNAME", "subscribe2");
+	$this->subscribe2_options['remind_email'] = __("This email address was subscribed for notifications at {BLOGNAME} ({BLOGLINK}) but the subscription remains incomplete.\n\nIf you wish to complete your subscription please click on the link below:\n\n{LINK}\n\nIf you do not wish to complete your subscription please ignore this email and your address will be removed from our database.\n\nRegards,\n{MYNAME}", "subscribe2");
 } // Default reminder email text
 
 if (!isset($this->subscribe2_options['remind_subject'])) {
-	$this->subscribe2_options['remind_subject'] = "[BLOGNAME] " . __('Subscription Reminder', 'subscribe2');;
+	$this->subscribe2_options['remind_subject'] = "[{BLOGNAME}] " . __('Subscription Reminder', 'subscribe2');;
 } // Default reminder email subject
 ?>

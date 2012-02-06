@@ -1,16 +1,16 @@
 <?php
-define('PODPRESS_VERSION', '8.8.10.12');
+define('PODPRESS_VERSION', '8.8.10.13');
 /*
 Info for WordPress:
 ==============================================================================
 Plugin Name: podPress
-Version: 8.8.10.12
+Version: 8.8.10.13
 Plugin URI: http://www.mightyseek.com/podpress/
 Description: The podPress plugin gives you everything you need in one easy plugin to use WordPress for Podcasting. Set it up in <a href="admin.php?page=podpress/podpress_feed.php">'podPress'->Feed/iTunes Settings</a>. If this plugin works for you, send us a comment.
 Author: Dan Kuykendall (Seek3r)
 Author URI: http://www.mightyseek.com/
 Min WP Version: 2.2
-Max WP Version: 3.2.1
+Max WP Version: 3.3.1
 
 podPress - Podcasting made easy for WordPress
 ==============================================================================
@@ -40,7 +40,7 @@ Contributors:
 Developer					Dan Kuykendall (seek3r)	http://www.mightyseek.com/
 Developer					David Maciejewski (macx)	http://www.macx.de/
 Forum Support/BugBoy			Jeff Norris (iscfi)		http://www.iscifi.tv/
-Maintenance/Development 2010/2011	Tim Berger (ntm)		http://undeuxoutrois.de/
+Maintenance/Development 2010-2012	Tim Berger (ntm)		http://undeuxoutrois.de/
 
 WP Audio Player				Martin Laine			http://www.1pixelout.net/
 WP-iPodCatter				Garrick Van Buren		http://garrickvanburen.com/
@@ -556,8 +556,18 @@ function podPress_activity_box() {
 		}
 		if($podPress->settings['statLogging'] == 'Full' || $podPress->settings['statLogging'] == 'FullPlus') {
 			$where = $podPress->wherestr_to_exclude_bots();
-			$query_string="SELECT method, COUNT(DISTINCT id) as downloads FROM ".$wpdb->prefix."podpress_stats ".$where."GROUP BY method ORDER BY method ASC";
+			$start_time = array_sum(explode(chr(32), microtime()));
+			$query_string=$wpdb->prepare("SELECT method, COUNT(DISTINCT id) as downloads FROM ".$wpdb->prefix."podpress_stats ".$where."GROUP BY method ORDER BY method ASC");
 			$stats = $wpdb->get_results($query_string);
+			$finish_time = array_sum(explode(chr(32), microtime()));
+			/*
+			echo '<pre style="overflow:scroll">';
+			var_dump($where);
+			var_dump($query_string);
+			var_dump($stats);
+			echo "\nelapsed time: ". ($finish_time-$start_time);
+			echo '</pre>';
+			*/
 			echo '			<fieldset><legend>'.sprintf(__('Statistics Summary (%1$s/%2$s)', 'podpress'), __('Full', 'podpress'),__('Full+', 'podpress')).'</legend>'."\n";
 			if (0 < count($stats)) {
 				$feed = intval($stats[0]->downloads);
@@ -623,8 +633,10 @@ function podpress_print_admin_js() { // ntm: some of these scripts are not neces
 		wp_register_script( 'podpress_jquery_ui',  PODPRESS_URL.'/js/jquery/podpress_jquery_ui_feedssettings.js' );
 	}
 	if ( 'widgets.php' == $pagenow ) {
-		if ( TRUE == version_compare($wp_version, '2.9', '>=') ) {
+		if ( TRUE == version_compare($wp_version, '3.3', '>=') ) {
 			wp_register_script( 'podpress_jquery_ui',  PODPRESS_URL.'/js/jquery/podpress_jquery_ui_widgetssettings.js' );
+		} elseif ( TRUE == version_compare($wp_version, '2.9', '>=') AND TRUE == version_compare($wp_version, '3.3', '<') ) {
+			wp_register_script( 'podpress_jquery_ui',  PODPRESS_URL.'/js/jquery/podpress_jquery_ui_widgetssettings_wp29_to_wp32.js' );
 		} elseif ( TRUE == version_compare($wp_version, '2.8', '>=') AND TRUE == version_compare($wp_version, '2.9', '<') ) {
 			wp_register_script( 'podpress_jquery_ui',  PODPRESS_URL.'/js/jquery/podpress_jquery_ui_widgetssettings_wp28.js' );
 		} elseif (TRUE == version_compare($wp_version, '2.8', '<')) {

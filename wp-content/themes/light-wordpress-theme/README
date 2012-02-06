@@ -4,9 +4,9 @@ Ubuntu-LoCo port for WordPress.
 Website:
   http://launchpad.net/ubuntu-website
 Launchpad:
-  https://code.edge.launchpad.net/~ubuntu-website-community/ubuntu-website/light-wordpress-theme
+  https://code.launchpad.net/~ubuntu-website-community/ubuntu-website/light-wordpress-theme
 Bzr:
-  bzr branch lp:~ubuntu-website-community/ubuntu-website/light-wordpress-theme
+  bzr branch lp:ubuntu-website/light-wordpress-theme
 
 This is a theme created for WordPress to be used
 as the CMS engine for Ubuntu loco websites.
@@ -14,21 +14,8 @@ as the CMS engine for Ubuntu loco websites.
 It uses the layout of the current (ubuntu-10.04) ubuntu 
 website revised by lp:ubuntu-website team and contributors.
 
-The software behind it is Thematic theme framework for
-WordPress witch you gonna need. This is a child theme for
-it, so It won't work without thematic!!!
-
-There are also some plugins I used, especially to bring
-some more control on the widgets and multilanguage versions.
-Such plugins are:
- * qTranslate ( optional if you need multilanguage )
- * Widget Context
-All of them can be found in WordPress plugins directory.
-
-For multilanguage loco websites, use Widget Logic instead of Widget Context
-plugin with `is_lang()` to show widget for a certain language switch.
-Ex.: `!is_front_page() && is_lang("en")` will show up the widget
-only on the front page and when the current language set to English.
+Theme uses Thematic Framework for WordPress. This is a child theme for
+it, so It won't work without thematic installed!!!
 
 == Credits ==
 Some pals deserve kudos for tools I used here:
@@ -38,7 +25,7 @@ Some pals deserve kudos for tools I used here:
  * Matteo Lissandrini for html port
  * lp:wordpress-loco for initial work
 
-Currently using WordPress version at least >=2.9!
+Currently using WordPress version at least >=2.9, though I recommend >=3.0!
 Happy loco building!
 
 ---

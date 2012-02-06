@@ -4,8 +4,8 @@
 * search [Danish]
 *
 * @package language
-* @version Id: search.php 10790 2010-09-16 20:45:17Z git-gate $
-* @version $Id: search.php 77 2010-09-18 06:34:58Z jan skovsgaard $
+* @version Id: search.php 10884 2010-12-13 14:30:09Z git-gate $
+* @version $Id: search.php 104 2010-12-13 19:24:56Z jan skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -69,6 +69,7 @@ $lang = array_merge($lang, array(
 
 	'LOGIN_EXPLAIN_EGOSEARCH'	=> 'Du skal være tilmeldt som bruger og logget ind for at få vist egne indlæg.',
 	'LOGIN_EXPLAIN_UNREADSEARCH'	=> 'Du skal være tilmeldt som bruger og logget ind for at få vist dine ulæste indlæg.',
+	'LOGIN_EXPLAIN_NEWPOSTS'	=> 'Du skal være tilmeldt som bruger og logget ind for at få vist nye indlæg siden dit seneste log in.',
 	
 	'MAX_NUM_SEARCH_KEYWORDS_REFINE'	=> 'Du søgte efter for mange ord, en søgning må maksimalt indeholde %1$d ord.',
 

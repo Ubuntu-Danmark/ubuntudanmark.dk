@@ -53,6 +53,7 @@ function ubuntu_loco_remove_add_stuff() {
     remove_action('thematic_navigation_above', 'thematic_nav_above', 2);
     //loads
     wp_enqueue_script('jquery');
+    add_action( 'ubuntu_loco_search', 'ubuntu_loco_add_search' );
     // new widget areas
     register_sidebar( array (
         'name' => 'Menu',
@@ -114,7 +115,7 @@ function ubuntu_loco_subpages() {
     global $wp_query;
     $p = $wp_query->post;
     
-    if( is_404() )
+    if( is_404() || is_search() )
         return ;
     
     $children = wp_list_pages( array(
@@ -221,7 +222,7 @@ function ubuntu_loco_below_header() { ?>
     <div id="secondary-header">
         <div id="secondary-access">
             <div id="loco-search-form">
-                <?php ubuntu_loco_add_search(); ?>
+                <?php do_action( 'ubuntu_loco_search' ); ?>
             </div>
             <div id="loco-sub-header-menu">
                 <?php
@@ -242,6 +243,31 @@ function ubuntu_loco_below_header() { ?>
 <?php }
 
 /**
+ * Add site name to <title>
+ */
+function ubuntu_loco_doctitle( $elements ) {
+    if( !is_home() || !is_front_page() ) {
+        $content = $elements['content'];
+        // Reset $elements to get proper ordering of $content at the end
+        unset( $elements );
+        $elements['site_name'] = get_bloginfo('name');
+        $elements['separator'] = '|';
+        $elements['content'] = $content;
+    }
+    
+    return $elements;
+}
+
+/**
+ * Remove search tip from search form
+ */
+function ubuntu_loco_search_field_value( $value ) {
+    // Do not return anything and leave it blank. 
+    $value = '';
+    return $value;
+}
+
+/**
  * Disable thematic auto comments handling
  */
 define('THEMATIC_COMPATIBLE_COMMENT_HANDLING', true);
@@ -255,6 +281,8 @@ add_action('wp_head', 'ubuntu_loco_favicon');
 add_action('wp_head', 'ubuntu_loco_chrome_frame');
 add_action('thematic_header','ubuntu_loco_access', 9);
 add_action('thematic_belowheader','ubuntu_loco_below_header',1);
+add_filter('thematic_doctitle', 'ubuntu_loco_doctitle');
+add_filter('search_field_value', 'ubuntu_loco_search_field_value');
 add_filter('thematic_postfooter_postcategory', 'ubuntu_loco_post_cats');
 add_filter('thematic_postfooter_posttags', 'ubuntu_loco_post_tags');
 add_filter('thematic_postfooter_postcomments', create_function( '', 'return null;' ) );

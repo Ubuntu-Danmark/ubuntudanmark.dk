@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: styles.php 10813 2010-10-17 20:00:22Z git-gate $
-* @version $Id: styles.php 97 2010-11-11 18:26:26Z jan skovsgaard $
+* @version $Id: styles.php 124 2011-02-22 16:55:19Z jan skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -93,7 +93,7 @@ $lang = array_merge($lang, array(
 	'DELETE_IMAGESET'			=> 'Slet grafikpakke',
 	'DELETE_IMAGESET_EXPLAIN'	=> 'Her kan du fjerne den valgte grafikpakke fra databasen. Bemærk at der ikke er nogen mulighed for at fortryde. Det anbefales derfor at du først eksporterer din pakke til mulig fremtidig brug.',
 	'DELETE_STYLE'				=> 'Slet typografi',
-	'DELETE_STYLE_EXPLAIN'		=> 'Her kan du slette den valgte typografi. Ikke alle typografielementer kan slettes herfra. Skabeloner, tema og grafikpakke slettes individuelt. Pas på, når en typografi slettes er der ingen mulighed for at fortryde.',
+	'DELETE_STYLE_EXPLAIN'		=> 'Her kan du slette den valgte typografi. Pas på, når en typografi slettes er der ingen mulighed for at fortryde.',
 	'DELETE_TEMPLATE'			=> 'Slet skabelon',
 	'DELETE_TEMPLATE_EXPLAIN'	=> 'Her kan du fjerne den valgte skabelon fra databasen. Bemærk at der ikke er nogen mulighed for at fortryde. Det anbefales derfor at du først eksporterer skabelonen til mulig fremtidig brug.',
 	'DELETE_THEME'				=> 'Slet tema',
@@ -303,6 +303,10 @@ $lang = array_merge($lang, array(
 	'INSTALLED_TEMPLATE'		=> 'Installerede skabeloner',
 	'INSTALLED_THEME'			=> 'Installerede temaer',
 
+	'KEEP_IMAGESET'        => 'Bevar grafikpakken "%s"',
+	'KEEP_TEMPLATE'        => 'Bevar skabelonen "%s"',
+	'KEEP_THEME'        => 'Bevar temaet "%s"',
+
 	'LINE_SPACING'				=> 'Linieafstand',
 	'LOCALISED_IMAGES'			=> 'Sprogspecifikke grafikelementer',
 	'LOCATION_DISABLED_EXPLAIN'	=> 'Denne indstilling er nedarvet og kan ikke ændres.',
@@ -339,6 +343,7 @@ $lang = array_merge($lang, array(
 	'REPLACE_TEMPLATE_EXPLAIN'	=> 'Denne skabelon erstatter den du sletter og i alle de typografier den anvendes.',
 	'REPLACE_THEME'				=> 'Erstat tema med',
 	'REPLACE_THEME_EXPLAIN'		=> 'Dette tema erstatter det du sletter og i alle de typografier det anvendes.',
+	'REPLACE_WITH_OPTION'    => 'Erstat med "%s"',
 	'REQUIRES_IMAGESET'			=> 'Denne typografi kræver at grafikpakken %s installeres.',
 	'REQUIRES_TEMPLATE'			=> 'Denne typografi kræver at skabelonen %s installeres.',
 	'REQUIRES_THEME'			=> 'Denne typografi kræver at temaet %s installeres.',

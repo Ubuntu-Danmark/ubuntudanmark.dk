@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: ban.php 9727 2009-07-07 13:33:53Z nickvergessen $
-* @version $Id: ban.php 10 2010-02-06 18:13:13Z jan skovsgaard $
+* @version $Id: ban.php 172 2011-11-14 18:59:47Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -82,6 +82,9 @@ $lang = array_merge($lang, array(
 	'IP_UNBAN_EXPLAIN'			=> 'For at ophæve flere IP-adressers udelukkelse i en arbejdsgang, kan windowsmetoden for at vælge flere rækker (tasterne Alt og Ctrl) anvendes. IP-adresser ekskluderet fra udelukkelse er fremhævet.',
 
 	'LENGTH_BAN_INVALID'		=> 'Datoen skal have formatet <kbd>YYYY-MM-DD</kbd>.',
+	
+	'OPTIONS_BANNED'      => 'Udelukket',
+	'OPTIONS_EXCLUDED'      => 'Ekskluderet',
 
 	'PERMANENT'		=> 'Permanent',
 

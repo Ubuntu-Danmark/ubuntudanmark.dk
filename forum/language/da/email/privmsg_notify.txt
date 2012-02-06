@@ -8,7 +8,7 @@ Du har modtaget en privat besked fra "{AUTHOR_NAME}" til din konto på "{SITENAM
 
 Læs beskeden ved at klikke på dette link:
 
-{U_INBOX}
+{U_VIEW_MESSAGE}
 
 Du har anmodet om at blive informeret ved nye private beskeder. Denne automatik kan fravælges i brugerkontrolpanelet under boardindstillingerne.
 
