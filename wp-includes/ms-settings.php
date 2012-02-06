@@ -10,10 +10,6 @@
  * @since 3.0.0
  */
 
-// $base sanity check.
-if ( 'BASE' == $base )
-	die( /*WP_I18N_BASE_ERROR*/'Opsætningfejl i <code>wp-config.php</code>. <code>$base</code> er sat til <code>BASE</code>, men det burde være noget i retning af <code>/</code> eller <code>/blogs/</code>.'/*/WP_I18N_BASE_ERROR*/ );
-
 /** Include Multisite initialization functions */
 require( ABSPATH . WPINC . '/ms-load.php' );
 require( ABSPATH . WPINC . '/ms-default-constants.php' );

@@ -119,8 +119,8 @@ function get_current_site_name( $current_site ) {
 		$current_site->site_name = $wpdb->get_var( $wpdb->prepare( "SELECT meta_value FROM $wpdb->sitemeta WHERE site_id = %d AND meta_key = 'site_name'", $current_site->id ) );
 		if ( ! $current_site->site_name )
 			$current_site->site_name = ucfirst( $current_site->domain );
+		wp_cache_set( $current_site->id . ':site_name', $current_site->site_name, 'site-options' );
 	}
-	wp_cache_set( $current_site->id . ':site_name', $current_site->site_name, 'site-options' );
 
 	return $current_site;
 }
@@ -134,6 +134,10 @@ function get_current_site_name( $current_site ) {
  */
 function wpmu_current_site() {
 	global $wpdb, $current_site, $domain, $path, $sites, $cookie_domain;
+
+	if ( empty( $current_site ) )
+		$current_site = new stdClass;
+
 	if ( defined( 'DOMAIN_CURRENT_SITE' ) && defined( 'PATH_CURRENT_SITE' ) ) {
 		$current_site->id = defined( 'SITE_ID_CURRENT_SITE' ) ? SITE_ID_CURRENT_SITE : 1;
 		$current_site->domain = DOMAIN_CURRENT_SITE;
@@ -234,7 +238,7 @@ function ms_not_installed() {
 		$msg .= '<p>' . sprintf( /*WP_I18N_TABLES_MISSING_LONG*/'<strong>Databasetabeller mangler.</strong> Dette betyder, at MySQL ikke kører, at WordPress ikke blev installeret ordentligt, eller der er en, der har slettet <code>%s</code>. Du bør faktisk kigge på din database med det samme.'/*/WP_I18N_TABLES_MISSING_LONG*/, $wpdb->site ) . '</p>';
 	else
 		$msg .= '<p>' . sprintf( /*WP_I18N_NO_SITE_FOUND*/'<strong>Kunne ikke finde webstedet <code>%1$s</code>.</strong> Søgte efter tabellen <code>%2$s</code> i databasen <code>%3$s</code>. Er det korrekt?'/*/WP_I18N_NO_SITE_FOUND*/, rtrim( $domain . $path, '/' ), $wpdb->blogs, DB_NAME ) . '</p>';
-	$msg .= '<p><strong>' . /*WP_I18N_WHAT_DO_I_DO*/'What do I do now?'/*WP_I18N_WHAT_DO_I_DO*/ . '</strong> ';
+	$msg .= '<p><strong>' . /*WP_I18N_WHAT_DO_I_DO*/'Hvad gør jeg nu?'/*/WP_I18N_WHAT_DO_I_DO*/ . '</strong> ';
 	$msg .= /*WP_I18N_RTFM*/'Læs <a target="_blank" href="http://codex.wordpress.org/Debugging_a_WordPress_Network">debugging-siden</a>. Oplysningerne på siden kan muligvis hjælpe dig til at finde ud af, hvad der er gået galt.'/*/WP_I18N_RTFM*/;
 	$msg .= ' ' . /*WP_I18N_STUCK*/'Hvis du stadigvæk får denne besked, så tjek, at din database indeholder de følgende tabeller:'/*/WP_I18N_STUCK*/ . '</p><ul>';
 	foreach ( $wpdb->tables('global') as $t => $table ) {
