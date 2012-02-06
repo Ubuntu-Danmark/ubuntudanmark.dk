@@ -2207,10 +2207,14 @@ License:
 	
 	function podPress_statsDownloadRedirect($requested = '##NOTSET##') {
 		GLOBAL $podPress;
+		//~ printphpnotices_var_dump('requested a:');
+		//~ printphpnotices_var_dump($requested);
 		if($requested == '##NOTSET##') {
 			$requested = parse_url($_SERVER['REQUEST_URI']);
 			$requested = $requested['path'];
 		}
+		//~ printphpnotices_var_dump('requested b:');
+		//~ printphpnotices_var_dump($requested);
 		$pos = 0;
 		if (is_404() || $pos = strpos($requested, 'podpress_trac')) {
 			if($pos == 0) {
@@ -2222,6 +2226,7 @@ License:
 			}
 			$requested = substr($requested, $pos);
 			$parts = explode('/', $requested);
+			//~ printphpnotices_var_dump($parts);
 			if(count($parts) == 4) {
 				podPress_processDownloadRedirect($parts[1], $parts[2], $parts[3], $parts[0]);
 			}

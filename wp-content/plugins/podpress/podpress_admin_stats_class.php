@@ -325,7 +325,7 @@ class podPressAdmin_class extends podPress_class {
 		$start = (isset($_GET['start'])) ? $this->podSafeDigit($_GET['start']): 0;
 		
 		//~ ####################
-		//~ Limit is limits the number of rows of the statistic tables
+		//~ Limit is limiting the number of rows of the statistic tables
 		$limit = 25;
 		//~ ####################
 		
@@ -344,7 +344,7 @@ class podPressAdmin_class extends podPress_class {
 				// ntm: stat logging: Full and Full+
 				podPress_isAuthorized();
 				$botdb = get_option('podpress_botdb');
-				if ( 'botdb' == $_POST['podPress_submitted'] ) {
+				if ( isset($_POST['podPress_submitted']) AND 'botdb' == $_POST['podPress_submitted'] ) {
 					if ( function_exists('check_admin_referer') ) {
 						check_admin_referer('podPress_botdb_nonce');
 					}
@@ -361,8 +361,17 @@ class podPressAdmin_class extends podPress_class {
 							sort($botdb['fullbotnames']);
 						}
 					}
+					
+					if ( isset($_POST['podpress_maxrowsperpage']) AND FALSE == empty($_POST['podpress_maxrowsperpage']) AND $limit <= intval($_POST['podpress_maxrowsperpage']) ) {
+						$this->settings['maxrowsperpage_'.$show_this_page] =  intval($_POST['podpress_maxrowsperpage']);
+					}
+					if ( isset($this->settings['maxrowsperpage_'.$show_this_page]) AND is_int($this->settings['maxrowsperpage_'.$show_this_page]) AND $limit <= $this->settings['maxrowsperpage_'.$show_this_page] ) {
+						$limit = $this->settings['maxrowsperpage_'.$show_this_page];
+					}
+					$result = podPress_update_option('podPress_config', $this->settings);
+
 					$updated=update_option('podpress_botdb', $botdb);
-					if (isset($updated) AND $updated == TRUE) {
+					if (isset($updated) AND TRUE === $updated) {
 						echo '<div id="message" class="updated fade"><p>'. __('Settings Saved', 'podpress').'</p></div>';
 					}
 				}
@@ -419,20 +428,22 @@ class podPressAdmin_class extends podPress_class {
 					echo '				<td colspan="5">'.__('Currently are no IP addresses or user agents marked as bots.', 'podpress').'</td>'."\n";
 				}
 				echo '				</tbody>'."\n";
-				echo '				<tfood>'."\n";
+				echo '				<tfoot>'."\n";
 				echo '				<tr>'."\n";
 				echo '				<th colspan="5">'."\n";
 					// Show paging
 					echo $this->paging2($start, $limit, $rows_total, __('names and IPs','podpress'));
 				echo '				</th>'."\n";
 				echo '              			</tr>'."\n";
-				echo '				</tfood>'."\n";
+				echo '				</tfoot>'."\n";
 				echo '			</table>'."\n";				
+				$this->podpress_print_maxrowsperpage($limit);
 				echo '			<p class="submit"> '."\n";
-				echo '				<input class="button-primary" type="submit" name="Submit" value="'.__('Remove elements', 'podpress').' &raquo;" /><br />'."\n";
+				echo '				<input class="button-primary" type="submit" name="Submit" value="'.__('Remove marked elements / Update options', 'podpress').' &raquo;" /><br />'."\n";
 				echo '			</p> '."\n";
 				echo '			<input type="hidden" name="podPress_submitted" value="botdb" />'."\n";
 				echo '			</form>'."\n";
+
 				echo '		</fieldset>'."\n";
 				echo '	</div>';
 				break;
@@ -441,7 +452,7 @@ class podPressAdmin_class extends podPress_class {
 				podPress_isAuthorized();
 				$blog_charset = get_bloginfo('charset');
 				$botdb = get_option('podpress_botdb');
-				if ( 'botdb' == $_POST['podPress_submitted'] ) {
+				if ( isset($_POST['podPress_submitted']) AND 'botdb' == $_POST['podPress_submitted'] ) {
 					if ( function_exists('check_admin_referer') ) {
 						check_admin_referer('podPress_botdb_nonce');
 					}
@@ -517,16 +528,24 @@ class podPressAdmin_class extends podPress_class {
 						}
 					}
 					
+					if ( isset($_POST['podpress_maxrowsperpage']) AND FALSE == empty($_POST['podpress_maxrowsperpage']) AND $limit <= intval($_POST['podpress_maxrowsperpage']) ) {
+						$this->settings['maxrowsperpage_'.$show_this_page] =  intval($_POST['podpress_maxrowsperpage']);
+					}
+					if ( isset($this->settings['maxrowsperpage_'.$show_this_page]) AND is_int($this->settings['maxrowsperpage_'.$show_this_page]) AND $limit <= $this->settings['maxrowsperpage_'.$show_this_page] ) {
+						$limit = $this->settings['maxrowsperpage_'.$show_this_page];
+					}
+					$result = podPress_update_option('podPress_config', $this->settings);
+
 					$updated=update_option('podpress_botdb', $botdb);
-					if (isset($updated) AND $updated == TRUE) {
+					if (isset($updated) AND TRUE === $updated) {
 						echo '<div id="message" class="updated fade"><p>'. __('Settings Saved', 'podpress').'</p></div>';
 					}
 				}
+				
 				$where='';
 				$rows_total = intval($wpdb->get_var('SELECT COUNT(DISTINCT remote_ip, user_agent) AS total FROM '.$wpdb->prefix.'podpress_stats '.$where));
 				$query_string = 'SELECT DISTINCT remote_ip, user_agent FROM '.$wpdb->prefix.'podpress_stats '.$where.'ORDER BY dt DESC LIMIT '.$start.', '.$limit;
 				$stats = $wpdb->get_results($query_string);
-	
 				echo '	<div class="wrap">'."\n";
 				echo '		<fieldset class="options">'."\n";
 				echo '			<legend>'.__('Which IP address or user agent name is from a web bot?', 'podpress').'</legend>'."\n";
@@ -571,16 +590,17 @@ class podPressAdmin_class extends podPress_class {
 				}
 
 				echo '				</tbody>'."\n";
-				echo '				<tfood>'."\n";
+				echo '				<tfoot>'."\n";
 				echo '				<tr>'."\n";
 				echo '				<th colspan="5">'."\n";
 					// Show paging
 					echo $this->paging2($start, $limit, $rows_total, __('names and IPs','podpress'));
 				echo '				</th>'."\n";
 				echo '              			</tr>'."\n";
-				echo '				</tfood>'."\n";
+				echo '				</tfoot>'."\n";
 				echo '			</table>'."\n";				
 				
+				$this->podpress_print_maxrowsperpage($limit);
 				echo '				<p class="submit"> '."\n";
 				echo '					<input class="button-primary" type="submit" name="Submit" value="'.__('Update Options', 'podpress').' &raquo;" /><br />'."\n";
 				echo '				</p> '."\n";
@@ -596,6 +616,16 @@ class podPressAdmin_class extends podPress_class {
 				$query_string = "SELECT COUNT(DISTINCT pod.media) as total_rows FROM ".$wpdb->prefix."podpress_stats as pod ".$where;
 				$rows_total = intval($wpdb->get_var($query_string));
 
+				if ( isset($_POST['podPress_submitted']) AND $show_this_page == $_POST['podPress_submitted'] ) {
+					if ( isset($_POST['podpress_maxrowsperpage']) AND FALSE == empty($_POST['podpress_maxrowsperpage']) AND $limit <= intval($_POST['podpress_maxrowsperpage']) ) {
+						$this->settings['maxrowsperpage_'.$show_this_page] =  intval($_POST['podpress_maxrowsperpage']);
+					}
+					$result = podPress_update_option('podPress_config', $this->settings);
+				}
+				if ( isset($this->settings['maxrowsperpage_'.$show_this_page]) AND is_int($this->settings['maxrowsperpage_'.$show_this_page]) AND $limit <= $this->settings['maxrowsperpage_'.$show_this_page] ) {
+					$limit = $this->settings['maxrowsperpage_'.$show_this_page];
+				}
+			
 				$query_string = "SELECT DISTINCT (pod.media) FROM ".$wpdb->prefix."podpress_stats as pod ".$where." LIMIT ".$start.", ".$limit;
 				$posts_with_podpressmedia = $wpdb->get_results($query_string);
 				$nr_postswpm = count($posts_with_podpressmedia);
@@ -626,7 +656,7 @@ class podPressAdmin_class extends podPress_class {
 					$where_or_and = "AND";
 				} else {
 					$where_or_and = "WHERE";
-				}				
+				}
 				$methods = Array('feed', 'web', 'play');
 				foreach ($methods as $method) {
 					$query_string="SELECT COUNT(*) as downloads, pod.media FROM ".$wpdb->prefix."podpress_stats AS pod ".$where.$where_or_and." pod.method='".$method."' GROUP BY pod.media ORDER BY downloads DESC";
@@ -641,7 +671,7 @@ class podPressAdmin_class extends podPress_class {
 						case 'play' :
 							$play_max = intval($downloads_col[0]);
 						break;
-					}		
+					}
 				}
 				$query_string="SELECT COUNT(*) as downloads, pod.media FROM ".$wpdb->prefix."podpress_stats AS pod ".$where." GROUP BY pod.media ORDER BY downloads DESC";
 				$downloads_col = $wpdb->get_col($query_string);
@@ -728,15 +758,21 @@ class podPressAdmin_class extends podPress_class {
 					}
 				}
 				echo '				</tbody>';
-				echo '				<tfood>'."\n";
+				echo '				<tfoot>'."\n";
 				echo '				<tr>'."\n";
 				echo '				<th colspan="9">'."\n";
 					// Show paging
 					echo $this->paging2($start, $limit, $rows_total, __('Ranks','podpress'));
 				echo '				</th>'."\n";
 				echo '              			</tr>'."\n";
-				echo '				</tfood>'."\n";
+				echo '				</tfoot>'."\n";
 				echo '			</table>'."\n";
+				
+				echo '			<form method="post">'."\n";
+				$this->podpress_print_maxrowsperpage($limit, TRUE);
+				echo '			<input type="hidden" name="podPress_submitted" value="'.$show_this_page.'" />'."\n";
+				echo '			</form>'."\n";
+				
 				echo '		</fieldset>'."\n";
 				echo '	</div>';
 				break;
@@ -746,6 +782,17 @@ class podPressAdmin_class extends podPress_class {
 				$time_format = get_option('time_format');
 				$botdb = get_option('podpress_botdb');
 				$where = '';
+				
+				if ( isset($_POST['podPress_submitted']) AND $show_this_page == $_POST['podPress_submitted'] ) {
+					if ( isset($_POST['podpress_maxrowsperpage']) AND FALSE == empty($_POST['podpress_maxrowsperpage']) AND $limit <= intval($_POST['podpress_maxrowsperpage']) ) {
+						$this->settings['maxrowsperpage_'.$show_this_page] =  intval($_POST['podpress_maxrowsperpage']);
+					}
+					$result = podPress_update_option('podPress_config', $this->settings);
+				}
+				if ( isset($this->settings['maxrowsperpage_'.$show_this_page]) AND is_int($this->settings['maxrowsperpage_'.$show_this_page]) AND $limit <= $this->settings['maxrowsperpage_'.$show_this_page] ) {
+					$limit = $this->settings['maxrowsperpage_'.$show_this_page];
+				}
+
 				$rows_total = $wpdb->get_var('SELECT COUNT(*) FROM '.$wpdb->prefix.'podpress_stats '.$where);
 				$stats = $wpdb->get_results('SELECT * FROM '.$wpdb->prefix.'podpress_stats '.$where.'ORDER BY id DESC LIMIT '.$start.', '.$limit);
 				echo '	<div class="wrap">'."\n";
@@ -808,15 +855,21 @@ class podPressAdmin_class extends podPress_class {
 					echo '<td colspan="6">'.__('No downloads yet.','podpress').'</td>'."\n";
 				}
 				echo '				</tbody>';
-				echo '				<tfood>'."\n";
+				echo '				<tfoot>'."\n";
 				echo '				<tr>'."\n";
 				echo '				<th colspan="6">'."\n";
 					// Show paging
 					echo $this->paging2($start, $limit, $rows_total, __('Hit','podpress'));
 				echo '				</th>'."\n";
 				echo '              			</tr>'."\n";
-				echo '				</tfood>'."\n";
+				echo '				</tfoot>'."\n";
 				echo '			</table>'."\n";
+				
+				echo '			<form method="post">'."\n";
+				$this->podpress_print_maxrowsperpage($limit, TRUE);
+				echo '			<input type="hidden" name="podPress_submitted" value="'.$show_this_page.'" />'."\n";
+				echo '			</form>'."\n";
+				
 				echo '		</fieldset>'."\n";
 				echo '	</div>';
 				break;
@@ -824,6 +877,16 @@ class podPressAdmin_class extends podPress_class {
 				// ntm: stat logging: Full and Full+
 				$where = $this->wherestr_to_exclude_bots();
 				$rows_total = ($wpdb->get_var('SELECT COUNT(DISTINCT remote_ip) as uniq FROM '.$wpdb->prefix.'podpress_stats '.$where));
+				
+				if ( isset($_POST['podPress_submitted']) AND $show_this_page == $_POST['podPress_submitted'] ) {
+					if ( isset($_POST['podpress_maxrowsperpage']) AND FALSE == empty($_POST['podpress_maxrowsperpage']) AND $limit <= intval($_POST['podpress_maxrowsperpage']) ) {
+						$this->settings['maxrowsperpage_'.$show_this_page] =  intval($_POST['podpress_maxrowsperpage']);
+					}
+					$result = podPress_update_option('podPress_config', $this->settings);
+				}
+				if ( isset($this->settings['maxrowsperpage_'.$show_this_page]) AND is_int($this->settings['maxrowsperpage_'.$show_this_page]) AND $limit <= $this->settings['maxrowsperpage_'.$show_this_page] ) {
+					$limit = $this->settings['maxrowsperpage_'.$show_this_page];
+				}
 				
 				$sql   = 'SELECT remote_ip AS IPAddress, COUNT(DISTINCT remote_ip, media) as uniq, COUNT( * ) AS total FROM '.$wpdb->prefix.'podpress_stats '.$where.'GROUP BY remote_ip ORDER BY total DESC LIMIT '.$start.', '.$limit;
 				$stats = $wpdb->get_results($sql);
@@ -856,15 +919,21 @@ class podPressAdmin_class extends podPress_class {
 					}
 				}
 				echo '				</tbody>';
-				echo '				<tfood>'."\n";
+				echo '				<tfoot>'."\n";
 				echo '				<tr>'."\n";
 				echo '				<th colspan="4">'."\n";
 					// Show paging
 					echo $this->paging2($start, $limit, $rows_total, __('IP Address','podpress'));
 				echo '				</th>'."\n";
 				echo '              			</tr>'."\n";
-				echo '				</tfood>'."\n";
+				echo '				</tfoot>'."\n";
 				echo '			</table>'."\n";
+				
+				echo '			<form method="post">'."\n";
+				$this->podpress_print_maxrowsperpage($limit, TRUE);
+				echo '			<input type="hidden" name="podPress_submitted" value="'.$show_this_page.'" />'."\n";
+				echo '			</form>'."\n";
+				
 				echo '		</fieldset>'."\n";
 				echo '	</div>';
 				break;
@@ -1051,12 +1120,12 @@ class podPressAdmin_class extends podPress_class {
 						}
 					}
 					echo '				</tbody>';
-					echo '				<tfood>'."\n";
+					echo '				<tfoot>'."\n";
 					echo '				<tr>'."\n";
 					echo '				<th colspan="9">'."\n";
 					echo '				</th>'."\n";
 					echo '              			</tr>'."\n";
-					echo '				</tfood>'."\n";
+					echo '				</tfoot>'."\n";
 					echo '			</table>'."\n";
 					echo '		</fieldset>'."\n";
 					echo '	</div><!-- .wrap -->'."\n";
@@ -1067,6 +1136,16 @@ class podPressAdmin_class extends podPress_class {
 				// ntm: 'quickcounts' takes the data from the wp_podpress_statcounts table.
 				$total= $wpdb->get_var('SELECT COUNT(postID) FROM '.$wpdb->prefix.'podpress_statcounts WHERE postID != 0;');
 				if ($total > 0) {
+					if ( isset($_POST['podPress_submitted']) AND $show_this_page == $_POST['podPress_submitted'] ) {
+						if ( isset($_POST['podpress_maxrowsperpage']) AND FALSE == empty($_POST['podpress_maxrowsperpage']) AND $limit <= intval($_POST['podpress_maxrowsperpage']) ) {
+							$this->settings['maxrowsperpage_'.$show_this_page] =  intval($_POST['podpress_maxrowsperpage']);
+						}
+						$result = podPress_update_option('podPress_config', $this->settings);
+					}
+					if ( isset($this->settings['maxrowsperpage_'.$show_this_page]) AND is_int($this->settings['maxrowsperpage_'.$show_this_page]) AND $limit <= $this->settings['maxrowsperpage_'.$show_this_page] ) {
+						$limit = $this->settings['maxrowsperpage_'.$show_this_page];
+					}
+					
 					// Load highest values
 					$sql = "SELECT 'blah' AS topic, MAX(total) AS total, MAX(feed) AS feed, MAX(web) AS web, MAX(play) AS play FROM ".$wpdb->prefix.'podpress_statcounts GROUP BY topic';
 					$highest = $wpdb->get_results($sql);
@@ -1080,7 +1159,14 @@ class podPressAdmin_class extends podPress_class {
 					$stats         = $wpdb->get_results($sql);
 					$cnt_stats     = count($stats);
 					
-					if ( isset($_POST['podPress_submitted']) AND 'sortquickcountsbypost' == $_POST['podPress_submitted'] ) {
+					if ( isset($_POST['podpress_quickcounts_view_options']) AND 'sortquickcountsbypost' == $_POST['podpress_quickcounts_view_options'] ) {
+						$this->settings['sortquickcountsbypost'] = TRUE;
+					} elseif ( isset($_POST['podpress_quickcounts_view_options']) AND 'sortquickcountsbymediafilenames' == $_POST['podpress_quickcounts_view_options'] ) {
+						$this->settings['sortquickcountsbypost'] = FALSE;
+					}
+					//~ printphpnotices_var_dump($_POST['podpress_quickcounts_view_options']);
+					//~ printphpnotices_var_dump($this->settings['sortquickcountsbypost']);
+					if ( isset($this->settings['sortquickcountsbypost']) AND TRUE === $this->settings['sortquickcountsbypost'] ) {
 						foreach ($stats as $stat) {
 							$where_instr_ar[] = 'INSTR(pm.meta_value, "'.$stat->media.'")';
 						}
@@ -1179,7 +1265,7 @@ class podPressAdmin_class extends podPress_class {
 							}
 						}
 						echo '				</tbody>'."\n";
-						echo '				<tfood>'."\n";
+						echo '				<tfoot>'."\n";
 						echo '				<tr>'."\n";
 						echo '				<th colspan="10">'."\n";
 					} else {
@@ -1246,7 +1332,7 @@ class podPressAdmin_class extends podPress_class {
 							}
 						}
 						echo '				</tbody>'."\n";
-						echo '				<tfood>'."\n";
+						echo '				<tfoot>'."\n";
 						echo '				<tr>'."\n";
 						//~ echo '				<th colspan="11">'."\n";
 						echo '				<th colspan="9">'."\n";
@@ -1259,18 +1345,23 @@ class podPressAdmin_class extends podPress_class {
 					
 					echo '				</th>'."\n";
 					echo '              			</tr>'."\n";
-					echo '				</tfood>'."\n";
+					echo '				</tfoot>'."\n";
 					echo '			</table>'."\n";
 					
 					echo '			<form method="post">'."\n";
-					echo '			<p class="submit"> '."\n";
-					
-					if ( isset($_POST['podPress_submitted']) AND 'sortquickcountsbypost' == $_POST['podPress_submitted'] ) {
-						echo '				<input type="submit" name="Submit" value="'.__('sort the media files by their names', 'podpress').' &raquo;" /><br />'."\n";
+					echo '			<div> '."\n";
+					$this->podpress_print_maxrowsperpage($limit);
+					echo '			<br /> '."\n";
+					if ( isset($this->settings['sortquickcountsbypost']) AND TRUE === $this->settings['sortquickcountsbypost'] ) {
+						echo '				<input type="radio" name="podpress_quickcounts_view_options" id="sortquickcountsbymediafilenames" value="sortquickcountsbymediafilenames" /> <label for="sortquickcountsbymediafilenames">'.__('sort the media files by their names', 'podpress')."</label><br />\n";
+						echo '				<input type="radio" name="podpress_quickcounts_view_options" id="sortquickcountsbypost" value="sortquickcountsbypost" checked="checked" /> <label for="sortquickcountsbypost">'.__('sort the media files by the IDs of the posts in which they were last published', 'podpress')."</label>\n";
 					} else {
-						echo '				<input type="submit" name="Submit" value="'.__('sort the media files by the IDs of the posts in which they were last published', 'podpress').' &raquo;" /><br />'."\n";
-						echo '				<input type="hidden" name="podPress_submitted" value="sortquickcountsbypost" />'."\n";
+						echo '				<input type="radio" name="podpress_quickcounts_view_options" id="sortquickcountsbymediafilenames" value="sortquickcountsbymediafilenames" checked="checked" /> <label for="sortquickcountsbymediafilenames">'.__('sort the media files by their names', 'podpress')."</label><br />\n";
+						echo '				<input type="radio" name="podpress_quickcounts_view_options" id="sortquickcountsbypost" value="sortquickcountsbypost" />  <label for="sortquickcountsbypost">'.__('sort the media files by the IDs of the posts in which they were last published', 'podpress')."</label>\n";
 					}
+					echo '			</div> '."\n";
+					echo '			<p class="submit"> '."\n";
+					echo '				<input type="submit" class="button-primary"  name="Submit" value="'.__('Update options', 'podpress').' &raquo;" /><br />'."\n";
 					echo '			</p> '."\n";
 					echo '			</form>'."\n";
 					
@@ -1333,6 +1424,32 @@ class podPressAdmin_class extends podPress_class {
 	
 	#############################################
 	#############################################
+
+	/**
+	podpress_print_maxrowsperpage() - prints a selectbox with numerical values 
+	*
+	* @package podPress
+	* @since 8.8.10.13
+	*
+	* @param int $limit - the value which should be selected
+	* @param bool $do_submit - submit the form on change (add the necessary JS code if TRUE)
+	* @param int $min_limit - minimal number value
+	*/
+	function podpress_print_maxrowsperpage($limit = 25, $do_submit = FALSE, $min_limit = 25) {
+		if ( TRUE === $do_submit ) {
+			echo '			<label for="podpress_maxrowsperpage">'.__('max. rows per page:', 'podpress') . '</label> <select id="podpress_maxrowsperpage" name="podpress_maxrowsperpage" onchange="this.form.submit();">'."\n";
+		} else {
+			echo '			<label for="podpress_maxrowsperpage">'.__('max. rows per page:', 'podpress') . '</label> <select id="podpress_maxrowsperpage" name="podpress_maxrowsperpage">'."\n";
+		}
+		for ($i = $min_limit; $i <= 150; $i += 5 ) {
+			if ( $i == $limit ) {
+				echo '				<option value="'.$i.'" selected="selected">'.$i.'</option>'."\n";
+			} else {
+				echo '				<option value="'.$i.'">'.$i.'</option>'."\n";
+			}
+		}
+		echo '			</select>'."\n";
+	}
 
 	/**
 	 * Check GD-Library-Support

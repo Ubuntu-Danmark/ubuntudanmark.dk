@@ -129,7 +129,7 @@ a.podpress_play_button:hover, a.podpress_play_button:focus, a.podpress_play_butt
 	margin: 0px;
 	padding:0px;
 	border:0px;
-} 
+}
 .podpress_playerspace  {
 	padding:0px !important;
 	margin: 15px 0px 0em 0px;
@@ -144,9 +144,13 @@ a.podpress_play_button:hover, a.podpress_play_button:focus, a.podpress_play_butt
 .podpress_mp3player  object, .podpress_mp3player  embed {
 	display:block;
 }
+.podPress_videoplayer_wrapper {
+	padding-bottom:1px !important;
+}
 .podPress_videoplayer_wrapper:hover {
 	cursor:pointer;
 }
+	
 
 /* downloadlink styles (the elements below the player)  */
 .podPress_downloadlinks {

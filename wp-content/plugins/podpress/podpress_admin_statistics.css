@@ -39,7 +39,6 @@
 #podPress_paging {
     float: left;
     width: 100%;
-    border-top: 1px solid #fff;
     padding: 0.3em 0;
 }
 
@@ -84,7 +83,7 @@
 	font-weight:bold;
 }
 .podpress_stats_highest {
-	color: #fff;
+	color: #fff !important;
 	background-color: green;
 }
 .podpress_is_bot {

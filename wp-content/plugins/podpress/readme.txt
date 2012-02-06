@@ -1,10 +1,10 @@
 === podPress ===
 Tags: post, podcast, podcasting, audio, video, admin, feed, widget, stats, statistics, iTunes, mp3, m4a, ogg, ogv, xspf
 Contributors: seek3r, macx, iscifi
-Donate link: http://www.mightyseek.com/podpress_donate.php
+Donate link: http://www.manvswebapp.com/podpress/podpress-donors
 Requires at least: 2.2
-Tested up to: 3.2.1
-Stable Tag: 8.8.10.12
+Tested up to: 3.3.1
+Stable Tag: 8.8.10.13
 
 A plugin for Podcasters using WordPress.
 
@@ -12,7 +12,7 @@ A plugin for Podcasters using WordPress.
 == Description ==
 podPress adds a lot of features designed to make WordPress the ideal platform for hosting a podcast.
 
-podPress 8.8.10.12 includes a bug fix. You can read more about this version in the [Changelog](http://wordpress.org/extend/plugins/podpress/changelog/) and pay attention to the [Upgrade](http://wordpress.org/extend/plugins/podpress/other_notes/) section.
+podPress 8.8.10.13 includes one bug fix which should make it compatible with WP 3.3.x. You can read more about this and the other bug fixes of this version in the [Changelog](http://wordpress.org/extend/plugins/podpress/changelog/) and pay attention to the [Upgrade](http://wordpress.org/extend/plugins/podpress/other_notes/) section.
 
 Features:
 
@@ -38,17 +38,25 @@ Available in these languages:
 If you discover a problem with this plugin, please report it in the [WP.org forum](http://wordpress.org/tags/podpress?forum_id=10) and add the tag "podpress" to your post.<br />
 Thank you to all who have reported bugs and have made improvement proposals. Special thanks to [Ray (raymer)](http://wordpress.org/support/profile/68146) who did extensive tests with the development versions since v8.8.5 and helped a lot! 
 
-This plugin is currently maintained by [Tim Berger (ntm)](http://profiles.wordpress.org/ntm/).<br />Latest news and announcements regarding podPress on Twitter: [podpress2010](http://twitter.com/podPress2010)
+This plugin is currently maintained by [Tim Berger (ntm)](http://profiles.wordpress.org/ntm/).<br />Latest news and announcements regarding podPress on Twitter: [podpress2010](http://twitter.com/podPress2010)<br />
+**Note: Until May (2012) I have not much time to work on podPress. That is why I will postpone new features and some bug fixes (like the one for [this problem](http://wordpress.org/support/topic/plugin-podpress-duplicate-download-statistic-rows-in-mysql-database#post-2450834)).**
 
 If somebody else is also interested in maintaining podPress while the main developers are out, please send an email to admin [at] laptoptips.ca.
 
 For further information you may also visit the website
-http://www.mightyseek.com/podpress
+http://www.manvswebapp.com/podpress/changelog
 
 
 == Changelog ==
 
 Please, read the [Upgrade instructions](http://wordpress.org/extend/plugins/podpress/other_notes/).
+
+= v8.8.10.13 =
+* bug fix: for a problem which has prevented WP 3.3.x from saving the sidebar widget settings. Rearranging widgets or modifying the widget settings should be possible again. (Thank you for [reporting the problem](http://wordpress.org/support/topic/plugin-podpress-broken-widgets-sitewide).
+* new: It is now possible the determine the number of rows in almost all statistic tables and to save further appearance options.
+* bug fix: for a problem with the code of the <object> of m4v, mp4, mov, mpg and other video files which has lead to problems with the appearance of the control elements of some browser plugins.
+* minor corrections for a better output of multiple of custom feed elements like itunes:subtitle of category feeds
+* minor CSS adjustments for the statistic result pages
 
 = v8.8.10.12 =
 *  This is a bug fix version for 8.8.10.11. I have forgotten to remove some code which has helped me to debug some things but which brought you trouble. I'm very sorry for my mistake! (Thank you [c365954](http://wordpress.org/support/profile/c365954) and [themacmommy](http://wordpress.org/support/profile/themacmommy) for [reporting the problem](http://wordpress.org/support/topic/cannot-download-or-play-podcast-via-player).)
@@ -415,7 +423,7 @@ podPress requires at least WP 2.1 but it is very recommended to use at least WP 
 The auto detection of the duration and other meta information requires PHP 5.0.5. But all other elements of the plugin work with PHP 4.x, too.
 
 = Included Software =
-podPress v8.8.10.11 includes:
+podPress v8.8.10.13 includes:
 
 * 1PixelOut Audio Player v2.0 - http://www.1pixelout.net/code/audio-player-wordpress-plugin/
 * Podango player - http://sites.google.com/site/podangohibernate/
@@ -434,7 +442,8 @@ podPress v8.8.5 and newer versions require at least WP 2.1 but it is recommended
 Upgrading to v8.8.10 is going to rename the podPress `meta_key`s in the postmeta data base table of your blog (`podPressMedia` becomes `_podPressMedia` and `podPressPostSpecific` becomes `_podPressPostSpecific`). Downgrading to a previous version is only possible if you reverse these changes.
 
 
-== Upgrade ==
+== Upgrade, Configuration and Other Notes ==
+= Upgrade =
 Upgrading from 8.8.6.3 (or older version) to 8.8.8.x (or newer versions):
 If you have used the widgets of podPress then it will be necessary to reactivate these widgets manually after an upgrade. The reason for these cirumstances are the massive modifications on both podPress widgets. The widgets will try to take over the old settings as far as possible.
 podPress adds feeds to your blog. These Feeds have the names <em>podcast</em>, <em>premium</em>, <em>enhancedpodcast</em> (since 8.8.5) and <em>torrent</em> (since 8.8.5). In the past versions, you could not control these Feeds and their meta information via a settings page. That is why v8.8.8.x has a new section at the Feed/iTunes Settings page (which has also a new design). With this new podPress Feeds section in place, the purpose of the Feed Settings section has changed. Now, the Feed Settings section is for controlling the iTunes tags and other settings only of all the main Feeds of the blog (like the default Entries RSS2 Feed) and the podPress Feeds section is for controlling the additional Feeds which podPress adds to your blog (like <em>podcast</em>). In the past all the Feeds have shared the same information from the Feed Settings section. If you are using at least one of these Feeds to publish your podcast episodes or to route them to Feedburner or iTunes or a comparable service then you need to fill in the information about this Feed like the content description or the URL of Feed icon into the new podPress Feeds section. You may copy and paste the information from the Feed Settings section or you could use the chance to customize these information. If you are using a non-default Permalink scheme then you should save the Permalink settings after the podPress upgrade. You should also re-save the Permalink setting after you have changed, activated, deactivated or renamed a Feed or if you are using the podPress the first time in your blog). 
@@ -451,8 +460,7 @@ Only users that have not upgraded to a version of WordPress above 2.0.0 need the
 About wp-commentsrss2.php: 
 No one should be using the custom version of this file anymore. It is not supported and may cause problems.
 
-
-== Configuration ==
+= Configuration =
 
 Go to the new podPress menu and start configuring your Feed settings, player appearance, statistics and more general settings.
 

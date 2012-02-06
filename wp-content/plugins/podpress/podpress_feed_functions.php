@@ -101,16 +101,16 @@ License:
 				$data['new-feed-url'] = $podPress->settings['category_data']['iTunesNewFeedURL'];
 			}
 			if($podPress->settings['category_data']['iTunesSummaryChoice'] == 'Custom') {
-				$data['summary'] = $podPress->settings['category_data']['iTunesSummary'];
+				$data['summary'] = stripslashes($podPress->settings['category_data']['iTunesSummary']);
 			}
 			if($podPress->settings['category_data']['iTunesSubtitleChoice'] == 'Custom') {
-				$data['subtitle'] = $podPress->settings['category_data']['iTunesSubtitle'];
+				$data['subtitle'] = stripslashes($podPress->settings['category_data']['iTunesSubtitle']);
 			}
 			if($podPress->settings['category_data']['iTunesKeywordsChoice'] == 'Custom') {
-				$data['keywords'] = $podPress->settings['category_data']['iTunesKeywords'];
+				$data['keywords'] = stripslashes($podPress->settings['category_data']['iTunesKeywords']);
 			}
 			if($podPress->settings['category_data']['iTunesAuthorChoice'] == 'Custom' && !empty($podPress->settings['category_data']['iTunesAuthor'])) {
-				$data['author'] = $podPress->settings['category_data']['iTunesAuthor'];
+				$data['author'] = stripslashes($podPress->settings['category_data']['iTunesAuthor']);
 			}
 			if($podPress->settings['category_data']['iTunesAuthorEmailChoice'] == 'Custom') {
 				$data['admin_email'] = $podPress->settings['category_data']['iTunesAuthorEmail'];
@@ -128,7 +128,7 @@ License:
 				$data['rss_image'] = $podPress->settings['category_data']['rss_image'];
 			}
 			if($podPress->settings['category_data']['rss_copyrightChoice'] == 'Custom') {
-				$data['rss_copyright'] = $podPress->settings['category_data']['rss_copyright'];
+				$data['rss_copyright'] = stripslashes($podPress->settings['category_data']['rss_copyright']);
 			}
 			if($podPress->settings['category_data']['rss_license_urlChoice'] == 'Custom') {
 				$data['rss_license_url'] = $podPress->settings['category_data']['rss_license_url'];
