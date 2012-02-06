@@ -1,29 +1,29 @@
 <?php
 /*
 Plugin Name: Register IP - MultiSite
-Version: 1.2
+Version: 1.3
 Description: Logs the IP of the user when they register a new account.
 Author: Mika Epstein, Johnny White
 Author URI: http://ipstenu.org
-Plugin URI: http://code.ipstenu.org/register-ip-ms
+Plugin URI: http://tech.ipstenu.org/my-plugins/register-ip-ms
 
-Register IP Copyright (c) 2005 Johnny White
-Register IP - MultiSite (c) 2010 Mika Epstein
+Register IP Copyright 2005 Johnny White
+Register IP - MultiSite Copyright 2010-11 Mika Epstein
 
-Taken over in 2010 by Mika Epstein under GPL provisons
+    This file is part of Register IP - MultiSite, a plugin for WordPress.
 
-        This plugin is free software; you can redistribute it and/or modify
-        it under the terms of the GNU General Public License as published by
-        the Free Software Foundation; either version 2 of the License, or
-        (at your option) any later version.
+    Register IP - MultiSite is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
 
-        This plugin is distributed in the hope that it will be useful,
-        but WITHOUT ANY WARRANTY; without even the implied warranty of
-        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-        GNU General Public License for more details.
-		
-		The above copyright notice and this permission notice shall be 
-		included in all copies or substantial portions of the Software.
+    Register IP - MultiSite is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with WordPress.  If not, see <http://www.gnu.org/licenses/>.
 
 */
 
@@ -32,7 +32,6 @@ load_plugin_textdomain('signup_ip', false, dirname(plugin_basename(__FILE__)) . 
 
 /* Version Check - This only works on 3.1.x branch! */
 global $wp_version;
-
 $exit_msg = "_e('This plugin requires WordPress 3.1 or newer.', signup_ip)";
 
 if(version_compare($wp_version, "3.1", "<"))
@@ -85,13 +84,13 @@ function ripms_columns($value, $column_name, $user_id) {
 }
 
 if ( is_multisite() ) {
-        // Adding in filters and actions for Multi Site installs
+        // Adding in filters for Multi Site installs
         add_filter('wpmu_users_columns', 'signup_ip');
-        add_action('manage_users_custom_column',  'ripms_columns', 10, 3);
 } else {
-        // Adding in filters and actions for Single Site installs
+        // Adding in filtersfor Single Site installs
         add_filter('manage_users_columns', 'signup_ip');
-        add_action('manage_users_custom_column',  'ripms_columns', 10, 3);
 }
 
+// Adding in action, since it's the same for MS and SS.
+add_action('manage_users_custom_column',  'ripms_columns', 10, 3);		
 ?>
