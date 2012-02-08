@@ -184,8 +184,8 @@ document.getElementById('<!-- IF S_UCP_ACTION and not S_PRIVMSGS and not S_EDIT_
 		<fieldset class="submit-buttons">
 			{S_HIDDEN_ADDRESS_FIELD}
 			{S_HIDDEN_FIELDS}
-			<!-- IF S_HAS_DRAFTS --><input type="submit" accesskey="d" tabindex="7" name="load" value="{L_LOAD}" class="button2" onclick="load_draft = true;" />&nbsp; <!-- ENDIF -->
-			<!-- IF S_SAVE_ALLOWED --><input type="submit" accesskey="k" tabindex="8" name="save" value="{L_SAVE} som klade" class="button2" />&nbsp; <!-- ENDIF -->
+			<!-- IF S_HAS_DRAFTS --><input type="submit" accesskey="d" tabindex="7" name="load" value="{L_LOAD_DRAFT}" class="button2" onclick="load_draft = true;" />&nbsp; <!-- ENDIF -->
+			<!-- IF S_SAVE_ALLOWED --><input type="submit" accesskey="k" tabindex="8" name="save" value="{L_SAVE_DRAFT}" class="button2" />&nbsp; <!-- ENDIF -->
 			<input type="submit" tabindex="9" name="preview" value="{L_PREVIEW}" class="button1"<!-- IF not S_PRIVMSGS --> onclick="document.getElementById('postform').action += '#preview';"<!-- ENDIF --> />&nbsp;
 			<input type="submit" accesskey="s" tabindex="10" name="post" value="{L_SUBMIT}" class="button1 default-submit-action" />&nbsp;
 

@@ -2,6 +2,12 @@
 <h1 class="entry-title"><!-- IF LOGIN_EXPLAIN -->{LOGIN_EXPLAIN}<!-- ELSE -->{L_LOGIN}<!-- ENDIF --></h1>
 <div class="entry-content">
 
+<script type="text/javascript">
+// <![CDATA[
+	onload_functions.push('document.getElementById("<!-- IF S_ADMIN_AUTH -->{PASSWORD_CREDENTIAL}<!-- ELSE -->{USERNAME_CREDENTIAL}<!-- ENDIF -->").focus();');
+// ]]>
+</script>
+
 <form action="{S_LOGIN_ACTION}" method="post" id="login">
 <!-- IF not S_ADMIN_AUTH and S_REGISTER_ENABLED -->
 		<div class="content" style="width:410px;float:right;border-left:1px solid #CCCCCC;color:#777;padding-left:15px;height:157px;">
@@ -36,11 +42,11 @@
 		</dl>
 		<!-- ENDIF -->
 
+		{S_LOGIN_REDIRECT}
 		<dl>
 			<dt>&nbsp;</dt>
 			<dd>{S_HIDDEN_FIELDS}<input type="submit" name="login" tabindex="8" value="{L_LOGIN}" /></dd>
 		</dl>
-		{S_LOGIN_REDIRECT}
 		</fieldset>
 	</div>
     <div style="clear:both;"></div>

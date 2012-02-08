@@ -1,4 +1,4 @@
-/* proSilver RTL definitions
+/* RTL definitions
 ---------------------------------------- */
 
 /**
@@ -236,6 +236,7 @@
 }
 
 .rtl a.top2 {
+	background-position: 100% 50%;
 	padding-left: 0;
 	padding-right: 15px;
 }
@@ -518,7 +519,7 @@
 /**
 * cp.css
 */
-/* proSilver Control Panel Styles
+/* Control Panel Styles
 ---------------------------------------- */
 
 

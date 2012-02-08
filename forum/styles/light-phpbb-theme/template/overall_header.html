@@ -14,7 +14,7 @@
     <script type='text/javascript' src='/wp-content/themes/light-wordpress-theme/js/slider/jquery.nivo.slider.pack.js?ver=2'></script>
     <script type='text/javascript' src='/wp-includes/js/comment-reply.js?ver=20090102'></script>
     <link rel="shortcut icon" href="/wp-content/themes/light-wordpress-theme/images/favicon.ico" type="image/x-icon" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 {META}
 <title>{SITENAME} | <!-- IF S_IN_MCP -->{L_MCP} | <!-- ELSEIF S_IN_UCP -->{L_UCP} | <!-- ENDIF -->{PAGE_TITLE}</title>
 
@@ -50,12 +50,9 @@
 	var onload_functions = new Array();
 	var onunload_functions = new Array();
 
-	<!-- IF S_USER_PM_POPUP -->
-		if ({S_NEW_PM})
-		{
-			var url = '{UA_POPUP_PM}';
-			window.open(url.replace(/&amp;/g, '&'), '_phpbbprivmsg', 'height=225,resizable=yes,scrollbars=yes, width=400');
-		}
+	<!-- IF S_USER_PM_POPUP and S_NEW_PM -->
+		var url = '{UA_POPUP_PM}';
+		window.open(url.replace(/&amp;/g, '&'), '_phpbbprivmsg', 'height=225,resizable=yes,scrollbars=yes, width=400');
 	<!-- ENDIF -->
 
 	/**
@@ -76,7 +73,7 @@
 		{
 			eval(onload_functions[i]);
 		}
-	}
+	};
 
 	window.onunload = function()
 	{
@@ -84,11 +81,11 @@
 		{
 			eval(onunload_functions[i]);
 		}
-	}
+	};
 
 // ]]>
 </script>
-<script type="text/javascript" src="{T_TEMPLATE_PATH}/forum_fn.js"></script>
+<script type="text/javascript" src="{T_SUPER_TEMPLATE_PATH}/forum_fn.js"></script>
 
 <link href="{T_THEME_PATH}/print.css" rel="stylesheet" type="text/css" media="print" title="printonly" />
 <link href="{T_STYLESHEET_LINK}" rel="stylesheet" type="text/css" media="screen, projection" />
@@ -157,7 +154,7 @@ echo(mb_substr($primary_header_menu, mb_strlen($match[0])));
         <div id="secondary-access">
 		    <!-- IF S_DISPLAY_SEARCH -->
             <div id="loco-search-form">
-	            <form id="searchform" method="post" action="{U_SEARCH}">
+	            <form id="searchform" method="get" action="{U_SEARCH}">
 		            <div>
 			            <input id="s" name="keywords" maxlength="128" type="text" value="Skriv og tryk enter for at søge" onfocus="if (this.value == 'Skriv og tryk enter for at søge') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Skriv og tryk enter for at søge';}" size="32" tabindex="1" />
 			            <input id="searchsubmit" name="searchsubmit" type="submit" value="Søg" tabindex="2" />

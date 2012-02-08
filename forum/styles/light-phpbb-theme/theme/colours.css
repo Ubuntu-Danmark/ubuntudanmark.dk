@@ -122,7 +122,7 @@ dl.details dt {
 /* Pagination
 ---------------------------------------- */
 
-.pagination span a, .pagination span a:link, .pagination span a:visited, .pagination span a:active {
+.pagination span a, .pagination span a:link, .pagination span a:visited {
 	color: #772953;
 	background-color: #ECEDEE;
 	border-color: #B4BAC0;
@@ -134,6 +134,20 @@ dl.details dt {
 	color: #FFF;
 }
 
+<<<<<<< HEAD
+=======
+.pagination span a:active {
+	color: #5C758C;
+	background-color: #ECEDEE;
+	border-color: #B4BAC0;
+}
+
+/* Pagination in viewforum for multipage topics */
+.row .pagination {
+	background-image: url("{T_THEME_PATH}/images/icon_pages.gif");
+}
+
+>>>>>>> Update-phpbb-theme
 .row .pagination span a, li.pagination span a {
 	background-color: #ECEDEE;
 }
@@ -203,17 +217,39 @@ a.topictitle:active {
 }
 
 /* Post body links */
-.signature a, .signature a:visited, .signature a:active, .signature a:hover {
+.postlink {
+	color: #DD4814;
+	border-bottom-color: #DD4814;
+}
+
+.postlink:visited {
+	color: #00AA00;
+	border-bottom-color: #00AA00;
+}
+
+.postlink:active {
+	color: #368AD2;
+}
+
+.postlink:hover {
+	color: #368AD2;
+}
+
+.signature a, .signature a:visited, .signature a:hover, .signature a:active {
 	background-color: transparent;
 }
 
 /* Profile links */
-.postprofile a:link, .postprofile a:active, .postprofile a:visited, .postprofile dt.author a {
+.postprofile a:link, .postprofile a:visited, .postprofile dt.author a {
 	color: #105289;
 }
 
 .postprofile a:hover, .postprofile dt.author a:hover {
 	color: #D31141;
+}
+
+.postprofile a:active {
+	color: #105289;
 }
 
 /* Profile searchresults */	
@@ -507,7 +543,7 @@ fieldset.polls dl.voted {
 }
 
 .online {
-	background-image: url("{T_IMAGESET_LANG_PATH}/icon_user_online.gif");
+	background-image: url("{IMG_ICON_USER_ONLINE_SRC}");
 }
 
 /*  	

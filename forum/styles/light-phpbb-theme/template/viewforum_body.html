@@ -8,13 +8,13 @@
 
 <!-- IF S_FORUM_RULES -->
     <div class="rules">
-	    <!-- IF U_FORUM_RULES -->
-		    <a href="{U_FORUM_RULES}">{L_FORUM_RULES}</a>
-	    <!-- ELSE -->
-		    <strong>{L_FORUM_RULES}</strong><br />
-		    {FORUM_RULES}
-	    <!-- ENDIF -->
-    </div>
+		<!-- IF U_FORUM_RULES -->
+			<a href="{U_FORUM_RULES}">{L_FORUM_RULES}</a>
+		<!-- ELSE -->
+			<strong>{L_FORUM_RULES}</strong><br />
+			{FORUM_RULES}
+		<!-- ENDIF -->
+	</div>
 <!-- ENDIF -->
 
 <div style="margin-top:15px;">
@@ -72,7 +72,7 @@
 		<ul class="topiclist">
 			<li class="header">
 				<dl class="icon">
-					<dt><!-- IF S_DISPLAY_ACTIVE -->{L_ACTIVE_TOPICS}<!-- ELSEIF topicrow.S_TOPIC_TYPE_SWITCH and topicrow.S_TOPIC_TYPE gt 1 -->{L_ANNOUNCEMENTS}<!-- ELSE -->{L_TOPICS}<!-- ENDIF --></dt>
+					<dt><!-- IF S_DISPLAY_ACTIVE -->{L_ACTIVE_TOPICS}<!-- ELSEIF topicrow.S_TOPIC_TYPE_SWITCH and (topicrow.S_POST_ANNOUNCE or topicrow.S_POST_GLOBAL) -->{L_ANNOUNCEMENTS}<!-- ELSE -->{L_TOPICS}<!-- ENDIF --></dt>
 					<dd class="posts">{L_REPLIES}</dd>
 					<dd class="views">{L_VIEWS}</dd>
 					<dd class="lastpost">{L_LAST_POST}</dd>
@@ -82,7 +82,7 @@
 		<ul class="topiclist topics">
 	<!-- ENDIF -->
 
-		<li class="row<!-- IF topicrow.S_ROW_COUNT is not even --> bg2<!-- ENDIF --><!-- IF topicrow.S_POST_ANNOUNCE --> announce<!-- ENDIF --><!-- IF topicrow.S_POST_STICKY --> sticky<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> reported<!-- ENDIF -->">
+		<li class="row<!-- IF topicrow.S_ROW_COUNT is not even --> bg2<!-- ENDIF --><!-- IF topicrow.S_POST_GLOBAL --> global-announce<!-- ENDIF --><!-- IF topicrow.S_POST_ANNOUNCE --> announce<!-- ENDIF --><!-- IF topicrow.S_POST_STICKY --> sticky<!-- ENDIF --><!-- IF topicrow.S_TOPIC_REPORTED --> reported<!-- ENDIF -->">
 			<dl class="icon" style="background-image: url({topicrow.TOPIC_FOLDER_IMG_SRC}); background-repeat: no-repeat;">
 				<dt<!-- IF topicrow.TOPIC_ICON_IMG and S_TOPIC_ICONS --> style="background-image: url({T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}); background-repeat: no-repeat;"<!-- ENDIF --> title="{topicrow.TOPIC_FOLDER_IMG_ALT}">
 					<!-- IF topicrow.PAGINATION --><span class="pagination">Side: <span>{topicrow.PAGINATION}</span></span><!-- ENDIF -->
