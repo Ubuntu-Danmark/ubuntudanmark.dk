@@ -101,7 +101,7 @@
 ob_start();
 thematic_header();
 $primary_header_menu = ob_get_clean();
-preg_match('#.*/forum/.*?/a>#s', $primary_header_menu, $match);
+preg_match('#.*href="/forum/".*?/a>#s', $primary_header_menu, $match);
 echo $match[0];
 <!-- ENDPHP -->
                                     <!-- IF not S_IS_BOT -->
