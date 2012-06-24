@@ -1,0 +1,5 @@
+*~
+.DS_Store
+forum/cache/*
+forum/config.php
+wp-config.php
