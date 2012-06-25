@@ -31,7 +31,7 @@
 					<!-- IF forumrow.SUBFORUMS and forumrow.S_LIST_SUBFORUMS --><br /><strong>{forumrow.L_SUBFORUM_STR}</strong> {forumrow.SUBFORUMS}<!-- ENDIF -->
 				</dt>
 				<!-- IF forumrow.CLICKS -->
-				<!-- IF not forumrow.S_IS_LINK -->
+				<!-- ELSEIF not forumrow.S_IS_LINK -->
 					<dd class="topics">{forumrow.TOPICS}</dd>
 					<dd class="posts">{forumrow.POSTS}</dd>
 					<dd class="lastpost"><span>
