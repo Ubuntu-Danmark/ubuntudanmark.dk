@@ -2,22 +2,25 @@
 # This file is distributed under the same license as the Twenty Eleven package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2012-01-07 21:11+0100\n"
+"PO-Revision-Date: 2012-06-14 06:32:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/0.1\n"
 "Project-Id-Version: Twenty Eleven\n"
-"POT-Creation-Date: \n"
-"Last-Translator: Mark Thomas Gazel <mark@gazel.dk>\n"
-"Language-Team: \n"
+
+msgid "Showcase Template"
+msgstr "Showcase skabelon"
+
+msgid "Sidebar Template"
+msgstr "Sidebar skabelon"
 
 #: image.php:30
 msgid "<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class=\"entry-date\"><abbr class=\"published\" title=\"%1$s\">%2$s</abbr></span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; %5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</a>"
 msgstr "<span class=\"meta-prep meta-prep-entry-date\">Udgivet </span><span class=\"entry-date\"><abbr class=\"published\" title=\"%1$s\">%2$s</abbr></span><a href=\"%3$s\" title=\"Link til stort billede\">%4$s &times; %5$s</a> i <a href=\"%6$s\" title=\"Returner til %7$s\" rel=\"gallery\">%8$s</a>"
 
-#: inc/theme-options.php:133
+#: inc/theme-options.php:127
 msgid "Overview"
 msgstr "Oversigt"
 
@@ -35,7 +38,7 @@ msgstr "F Y"
 msgid "This entry was posted by <a href=\"%6$s\">%5$s</a>. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr "Dette indlæg blev udgivet af <a href=\"%6$s\">%5$s</a>. Bogmærk <a href=\"%3$s\" title=\"Permalink til %4$s\" rel=\"bookmark\">permalinket</a>."
 
-#: functions.php:546
+#: functions.php:563
 msgid "Reply <span>&darr;</span>"
 msgstr "Svar <span>&darr;</span>"
 
@@ -47,32 +50,20 @@ msgstr "Næste <span class=\"meta-nav\">&rarr;</span>"
 msgid "<span class=\"meta-nav\">&larr;</span> Previous"
 msgstr "<span class=\"meta-nav\">&larr;</span> Forrige"
 
-#: content-quote.php:24
-#: content.php:30
-#: content-image.php:21
-#: content-aside.php:22
-#: content-status.php:21
-#: content-link.php:22
+#: content-aside.php:22 content-image.php:21 content-link.php:22
+#: content-quote.php:24 content-status.php:21 content.php:30
 msgctxt "comments number"
 msgid "%"
 msgstr "%"
 
-#: content-quote.php:24
-#: content.php:30
-#: content-image.php:21
-#: content-aside.php:22
-#: content-status.php:21
-#: content-link.php:22
+#: content-aside.php:22 content-image.php:21 content-link.php:22
+#: content-quote.php:24 content-status.php:21 content.php:30
 msgctxt "comments number"
 msgid "1"
 msgstr "1"
 
-#: content-quote.php:24
-#: content.php:30
-#: content-image.php:21
-#: content-aside.php:22
-#: content-status.php:21
-#: content-link.php:22
+#: content-aside.php:22 content-image.php:21 content-link.php:22
+#: content-quote.php:24 content-status.php:21 content.php:30
 msgid "Reply"
 msgstr "Svar"
 
@@ -80,19 +71,15 @@ msgstr "Svar"
 msgid "Image navigation"
 msgstr "Billednavigation"
 
-#: functions.php:528
+#: functions.php:545
 msgid "%1$s at %2$s"
 msgstr "%1$s kl. %2$s"
 
-#: functions.php:522
+#: functions.php:539
 msgid "%1$s on %2$s <span class=\"says\">said:</span>"
 msgstr "%1$s, %2$s <span class=\"says\">skriver:</span>"
 
-#: index.php:41
-#: category.php:54
-#: tag.php:54
-#: author.php:78
-#: archive.php:61
+#: archive.php:61 author.php:78 category.php:54 index.php:41 tag.php:54
 msgid "Apologies, but no results were found for the requested archive. Perhaps searching will help find a related post."
 msgstr "Beklager, men der blev ikke fundet noget i arkivet. Måske vil en søgning hjælpe dig til at finde et relevant indlæg."
 
@@ -100,84 +87,72 @@ msgstr "Beklager, men der blev ikke fundet noget i arkivet. Måske vil en søgni
 msgid "<a href=\"%1$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%2$s\" pubdate>%3$s</time></a><span class=\"by-author\"> <span class=\"sep\"> by </span> <span class=\"author vcard\"><a class=\"url fn n\" href=\"%4$s\" title=\"%5$s\" rel=\"author\">%6$s</a></span></span>"
 msgstr "<a href=\"%1$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%2$s\" pubdate>%3$s</time></a><span class=\"by-author\"> <span class=\"sep\"> af </span> <span class=\"author vcard\"><a class=\"url fn n\" href=\"%4$s\" title=\"%5$s\" rel=\"author\">%6$s</a></span></span>"
 
-#: functions.php:564
+#: functions.php:581
 msgid "<span class=\"sep\">Posted on </span><a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%3$s\" pubdate>%4$s</time></a><span class=\"by-author\"> <span class=\"sep\"> by </span> <span class=\"author vcard\"><a class=\"url fn n\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span></span>"
 msgstr "<span class=\"sep\">Udgivet den </span><a href=\"%1$s\" title=\"%2$s\" rel=\"bookmark\"><time class=\"entry-date\" datetime=\"%3$s\" pubdate>%4$s</time></a><span class=\"by-author\"> <span class=\"sep\"> af </span> <span class=\"author vcard\"><a class=\"url fn n\" href=\"%5$s\" title=\"%6$s\" rel=\"author\">%7$s</a></span></span>"
 
-#: inc/theme-options.php:68
+#: inc/theme-options.php:62
 msgid "Default Layout"
 msgstr "Standard-layout"
 
-#: inc/theme-options.php:125
+#: inc/theme-options.php:119
 msgid "<a href=\"http://codex.wordpress.org/Appearance_Theme_Options_Screen\" target=\"_blank\">Documentation on Theme Options</a>"
 msgstr "<a href=\"http://codex.wordpress.org/Appearance_Theme_Options_Screen\" target=\"_blank\">Dokumentation om Temaindstillinger</a>"
 
-#: inc/theme-options.php:126
+#: inc/theme-options.php:120
 msgid "<a href=\"http://wordpress.org/support/\" target=\"_blank\">Support Forums</a>"
 msgstr "<a href=\"http://wordpress.org/support/\" target=\"_blank\">Support fora</a>"
 
-#: inc/theme-options.php:124
+#: inc/theme-options.php:118
 msgid "For more information:"
 msgstr "For mere information:"
 
-#: inc/theme-options.php:122
+#: inc/theme-options.php:116
 msgid "Remember to click \"Save Changes\" to save any changes you have made to the theme options."
 msgstr "Husk at klikke på \"Gem ændringer\" for at gemme eventuelle ændringer, du har lavet i temaets indstillinger."
 
-#: header.php:115
+#: header.php:131
 msgid "Skip to primary content"
-msgstr "Fortsæt til primære indhold"
+msgstr "Fortsæt til primært indhold"
 
-#: header.php:116
+#: header.php:132
 msgid "Skip to secondary content"
-msgstr "Fortsæt til sekundære indhold"
+msgstr "Fortsæt til sekundært indhold"
 
-#: inc/theme-options.php:189
+#: inc/theme-options.php:183
 msgid "One-column, no sidebar"
 msgstr "Én kolonne, ingen sidebar"
 
-#: inc/theme-options.php:116
+#: inc/theme-options.php:110
 msgid "Some themes provide customization options that are grouped together on a Theme Options screen. If you change themes, options may change or disappear, as they are theme-specific. Your current theme, Twenty Eleven, provides the following Theme Options:"
 msgstr "Nogle temaer giver tilpasningsmuligheder, der er samlet i nogle temaindstillinger. Hvis du skifter tema, kan disse indstillinger ændres eller forsvinde helt, da de er knyttet til temaet. Dit nuværende tema, Twenty Eleven, har følgende temaindstillinger:"
 
-#: inc/theme-options.php:118
+#: inc/theme-options.php:112
 msgid "<strong>Color Scheme</strong>: You can choose a color palette of \"Light\" (light background with dark text) or \"Dark\" (dark background with light text) for your site."
 msgstr "<strong>Farveskema</strong>: Du kan vælge en lys farvepalette (lys baggrund med mørk tekst) eller mørk farvepalette (mørk baggrund med lys tekst) til dit websted."
 
-#: inc/theme-options.php:119
+#: inc/theme-options.php:113
 msgid "<strong>Link Color</strong>: You can choose the color used for text links on your site. You can enter the HTML color or hex code, or you can choose visually by clicking the \"Select a Color\" button to pick from a color wheel."
 msgstr "<strong>Linkfarve</strong>: Du kan vælge den farve, der bruges til tekst-links på dit websted. Du kan indtaste HTML-farven eller hex-koden, eller du kan vælge mere visuelt ved at klikke på \"Vælg en farve\"-knappen derefter vælge fra et farvehjul."
 
-#: inc/theme-options.php:120
+#: inc/theme-options.php:114
 msgid "<strong>Default Layout</strong>: You can choose if you want your site&#8217;s default layout to have a sidebar on the left, the right, or not at all."
 msgstr "<strong>Standard-layout</strong>: Du kan vælge om dit websteds standardlayout skal have en sidebar til venstre, højre, eller slet ikke."
 
-#: content-quote.php:44
-#: content-quote.php:54
-#: content.php:51
-#: content.php:61
-#: content-image.php:47
-#: content-image.php:56
-#: content-single.php:30
-#: content-single.php:33
-#: content-gallery.php:62
-#: content-gallery.php:72
-#: content-featured.php:29
-#: content-featured.php:38
+#: content-featured.php:29 content-featured.php:38 content-gallery.php:62
+#: content-gallery.php:72 content-image.php:47 content-image.php:56
+#: content-quote.php:44 content-quote.php:54 content-single.php:30
+#: content-single.php:33 content.php:51 content.php:61
 msgid ", "
 msgstr ", "
 
-#: content-quote.php:48
+#: content-gallery.php:66 content-image.php:51 content-quote.php:48
 #: content.php:55
-#: content-image.php:51
-#: content-gallery.php:66
 msgid "<span class=\"%1$s\">Posted in</span> %2$s"
 msgstr "<span class=\"%1$s\">Udgivet i</span> %2$s"
 
-#: content-quote.php:60
+#: content-gallery.php:78 content-image.php:59 content-quote.php:60
 #: content.php:67
-#: content-image.php:59
-#: content-gallery.php:78
 msgid "<span class=\"%1$s\">Tagged</span> %2$s"
 msgstr "<span class=\"%1$s\">Tagget</span> %2$s"
 
@@ -227,7 +202,7 @@ msgstr "mørk, lys, hvid, sort, grå, en-kolonne, to-kolonne, venstre-sidebar, h
 msgid "Daily Archives: %s"
 msgstr "Dagsarkiv: %s"
 
-#: inc/theme-options.php:67
+#: inc/theme-options.php:61 inc/theme-options.php:491
 msgid "Link Color"
 msgstr "Linkfarve"
 
@@ -235,15 +210,19 @@ msgstr "Linkfarve"
 msgid "Monthly Archives: %s"
 msgstr "Månedsarkiv: %s"
 
+#: inc/theme-options.php:498
+msgid "Layout"
+msgstr "Layout"
+
 #: inc/widgets.php:19
 msgid "Use this widget to list your recent Aside, Status, Quote, and Link posts"
 msgstr "Brug denne widget til at liste dine seneste Sidebemærkning-, Status-, Citat- og Link-indlæg."
 
-#: inc/theme-options.php:279
+#: inc/theme-options.php:273
 msgid "Select a Color"
 msgstr "Vælg en farve"
 
-#: inc/theme-options.php:282
+#: inc/theme-options.php:276
 msgid "Default color: %s"
 msgstr "Standardfarve: %s"
 
@@ -251,83 +230,79 @@ msgstr "Standardfarve: %s"
 msgid "Yearly Archives: %s"
 msgstr "Årsarkiv: %s"
 
-#: functions.php:191
+#: functions.php:206
 msgid "Hanoi Plant"
 msgstr "Hanoi plante"
 
-#: inc/theme-options.php:184
+#: inc/theme-options.php:178
 msgid "Content on right"
 msgstr "Indhold til højre"
 
-#: inc/theme-options.php:179
+#: inc/theme-options.php:173
 msgid "Content on left"
 msgstr "Indhold til venstre"
 
-#: inc/theme-options.php:161
+#: inc/theme-options.php:155
 msgid "Dark"
 msgstr "Mørk"
 
-#: inc/theme-options.php:155
+#: inc/theme-options.php:149
 msgid "Light"
 msgstr "Lys"
 
-#: inc/theme-options.php:317
+#: inc/theme-options.php:312
 msgid "%s Theme Options"
 msgstr "%s Temaindstillinger"
 
-#: inc/theme-options.php:100
-#: inc/theme-options.php:101
+#: inc/theme-options.php:94 inc/theme-options.php:95
 msgid "Theme Options"
 msgstr "Temaindstillinger"
 
-#: inc/theme-options.php:61
+#: inc/theme-options.php:55 inc/theme-options.php:474
 msgid "Color Scheme"
 msgstr "Farveskema"
 
-#: functions.php:179
+#: functions.php:194
 msgid "Lanterns"
 msgstr "Lanterner"
 
-#: functions.php:185
+#: functions.php:200
 msgid "Willow"
 msgstr "Piletræ"
 
-#: functions.php:173
+#: functions.php:188
 msgid "Chessboard"
 msgstr "Skakbræt"
 
-#: functions.php:167
+#: functions.php:182
 msgid "Pine Cone"
 msgstr "Fyrretræskogle"
 
-#: functions.php:149
+#: functions.php:164
 msgid "Wheel"
 msgstr "Hjul"
 
-#: showcase.php:145
+#: showcase.php:150
 msgid "Featuring: %s"
 msgstr "Fremhævet: %s"
 
-#: functions.php:155
+#: functions.php:170
 msgid "Shore"
 msgstr "Kyst"
 
-#: functions.php:161
+#: functions.php:176
 msgid "Trolley"
 msgstr "Sporvogn"
 
-#: inc/widgets.php:91
-#: inc/widgets.php:107
+#: inc/widgets.php:91 inc/widgets.php:107
 msgid "1 <span class=\"reply\">comment &rarr;</span>"
 msgstr "1 <span class=\"reply\">kommentar &rarr;</span>"
 
-#: content-single.php:60
-#: author.php:49
+#: author.php:49 content-single.php:60
 msgid "About %s"
 msgstr "Om %s"
 
-#: inc/widgets.php:91
-#: inc/widgets.php:107
+#: inc/widgets.php:91 inc/widgets.php:107
 msgid "0 <span class=\"reply\">comments &rarr;</span>"
 msgstr "0 <span class=\"reply\">kommentarer &rarr;</span>"
 
@@ -340,15 +315,13 @@ msgid "http://wordpress.org/"
 msgstr "http://wordpress.org/"
 
 msgid "the WordPress team"
-msgstr "WordPress-holdet"
+msgstr "holdet bag WordPress"
 
-#: comments.php:42
-#: comments.php:62
+#: comments.php:42 comments.php:62
 msgid "Newer Comments &rarr;"
 msgstr "Nyere kommentarer &rarr;"
 
-#: comments.php:41
-#: comments.php:61
+#: comments.php:41 comments.php:61
 msgid "&larr; Older Comments"
 msgstr "&larr; Ældre kommentarer"
 
@@ -360,19 +333,10 @@ msgstr "Dette indlæg er beskyttet med kodeord. Skriv kodeordet for at se eventu
 msgid "Comments are closed."
 msgstr "Der er lukket for kommentarer."
 
-#: content-quote.php:14
-#: showcase.php:115
-#: showcase.php:194
-#: content.php:15
-#: content.php:19
-#: content-image.php:15
-#: content-gallery.php:16
-#: content-gallery.php:48
-#: content-aside.php:16
-#: content-status.php:15
-#: inc/widgets.php:89
-#: content-link.php:16
-#: content-featured.php:14
+#: content-aside.php:16 content-featured.php:14 content-gallery.php:16
+#: content-gallery.php:48 content-image.php:15 content-link.php:16
+#: content-quote.php:14 content-status.php:15 content.php:15 content.php:19
+#: inc/widgets.php:89 showcase.php:120 showcase.php:199
 msgid "Permalink to %s"
 msgstr "Permalink til %s"
 
@@ -396,8 +360,7 @@ msgstr "Dette er lidt pinligt, er det ikke?"
 msgid "Category Archives: %s"
 msgstr "Kategoriarkiv: %s"
 
-#: comments.php:40
-#: comments.php:60
+#: comments.php:40 comments.php:60
 msgid "Comment navigation"
 msgstr "Kommentar navigation"
 
@@ -427,26 +390,20 @@ msgstr "Forfatterarkiv: %s"
 msgid "Search Results for: %s"
 msgstr "Søgeresultater for: %s"
 
-#: index.php:37
-#: category.php:50
+#: archive.php:57 author.php:74 category.php:50 index.php:37 search.php:42
 #: tag.php:50
-#: author.php:74
-#: search.php:42
-#: archive.php:57
 msgid "Nothing Found"
 msgstr "Intet fundet"
 
-#: searchform.php:11
-#: searchform.php:12
-#: searchform.php:13
+#: searchform.php:11 searchform.php:12 searchform.php:13
 msgid "Search"
 msgstr "Søg"
 
-#: showcase.php:72
+#: showcase.php:77
 msgid "Featured Post"
 msgstr "Fremhævede indlæg"
 
-#: showcase.php:155
+#: showcase.php:160
 msgid "Recent Posts"
 msgstr "Seneste indlæg"
 
@@ -480,78 +437,44 @@ msgstr "Twenty Eleven"
 msgid "http://wordpress.org/extend/themes/twentyeleven"
 msgstr "http://wordpress.org/extend/themes/twentyeleven"
 
-#: inc/widgets.php:91
-#: inc/widgets.php:107
+#: inc/widgets.php:91 inc/widgets.php:107
 msgid "% <span class=\"reply\">comments &rarr;</span>"
 msgstr "% <span class=\"reply\">kommentarer &rarr;</span>"
 
-#: content-quote.php:35
-#: content.php:41
-#: content-image.php:27
-#: content-gallery.php:32
-#: content-aside.php:33
-#: functions.php:327
-#: content-status.php:34
-#: content-link.php:33
+#: content-aside.php:33 content-gallery.php:32 content-image.php:27
+#: content-link.php:33 content-quote.php:35 content-status.php:34
+#: content.php:41 functions.php:344
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Læs resten <span class=\"meta-nav\">&rarr;</span>"
 
-#: content-quote.php:36
-#: content.php:42
-#: content-image.php:28
-#: content-single.php:24
-#: content-intro.php:18
-#: content-gallery.php:54
-#: content-aside.php:34
-#: image.php:90
-#: content-status.php:35
-#: content-page.php:18
-#: content-link.php:34
-#: content-featured.php:23
+#: content-aside.php:34 content-featured.php:23 content-gallery.php:54
+#: content-image.php:28 content-intro.php:18 content-link.php:34
+#: content-page.php:18 content-quote.php:36 content-single.php:24
+#: content-status.php:35 content.php:42 image.php:90
 msgid "Pages:"
 msgstr "Sider:"
 
-#: content-image.php:39
-#: functions.php:570
+#: content-image.php:39 functions.php:587
 msgid "View all posts by %s"
 msgstr "Vis alle indlæg af %s"
 
-#: content-quote.php:69
-#: showcase.php:196
-#: content.php:77
-#: content-image.php:64
-#: content-gallery.php:87
-#: content-aside.php:42
-#: content-status.php:43
-#: content-link.php:42
+#: content-aside.php:42 content-gallery.php:87 content-image.php:64
+#: content-link.php:42 content-quote.php:69 content-status.php:43
+#: content.php:77 showcase.php:201
 msgid "<b>%</b> Replies"
 msgstr "<b>%</b> svar"
 
-#: content-quote.php:69
-#: showcase.php:196
-#: content.php:77
-#: content-image.php:64
-#: content-gallery.php:87
-#: content-aside.php:42
-#: content-status.php:43
-#: content-link.php:42
+#: content-aside.php:42 content-gallery.php:87 content-image.php:64
+#: content-link.php:42 content-quote.php:69 content-status.php:43
+#: content.php:77 showcase.php:201
 msgid "<b>1</b> Reply"
 msgstr "<b>1</b> svar"
 
-#: content-quote.php:72
-#: content.php:80
-#: content-image.php:68
-#: content-single.php:52
-#: content-intro.php:19
-#: content-gallery.php:90
-#: content-aside.php:44
+#: content-aside.php:44 content-featured.php:45 content-gallery.php:90
+#: content-image.php:68 content-intro.php:19 content-link.php:44
+#: content-page.php:21 content-quote.php:72 content-single.php:52
+#: content-status.php:45 content.php:80 functions.php:522 functions.php:550
 #: image.php:41
-#: functions.php:505
-#: functions.php:533
-#: content-status.php:45
-#: content-page.php:21
-#: content-link.php:44
-#: content-featured.php:45
 msgid "Edit"
 msgstr "Rediger"
 
@@ -563,14 +486,9 @@ msgstr "Dette indlæg blev udgivet i %1$s af <a href=\"%6$s\">%5$s</a>. Bogmærk
 msgid "This entry was posted in %1$s and tagged %2$s by <a href=\"%6$s\">%5$s</a>. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr "Dette indlæg blev udgivet i %1$s og tagget %2$s af <a href=\"%6$s\">%5$s</a>. Bogmærk <a href=\"%3$s\" title=\"Permalink til %4$s\" rel=\"bookmark\">permalinket</a>."
 
-#: content-quote.php:69
-#: showcase.php:196
-#: content.php:77
-#: content-image.php:64
-#: content-gallery.php:87
-#: content-aside.php:42
-#: content-status.php:43
-#: content-link.php:42
+#: content-aside.php:42 content-gallery.php:87 content-image.php:64
+#: content-link.php:42 content-quote.php:69 content-status.php:43
+#: content.php:77 showcase.php:201
 msgid "Leave a reply"
 msgstr "Skriv et svar"
 
@@ -592,7 +510,7 @@ msgstr "Næste &rarr;"
 msgid "&larr; Previous"
 msgstr "&larr; Forrige"
 
-#: header.php:113
+#: header.php:129
 msgid "Main menu"
 msgstr "Primær menu"
 
@@ -600,58 +518,55 @@ msgstr "Primær menu"
 msgid "Page %s"
 msgstr "Side %s"
 
-#: functions.php:505
+#: functions.php:522
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: functions.php:537
+#: functions.php:554
 msgid "Your comment is awaiting moderation."
 msgstr "Din kommentar afventer godkendelse."
 
-#: functions.php:435
+#: functions.php:452
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Nyere indlæg <span class=\"meta-nav\">&rarr;</span>"
 
-#: functions.php:434
+#: functions.php:451
 msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
 msgstr "<span class=\"meta-nav\">&larr;</span> Ældre indlæg"
 
-#: functions.php:433
-#: single.php:18
+#: functions.php:450 single.php:18
 msgid "Post navigation"
-msgstr "Indlæg navigation"
+msgstr "Indlægs navigation"
 
-#: functions.php:413
+#: functions.php:430
 msgid "Footer Area Three"
-msgstr "Tredje footer widget-område"
+msgstr "Tredje widget-område i footeren"
 
-#: functions.php:403
+#: functions.php:420
 msgid "Footer Area Two"
-msgstr "Andet footer widget-område"
+msgstr "Andet widget-område i footeren"
 
-#: functions.php:395
-#: functions.php:405
-#: functions.php:415
+#: functions.php:412 functions.php:422 functions.php:432
 msgid "An optional widget area for your site footer"
 msgstr "Et valgfrit widget-område for dit websteds footer."
 
-#: functions.php:393
+#: functions.php:410
 msgid "Footer Area One"
-msgstr "Første footer widget-område"
+msgstr "Første widget-område i footeren"
 
-#: functions.php:385
+#: functions.php:402
 msgid "The sidebar for the optional Showcase Template"
 msgstr "Sidebar for den valgfri præsentationsskabelon"
 
-#: functions.php:383
+#: functions.php:400
 msgid "Showcase Sidebar"
-msgstr "Præsentation Sidebar"
+msgstr "Præsentation sidebar"
 
-#: functions.php:374
+#: functions.php:391
 msgid "Main Sidebar"
-msgstr "Primær Sidebar"
+msgstr "Primær sidebar"
 
-#: functions.php:101
+#: functions.php:95
 msgid "Primary Menu"
 msgstr "Primær menu"
 
@@ -662,4 +577,3 @@ msgstr "Vis alle indlæg af %s <span class=\"meta-nav\">&rarr;</span>"
 #: content-featured.php:31
 msgid "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" title=\"Permalink to %4$s\" rel=\"bookmark\">permalink</a>."
 msgstr "Dette indlæg blev udgivet i %1$s og tagget %2$s. Bogmærk <a href=\"%3$s\" title=\"Permalink til %4$s\" rel=\"bookmark\">permalinket</a>."
-
