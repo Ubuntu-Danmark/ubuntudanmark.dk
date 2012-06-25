@@ -6,12 +6,12 @@ wpbb_phpBB3::loadConstants();
 //prepare the paths to the folders and files
 $config_files = array(
     'auth_wpbb' => array(
-        'source' => realpath(dirname(__FILE__) . '/files/auth_wpbb.php'),
+        'source' => realpath(__DIR__ . '/files/auth_wpbb.php'),
         'destin' => realpath(ABSPATH . PHPBBPATH . 'includes/auth') . '/auth_wpbb.php',
         'folder' => realpath(ABSPATH . PHPBBPATH . 'includes/auth')
     ),
     'common' => array(
-        'source' => realpath(dirname(__FILE__) . '/files/common.php'),
+        'source' => realpath(__DIR__ . '/files/common.php'),
         'destin' => realpath(ABSPATH . PHPBBPATH) . '/common.php',
         'folder' => realpath(ABSPATH . PHPBBPATH)
     ),
@@ -499,7 +499,6 @@ function wpbb_functions_list($file) {
 function wpbb_validate_user_patch($file) {
     if (file_exists($file)) {
         $content = file_get_contents($file);
-        $content = str_replace(' phpbb_validate_username', ' validate_phpbb_username', $content); //DEBUG PHASE, REMOVE FOR PROD
         $content = str_replace(' validate_username', ' validate_phpbb_username', $content);
 
         file_put_contents($file, $content);
