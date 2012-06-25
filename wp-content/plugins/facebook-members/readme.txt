@@ -2,15 +2,15 @@
 Contributors: netcrunched
 Tags: Facebook, Facebook Members
 Requires at least: 3.2
-Tested up to: 3.3.1
-Stable tag: 4.0.0
+Tested up to: 3.4
+Stable tag: 4.2
 
 Facebook Members is a WordPres Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website.
 
 == Description ==
 Facebook Members is a WordPres Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website. It uses Facebook Like Box. 
 
-See how many users already like this page, and which of their friends like it too. Read recent posts from the page Like the page with one click, without needing to visit the page. Get more visitors and more traffic to your site by getting more Facebook Fans.
+See how many users already like this page, and which of their friends like it too. Read recent posts from the page Like the page with one click, without needing to visit the page. Get more visitors and more traffic to your site by getting more Facebook Fans. Stay tuned on plugin <a href="http://netcrunched.com/plugins/facebook-members/" target="_blank">Homepage</a>.
 
 **New**
 
@@ -20,8 +20,7 @@ See how many users already like this page, and which of their friends like it to
 
 **[Screenshots - Admin Panel and Preview](http://wordpress.org/extend/plugins/facebook-members/screenshots/)**
 
-<a href="http://netcrunched.com/plugins/facebook-members/" target="_blank">Homepage</a>  
-<a href="https://www.facebook.com/NetCrunched" target="_blank">Facebook Page</a>
+Follow on <a href="http://twitter.com/NetCrunched" target="_blank">Twitter</a> and <a href="http://facebook.com/NetCrunched" target="_blank">Facebook</a>.
 
 **Features**
 
@@ -53,7 +52,7 @@ Tags: facebook, FB members, facebook plugin, like box, likebox, facebook like bo
 * You need to provide whatever is after `facebook.com/`........ (URL).
 
 = Got a Question? =
-* Please report your questions or bugs at Plugin <a href="http://netcrunched.com/plugins/facebook-members/" target="_blank">Homepage</a> and stay tuned on NetCrunched <a href="https://www.facebook.com/NetCrunched" target="_blank">Facebook Page</a>.
+* Please report your questions or bugs at Plugin <a href="http://netcrunched.com/plugins/facebook-members/" target="_blank">Homepage</a>. Follow on <a href="http://twitter.com/NetCrunched" target="_blank">Twitter</a> and <a href="http://facebook.com/NetCrunched" target="_blank">Facebook</a>.
 * NOTE: I created this plugin as of my personal interest only. 
 
 == Screenshots ==
@@ -64,15 +63,3 @@ Tags: facebook, FB members, facebook plugin, like box, likebox, facebook like bo
 5. Admin Panel Options for Post/Page Widget
 6. Admin Panel Options for Sidebar Widget
 7. Page/Post Sample Example
-
-== Changelog ==
-
-= 4.0.0 =
-
-* Major version upgrade
-* New: Option to Show/Hide Faces Option 
-* New: Option to change Background Color 
-* New: Option to change Border Color 
-* Fixed: upgraded to latest code
-* Look at screenshots to see changes
-
