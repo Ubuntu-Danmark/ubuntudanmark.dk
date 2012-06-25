@@ -1457,7 +1457,7 @@ function validate_language_iso_name($lang_iso)
 *
 * @return	mixed	Either false if validation succeeded or a string which will be used as the error message (with the variable name appended)
 */
-function validate_username_phpbb($username, $allowed_username = false)
+function validate_phpbb_username($username, $allowed_username = false)
 {
 	global $config, $db, $user, $cache;
 
@@ -1695,7 +1695,7 @@ function validate_password($password)
 *
 * @return mixed Either false if validation succeeded or a string which will be used as the error message (with the variable name appended)
 */
-function validate_email_phpbb($email, $allowed_email = false)
+function validate_email($email, $allowed_email = false)
 {
 	global $config, $db, $user;
 
@@ -3201,7 +3201,7 @@ function group_user_attributes($action, $group_id, $user_id_ary = false, $userna
 }
 
 /**
-* A small version of validate_username to check for a group name's existence. To be called directly.
+* A small version of validate_phpbb_username to check for a group name's existence. To be called directly.
 */
 function group_validate_groupname($group_id, $group_name)
 {
