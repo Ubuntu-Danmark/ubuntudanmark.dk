@@ -30,8 +30,12 @@ if (!isset($this->subscribe2_options['comment_subs'])) {
 	$this->subscribe2_options['comment_subs'] = "no";
 } // option for commenters to subscribe as public subscribers
 
+if (!isset($this->subscribe2_options['one_click_profile'])) {
+	$this->subscribe2_options['one_click_profile'] = "no";
+} // option for displaying 'one-click' option on profile page
+
 if(!isset($this->subscribe2_options['bcclimit'])) {
-	$this->subscribe2_options['bcclimit'] = 0;
+	$this->subscribe2_options['bcclimit'] = 1;
 } // option for default bcc limit on email notifications
 
 if (!isset($this->subscribe2_options['admin_email'])) {
@@ -75,7 +79,7 @@ if (!isset($this->subscribe2_options['exclude'])) {
 } // option for excluded categories
 
 if (!isset($this->subscribe2_options['sender'])) {
-	$this->subscribe2_options['sender'] = "author";
+	$this->subscribe2_options['sender'] = "blogname";
 } // option for email notification sender
 
 if (!isset($this->subscribe2_options['reg_override'])) {
