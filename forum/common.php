@@ -6,7 +6,7 @@
  * This is for the loading without conflict of the two scripts
  *
  * @package login
- * @version 0.8.5
+ * @version 0.8.6
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
@@ -118,6 +118,7 @@ if (file_exists(dirname($root_path) . '/' . $wbh )) {
 } else {
     //nothing found
 }
+
 header("HTTP/1.0 200 OK");
 
 //restore all vars.
