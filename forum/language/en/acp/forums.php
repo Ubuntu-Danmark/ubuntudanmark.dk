@@ -48,7 +48,6 @@ $lang = array_merge($lang, array(
 	'FORUM_SOLVE_TEXT_EXPLAIN' => 'You can have some text instead of the nice topic solved image. Ex [SOLVED] or [SOLD] or something else. Leave empty to use the topic solved image.',
 	'FORUM_SOLVE_COLOR' => 'Color for the text',
 	'FORUM_SOLVE_COLOR_EXPLAIN' => 'Choose a color for the text. Leave empty to use default color.',
-	'YES_MOD' => 'Yes, moderator',
 	'AUTO_PRUNE_DAYS'			=> 'Auto-prune post age',
 	'AUTO_PRUNE_DAYS_EXPLAIN'	=> 'Number of days since last post after which topic is removed.',
 	'AUTO_PRUNE_FREQ'			=> 'Auto-prune frequency',
