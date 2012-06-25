@@ -2,7 +2,7 @@
 
 /**
  * Database auth plug-in for PHPBB - Wordpress Connector
- * 
+ *
  * This is for authentication via the integrated user table
  *
  * @package login
@@ -11,7 +11,7 @@
  *
  */
 //Doesn't load it in the admin area of the plugin, or it will make a conflict
-if ($_GET['i'] != 'board' && $_GET['mode'] != 'auth') {
+if (isset($_GET['i']) && $_GET['i'] != 'board' && $_GET['mode'] != 'auth') {
     include(dirname(__FILE__) . '/auth_db.php');
 }
 
