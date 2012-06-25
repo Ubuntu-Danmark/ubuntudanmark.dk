@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Register IP - MultiSite
-Version: 1.3
+Version: 1.5
 Description: Logs the IP of the user when they register a new account.
 Author: Mika Epstein, Johnny White
 Author URI: http://ipstenu.org
-Plugin URI: http://tech.ipstenu.org/my-plugins/register-ip-ms
+Plugin URI: http://halfelf.org/plugins/register-ip-ms
 
 Register IP Copyright 2005 Johnny White
-Register IP - MultiSite Copyright 2010-11 Mika Epstein
+Register IP - MultiSite Copyright 2010-12 Mika Epstein
 
     This file is part of Register IP - MultiSite, a plugin for WordPress.
 
@@ -93,4 +93,15 @@ if ( is_multisite() ) {
 
 // Adding in action, since it's the same for MS and SS.
 add_action('manage_users_custom_column',  'ripms_columns', 10, 3);		
+
+// donate link on manage plugin page
+add_filter('plugin_row_meta', 'ripms_donate_link', 10, 2);
+function ripms_donate_link($links, $file) {
+        if ($file == plugin_basename(__FILE__)) {
+                $donate_link = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ipstenu%40ipstenu%2eorg">Donate</a>';
+                $links[] = $donate_link;
+        }
+        return $links;
+}
+
 ?>
