@@ -26,7 +26,7 @@ class wpbb_phpBB3 {
         }
         
         if(!defined('IN_PHPBB')) {
-            define('IN_PHPBB', true);
+        define('IN_PHPBB', true);
         }
         global $phpbb_root_path, $phpEx, $auth, $template, $cache, $db, $config, $user;
 
@@ -140,23 +140,11 @@ class wpbb_phpBB3 {
     }
 
     function logout() {
-        global $user, $auth;
+        global $user;
 
         $user->session_kill();
         $user->session_begin();
     }
-
-    /*
-     * OLD FUNCTION
-     * function changePassword($username,$password){
-      $phpbb_root_path = ABSPATH.PHPBBPATH;
-
-      require($phpbb_root_path.'config.php');
-
-      // set user_pass_convert to 1 so user's pass will be hashed under phpBB rules when logging in after pass is changed in WordPress
-      $sql = 'UPDATE ' . USERS_TABLE . ' SET user_password="'.md5($password).'",user_pass_convert=1 WHERE username = "' . $username . '"';
-      $result = mysql_query($sql);
-      } */
 
     function changePassword($username, $password) {
         global $db;
@@ -202,7 +190,7 @@ class wpbb_phpBB3 {
         define('USERS_TABLE', $table_prefix . 'users');
 
         $sql = 'SELECT user_id, username, user_password, user_passchg, user_pass_convert, user_email, user_type, user_login_attempts
-                FROM ' . USERS_TABLE . " WHERE username_clean = '" .utf8_clean_string($name) . "'";
+                FROM ' . USERS_TABLE . " WHERE username_clean = '" . utf8_clean_string($name) . "'";
 
         $result = mysql_query($sql);
         if ($result) {
@@ -212,6 +200,73 @@ class wpbb_phpBB3 {
         }
 
         return false;
+    }
+    
+    function checkPasswordAndLogin($user_id, $username, $password){
+        global $phpbb_root_path, $phpEx;
+            
+        $user = Registry::get('user');
+        
+        if(!function_exists('login_db')){
+            include($phpbb_root_path . 'includes/auth/auth_db.' . $phpEx);
+        }
+        
+        $login = login_db($username, $password);
+        
+        $viewonline = 1;
+        $autologin = 0;
+        if ( ! empty($_POST['rememberme']) ){
+            $autologin = 1;
+        }
+
+        // If login succeeded, we will log the user in... else we pass the login array through...
+        if ($login['status'] == LOGIN_SUCCESS)
+        {
+                $old_session_id = $user->session_id;
+
+                //TODO :: find how it is managed for the admin part
+                $admin = 0;
+                if ($admin)
+                {
+                        global $SID, $_SID;
+
+                        $cookie_expire = time() - 31536000;
+                        $user->set_cookie('u', '', $cookie_expire);
+                        $user->set_cookie('sid', '', $cookie_expire);
+                        unset($cookie_expire);
+
+                        $SID = '?sid=';
+                        $user->session_id = $_SID = '';
+                }
+
+                $result = $user->session_create($user_id, $admin, $autologin, $viewonline);
+
+                // Successful session creation
+                if ($result === true)
+                {
+                        // If admin re-authentication we remove the old session entry because a new one has been created...
+                        if ($admin)
+                        {
+                                // the login array is used because the user ids do not differ for re-authentication
+                                $sql = 'DELETE FROM ' . SESSIONS_TABLE . "
+                                        WHERE session_id = '" . $db->sql_escape($old_session_id) . "'
+                                        AND session_user_id = {$login['user_row']['user_id']}";
+                                $db->sql_query($sql);
+                        }
+
+                        return array(
+                                'status'		=> LOGIN_SUCCESS,
+                                'error_msg'		=> false,
+                                'user_row'		=> $login['user_row'],
+                        );
+                }
+
+                return array(
+                        'status'		=> LOGIN_BREAK,
+                        'error_msg'		=> $result,
+                        'user_row'		=> $login['user_row'],
+                );
+        }
     }
 
     ////////////////////////////////////////////////////////////
@@ -251,7 +306,7 @@ class wpbb_phpBB3 {
         mysql_select_db($dbname);
         define('USERS_TABLE', $table_prefix . 'users');
         $sql = 'SELECT username, user_email FROM ' . USERS_TABLE .
-                " WHERE username = '" . esc_sql($name) . "'";
+                " WHERE username_clean = '" . esc_sql(utf8_clean_string($name)) . "'";
         $result = mysql_query($sql);
         if ($result) {
             $user = mysql_fetch_row($result);

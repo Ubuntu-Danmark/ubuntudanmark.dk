@@ -6,7 +6,7 @@
  * This is for authentication via the integrated user table
  *
  * @package login
- * @version 0.8.5
+ * @version 0.8.6
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
@@ -52,11 +52,17 @@ function login_wpbb(&$username, &$password) {
     //checks if Wordpress is loaded, if not uses simple authentication
     if (function_exists('wp_signon')) {
 
+        //Manage Autologin -> transfer from BB to WP
+        if ( ! empty($_POST['autologin']) ){
+            $_POST['rememberme'] = 'forever';
+        }
+        
         global $current_user;
 
         /*
          * * Exists in PHPBB ?
          */
+        $username = strtolower($username);
         $sql = 'SELECT user_id, username, user_password, user_passchg, user_pass_convert, user_email, user_type, user_login_attempts
                 FROM ' . USERS_TABLE . "
                 WHERE username_clean = '" . $db->sql_escape(utf8_clean_string($username)) . "'";
@@ -224,5 +230,3 @@ function validate_session_wpbb() {
         return true;
     }
 }
-
-?>

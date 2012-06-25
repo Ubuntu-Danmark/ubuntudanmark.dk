@@ -4,7 +4,7 @@ class S2_Counter_widget extends WP_Widget {
 	Declares the S2_Counter_widget class.
 	*/
 	function S2_Counter_widget() {
-		$widget_options = array('classname' => 's2_counter', 'description' => __('Subscriber Counter widget for the Subscribe2 plugin', 'subscribe2') );
+		$widget_options = array('classname' => 's2_counter', 'description' => __('Subscriber Counter widget for Subscribe2', 'subscribe2') );
 		$control_options = array('width' => 250, 'height' => 500);
 		$this->WP_Widget('s2_counter', __('Subscribe2 Counter', 'subscribe2'), $widget_options, $control_options);
 	}
@@ -16,8 +16,8 @@ class S2_Counter_widget extends WP_Widget {
 		extract($args);
 
 		$title = empty($instance['title']) ? 'Subscriber Count' : $instance['title'];
-		$s2w_bg = empty($instance['s2w_bg']) ? 'E3DACF' : $instance['s2w_bg'];
-		$s2w_fg = empty($instance['s2w_fg']) ? '345797' : $instance['s2w_fg'];
+		$s2w_bg = empty($instance['s2w_bg']) ? '#e3dacf' : $instance['s2w_bg'];
+		$s2w_fg = empty($instance['s2w_fg']) ? '#345797' : $instance['s2w_fg'];
 		$s2w_width = empty($instance['s2w_width']) ? '82' : $instance['s2w_width'];
 		$s2w_height = empty($instance['s2w_height']) ? '16' : $instance['s2w_height'];
 		$s2w_font = empty($instance['s2w_font']) ? '11' : $instance['s2w_font'];
@@ -28,7 +28,7 @@ class S2_Counter_widget extends WP_Widget {
 		$registered = $mysubscribe2->get_registered();
 		$confirmed = $mysubscribe2->get_public();
 		$count = (count($registered) + count($confirmed));
-		echo "<ul><div style=\"text-align:center; background-color:#" . $s2w_bg . "; color:#" . $s2w_fg . "; width:" . $s2w_width . "px; height:" . $s2w_height . "px; font:" . $s2w_font . "pt Verdana, Arial, Helvetica, sans-serif; vertical-align:middle; padding:3px; border:1px solid #444;\">";
+		echo "<ul><div style=\"text-align:center; background-color:" . $s2w_bg . "; color:" . $s2w_fg . "; width:" . $s2w_width . "px; height:" . $s2w_height . "px; font:" . $s2w_font . "pt Verdana, Arial, Helvetica, sans-serif; vertical-align:middle; padding:3px; border:1px solid #444;\">";
 		echo $count;
 		echo "</span></div></ul>";
 		echo $after_widget;
@@ -56,7 +56,7 @@ class S2_Counter_widget extends WP_Widget {
 		// set some defaults
 		$options = get_option('widget_s2counter');
 		if ( $options === false ) {
-			$defaults = array('title'=>'Subscriber Count', 's2w_bg'=>'E3DACF', 's2w_fg'=>'345797', 's2w_width'=>'82', 's2w_height'=>'16', 's2w_font'=>'11');
+			$defaults = array('title'=>'Subscriber Count', 's2w_bg'=>'#e3dacf', 's2w_fg'=>'#345797', 's2w_width'=>'82', 's2w_height'=>'16', 's2w_font'=>'11');
 		} else {
 			$defaults = array('title'=>$options['title'], 's2w_bg'=>$options['s2w_bg'], 's2w_fg'=>$options['s2w_fg'], 's2w_width'=>$options['s2w_width'], 's2w_height'=>$options['s2w_height'], 's2w_font'=>$options['s2w_font']);
 			delete_option('widget_s2counter');
@@ -80,6 +80,7 @@ class S2_Counter_widget extends WP_Widget {
 		echo "<input type=\"text\" name=\"" . $this->get_field_name('s2w_bg') . "\" id=\"" . $this->get_field_id('s2w_bg') . "\" maxlength=\"6\" value=\"" . $s2w_bg . "\" class=\"colorpickerField\" style=\"width:60px;\" /> " . __('Body', 'subscribe2') . "</label><br />\r\n";
 		echo "<label>\r\n";
 		echo "<input type=\"text\" name=\"" . $this->get_field_name('s2w_fg') . "\" id=\"" . $this->get_field_id('s2w_fg') . "\" maxlength=\"6\" value=\"" . $s2w_fg . "\" class=\"colorpickerField\" style=\"width:60px;\" /> " . __('Text', 'subscribe2') . "</label><br />\r\n";
+		echo "<div class=\"s2_colorpicker\" id =\"" . $this->get_field_id('s2_colorpicker') . "\"></div>";
 		echo "</fieldset>";
 
 		echo "<fieldset>\r\n";

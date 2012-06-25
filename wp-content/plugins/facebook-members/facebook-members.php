@@ -3,7 +3,7 @@
 Plugin Name: Facebook Members
 Plugin URI: http://netcrunched.com/plugins/facebook-members/
 Description: Facebook Members is a WordPres Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website. It uses Like Box.
-Version: 4.0.0
+Version: 4.2
 Author: NetCrunched
 Author URI: http://netcrunched.com
 */
@@ -173,9 +173,6 @@ function as_facebook_mem_options_page() {
 	<div id="poststuff" class="metabox-holder has-right-sidebar" >
 		<div style="float:left;width:60%;">
 
-<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FNetCrunched%2F310777122307297&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe>
-
-
 			<div class="postbox">
 				<h3>Facebook Members - Option Panel </h3>
 				<div>
@@ -326,41 +323,6 @@ function as_facebook_mem_options_page() {
 
     </form>
 </div>
-
-	 <div id="side-info-column" class="inner-sidebar">
-				<div class="postbox">
-				  <h3 class="hndle"><span>Facebook Members</span></h3>
-				  <div class="inside">
-	                <ul>
-	                <li><a href="http://netcrunched.com/plugins/facebook-members/" title="Facebook Members" target="_blank">Plugin Homepage</a></li>
-	                </ul>
-	              </div>
-
-<div class="inside">
-<b>Subscribe to get latest update:</b>
-<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FNetCrunched%2F310777122307297&amp;width=292&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
-<a href="https://twitter.com/NetCrunched" class="twitter-follow-button" data-show-count="false">Follow @NetCrunched</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</div>
-
-				</div>
-     </div>
-          <br>
-			<div id="side-info-column" class="inner-sidebar">
-				<div class="postbox">
-				  <h3 class="hndle"><span>My Other Plugins</span></h3>
-				  <div class="inside">
-					<ul>
-					<li>1) <a href="http://netcrunched.com/plugins/twitter-goodies/" title="Twitter Goodies" target="_blank">Twitter Goodies</a></li>
-					<li>2) <a href="http://netcrunched.com/plugins/wp-google-buzz/" title="WP Google-buzz" target="_blank">WP Google-buzz</a></li>
-					<li>3) <a href="http://netcrunched.com/plugins/wp-archive-sitemap-generator/" title="WP Archive-Sitemap Generator" target="_blank">WP Archive-Sitemap Generator</a></li>
-					<li>4) <a href="http://netcrunched.com/plugins/foursquare-integration/" title="FourSquare Integration" target="_blank">FourSquare Integration</a></li>
-					<li>5) <a href="http://netcrunched.com/plugins/all-in-one-webmaster/" title="All in One Webmaster" target="_blank">All in One Webmaster</a></li>
-					</ul>
-				  </div>
-				</div>
-		     </div>
-
 
 	</div>
     </div>

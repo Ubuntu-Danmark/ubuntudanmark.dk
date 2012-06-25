@@ -1,9 +1,9 @@
 === Register IP - Multiste ===
 Contributors: Ipstenu, JohnnyWhite2007
-Tags: IP, log, register, multisite, wpmu
+Tags: IP, log, register, multisite, wpmu, ip
 Requires at least: 3.1
-Tested up to: 3.3
-Stable tag: 1.3
+Tested up to: 3.4
+Stable tag: 1.5
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5227973
 
 When a new user registers, their IP address is logged for the admins.
@@ -14,10 +14,8 @@ Spam is one thing, but trolls and sock puppets are another.  Sometimes people ju
 
 When a user registers, their IP is logged in the `wp_usermeta` under the signup_ip key.  Log into your WP install as an Admin and you can look at their profile or the users table to see what it is. For security purposes their IP is not displayed to them when they see their profile.
 
-**Misc**
-
+* [Plugin Site](http://halfelf.org/plugins/register-ip-ms/)
 * [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5227973)
-* [Plugin Site](http://tech.ipstenu.org/my-plugins/register-ip-ms/)
 
 == Installation ==
 
@@ -51,6 +49,14 @@ On multisite only the Network admins who have access to Network Admin -> Users c
 2. Multisite (Network Admin -> Users menu)
 
 == Changelog ==
+
+= 1.5 = 
+* 17 April, 2012 by Ipstenu
+* Readme cleanup, fixing URLs etc.
+
+= 1.4 =
+* 9 February 2012 by Ipstenu
+* Adding in German (translated by Robert @ TalkPress)
 
 = 1.3 =
 * 4 October 2011 by Ipstenu

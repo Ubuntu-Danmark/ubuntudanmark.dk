@@ -2,7 +2,7 @@
 Contributors: onigoetz
 Tags: phpbb, authentication, password, login, single sign on, wrapper, connector
 Requires at least: 2.8.0
-Tested up to: 3.1.1
+Tested up to: 3.4.0
 
 Authenticate in Wordpress and phpBB at the same time
 
@@ -12,7 +12,7 @@ This plugin allows to use the password from a working phpBB installation to log 
 
 The user needs to exists in at least one of the two instllations. if the user doesn't exist in one installation, it will create the user.
 
-NEW : WP2BB, you can now define that your posts are published in a forum, so that your community can add comments directly on them
+With WP2BB, you can now define that your posts are published in a forum, so that your community can add comments directly on them
 
 The username for the administration must be the same on the two installations.
 Otherwise you will end having admins that have no privileges on the other part.
@@ -28,9 +28,15 @@ P.S. : WP2BB was created by Alfredo de Hoces (http://www.alfredodehoces.com/)
 * Make it work on multiple db's
 * Uninstaller
 
+= 0.8.6 =
+* Fixed a bug where we could login to the ACP with a wrong password
+* Managed to make the "remember me" work on both parts
+* Fixed the duplicate username creation
+* Fixed some calls to "username" -> "username_clean"
+
 = 0.8.5 =
-* Includes now WP2BB !!!
-* Corrected some little bugs
+* Now includes WP2BB !!!
+* Fixed some little bugs
 * Added a way to disable the ACP Reauth
 
 = 0.8 =
@@ -140,3 +146,26 @@ Forum : /www/forum/
 Path to configure:
 To PHPBB from Wordpress : ../forum/
 To Wordpress from PHPBB : ../blog/
+
+
+= Troubleshooting =
+
+If for any reason you removed the "common-orig.php" file and can't get your forum to work again, simply go to phpbb.com and download the complete package corresponding to your version.
+
+in that package get the file named "common.php" and upload it to your server named "common-orig.php"
+
+== Uninstall ==
+
+To uninstall, you have a few steps to make
+
+Go the the Plugin options, revert the "auth mode" to "DB" and not "wpbb"
+If it doesn't work go to the ACP in General -> Client communication -> Authentication
+
+Then go to the wordpress control panel and disable the plugin.
+
+The last step is then to go with FTP in the PHPBB folder and rename the file "common.php" to "common.wp.php" and the file "common-orig.php" to "common.php".
+
+Your configurations should be separated again
+
+
+

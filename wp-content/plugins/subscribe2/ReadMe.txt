@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_butt
 Tags: posts, subscription, email, subscribe, notify, notification
 Requires at least: 3.1
 Tested up to: 3.3.1
-Stable tag: 7.2
+Stable tag: 8.3
 
 Sends a list of subscribers an email notification when new posts are published to your blog
 
@@ -29,25 +29,25 @@ If you want to send full content HTML emails to Public Subscribers too then upgr
 
 AUTOMATIC INSTALLATION
 1. Log in to your WordPress blog and visit Plugins->Add New.
-2. Search for Subscribe2, click "Install Now" and then Activate the Plugin
-3. Click the "Settings" admin menu link, and select "Subscribe2".
-4. Configure the options to taste, including the email template and any categories which should be excluded from notification
-5. Click the "Tools" admin menu link, and select "Subscribers".
-6. Manually subscribe people as you see fit.
-7. Create a [WordPress Page](http://codex.wordpress.org/Pages) to display the subscription form.  When creating the page, you may click the "S2" button on the QuickBar to automatically insert the subscribe2 token.  Or, if you prefer, you may manually insert the subscribe2 shortcode or token: [subscribe2] or the HTML invisible `<!--subscribe2-->` ***Ensure the token is on a line by itself and that it has a blank line above and below.***
+1. Search for Subscribe2, click "Install Now" and then Activate the Plugin
+1. Click the "Settings" admin menu link, and select "Subscribe2".
+1. Configure the options to taste, including the email template and any categories which should be excluded from notification
+1. Click the "Tools" admin menu link, and select "Subscribers".
+1. Manually subscribe people as you see fit.
+1. Create a [WordPress Page](http://codex.wordpress.org/Pages) to display the subscription form.  When creating the page, you may click the "S2" button on the QuickBar to automatically insert the subscribe2 token.  Or, if you prefer, you may manually insert the subscribe2 shortcode or token: [subscribe2] or the HTML invisible `<!--subscribe2-->` ***Ensure the token is on a line by itself and that it has a blank line above and below.***
 This token will automatically be replaced by dynamic subscription information and will display all forms and messages as necessary.
-8. In the WordPress "Settings" area for Subscribe2 select the page name in the "Appearance" section that of the WordPress page created in step 7.
+1. In the WordPress "Settings" area for Subscribe2 select the page name in the "Appearance" section that of the WordPress page created in step 7.
 
 MANUAL INSTALLATION
 1. Copy the entire /subscribe2/ directory into your /wp-content/plugins/ directory.
-2. Activate the plugin.
-3. Click the "Settings" admin menu link, and select "Subscribe2".
-4. Configure the options to taste, including the email template and any categories which should be excluded from notification
-5. Click the "Tools" admin menu link, and select "Subscribers".
-6. Manually subscribe people as you see fit.
-7. Create a [WordPress Page](http://codex.wordpress.org/Pages) to display the subscription form.  When creating the page, you may click the "S2" button on the QuickBar to automatically insert the subscribe2 token.  Or, if you prefer, you may manually insert the subscribe2 shortcode or token: [subscribe2] or the HTML invisible `<!--subscribe2-->` ***Ensure the token is on a line by itself and that it has a blank line above and below.***
+1. Activate the plugin.
+1. Click the "Settings" admin menu link, and select "Subscribe2".
+1. Configure the options to taste, including the email template and any categories which should be excluded from notification
+1. Click the "Tools" admin menu link, and select "Subscribers".
+1. Manually subscribe people as you see fit.
+1. Create a [WordPress Page](http://codex.wordpress.org/Pages) to display the subscription form.  When creating the page, you may click the "S2" button on the QuickBar to automatically insert the subscribe2 token.  Or, if you prefer, you may manually insert the subscribe2 shortcode or token: [subscribe2] or the HTML invisible `<!--subscribe2-->` ***Ensure the token is on a line by itself and that it has a blank line above and below.***
 This token will automatically be replaced by dynamic subscription information and will display all forms and messages as necessary.
-8. In the WordPress "Settings" area for Subscribe2 select the page name in the "Appearance" section that of the WordPress page created in step 7.
+1. In the WordPress "Settings" area for Subscribe2 select the page name in the "Appearance" section that of the WordPress page created in step 7.
 
 == Frequently Asked Questions ==
 
@@ -188,6 +188,10 @@ In order to force sending you'd need to change the date of publication on the po
 
 If you opt for the latter way look in the options table for the subscribe2_options settings (it's an array) and you'll need to change the 'last_s2cron' value to a timestamp for last week. Then force the cron event to run again with [WP-Crontrol](http://wordpress.org/extend/plugins/wp-crontrol/).
 
+= I would really like Registered users to have the Subscription page themed like my site, is this possible? =
+
+Yes, it is. There is a small extension to Subscribe2 that delivers exactly this functionality. It is available from [Theme Tailors(http://stiofan.themetailors.com/store/products/tt-subscribe2-front-end-plugin/) for just $2.
+
 = How do I make use of the support for Custom Post Types =
 
 In a plugin file for your site or perhaps functions.php in your theme add the following code where 'my_post_type' is change to the name of your custom post type.
@@ -298,6 +302,47 @@ Secondly, make sure that the token ([subscribe2] or <!--subscribe2-->) is correc
 4. The Options->Subscribe2 admin page generated by the plugin.
 
 == Changelog ==
+
+= Version 8.3 by Matthew Robinson =
+
+* Fixed a bunch of PHP messages - should not show anyway unless WP_DEBUG is true or PHP error reporting is on a high setting
+* Fixed bulk category management so it applies to all users and not just the first record
+* Update 'autosub' to no on one-click unsubscribe instead of erasing the value
+* Return empty string is get_tracking_link() is passed and empty variable
+* Fixed some typographical errors
+* Fixed profile page to obey 'one click' display setting
+* Fixed implode error seen when sending preview emails on some configurations
+* Fixed a error in the admin user dropdown on installs (particularly Multisite) where there may be no administrator level users
+* Added a button text filter for the Subscribe and Unsubscribe buttons - proposed by casben79
+* Use wp_hash in place of MD5 to further obfuscate confirmation links - thanks to Otto and Ipstenu
+
+= Version 8.2 by Matthew Robinson =
+
+* Implemented use of Farbtastic as colour chooser in the Counter Widget because ColorPicker has been deprecated in WordPress
+* Fixed one hook call in WordPress to pass $this variable by reference to save a little more RAM
+* Fixed Subscribe2 implementation of custom taxonomies
+* Fixed Bulk Management Format Change code to apply for all users
+* Fix for low impact security vulnerability
+
+= Version 8.1 by Matthew Robinson =
+
+* Fixed redirect errors and crash affecting multisite installs on upgrade to 8.0 - thanks in particular to Ed Cooper
+* Fixed several other multisite bugs affecting links and styling - thanks to Mark Olbert
+* Fixed empty CSV exports - thanks to Gil Namur
+
+= Version 8.0 by Matthew Robinson =
+
+* Split the main plugin file into separate classes for more efficient (60% less RAM) server resource usage - huge thanks to Milan Petrovic
+* Ensure notifications for posts are sent to all active registered users
+* Fixed bug in Bulk Management code to include all filtered Registered Subscribers, not just those on current screen - thanks to samandiriel
+* Fixed some PHP messages regarding use of deprecated clean_url() function and WordPress version checking - thanks to anmari
+* Improved white space trimming in the code so it respects tabs and line breaks - thanks to belg4mit
+* Updated screenshots to Subscribe2 8.0 and WordPress 3.3.1 screen layouts
+* Implemented one-click buttons to subscribe and unsubscribe - thanks to dimadin for code patch
+* Changed some default settings, sender to BLOGNAME and number of recipients per email to 1
+* Implemented a change so that categories are not displayed in the filter dropdowns when using Subscribe2 in digest mode
+* Ensure an action is specified for HTML5 validity - thanks to Franco Carinato
+* Introduced 4 new hooks to filter per-post subscribers for each of the 4 email types - thanks to Nicolas Noé
 
 = Version 7.2 by Matthew Robinson =
 

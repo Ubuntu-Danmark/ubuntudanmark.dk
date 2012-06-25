@@ -75,7 +75,7 @@ class wpbb_WordPress {
         mysql_select_db(DB_NAME);
         //to find the informations correctly
         //return get_profile('id', wpbb_WordPress::getNicename($user));
-        return get_profile('id', $user);
+        return (int) get_user_id_from_string($user);
     }
 
     function wpbb_login() {

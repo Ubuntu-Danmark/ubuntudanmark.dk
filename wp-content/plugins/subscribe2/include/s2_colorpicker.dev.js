@@ -1,43 +1,46 @@
-// version 1.0 - original inline version
-// version 1.1 - Split into separate js file and amended
-// version 1.2 - Improvements to the code for the colorpicker
-// version 1.3 - Got colorpicker working without a page reload using .live event
-jQuery(document).ready(function () {
-	var id;
-	jQuery('.colorpickerField')
-	// show the colorpicker when the class is focused
-	.live('focusin', function () {
-		id = this;
-		jQuery(this).ColorPicker({
-			// define some ColorPicker events
-			onBeforeShow: function () {
-				jQuery(this).ColorPickerSetColor(this.value);
-			},
-			onShow: function (el) {
-				jQuery(el).fadeIn(500);
-				return false;
-			},
-			onHide: function (el) {
-				jQuery(el).fadeOut(500);
-				return false;
-			},
-			onChange: function (hsb, hex, rgb) {
-				a = hex.toUpperCase();
-				id.value = a;
-			},
-			onSubmit: function (hsb, hex, rgb, el) {
-				a = hex.toUpperCase();
-				id.value = a;
-				jQuery('.colorpicker').fadeOut(500);
-				return false;
+// version 1.0 - original version
+jQuery(document).ready(function() {
+	var version = jQuery.fn.jquery.split('.');
+	if (parseFloat(version[1]) < 7) {
+		// use .live as we are on jQuery prior to 1.7
+		jQuery('.colorpickerField').live('click', function() {
+			if ( jQuery(this).attr('id').search("__i__") === -1 ) {
+				var picker;
+				var field = jQuery(this).attr('id').substr(0,20);
+				jQuery('.s2_colorpicker').hide();
+				jQuery('.s2_colorpicker').each(function(){
+					if ( jQuery(this).attr('id').search(field) !== -1) {
+						picker = jQuery(this).attr('id');
+					}
+				});
+				jQuery.farbtastic('#' + picker).linkTo(this);
+				jQuery('#' + picker).slideDown();
 			}
 		});
-		// bind the colorpicker to keyboard input
-		jQuery(this).keyup(function () {
-			if (this.value.length === 6) {
-				id.value = this.value.toUpperCase();
-				jQuery(this).ColorPickerSetColor(id.value);
+	} else {
+		// use .on as we are using jQuery 1.7 and up where .live is deprecated
+		jQuery(document).on('focus', '.colorpickerField',function(){
+			if (jQuery(this).is('.s2_initialised') || this.id.search('__i__') !== -1) {
+				return; // exit early, already initialized or not activated
 			}
+			jQuery(this).addClass('s2_initialised');
+			var picker;
+			var field = jQuery(this).attr('id').substr(0,20);
+			jQuery('.s2_colorpicker').each(function() {
+				if ( jQuery(this).attr('id').search(field) !== -1) {
+					picker = jQuery(this).attr('id');
+					return false; // stop looping
+				}
+			});
+			jQuery(this).on('focusin', function(event) {
+				jQuery('.s2_colorpicker').hide();
+				jQuery.farbtastic('#' + picker).linkTo(this);
+				jQuery('#' + picker).slideDown();
+			});
+			jQuery(this).on('focusout', function(event) {
+				jQuery('#' + picker).slideUp();
+			});
+			jQuery(this).trigger('focus'); // retrigger focus event for plugin to work
 		});
-	});
+	}
 });
