@@ -33,7 +33,7 @@ $calUrl = GOOGLE_CALENDAR_EMBED_URL.'?'.$calQuery;
 include_once( '../../../wp-load.php' );
 include_once( ABSPATH . WPINC. '/class-http.php' );
 $request = new WP_Http;
-$result = $request->request($calUrl); 
+$result = $request->request($calUrl);
 $calRaw = array();
 
 //Handle errors from WP_Http
@@ -74,7 +74,7 @@ $calColorTextOnLight 	=	($color4[1] != '') ? "#".$color4[1] : '#000000';
 $calColorBgToday 			=	($color5[1] != '') ? "#".$color5[1] : '#ffffcc';
 $calBkgrdText 				=	($color6[1] != '') ? "#".$color6[1] : '#000000';
 
-if ($bubbleWidth[1] != '') {
+if (!empty($bubbleWidth[1])) {
 	$bubbleOutput =	($bubbleUnit[1] == 'percentage') ? $bubbleWidth[1]."%" :$bubbleWidth[1]."px";
 	$bubbleCss = ("div.bubble { width: $bubbleOutput !important;} ");
 }else {
