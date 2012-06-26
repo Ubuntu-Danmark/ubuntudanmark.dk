@@ -26,9 +26,6 @@ Colors: http://www.colourlovers.com/palette/1140455/Ubuntu_Lucid_Lynx
 /* Apply basic image styles */  
 @import url('../thematic/library/styles/images.css');  
 
-/* Import Ubuntu Web Font */
-@import url('http://fonts.googleapis.com/css?family=Ubuntu:regular,bold,italic');
-
 /*
 Real stuff starts here
 */
@@ -37,27 +34,30 @@ Real stuff starts here
 Layout
 */
 body { background: transparent url("images/dotted-bg.png") top; }
-#header { width: 980px; height: 62px; margin: 0 auto; overflow: hidden; background: #DD4814 url("images/header-bg.png") repeat-x top; border: 1px solid #CCC; border-top: none; }
+#header { width: 980px; height: 62px; margin: 0 auto; overflow: visible; background: #DD4814 url("images/header-bg.png") repeat-x top; border: 1px solid #CCC; border-top: none; }
 #branding { width: 130px; height: 62px; float: right; overflow: hidden; }
 #blog-title span a { display: block; background: transparent url("images/ubuntu-logo.png") no-repeat 0 10px; width: 120px; height: 40px; text-indent: -1000px; }
-#access { width: 850px; height: 62px; overflow: hidden; margin: 0; padding: 0; }
+#access { width: 850px; height: 62px; overflow: visible; margin: 0; padding: 0; }
 #primary-header-menu { margin: 0; list-style: none;  }
 #primary-header-menu li { margin: 0; padding: 0; height: 62px; border-right: 1px solid #DD4814; }
 #primary-header-menu ul { margin: 0; padding: 0; }
 #loco-header-menu { margin-right: -1px; }
-#primary-header-menu ul li { height: 62px; float: left; margin: 0; padding: 0 10px; list-style: none; }
+#primary-header-menu ul li { height: 62px; float: left; margin: 0; list-style: none; }
 #primary-header-menu ul li:hover,
 #primary-header-menu ul li.current-menu-item,
+#primary-header-menu ul li.current-menu-parent,
 #primary-header-menu ul li.current-page-ancestor { background: transparent url("images/header-bg-hover.png") repeat-x top; }
-#primary-header-menu ul li a { display: block; }
-#secondary-header { width: 980px; height: 35px; margin: 0 auto; overflow: hidden; background-color: #FFF;}
+#primary-header-menu ul li a { display: block; padding: 0 10px; }
+#secondary-header { height: 35px;}
 #secondary-access { margin:0 20px; background-color: #F7F7F7; padding: 0 10px 0 0; height: 30px; overflow: hidden; }
 #loco-search-form { float: right; margin-top: 2px; }
 #loco-search-form input[type="text"] { height: 16px; margin-top: 1px; }
 #secondary-header-menu,
 #dynamic-secondary-header-menu { width: 720px; margin: 0; padding: 0; list-style: none; }
-#secondary-header-menu li { float: left; padding: 0 5px; list-style: none; border-right: 1px solid #F7F7F7; }
-#secondary-header-menu li:first-child { text-indent: 5px; }
+#secondary-header-menu li { float: left; list-style: none; border-right: 1px solid #F7F7F7; }
+#secondary-header-menu li a { padding: 0 5px; }
+.sub-menu li:first-child,
+#secondary-header-menu li:first-child { text-indent: 5px; border-bottom-left-radius: 8px; }
 #secondary-header-menu li:hover,
 #secondary-header-menu li.current_page_item { background-color: #EEE; }
 #secondary-header-menu li ul { display: none; }
@@ -76,12 +76,12 @@ body { background: transparent url("images/dotted-bg.png") top; }
 #dynamic-secondary-header-menu li div.textwidget { padding: 0 10px; }
 #dynamic-secondary-header-menu li div.textwidget a { display: inline; }
 #main,
+#secondary-header,
 #page-top { width: 980px; margin: 0 auto; background-color: #FFF; overflow: hidden; }
 #page-top ul { margin: 0 20px; list-style: none; }
 #secondary-header,
 #page-top,
 #main { border-left: 1px solid #CCC; border-right: 1px solid #CCC; }
-#main { min-height: 600px; }
 #primary,
 #secondary { float: right; clear: right; width: 250px; margin: 15px 10px; padding: 15px 10px; overflow: hidden; background-color: #F7F7F7; }
 #primary { margin-bottom: -20px; }
@@ -92,13 +92,14 @@ body { background: transparent url("images/dotted-bg.png") top; }
 #content .page,
 #content .post { padding: 10px 10px 5px; margin-bottom: 20px; background-color: #F7F7F7; }
 #content .page { margin-bottom: 10px; }
-body.home #content .page { padding: 0; background: none; }
+body.home #container,
 body.blog #container,
 body.single #container,
 body.archive #container,
 body.search #container,
 body.error404 #container,
 body.four04 #container { width: 650px; margin: 10px; }
+body.home #content,
 body.blog #content,
 body.single #content,
 body.archive #content,
@@ -263,6 +264,7 @@ h2,
 h3,
 h4,
 h5,
+input[type="password"],
 input[type="submit"],
 label,
 .nivo-caption { font-family: 'Ubuntu', sans-serif; }
@@ -278,6 +280,7 @@ th, td { padding: 5px; }
 hr { background-color:#ccc; border:0; color:#CCC; height:1px; margin-bottom:22px; }
 p { margin-bottom: 10px; }
 .clearall { clear: both; height: 1px; }
+input[type="password"],
 input[type="text"], textarea { border: 2px solid #CCC; border-right: 1px solid #DDD; border-bottom: 1px solid #DDD; padding: 1px 3px; }
 .clean { list-style: none; }
 .inline, .clean { margin: 5px 0; }
@@ -364,3 +367,104 @@ Light grid support rule
 Hide WordPress.com Stats Smiley
 */
 img#wpstats { height: 0; width: 0; }
+
+/* Ubuntu DK */
+html {overflow-y: scroll; background: #EEECEA; }
+
+.sub-menu {
+    display:none;
+}
+
+.current-menu-parent .sub-menu,
+.current-menu-item .sub-menu {
+    display:block;
+}
+
+#primary-header-menu:hover .sub-menu {
+    display:none;
+}
+#primary-header-menu:hover ul li.current-menu-item,
+#primary-header-menu:hover ul li.current-menu-parent,
+#primary-header-menu:hover ul li.current-page-ancestor { background: none; }
+#primary-header-menu ul li.current-menu-item:hover,
+#primary-header-menu ul li.current-menu-parent:hover,
+#primary-header-menu ul li.current-page-ancestor:hover { background: transparent url("images/header-bg-hover.png") repeat-x top; }
+
+#primary-header-menu ul li:hover>.sub-menu {
+    display:block;
+    z-index:1;
+}
+#primary-header-menu ul .sub-menu li {
+    background:#F7F7F7;
+}
+
+.sub-menu {
+    position:absolute;
+    left:20px;
+    top:62px;
+    height:30px;
+    width:740px;
+    border-top:1px solid #ccc;
+}
+
+.sub-menu .sub-menu {
+    border:medium none;
+    left:0;
+    top:30px;
+    width:auto;
+    display:none;
+}
+
+.sub-menu li:hover .sub-menu {
+    display:block;
+}
+
+#primary-header-menu .sub-menu a {
+    height:30px;
+    text-shadow:none;
+    color:#333333;
+    font:12px/18px Arial,sans-serif;
+    padding:0 5px;
+}
+#primary-header-menu ul.sub-menu { margin: 0; }
+#primary-header-menu ul .sub-menu li:hover,
+#primary-header-menu ul .sub-menu li.current-menu-item,
+#primary-header-menu ul .sub-menu li.current-page-ancestor { background: #EEEEEE; }
+
+#primary-header-menu ul li .sub-menu a {
+    line-height:30px;
+}
+#primary-header-menu .sub-menu li {
+    border-right:1px solid #F7F7F7;
+    height:30px;
+    padding:0;
+}
+
+.widget_rss {
+    white-space:nowrap;
+    overflow:hidden
+}
+
+.wp-smiley {
+    max-height:16px;
+}
+
+code {
+    background-color:#FFFFFF;
+    border:1px solid #D8D8D8;
+    padding:3px;
+    color:#2E8B57;
+    display:block;
+    font:0.9em/1.3em Monaco,"Andale Mono","Courier New",Courier,mono;
+    margin:2px 0;
+    max-height:200px;
+    overflow:auto;
+    padding-top:5px;
+    white-space:normal;
+}
+
+dd code {
+    border:0;
+    padding:0;
+}
+
