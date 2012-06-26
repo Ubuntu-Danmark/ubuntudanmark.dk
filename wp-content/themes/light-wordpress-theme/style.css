@@ -46,7 +46,7 @@ body { background: transparent url("images/dotted-bg.png") top; }
 #primary-header-menu { margin: 0; list-style: none;  }
 #primary-header-menu li { margin: 0; padding: 0; height: 62px; border-right: 1px solid #DD4814; }
 #primary-header-menu ul { margin: 0; padding: 0; }
-#loco-header-menu { margin-right: -1px; }
+#loco-header-menu { margin-right: -1px; padding: 0 10px; }
 #primary-header-menu ul li { height: 62px; float: left; margin: 0; list-style: none; }
 #primary-header-menu ul li:hover,
 #primary-header-menu ul li.current-menu-item,
@@ -170,7 +170,7 @@ body.blog #content #nav-above.navigation { display: none; }
 #page-bottom { width: 940px; margin: 0 20px 30px 0; background-color: #F7F7F7; float: right; }
 #page-bottom ul { margin: 0; padding: 20px; }
 #page-bottom > ul > li { float: left; list-style: none; width: 15%; padding: 0 15px 15px 0; }
-#footer { padding: 20px 0; width: 100%; background: #F7F7F7 url("images/footer-bg.png") repeat-x top; }
+#footer { padding: 20px 0; width: 100%; background: #EEECEA url("images/footer-bg.png") repeat-x top; }
 #subsidiary .aside { width: 15%; }
 #subsidiary a { display: block; margin-bottom: 2px; }
 #subsidiary .textwidget a { display: inline; margin-bottom: 0px; }
@@ -189,7 +189,7 @@ input#s { width: 130px; }
 Typography
 */
 body { font-family: 'Ubuntubeta', 'Ubuntu','Bitstream Vera Sans','DejaVu Sans', Tahoma, sans-serif; }
-body { color: #333; font-size: 13px; line-height: 1.4; }
+body { color: #333; font-size: 14px; line-height: 1.5; }
 h1, h2, h3, h4, h5, h6 { font-weight: normal; color: #333333; }
 h1 { font-size: 36px; margin-bottom: 0px; line-height: 40px; }
 h2 { font-size: 24px; margin-bottom: 8px; margin-top: 16px; line-height: 28px; }
@@ -197,7 +197,7 @@ h3 { font-size: 16px; margin-bottom: 8px; margin-top: 16px; line-height: 20px; }
 h4 { font-size: 110%; margin-bottom: 0px; }
 h5 { font-size: 110%; font-weight: bold; margin-bottom: 10px; }
 h6 { font-size: 110%; font-weight: bold; }
-a, a:active { color: #DD4814; }
+a, a:active { color: #772953; }
 a:hover { color: #DD4814; text-decoration: underline; }
 a:visited { color: #777777; }
 #top-bar { text-align: right; line-height: 20px; font-size: 90%; }
