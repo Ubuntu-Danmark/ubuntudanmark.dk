@@ -3,11 +3,15 @@
  */
 
 /* Load slider */
+// Alternative way to set the speed
+var ubuntu_loco_slider_speed = jQuery('.slider').attr('speed');
+if( !ubuntu_loco_slider_speed )
+    ubuntu_loco_slider_speed = 10000;
 jQuery(window).load(function() {
     jQuery('.slider').nivoSlider({
         effect:'random', //Specify sets like: 'fold,fade,sliceDown'
         animSpeed:500,
-        pauseTime:3000,
+        pauseTime:ubuntu_loco_slider_speed,
         startSlide:0, //Set starting Slide (0 index)
         directionNav:true, //Next & Prev
         directionNavHide:false,
