@@ -66,22 +66,22 @@ function ubuntu_loco_remove_add_stuff() {
     add_action( 'ubuntu_loco_search', 'ubuntu_loco_add_search' );
     // new widget areas
     register_sidebar( array (
-        'name' => 'Menu',
+        'name' => __( 'Menu', 'light-wordpress-theme' ),
         'id' => 'primary-header-menu',
         'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
         'after_widget'  => "</li>",
         'before_title'  => '',
         'after_title'   => '',
-        'description'   => 'Main navigation menu.',
+        'description'   => __( 'Main navigation menu.', 'light-wordpress-theme' ),
     ) );
     register_sidebar( array (
-        'name' => 'Sub Menu',
+        'name' => __( 'Sub Menu', 'light-wordpress-theme' ),
         'id' => 'secondary-header-menu',
         'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
         'after_widget'  => "</li>",
         'before_title'  => '',
         'after_title'   => '',
-        'description'   => 'Secondary navigation menu.',
+        'description'   => __( 'Secondary navigation menu.', 'light-wordpress-theme' ),
     ) );
 }
 
@@ -102,8 +102,8 @@ function ubuntu_loco_asides($content) {
     $content['Page Top']['action_hook'] = 'thematic_belowheader';
     $content['Page Bottom']['action_hook'] = 'thematic_belowmainasides';
     // Rename Page Top/Bottom into Header and Above Footer.
-    $content['Page Top']['args']['name'] = __( 'Below Header' );
-    $content['Page Bottom']['args']['name'] = __( 'Above Footer' );
+    $content['Page Top']['args']['name'] = __( 'Below Header', 'light-wordpress-theme' );
+    $content['Page Bottom']['args']['name'] = __( 'Above Footer', 'light-wordpress-theme' );
     // Remove some asides
     unset($content['Index Top']);
     unset($content['Index Insert']);
@@ -161,9 +161,9 @@ function ubuntu_loco_post_cats() {
     $cats = get_the_category();
     $label = '';
     if( count( $cats ) > 1 )
-        $label = _( 'Categories' ) . ': ';
+        $label = __( 'Categories' ) . ': ';
     else if( count( $cats ) == 1 )
-        $label = _( 'Category' ) . ': ';
+        $label = __( 'Category' ) . ': ';
     
     $content = '<div class="cat-links">';
     //$content .= $label;
@@ -183,9 +183,9 @@ function ubuntu_loco_post_tags() {
     $tags = get_the_tags( get_the_ID() );
     $label = '';
     if( count( $tags ) > 1 )
-        $label = _( 'Tags' ) . ': ';
+        $label = __( 'Tags' ) . ': ';
     else if( count( $tags ) == 1 )
-        $label = _( 'Tag' ) . ': ';
+        $label = __( 'Tag' ) . ': ';
     
     $content = '<div class="tag-links">';
     //$content .= $label;
@@ -216,9 +216,23 @@ function ubuntu_loco_secondary_aside() {
     }
 }
 
-/**
- * Rewrite of thematic's thematic_access in favor of wp_nav_menu
- */
+function ubuntu_loco_topbar() { ?>
+    <div id="top-bar">
+        <?php if (is_sidebar_active('top-bar-container')): ?>
+            <div class="top-bar-container">
+                <div class="top-bar-container">
+                    <ul>
+                        <li><a href="http://www.ubuntu.com"><?php _e( 'Ubuntu.com', 'light-wordpress-theme' ); ?></a></li>
+                        <li><a href="http://www.ubuntu.com/community"><?php _e( 'Community' , 'light-wordpress-theme' ); ?></a></li>
+                        <li><a href="http://www.ubuntu.com/support"><?php _e( 'Support', 'light-wordpress-theme' ); ?></a></li>
+                        <li><a href="http://www.ubuntu.com/partners"><?php _e( 'Partners', 'light-wordpress-theme' ); ?></a></li>
+                    </ul>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php }
+
 function ubuntu_loco_access() { ?>
     <div id="access">
         <div id="loco-header-menu">
@@ -292,6 +306,7 @@ add_action('init','ubuntu_loco_remove_add_stuff');
 add_action('init','ubuntu_loco_js_scripts');
 add_action('wp_head', 'ubuntu_loco_favicon');
 add_action('wp_head', 'ubuntu_loco_chrome_frame');
+add_action('thematic_aboveheader','ubuntu_loco_topbar');
 add_action('thematic_header','ubuntu_loco_access', 9);
 add_action('thematic_belowheader','ubuntu_loco_below_header',1);
 add_filter('thematic_content', 'ubuntu_loco_content');
