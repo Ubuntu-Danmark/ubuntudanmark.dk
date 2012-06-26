@@ -19,6 +19,16 @@ function is_lang($l) {
 }
 
 /**
+ * Only show excerpt (summery) on blog/home page.
+ */
+function ubuntu_loco_content($content) {
+	if ( is_home() ) {
+		$content = 'excerpt';
+	}
+    return $content;
+}
+
+/**
  * Add rounded corners script for handling border-radius
  * Load inits
  */
@@ -113,7 +123,10 @@ function ubuntu_loco_asides($content) {
  */
 function ubuntu_loco_subpages() {
     global $wp_query;
+    $p = null;
+    if (isset($wp_query->post)) {
     $p = $wp_query->post;
+    }
     
     if( is_404() || is_search() )
         return ;
@@ -185,7 +198,7 @@ function ubuntu_loco_post_tags() {
 
 function ubuntu_loco_primary_aside() {
     if ( ( !is_front_page() && !is_page() ) || ( is_front_page() && is_home() ) ) {
-        if (is_sidebar_active('primary-aside')) {
+        if (is_active_sidebar('primary-aside')) {
             echo thematic_before_widget_area('primary-aside');
             dynamic_sidebar('primary-aside');
             echo thematic_after_widget_area('primary-aside');
@@ -194,8 +207,8 @@ function ubuntu_loco_primary_aside() {
 }
 
 function ubuntu_loco_secondary_aside() {
-    if ( ( !is_front_page() && !is_page() ) || ( is_front_page() && is_home() ) ) {
-        if (is_sidebar_active('secondary-aside')) {
+    if ( is_front_page() ) {
+        if (is_active_sidebar('secondary-aside')) {
             echo thematic_before_widget_area('secondary-aside');
             dynamic_sidebar('secondary-aside');
             echo thematic_after_widget_area('secondary-aside');
@@ -281,7 +294,7 @@ add_action('wp_head', 'ubuntu_loco_favicon');
 add_action('wp_head', 'ubuntu_loco_chrome_frame');
 add_action('thematic_header','ubuntu_loco_access', 9);
 add_action('thematic_belowheader','ubuntu_loco_below_header',1);
-add_filter('thematic_doctitle', 'ubuntu_loco_doctitle');
+add_filter('thematic_content', 'ubuntu_loco_content');
 add_filter('search_field_value', 'ubuntu_loco_search_field_value');
 add_filter('thematic_postfooter_postcategory', 'ubuntu_loco_post_cats');
 add_filter('thematic_postfooter_posttags', 'ubuntu_loco_post_tags');
