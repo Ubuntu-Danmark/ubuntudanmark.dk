@@ -42,6 +42,9 @@
 	// Create pingback adress
 	thematic_show_pingback();
 	
+?>
+<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('stylesheet_directory'); ?>/print.css" />
+<?php 
 	/* The function wp_head() loads Thematic's stylesheet and scripts.
 	 * Calling wp_head() is required to provide plugins and child themes
 	 * the ability to insert markup within the <head> tag.
