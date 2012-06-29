@@ -1,38 +1,34 @@
-#wpadminbar, #content .navigation, #respond, #primary, #secondary, #header, #secondary-header, .comment-reply-link, #footer, #comment-meta span, #comment-meta a, .edit-link, .edit {
-    display:none;
-}
-#main, #secondary-header, #comments-list, #trackbacks-list, #comments-list ol li, #trackbacks-list ol li {
-    border:none;
-}
-#main, #container, #content {
-    width:auto !important;
-}
-* {
-    color:#000000 !important;
-    background:none !important;
-    overflow:visible !important;
-    -moz-border-radius:0 !important;
-}
-#container {
-    float:none;
-}
-#container, #content {
-    padding:0;
-    margin:0;
-}
-#content .page, #content .post, #comments-list, #trackbacks-list {
-    padding:0;
-}
-#comments-list .comment-author span {
-    font-weight:bold;
-}
-
-#comments-list ol li, #trackbacks-list ol li {
-    border-bottom:1px dotted #CCCCCC;
-    padding-top:0;
-}
-
-img {
-    page-break-before:avoid !important;
-    page-break-inside:avoid !important;
-}
+#wpadminbar,
+#content
+.navigation,
+#respond,
+#primary,
+#secondary,
+#header,
+#secondary-header,
+.comment-reply-link,
+#footer,
+#comment-meta span,
+#comment-meta a,
+.edit-link, .edit { display:none; }
+#main,
+#secondary-header,
+#comments-list,
+#trackbacks-list,
+#comments-list ol li,
+#trackbacks-list ol li { border:none; }
+#main,
+#container,
+#content { width:auto !important; }
+* { color:#000000 !important; background:none !important; overflow:visible !important; border-radius:0 !important; }
+#container { float:none; }
+#container,
+#content { padding:0; margin:0; }
+#content .page,
+#content .post,
+#comments-list,
+#trackbacks-list { padding:0; }
+#comments-list .comment-author span { font-weight:bold; }
+#comments-list ol li,
+#trackbacks-list ol li { border-bottom:1px dotted #CCCCCC; padding-top:0; }
+img { page-break-before:avoid !important; page-break-inside:avoid !important; }
