@@ -365,101 +365,29 @@ img#wpstats { height: 0; width: 0; }
 
 /* Ubuntu DK */
 html {overflow-y: scroll; background: #EEECEA; }
-
-.sub-menu {
-    display:none;
-}
-
+.sub-menu { display:none; }
 .current-menu-parent .sub-menu,
-.current-menu-item .sub-menu {
-    display:block;
-}
-
-#primary-header-menu:hover .sub-menu {
-    display:none;
-}
+.current-menu-item .sub-menu { display:block; }
+#primary-header-menu:hover .sub-menu { display:none; }
 #primary-header-menu:hover ul li.current-menu-item,
 #primary-header-menu:hover ul li.current-menu-parent,
 #primary-header-menu:hover ul li.current-page-ancestor { background: none; }
 #primary-header-menu ul li.current-menu-item:hover,
 #primary-header-menu ul li.current-menu-parent:hover,
 #primary-header-menu ul li.current-page-ancestor:hover { background: transparent url("images/header-bg-hover.png") repeat-x top; }
-
-#primary-header-menu ul li:hover>.sub-menu {
-    display:block;
-    z-index:1;
-}
-#primary-header-menu ul .sub-menu li {
-    background:#F7F7F7;
-}
-
-.sub-menu {
-    position:absolute;
-    left:20px;
-    top:62px;
-    height:30px;
-    width:740px;
-    border-top:1px solid #ccc;
-}
-
-.sub-menu .sub-menu {
-    border:medium none;
-    left:0;
-    top:30px;
-    width:auto;
-    display:none;
-}
-
-.sub-menu li:hover .sub-menu {
-    display:block;
-}
-
-#primary-header-menu .sub-menu a {
-    height:30px;
-    text-shadow:none;
-    color:#333333;
-    font:12px/18px Arial,sans-serif;
-    padding:0 5px;
-}
+#primary-header-menu ul li:hover>.sub-menu { display:block; z-index:1; }
+#primary-header-menu ul .sub-menu li { background:#F7F7F7; }
+.sub-menu { position:absolute; left:20px; top:62px; height:30px; width:740px; border-top:1px solid #ccc; }
+.sub-menu .sub-menu { border:medium none; left:0; top:30px; width:auto; display:none; }
+.sub-menu li:hover .sub-menu { display:block; }
+#primary-header-menu .sub-menu a { height:30px; text-shadow:none; color:#333333; font:12px/18px Arial,sans-serif; padding:0 5px; }
 #primary-header-menu ul.sub-menu { margin: 0; }
 #primary-header-menu ul .sub-menu li:hover,
 #primary-header-menu ul .sub-menu li.current-menu-item,
 #primary-header-menu ul .sub-menu li.current-page-ancestor { background: #EEEEEE; }
-
-#primary-header-menu ul li .sub-menu a {
-    line-height:30px;
-}
-#primary-header-menu .sub-menu li {
-    border-right:1px solid #F7F7F7;
-    height:30px;
-    padding:0;
-}
-
-.widget_rss {
-    white-space:nowrap;
-    overflow:hidden
-}
-
-.wp-smiley {
-    max-height:16px;
-}
-
-code {
-    background-color:#FFFFFF;
-    border:1px solid #D8D8D8;
-    padding:3px;
-    color:#2E8B57;
-    display:block;
-    font:0.9em/1.3em Monaco,"Andale Mono","Courier New",Courier,mono;
-    margin:2px 0;
-    max-height:200px;
-    overflow:auto;
-    padding-top:5px;
-    white-space:normal;
-}
-
-dd code {
-    border:0;
-    padding:0;
-}
-
+#primary-header-menu ul li .sub-menu a { line-height:30px; }
+#primary-header-menu .sub-menu li { border-right:1px solid #F7F7F7; height:30px; padding:0; }
+.widget_rss { white-space:nowrap; overflow:hidden; }
+.wp-smiley { max-height:16px; }
+code { background-color:#FFFFFF; border:1px solid #D8D8D8; padding:3px; color:#2E8B57; display:block; font:0.9em/1.3em Monaco,"Andale Mono","Courier New",Courier,mono; margin:2px 0; max-height:200px; overflow:auto; padding-top:5px; white-space:normal; }
+dd code { border:0; padding:0; }
