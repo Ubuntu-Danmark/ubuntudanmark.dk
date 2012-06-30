@@ -3,7 +3,7 @@
 Plugin Name: Stop Spammer Registrations Plugin
 Plugin URI: http://www.BlogsEye.com/
 Description: The Stop Spammer Registrations Plugin checks against Spam Databases to to prevent spammers from registering or making comments.
-Version: 3.2
+Version: 3.3
 Author: Keith P. Graham
 Author URI: http://www.BlogsEye.com/
 
@@ -22,6 +22,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 *************************************************************/
 global $current_user;
 if ( empty( $current_user ) ) {
+	add_action('loop_start','kpg_sfs_red_herring_comment');
 	//add_filter('is_email','kpg_sfs_reg_fixup');	// this hook is killing me!
 	add_filter('user_registration_email','kpg_sfs_reg_fixup');	
 	//add_filter('pre_user_email','kpg_sfs_reg_fixup');	
@@ -32,6 +33,10 @@ if ( empty( $current_user ) ) {
 	add_filter('preprocess_comment','kpg_sfs_newcomment');	
 	add_action('admin_init','kpg_sfs_login_check');
 	add_action('xmlrpc_call','kpg_sfs_login_check');
+	// adds the hook for sending mail so that contact forms won't contact me
+	add_filter('wp_mail','kpg_sfs_reg_check_send_mail');
+	add_filter('login_message','kpg_sfs_red_herring_login');	
+
 } 
 
 // make a function to unset all the hooks once a check to the db is done in order to prevent recusive checks
@@ -46,6 +51,7 @@ function kpg_sfs_reg_unhook() {
 	remove_filter( 'preprocess_comment', 'kpg_sfs_newcomment');	
 	remove_action( 'admin_init', 'kpg_sfs_login_check' );
 	remove_action( 'xmlrpc_call', 'kpg_sfs_login_check' );
+	remove_filter( 'wp_mail', 'kpg_sfs_reg_check_send_mail' );
 	return;
 }
 
@@ -77,6 +83,82 @@ if (function_exists('is_multisite') && is_multisite()) {
 	}
 }
 /************************************************************
+*
+* show a bogus form. If the form is hit then this is a spammer
+*
+*************************************************************/
+function kpg_sfs_red_herring_comment($query) {
+	$options=kpg_sp_get_options();
+	if (array_key_exists('redherring',$options)&&$options['redherring']!='Y') return $query;
+   $rhnonce=wp_create_nonce('kpgstopspam_redherring');
+?>
+<div style="position:absolute;width:1px;height:1px;left:-1000px;top:-1000px;overflow:hidden;">
+<br/>
+<br/>
+<br/>
+<form action="<?php echo site_url( '/wp-comments-post.php' ); ?>" method="post" id="commentform">
+<p><input name="author" id="author" value="" size="22"  aria-required="true" type="text">
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input name="email" id="email" value="" size="22"  aria-required="true" type="text">
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input name="url" id="url" value="" size="22" type="text">
+<label for="url"><small>Website</small></label></p>
+<p><textarea name="comment" id="comment" cols="58" rows="10" ></textarea></p>
+<p><input name="submit" id="submit" value="Submit Comment" type="submit">
+<input name="comment_post_ID" value="<?php echo get_the_ID();?>" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p>
+<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="<?php echo $rhnonce;?>" type="hidden"></p>
+</form>
+</div>
+<?php
+	return $query;
+}
+
+/************************************************************
+*
+* show a bogus form. If the form is hit then this is a spammer
+*
+*************************************************************/
+function kpg_sfs_red_herring_login($message) {
+	$options=kpg_sp_get_options();
+	if (array_key_exists('redherring',$options)&&$options['redherring']!='Y') return $message;
+   $rhnonce=wp_create_nonce('kpgstopspam_redherring');
+?>
+<div style="position:absolute;width:1px;height:1px;left:-1000px;top:-1000px;overflow:hidden;">
+<br/>
+<br/>
+<br/>
+
+
+<form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>?redir=<?php echo $rhnonce; ?>" method="post">
+	<p>
+		<label for="user_login">User Name<br />
+		<input type="text" name="log"  value="" size="20"  /></label>
+	</p>
+	<p>
+		<label for="user_pass">Password<br />
+		<input type="password" name="pwd"  value="" size="20"  /></label>
+	</p>
+<?php do_action('login_form'); ?>
+	<p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" checked="checked"  value="<?php echo $rhnonce; ?>"  />Remember Me</label></p>
+	<p class="submit">
+		<input type="submit" name="wp-submit"  value="Log In"  />
+		<input type="hidden" name="testcookie" value="1" />
+	</p>
+	<input id="akismet_comment_nonce" name="akismet_comment_nonce" value="<?php echo $rhnonce;?>" type="hidden">
+</form>
+
+
+
+</div>
+<?php
+	return $message;
+}
+
+/************************************************************
 * 	kpg_sfs_login_check()
 *	
 *	hooked from login, registration and comments forms.
@@ -90,6 +172,7 @@ function kpg_sfs_login_check() {
 	// Login check is hooked from the "PRE" forms and has no parameters
 	// we start here gathering information and then passing it on to the full check with email, author and ip
 	// prevent from running multiple times
+	
 	kpg_sfs_reg_unhook();
 	if(is_user_logged_in()) {
 		return; // I know that I checked it before, but check again
@@ -122,6 +205,43 @@ function kpg_sfs_login_check() {
     $ansa=kpg_sfs_check($em,$author,$ip,'2');
 	sfs_errorsonoff('off');
 	return $ansa;
+}
+/************************************************************
+* 	kpg_sfs_reg_check_send_mail()
+*	Hooked from wp_mail
+*	this returns the params
+*************************************************************/
+function kpg_sfs_reg_check_send_mail($stuff) {
+	if(is_user_logged_in()) {
+		return $stuff;
+	}
+	// see if we have to do this on wp_mail
+	$options=kpg_sp_get_options();
+	if (array_key_exists('chkwpmail',$options)&&$options['chkwpmail']=='N') return $stuff;
+	$email='';
+	$header=array();
+	if (is_array($stuff)&&array_key_exists('header',$stuff)) $header=$stuff['header'];
+	if (is_array($header)&&array_key_exists('from',$stuff)) $email=$stuff['from'];
+	$from_name='';
+	$from_email=$email;
+	if ( strpos($email, '<' ) !== false ) {
+		$from_name = substr( $email, 0, strpos( $email, '<' ) - 1 );
+		$from_name = str_replace( '"', '', $from_name );
+		$from_name = trim( $from_name );
+		$from_email = substr( $email, strpos( $email, '<' ) + 1 );
+		$from_email = str_replace( '>', '', $from_email );
+		$from_email = trim( $from_email );
+	}
+	kpg_sfs_reg_unhook();
+	// get the ip 
+	$ip=$_SERVER['REMOTE_ADDR'];
+	$ip=check_forwarded_ip($ip);
+	// now call the generic checker
+	sfs_errorsonoff();
+    kpg_sfs_check($from_email,$from_name,$ip,'4'); 
+	sfs_errorsonoff('off');
+	return $stuff;
+
 }
 /************************************************************
 * 	kpg_sfs_reg_fixup()
@@ -274,9 +394,9 @@ function kpg_sfs_check($email='',$author='',$ip,$src='3') {
 	
 	// check all of the ones that do not require file access
 	$deny=false;
-	// check whitelists and caches
+	// first check white lists 
 	
-	if (!$deny&&(array_search($ip,$wlist))) {
+	if (!$deny&&(kpg_sp_searchi($ip,$wlist))) {
 	    $hist[$now][4]='White List IP';
 		$stats['hist']=$hist;
 		update_option('kpg_stop_sp_reg_stats',$stats);
@@ -288,17 +408,47 @@ function kpg_sfs_check($email='',$author='',$ip,$src='3') {
 		update_option('kpg_stop_sp_reg_stats',$stats);
 		return $email;
 	}
-	$admin_email = get_settings('admin_email');
-	if ($admin_email==$em) {
-		//return $email; // whitelist admin email - probably not a good idea
-	}
+	//$admin_email = get_settings('admin_email');
+	//if ($admin_email==$em) {
+	//	return $email; // whitelist admin email - probably not a good idea
+	//}
 	// check to see if the ip is in the goodips cache
+	
 	if (!$deny&&kpg_sp_searchi($ip,$goodips)) {
 	    $hist[$now][4]='Cached good ip';
 		$stats['hist']=$hist;
 		update_option('kpg_stop_sp_reg_stats',$stats);
 		return $email;
 	}
+	// not white listed, now try the simple rejects that don't require remote access.
+	
+	
+	// check to see if it is coming from the red herring form
+	$nonce='';
+	if (!$deny&&!empty($_POST)&&array_key_exists('akismet_comment_nonce',$_POST)) {
+		$nonce=$_POST['akismet_comment_nonce'];
+		if (!empty($nonce)&&wp_verify_nonce($nonce,'kpgstopspam_redherring')) { 
+				$whodunnit.='Red Herring';
+				$deny=true;
+		}
+	}
+	if (!$deny&&!empty($_POST)&&array_key_exists('rememberme',$_POST)) {
+		$nonce=$_POST['rememberme'];
+		if (!empty($nonce)&&wp_verify_nonce($nonce,'kpgstopspam_redherring')) { 
+				$whodunnit.='Red Herring';
+				$deny=true;
+		}
+	}
+	if (!$deny&&!empty($_GET)&&array_key_exists('redir',$_GET)) {
+		$nonce=$_GET['redir'];
+		if (!empty($nonce)&&wp_verify_nonce($nonce,'kpgstopspam_redherring')) { 
+				$whodunnit.='Red Herring';
+				$deny=true;
+		}
+	}
+	
+	
+	
 	
 	// try checking to see if there is a referrer
 	if (!$deny&&$chkreferer=='Y'&&!empty($_POST)) {
@@ -320,19 +470,33 @@ function kpg_sfs_check($email='',$author='',$ip,$src='3') {
 			$whodunnit.='long author name '.strlen($author);
 			$deny=true;
 	}
+	
+	if (!$deny && $chkagent=='Y') {
+		if (!array_key_exists('HTTP_USER_AGENT',$_SERVER)) {
+			$whodunnit.='Missing User Agent';
+			$deny=true;
+		}
+	}
+			
+
 	// check to see if the results have been cached
 	// These are the simple email checks
-	if (!empty($em) && !$deny) {
+	if (!empty($em)) {
+		if (!$deny && !empty($em) && kpg_sp_searchi($em,$blist)) {
+			$whodunnit.='Black List EMAIL';
+			$deny=true;
+		}
 		if (!$deny && array_key_exists($em,$badems)) {
-			if (!empty($em)) $badems[mysql_real_escape_string($em)]=$now;
-			$badips[$ip]=$now;
 			$deny=true;
 			$whodunnit.='Cached bad email';
 		} 
 		if (!$deny && $chklong=='Y' && strlen($em)>64) {
-			$badems[mysql_real_escape_string($em)]=$now;
 			$deny=true;
 			$whodunnit.='email too long';
+		}
+		if (!$deny && $chklong=='Y' && strlen($em)<7) {
+			$deny=true;
+			$whodunnit.='email too short';
 		}
 		if (!$deny && $chkdisp=='Y') {
 			$ansa=kpg_check_disp($em);
@@ -343,18 +507,14 @@ function kpg_sfs_check($email='',$author='',$ip,$src='3') {
 		}
 	}
 	// simple ip checks
-	if (!$deny && kpg_sp_searchi($ip,$blist)) {
-	    $whodunnit.='Black List IP';
-		$deny=true;
-	}
-	if (!$deny && !empty($em) && kpg_sp_searchi($em,$blist)) {
-	    $whodunnit.='Black List EMAIL';
-		$deny=true;
-	}
 	if (!$deny&&array_key_exists($ip,$badips)) {
 		$whodunnit.='Cached bad ip';
 		$deny=true;
 	} 
+	if (!$deny && kpg_sp_searchi($ip,$blist)) {
+	    $whodunnit.='Black List IP';
+		$deny=true;
+	}
 	$accept_head=false; 
 	if (array_key_exists('HTTP_ACCEPT',$_SERVER)) $accept_head=true; // real browsers send HTTP_ACCEPT
 	if (!$deny&&$accept=='Y'&&!$accept_head) {
@@ -511,6 +671,7 @@ function kpg_sfs_check($email='',$author='',$ip,$src='3') {
 // this checks to see if there is an ip forwarded involved here and corrects the IP
 function check_forwarded_ip($ip) {
 	if (substr($ip,0,3)=='10.' ||
+		$ip=='127.0.0.1' ||
 		substr($ip,0,8)=='192.168.' ||
 		(substr($ip,0,7)>='172.16.' && substr($ip,0,7)<='172.31.')
 	) {
@@ -938,8 +1099,8 @@ function kpg_sfs_reg_uninstall() {
 	if(!current_user_can('manage_options')) {
 		die('Access Denied');
 	}
-	kpg_sp_delete_option('kpg_stop_sp_reg_options'); 
-	kpg_sp_delete_option('kpg_stop_sp_reg_stats'); 
+	delete_option('kpg_stop_sp_reg_options'); 
+	delete_option('kpg_stop_sp_reg_stats'); 
 	return;
 }  
 
@@ -982,7 +1143,7 @@ function kpg_sp_rightnow() {
  	$me=admin_url('options-general.php?page=stopspammerstats');
     if (function_exists('is_multisite') && is_multisite()) {
 		switch_to_blog(1);
-		$me=admin_url('options-general.php?page=stopspammerstats');
+		$me=get_admin_url( 1,'options-general.php?page=stopspammerstats');
 		restore_current_blog();
 	}
 	if ($spmcount>0) {
@@ -1054,6 +1215,7 @@ function kpg_sp_get_options() {
 		'chksfs'=>'Y',
 		'chkreferer'=>'Y',
 		'chkdisp'=>'Y',
+		'redherring'=>'y',
 		'chkdnsbl'=>'Y',
 		'chkubiquity'=>'Y',
 		'chkakismet'=>'Y',
@@ -1061,7 +1223,9 @@ function kpg_sp_get_options() {
 		'chklogin'=>'Y',
 		'chksignup'=>'Y',
 		'chklong'=>'Y',
+		'chkagent'=>'Y',
 		'chkxmlrpc'=>'Y',
+		'chkwpmail'=>'Y',
 		'addtowhitelist'=>'Y',
 		'muswitch'=>'Y',
 		'sfsfreq'=>0,
@@ -1275,6 +1439,7 @@ function sfs_ErrorHandler($errno, $errmsg, $filename, $linenum, $vars) {
 		default;
 			$serrno="Unknown Error type $errno";
 	}
+	if (strpos($errmsg,'modify header information')) return false;
  
 	$msg="
 	Error number: $errno
