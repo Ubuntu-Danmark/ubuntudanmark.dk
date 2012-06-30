@@ -66,17 +66,6 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 		 * 
 		 * Used to get title, version, author, URI of the parent and the child theme.
 		 */
-<<<<<<< HEAD
-		 
-		$themeData = wp_get_theme(  get_template_directory() . '/style.css' );
-		$thm_version = trim( $themeData['Version'] );
-		
-		if (!$thm_version)
-			$thm_version = "unknown";
-
-		$ct = wp_get_theme(  get_stylesheet_directory() . '/style.css' );
-		$templateversion = trim( $ct['Version'] );
-=======
 		
 		// WordPress 3.4 
 		if ( function_exists( 'wp_get_theme' ) ) {
@@ -87,7 +76,6 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 		}
 		
 		$framework_version = trim( $frameworkData['Version'] );
->>>>>>> Update-stack
 		
 		if ( !$framework_version )
 			$framework_version = "unknown";
