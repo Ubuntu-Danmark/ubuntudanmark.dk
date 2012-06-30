@@ -218,7 +218,7 @@ function validate_session_wpbb($data) {
 
     $username = utf8_normalize_nfc(request_var('username', '', true));
 
-    if ($user->data['is_registered'] || isset($_REQUEST['not_agreed'])) {      //FIX BY BRIAN PAN
+    if ((isset($user) && $user->data['is_registered']) || isset($_REQUEST['not_agreed'])) {      //FIX BY BRIAN PAN
         //if(wpbb_userExists($username, 'phpbb')){
         // User exists, TODO -- notify user somehow
         //header('Location: http://www.opc.dev/forum/ucp.php?mode=register');
