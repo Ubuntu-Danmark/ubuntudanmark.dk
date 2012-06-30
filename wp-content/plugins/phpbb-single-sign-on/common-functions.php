@@ -514,7 +514,7 @@ function wpbb_validate_user_patched($file) {
         $content = file_get_contents($file);
 
         if(strpos($content,'validate_phpbb_username') !== false
-            && strpos($content,'validate_phpbb_email') !== false
+            && strpos($content,'validate_email') === false
         ){
             return true;
         } else {
