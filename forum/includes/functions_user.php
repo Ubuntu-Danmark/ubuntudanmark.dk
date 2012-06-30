@@ -1296,6 +1296,7 @@ function validate_data($data, $val_ary)
 		foreach ($val_seq as $validate)
 		{
 			$function = array_shift($validate);
+			if($function == 'email'){$function = 'phpbb_email';}
 			if($function == 'username'){$function = 'phpbb_username';}
 			array_unshift($validate, $data[$var]);
 
@@ -1695,7 +1696,7 @@ function validate_password($password)
 *
 * @return mixed Either false if validation succeeded or a string which will be used as the error message (with the variable name appended)
 */
-function validate_email($email, $allowed_email = false)
+function validate_phpbb_email($email, $allowed_email = false)
 {
 	global $config, $db, $user;
 

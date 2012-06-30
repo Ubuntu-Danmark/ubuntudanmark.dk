@@ -500,6 +500,7 @@ function wpbb_validate_user_patch($file) {
     if (file_exists($file)) {
         $content = file_get_contents($file);
         $content = str_replace(' validate_username', ' validate_phpbb_username', $content);
+        $content = str_replace(' validate_email', ' validate_phpbb_email', $content);
 
         file_put_contents($file, $content);
         return true;
@@ -512,7 +513,9 @@ function wpbb_validate_user_patched($file) {
     if (file_exists($file)) {
         $content = file_get_contents($file);
 
-        if(strpos($content,'validate_phpbb_username') !== false){
+        if(strpos($content,'validate_phpbb_username') !== false
+            && strpos($content,'validate_phpbb_email') !== false
+        ){
             return true;
         } else {
             return false;
@@ -529,7 +532,10 @@ function wpbb_validate_user2_patch($file) {
         $content = file_get_contents($file);
         $content = str_replace(
                 '$function = array_shift($validate);'."\n\t\t\t".'array',
-                '$function = array_shift($validate);'."\n\t\t\t".'if($function == \'username\'){$function = \'phpbb_username\';}'."\n\t\t\t".'array', $content);
+                '$function = array_shift($validate);'
+                ."\n\t\t\t".'if($function == \'email\'){$function = \'phpbb_email\';}'
+                ."\n\t\t\t".'if($function == \'username\'){$function = \'phpbb_username\';}'
+                ."\n\t\t\t".'array',$content);
 
         file_put_contents($file, $content);
         return true;
@@ -542,7 +548,9 @@ function wpbb_validate_user2_patched($file) {
     if (file_exists($file)) {
         $content = file_get_contents($file);
 
-        if(strpos($content,'$function = array_shift($validate);'."\n\t\t\t".'if($function == \'username\'){$function = \'phpbb_username\';}') !== false){
+        if(strpos($content,'$function = array_shift($validate);'
+        ."\n\t\t\t".'if($function == \'email\'){$function = \'phpbb_email\';}'
+        ."\n\t\t\t".'if($function == \'username\'){$function = \'phpbb_username\';}') !== false){
             return true;
         } else {
             return false;
