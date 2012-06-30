@@ -364,20 +364,20 @@ class s2_admin extends s2class {
 			$count['all_users'] = $wpdb->get_var("SELECT COUNT(ID) FROM $wpdb->users");
 		}
 		if ( $this->s2_mu ) {
-			$count['registered'] = $wpdb->get_var("SELECT COUNT(meta_key) FROM $wpdb->usermeta WHERE meta_key='" . $wpdb->prefix . "capabilities' AND meta_key='" . $this->get_usermeta_keyname('s2_subscribed') . "'");
+			$count['registered'] = $wpdb->get_var($wpdb->prepare("SELECT COUNT(meta_key) FROM $wpdb->usermeta WHERE meta_key='" . $wpdb->prefix . "capabilities' AND meta_key=%s", $this->get_usermeta_keyname('s2_subscribed')));
 		} else {
-			$count['registered'] = $wpdb->get_var("SELECT COUNT(meta_key) FROM $wpdb->usermeta WHERE meta_key='" . $this->get_usermeta_keyname('s2_subscribed') . "'");
+			$count['registered'] = $wpdb->get_var($wpdb->prepare("SELECT COUNT(meta_key) FROM $wpdb->usermeta WHERE meta_key=%s", $this->get_usermeta_keyname('s2_subscribed')));
 		}
 		$count['all'] = ($count['confirmed'] + $count['unconfirmed'] + $count['all_users']);
 		// get subscribers to individual categories but only if we are using per-post notifications
 		if ( $this->subscribe2_options['email_freq'] == 'never' ) {
 			if ( $this->s2_mu ) {
 				foreach ( $all_cats as $cat ) {
-					$count[$cat->name] = $wpdb->get_var("SELECT COUNT(a.meta_key) FROM $wpdb->usermeta AS a INNER JOIN $wpdb->usermeta AS b ON a.user_id = b.user_id WHERE a.meta_key='" . $wpdb->prefix . "capabilities' AND b.meta_key='" . $this->get_usermeta_keyname('s2_cat') . $cat->term_id . "'");
+					$count[$cat->name] = $wpdb->get_var($wpdb->prepare("SELECT COUNT(a.meta_key) FROM $wpdb->usermeta AS a INNER JOIN $wpdb->usermeta AS b ON a.user_id = b.user_id WHERE a.meta_key='" . $wpdb->prefix . "capabilities' AND b.meta_key=%s", $this->get_usermeta_keyname('s2_cat') . $cat->term_id));
 				}
 			} else {
 				foreach ( $all_cats as $cat ) {
-					$count[$cat->name] = $wpdb->get_var("SELECT COUNT(meta_value) FROM $wpdb->usermeta WHERE meta_key='" . $this->get_usermeta_keyname('s2_cat') . $cat->term_id . "'");
+					$count[$cat->name] = $wpdb->get_var($wpdb->prepare("SELECT COUNT(meta_value) FROM $wpdb->usermeta WHERE meta_key=%s", $this->get_usermeta_keyname('s2_cat') . $cat->term_id));
 				}
 			}
 		}
@@ -532,9 +532,9 @@ class s2_admin extends s2class {
 		global $wpdb;
 
 		$useremails = explode(",\r\n", $emails);
-		$useremails = implode("', '", $useremails);
+		$useremails = implode(", ", array_map(array($this, 'prepare_in_data'), $useremails));
 
-		$sql = "SELECT ID FROM $wpdb->users WHERE user_email IN ('$useremails')";
+		$sql = "SELECT ID FROM $wpdb->users WHERE user_email IN ($useremails)";
 		$user_IDs = $wpdb->get_col($sql);
 
 		foreach ( $user_IDs as $user_ID ) {
@@ -564,7 +564,7 @@ class s2_admin extends s2class {
 		global $wpdb;
 
 		$useremails = explode(",\r\n", $emails);
-		$useremails = "'" . implode("', '", $useremails) . "'";
+		$useremails = implode(", ", array_map(array($this, 'prepare_in_data'), $useremails));
 
 		$sql = "SELECT ID FROM $wpdb->users WHERE user_email IN ($useremails)";
 		$user_IDs = $wpdb->get_col($sql);
@@ -597,9 +597,9 @@ class s2_admin extends s2class {
 
 		global $wpdb;
 		$subscribers = explode(",\r\n", $subscribers_string);
-		$emails = "'" . implode("', '", $subscribers) . "'";
+		$emails = implode(", ", array_map(array($this,'prepare_in_data'), $subscribers));
 		$ids = $wpdb->get_col("SELECT ID FROM $wpdb->users WHERE user_email IN ($emails)");
-		$ids = implode(',', $ids);
+		$ids = implode(',', array_map(array($this, 'prepare_in_data'), $ids));
 		$sql = "UPDATE $wpdb->usermeta SET meta_value='{$format}' WHERE meta_key='" . $this->get_usermeta_keyname('s2_format') . "' AND user_id IN ($ids)";
 		$wpdb->get_results($sql);
 	} // end format_change()
@@ -612,7 +612,7 @@ class s2_admin extends s2class {
 
 		global $wpdb;
 		$useremails = explode(",\r\n", $emails);
-		$useremails = "'" . implode("', '", $useremails) . "'";
+		$useremails = implode(", ", array_map(array($this, 'prepare_in_data'), $useremails));
 
 		$sql = "SELECT ID FROM $wpdb->users WHERE user_email IN ($useremails)";
 		$user_IDs = $wpdb->get_col($sql);
@@ -660,9 +660,9 @@ class s2_admin extends s2class {
 
 		if ( 'yes' == $this->subscribe2_options['show_autosub'] ) {
 			if ( $this->s2_mu ) {
-				$sql = "SELECT DISTINCT a.user_id FROM $wpdb->usermeta AS a INNER JOIN $wpdb->usermeta AS b WHERE a.user_id = b.user_id AND a.meta_key='" . $this->get_usermeta_keyname('s2_autosub') . "' AND a.meta_value='yes' AND b.meta_key='" . $this->get_usermeta_keyname('s2_subscribed') . "'";
+				$sql = $wpdb->prepare("SELECT DISTINCT a.user_id FROM $wpdb->usermeta AS a INNER JOIN $wpdb->usermeta AS b WHERE a.user_id = b.user_id AND a.meta_key=%s AND a.meta_value='yes' AND b.meta_key=%s", $this->get_usermeta_keyname('s2_autosub'), $this->get_usermeta_keyname('s2_subscribed'));
 			} else {
-				$sql = "SELECT DISTINCT user_id FROM $wpdb->usermeta WHERE $wpdb->usermeta.meta_key='" . $this->get_usermeta_keyname('s2_autosub') . "' AND $wpdb->usermeta.meta_value='yes'";
+				$sql = $wpdb->prepare("SELECT DISTINCT user_id FROM $wpdb->usermeta WHERE $wpdb->usermeta.meta_key=%s AND $wpdb->usermeta.meta_value='yes'", $this->get_usermeta_keyname('s2_autosub'));
 			}
 			$user_IDs = $wpdb->get_col($sql);
 			if ( '' == $user_IDs ) { return; }
@@ -694,9 +694,9 @@ class s2_admin extends s2class {
 		global $wpdb;
 
 		if ( $this->s2_mu ) {
-			$sql = "SELECT DISTINCT a.user_id FROM $wpdb->usermeta AS a INNER JOIN $wpdb->usermeta AS b WHERE a.user_id = b.user_id AND a.meta_key='" . $this->get_usermeta_keyname('s2_cat') . "$deleted_category' AND b.meta_key='" . $this->get_usermeta_keyname('s2_subscribed') . "'";
+			$sql = $wpdb->prepare("SELECT DISTINCT a.user_id FROM $wpdb->usermeta AS a INNER JOIN $wpdb->usermeta AS b WHERE a.user_id = b.user_id AND a.meta_key=%s AND b.meta_key=%s", $this->get_usermeta_keyname('s2_cat') . $deleted_category, $this->get_usermeta_keyname('s2_subscribed'));
 		} else {
-			$sql = "SELECT DISTINCT user_id FROM $wpdb->usermeta WHERE meta_key='" . $this->get_usermeta_keyname('s2_cat') . "$deleted_category'";
+			$sql = $wpdb->prepare("SELECT DISTINCT user_id FROM $wpdb->usermeta WHERE meta_key=%s", $this->get_usermeta_keyname('s2_cat') . $deleted_category);
 		}
 		$user_IDs = $wpdb->get_col($sql);
 		if ( '' == $user_IDs ) { return; }

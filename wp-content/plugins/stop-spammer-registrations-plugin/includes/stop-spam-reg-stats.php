@@ -81,7 +81,7 @@ function addwhite(ip) {
 	return false;
 }
 </script>
-  <h2>Stop Spammers Plugin Stats Version 3.2</h2>
+  <h2>Stop Spammers Plugin Stats Version 3.3</h2>
  <?php 
 
 	$nag='';
@@ -172,7 +172,7 @@ function addwhite(ip) {
 				<td style=\"font-size:.8em;padding:2px;\">$dt</td>
 				<td style=\"font-size:.8em;padding:2px;\">$em</td>
 				<td style=\"font-size:.8em;padding:2px;\">$ip"; 
-		    if (strpos($reason,'passed')!==false && strpos($id,'login')!==false && !in_array($ip,$blist) && !in_array($ip,$wlist)) {
+		    if (strpos($reason,'passed')!==false && ($id=='/'||strpos($id,'login')!==false) && !in_array($ip,$blist) && !in_array($ip,$wlist)) {
 				$skull = plugins_url( 'includes/sk.jpg', dirname(__FILE__) );
 				echo "<a href=\"\" onclick=\"return addblack('$ip');\" title=\"Add to Black List\" alt=\"Add to Black List\" ><img src=\"$skull\" width=\"12px\" /></a>";
 			}

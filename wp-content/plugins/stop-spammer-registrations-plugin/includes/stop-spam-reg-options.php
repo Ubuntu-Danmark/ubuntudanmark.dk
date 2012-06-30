@@ -79,6 +79,13 @@
 			}
 			$options['chklong']=$chklong;
 			
+			if (array_key_exists('chkagent',$_POST)) {
+				$chkagent=stripslashes($_POST['chkagent']);
+			} else {
+				$chkagent='N';
+			}
+			$options['chkagent']=$chkagent;
+			
 			if (array_key_exists('chkxmlrpc',$_POST)) {
 				$chkxmlrpc=stripslashes($_POST['chkxmlrpc']);
 			} else {
@@ -94,6 +101,20 @@
 			
 
 
+			
+			if (array_key_exists('chkwpmail',$_POST)) {
+				$chkwpmail=stripslashes($_POST['chkwpmail']);
+			} else {
+				$chkwpmail='N';
+			}
+			$options['chkwpmail']=$chkwpmail;
+			
+			if (array_key_exists('redherring',$_POST)) {
+				$redherring=stripslashes($_POST['redherring']);
+			} else {
+				$redherring='N';
+			}
+			$options['redherring']=$redherring;
 			
 			if (array_key_exists('chkdnsbl',$_POST)) {
 				$chkdnsbl=stripslashes($_POST['chkdnsbl']);
@@ -281,13 +302,14 @@
 ?>
   <p style="font-weight:bold;">The Stop Spammers Plugin is installed and working correctly.</p>
   <p>Eliminates 99% of spam registrations and comments. Checks all attempts to leave spam against StopForumSpam.com, Project Honeypot, BotScout, DNSBL lists such as Spamhaus.org, Ubiquity Servers, disposable email addresses, and HTTP_ACCEPT header.</p>
-  <p style="font-weight:bold;">Version 3.2: </p>
+  <p style="font-weight:bold;">Version 3.3: </p>
   
    <p style="font-weight:bold;">How the plugin works: </p>
   <p>This plugin checks against StopForumSpam.com, Project Honeypot and BotScout to to prevent spammers from registering or making comments. 
     The Stop Spammer Registrations plugin works by checking the IP address, email and user id of anyone who tries to register, login, or leave a comment. This effectively blocks spammers who try to register on blogs or leave spam. It checks a users credentials against up to three databases: <a href="http://www.stopforumspam.com/">Stop Forum Spam</a>, <a href="http://www.projecthoneypot.org/">Project Honeypot</a>, and <a href="http://www.botscout.com/">BotScout</a>. Optionally checks against Akismet for Logins and Registrations. </p>
   <p>Optionally the plugin will also check for disposable email addresses, check for the lack of a HTTP_ACCEPT header, and check against several DNSBL lists such as Spamhaus.org. It also checks against spammer hosts like Ubiquity-Nobis, XSServer, Balticom, Everhost, FDC, Exetel, Virpus and other servers, which are a major source of Spam Comments. </p>
   <p>Rejects very long email addresses and very long author names since spammers can't resist putting there message everywhere. It also rejects form POST data where there is no HTTP_REFERER header, because spammers often forget to include the referring site information in their software.</p>
+  <p>The plugin will install a &quot;Red Herring&quot; comment form that will be invisible to normal users. Spammers will find this form and try to do their dirty deed using it. This results in the IP address being added to the deny list. This feature is turned off by default because the form might screw up your theme. Turn the option on and check your theme. If the form (a one pixe box) changes your theme presentation then turn the feature off. I highly recommend that you try this option. It stops a ton of spam. </p>
   <p><span style="font-weight:bold;">Limitations: </span></p>
   <p>StopForumSpam.com limits checks to 10,000 per day for each IP so the plugin may stop validating on very busy sites. I have not seen this happen, yet. The plugin will not stop spam that has not been reported to the various databases. You will always get some comments from spammers who are not yet reported. You can help others and yourself by reporting spam. If you do not report spam, the spammer will keep hitting you. This plugin works best with Akismet. Akismet works well, but clutters the database with spam comments that need to be deleted regularly, and Akismet does not work with spammer registrations. </p>
   <p style="font-weight:bold;">API Keys: </p>
@@ -383,7 +405,7 @@ function sfs_ajax_return_check(response) {
     <br/>
     You may wish to forgive spammers with few incidents or no recent activity. I would recommend that to be on the safe side you should block users who appear on the spam database unless they specifically ask to be white listed. Allowed values are 0 to 9999. Only numbers are accepted. <br />
     <br/>
-    Deny spammers found on Stop Forum Span with more than
+    Deny spammers found on Stop Forum Spam with more than
     <input size="3" name="sfsfreq" type="text" value="<?php echo $sfsfreq; ?>"/>
     incidents, and occurring less than
     <input size="4" name="sfsage" type="text" value="<?php echo $sfsage; ?>"/>
@@ -419,6 +441,14 @@ function sfs_ajax_return_check(response) {
     Check for long emails or author name:
     <input name="chklong" type="checkbox" value="Y" <? if ($chklong=='Y') echo  'checked="true"';?>/>
     Spammers like to use long names and emails. This rejects these if the are over 64 characters in length (optional)<br/>
+
+    Check for missing HTTP_USER_AGENT:
+    <input name="chkagent" type="checkbox" value="Y" <? if ($chkagent=='Y') echo  'checked="true"';?>/>
+    Browsers always include a user agent string when they access a site. A missing user agent is usually a spammer using poorly written software or a leach who is stealing the pages from your site.<br/>
+
+    Use a Red Herring form:
+    <input name="redherring" type="checkbox" value="Y" <? if ($redherring=='Y') echo  'checked="true"';?>/>
+    Places a fake comment form on web pages to trap spammers. If they bite, their IP address is added to the bad cache. Normal users should not be able to see the Red Herring form. Check your theme after enabling this feature to make sure that it does not alter your blog's presentation.<strong> I highly recommend that you try this option. It stops a ton of spam.</strong><br/>
 
     Check against DNSBL lists such as Spamhaus.org :
     <input name="chkdnsbl" type="checkbox" value="Y" <? if ($chkdnsbl=='Y') echo  'checked="true"';?>/>
@@ -468,6 +498,9 @@ function sfs_ajax_return_check(response) {
 	Check IP on xmlrpc.php
     <input name="chkxmlrpc" type="checkbox" value="Y" <? if ($chkxmlrpc=='Y') echo  'checked="true"';?>/> 
     Check IP and email every time the xmlrpc.php file is loaded. This will check ping backs and other remote calls.<br/>
+	Check IP on wp_mail
+    <input name="chkwpmail" type="checkbox" value="Y" <? if ($chkwpmail=='Y') echo  'checked="true"';?>/> 
+    Check IP whenever wordpress sends mail to prevent spammers from sending mail to you or anyone else.<br/>
     <br/>
 	
     </fieldset>

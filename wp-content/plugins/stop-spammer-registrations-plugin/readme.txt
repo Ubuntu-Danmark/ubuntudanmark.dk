@@ -1,10 +1,10 @@
 === Stop Spammer Registrations Plugin ===
 Tags: spam,registration,login,spammers,MU,StopForumSpam,Honeypot,BotScout,DNSBL,Spamhaus.org,Ubiquity Servers,HTTP_ACCEPT,disposable email
 Donate link: http://www.blogseye.com/buy-the-book/
-Requires at least: 2.8
+Requires at least: 3.0
 Tested up to: 3.3
 Contributors: Keith Graham
-Stable tag: 3.2
+Stable tag: 3.3
 
 The Stop Spammer Registrations Plugin checks against StopForumSpam.com to prevent spammers from registering or making comments.
 
@@ -128,7 +128,10 @@ This has some functions partially complete, but I had to release as is to fix th
 * Changed access to SFS db to stop false positives
 
 = 3.2 =
-* Added automatic addition of admins to IP white list. Added ability to specify where plugin actions work. Added WP API key update for those who don't use Akismet. Added checks for long names and emails. Added HTTP_REFERER checks. Added a check so users can see if they have access to the StopForumSpam database. Added a long list of known Spam Hosting company IP addresses.   
+* Added automatic addition of admins to IP white list. Added ability to specify where plugin actions work. Added WP API key update for those who don't use Akismet. Added checks for long names and emails. Added HTTP_REFERER checks. Added a check so users can see if they have access to the StopForumSpam database. Added a long list of known Spam Hosting company IP addresses. 
+
+= 3.3 =
+Changed way arrays are searched. It was possible that ip addresses were not found in lists. Added a "Red Herring" bogus comments form that stops a huge amount of spam. Repaired delete option.
 
 == Support ==
 This plugin is free and I expect nothing in return. Please rate the plugin at: http://wordpress.org/extend/plugins/stop-spammer-registrations-plugin/

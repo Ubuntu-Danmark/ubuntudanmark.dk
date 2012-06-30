@@ -213,7 +213,7 @@ class s2class {
 		foreach ( $public_subscribers as $email ) {
 			$new_email = $this->sanitize_email($email);
 			if ( $email !== $new_email ) {
-				$wpdb->get_results("UPDATE $this->public SET email='$new_email' WHERE CAST(email as binary)='$email'");
+				$wpdb->get_results($wpdb->prepare("UPDATE $this->public SET email=%s WHERE CAST(email as binary)=%s", $new_email, $email));
 			}
 		}
 		return;
@@ -564,6 +564,16 @@ class s2class {
 
 		$gallid = '[gallery id="' . $post->ID . '"';
 		$content = str_replace('[gallery', $gallid, $post->post_content);
+
+		// remove the autoembed filter to remove iframes from notification emails
+		if ( get_option('embed_autourls') ) {
+			global $wp_embed;
+			$priority = has_filter('the_content', array(&$wp_embed, 'autoembed'));
+			if ( $priority !== false ) {
+				remove_filter('the_content', array(&$wp_embed, 'autoembed'), $priority);
+			}
+		}
+
 		$content = apply_filters('the_content', $content);
 		$content = str_replace("]]>", "]]&gt", $content);
 
@@ -742,7 +752,7 @@ class s2class {
 		if ( !$id ) {
 			return false;
 		}
-		return $wpdb->get_var("SELECT email FROM $this->public WHERE id=$id");
+		return $wpdb->get_var($wpdb->prepare("SELECT email FROM $this->public WHERE id=%d", $id));
 	} // end get_email()
 
 	/**
@@ -754,7 +764,7 @@ class s2class {
 		if ( !$email ) {
 			return false;
 		}
-		return $wpdb->get_var("SELECT id FROM $this->public WHERE email='$email'");
+		return $wpdb->get_var($wpdb->prepare("SELECT id FROM $this->public WHERE email=%s", $email));
 	} // end get_id()
 
 	/**
@@ -769,12 +779,12 @@ class s2class {
 
 		if ( false !== $this->is_public($email) ) {
 			// is this an email for a registered user
-			$check = $wpdb->get_var("SELECT user_email FROM $wpdb->users WHERE user_email='$this->email'");
+			$check = $wpdb->get_var($wpdb->prepare("SELECT user_email FROM $wpdb->users WHERE user_email=%s", $this->email));
 			if ( $check ) { return; }
 			if ( $confirm ) {
-				$wpdb->get_results("UPDATE $this->public SET active='1', ip='$this->ip' WHERE CAST(email as binary)='$email'");
+				$wpdb->get_results($wpdb->prepare("UPDATE $this->public SET active='1', ip=%s WHERE CAST(email as binary)=%s", $this->ip, $email));
 			} else {
-				$wpdb->get_results("UPDATE $this->public SET date=CURDATE() WHERE CAST(email as binary)='$email'");
+				$wpdb->get_results($wpdb->prepare("UPDATE $this->public SET date=CURDATE() WHERE CAST(email as binary)=%s", $email));
 			}
 		} else {
 			if ( $confirm ) {
@@ -793,7 +803,7 @@ class s2class {
 		global $wpdb;
 
 		if ( !is_email($email) ) { return false; }
-		$wpdb->get_results("DELETE FROM $this->public WHERE CAST(email as binary)='$email'");
+		$wpdb->get_results($wpdb->prepare("DELETE FROM $this->public WHERE CAST(email as binary)=%s", $email));
 	} // end delete()
 
 	/**
@@ -809,9 +819,9 @@ class s2class {
 		if ( false === $status ) { return false; }
 
 		if ( '0' == $status ) {
-			$wpdb->get_results("UPDATE $this->public SET active='1' WHERE CAST(email as binary)='$email'");
+			$wpdb->get_results($wpdb->prepare("UPDATE $this->public SET active='1' WHERE CAST(email as binary)=%s", $email));
 		} else {
-			$wpdb->get_results("UPDATE $this->public SET active='0' WHERE CAST(email as binary)='$email'");
+			$wpdb->get_results($wpdb->prepare("UPDATE $this->public SET active='0' WHERE CAST(email as binary)=%s", $email));
 		}
 	} // end toggle()
 
@@ -853,7 +863,7 @@ class s2class {
 		if ( '' == $email ) { return false; }
 
 		// run the query and force case sensitivity
-		$check = $wpdb->get_var("SELECT active FROM $this->public WHERE CAST(email as binary)='$email'");
+		$check = $wpdb->get_var($wpdb->prepare("SELECT active FROM $this->public WHERE CAST(email as binary)=%s", $email));
 		if ( '0' == $check || '1' == $check ) {
 			return $check;
 		} else {
@@ -906,7 +916,7 @@ class s2class {
 
 		if ( '' == $email ) { return false; }
 
-		$check = $wpdb->get_var("SELECT user_email FROM $wpdb->users WHERE user_email='$email'");
+		$check = $wpdb->get_var($wpdb->prepare("SELECT user_email FROM $wpdb->users WHERE user_email=%s", $email));
 		if ( $check ) {
 			return true;
 		} else {
@@ -922,7 +932,7 @@ class s2class {
 
 		if ( '' == $email ) { return false; }
 
-		$id = $wpdb->get_var("SELECT id FROM $wpdb->users WHERE user_email='$email'");
+		$id = $wpdb->get_var($wpdb->prepare("SELECT id FROM $wpdb->users WHERE user_email=%s", $email));
 
 		return $id;
 	} // end get_user_id()
@@ -972,7 +982,7 @@ class s2class {
 		// text or HTML subscribers
 		if ( 'all' != $r['format'] ) {
 			$JOIN .= "INNER JOIN $wpdb->usermeta AS b ON a.user_id = b.user_id ";
-			$AND .= " AND b.meta_key='" . $this->get_usermeta_keyname('s2_format') . "' AND b.meta_value=";
+			$AND .= $wpdb->prepare(" AND b.meta_key=%s AND b.meta_value=", $this->get_usermeta_keyname('s2_format'));
 			if ( 'html' == $r['format'] ) {
 				$AND .= "'html'";
 			} elseif ( 'html_excerpt' == $r['format'] ) {
@@ -989,7 +999,7 @@ class s2class {
 			$JOIN .= "INNER JOIN $wpdb->usermeta AS c ON a.user_id = c.user_id ";
 			$and = '';
 			foreach ( explode(',', $r['cats']) as $cat ) {
-				('' == $and) ? $and = "c.meta_key='" . $this->get_usermeta_keyname('s2_cat') . "$cat'" : $and .= " OR c.meta_key='" . $this->get_usermeta_keyname('s2_cat') . "$cat'";
+				('' == $and) ? $and = $wpdb->prepare("c.meta_key=%s", $this->get_usermeta_keyname('s2_cat') . $cat) : $and .= $wpdb->prepare(" OR c.meta_key=%s", $this->get_usermeta_keyname('s2_cat') . $cat);
 			}
 			$AND .= " AND ($and)";
 		}
@@ -997,17 +1007,17 @@ class s2class {
 		// specific authors
 		if ( '' != $r['author'] ) {
 			$JOIN .= "INNER JOIN $wpdb->usermeta AS d ON a.user_id = d.user_id ";
-			$AND .= " AND (d.meta_key='" . $this->get_usermeta_keyname('s2_authors') . "' AND NOT FIND_IN_SET(" . $r['author'] . ", d.meta_value))";
+			$AND .= $wpdb->prepare(" AND (d.meta_key=%s AND NOT FIND_IN_SET(%s, d.meta_value))", $this->get_usermeta_keyname('s2_authors'), $r['author']);
 		}
 
 		if ( $this->s2_mu ) {
 			$sql = "SELECT a.user_id FROM $wpdb->usermeta AS a " . $JOIN . "WHERE a.meta_key='" . $wpdb->prefix . "capabilities'" . $AND;
 		} else {
-			$sql = "SELECT a.user_id FROM $wpdb->usermeta AS a " . $JOIN . "WHERE a.meta_key='" . $this->get_usermeta_keyname('s2_subscribed') . "'" . $AND;
+			$sql = $wpdb->prepare("SELECT a.user_id FROM $wpdb->usermeta AS a " . $JOIN . "WHERE a.meta_key=%s" . $AND, $this->get_usermeta_keyname('s2_subscribed'));
 		}
 		$result = $wpdb->get_col($sql);
 		if ( $result ) {
-			$ids = implode(',', $result);
+			$ids = implode(',', array_map(array($this, 'prepare_in_data'), $result));
 			$registered = $wpdb->get_col("SELECT user_email FROM $wpdb->users WHERE ID IN ($ids)");
 		}
 
@@ -1176,6 +1186,14 @@ class s2class {
 	} // end all_cats()
 
 	/**
+	Function to sanitise array of data for SQL
+	*/
+	function prepare_in_data($data) {
+		global $wpdb;
+		return $wpdb->prepare('%s', $data);
+	} // end prepare_in_data()
+
+	/**
 	Export subscriber emails and other details to CSV
 	*/
 	function prepare_export( $subscribers ) {
@@ -1325,7 +1343,7 @@ class s2class {
 		if ( $subscribe != '1' ) { return $comment_ID; }
 
 		// Retrieve the information about the comment
-		$sql = "SELECT comment_author_email, comment_approved FROM $wpdb->comments WHERE comment_ID='$comment_ID' LIMIT 1";
+		$sql = $wpdb->prepare("SELECT comment_author_email, comment_approved FROM $wpdb->comments WHERE comment_ID=%s LIMIT 1", $comment_ID);
 		$comment = $wpdb->get_row($sql, OBJECT);
 		if ( empty($comment) ) { return $comment_ID; }
 
@@ -1413,21 +1431,21 @@ class s2class {
 			}
 			$s2_post_types = apply_filters('s2_post_types', $s2_post_types);
 			foreach( $s2_post_types as $post_type ) {
-				('' == $type) ? $type = "'$post_type'" : $type .= ", '$post_type'";
+				('' == $type) ? $type = $wpdb->prepare("%s", $post_type) : $type .= $wpdb->prepare(", %s", $post_type);
 			}
 
 			// collect posts
 			if ( $resend == 'resend' ) {
 				if ( $this->subscribe2_options['cron_order'] == 'desc' ) {
-					$posts = $wpdb->get_results("SELECT ID, post_title, post_excerpt, post_content, post_type, post_password, post_date, post_author FROM $wpdb->posts WHERE post_date >= '$last' AND post_date < '$prev' AND post_status IN ($status) AND post_type IN ($type) ORDER BY post_date DESC");
+					$posts = $wpdb->get_results($wpdb->prepare("SELECT ID, post_title, post_excerpt, post_content, post_type, post_password, post_date, post_author FROM $wpdb->posts WHERE post_date >= %s AND post_date < %s AND post_status IN ($status) AND post_type IN ($type) ORDER BY post_date DESC", $last, $prev));
 				} else {
-					$posts = $wpdb->get_results("SELECT ID, post_title, post_excerpt, post_content, post_type, post_password, post_date, post_author FROM $wpdb->posts WHERE post_date >= '$last' AND post_date < '$prev' AND post_status IN ($status) AND post_type IN ($type) ORDER BY post_date ASC");
+					$posts = $wpdb->get_results($wpdb->prepare("SELECT ID, post_title, post_excerpt, post_content, post_type, post_password, post_date, post_author FROM $wpdb->posts WHERE post_date >= %s AND post_date < %s AND post_status IN ($status) AND post_type IN ($type) ORDER BY post_date ASC", $last, $prev));
 				}
 			} else {
 				if ( $this->subscribe2_options['cron_order'] == 'desc' ) {
-					$posts = $wpdb->get_results("SELECT ID, post_title, post_excerpt, post_content, post_type, post_password, post_date, post_author FROM $wpdb->posts WHERE post_date >= '$prev' AND post_date < '$now' AND post_status IN ($status) AND post_type IN ($type) ORDER BY post_date DESC");
+					$posts = $wpdb->get_results($wpdb->prepare("SELECT ID, post_title, post_excerpt, post_content, post_type, post_password, post_date, post_author FROM $wpdb->posts WHERE post_date >= %s AND post_date < %s AND post_status IN ($status) AND post_type IN ($type) ORDER BY post_date DESC", $prev, $now));
 				} else {
-					$posts = $wpdb->get_results("SELECT ID, post_title, post_excerpt, post_content, post_type, post_password, post_date, post_author FROM $wpdb->posts WHERE post_date >= '$prev' AND post_date < '$now' AND post_status IN ($status) AND post_type IN ($type) ORDER BY post_date ASC");
+					$posts = $wpdb->get_results($wpdb->prepare("SELECT ID, post_title, post_excerpt, post_content, post_type, post_password, post_date, post_author FROM $wpdb->posts WHERE post_date >= %s AND post_date < %s AND post_status IN ($status) AND post_type IN ($type) ORDER BY post_date ASC", $prev, $now));
 				}
 			}
 		} else {
@@ -1641,7 +1659,7 @@ class s2class {
 
 		// do we need to install anything?
 		$this->public = $table_prefix . "subscribe2";
-		if ( $wpdb->get_var("SHOW TABLES LIKE '{$this->public}'") != $this->public ) { $this->install(); }
+		if ( $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $this->public)) != $this->public ) { $this->install(); }
 		//do we need to upgrade anything?
 		if ( is_array($this->subscribe2_options) && $this->subscribe2_options['version'] !== S2VERSION ) {
 			add_action('shutdown', array(&$this, 'upgrade'));

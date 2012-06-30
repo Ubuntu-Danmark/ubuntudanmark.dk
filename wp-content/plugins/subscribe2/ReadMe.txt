@@ -3,8 +3,9 @@ Contributors: MattyRob, Skippy, RavanH
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=2387904
 Tags: posts, subscription, email, subscribe, notify, notification
 Requires at least: 3.1
-Tested up to: 3.3.1
-Stable tag: 8.3
+Tested up to: 3.4
+Stable tag: 8.4
+License: GPL3
 
 Sends a list of subscribers an email notification when new posts are published to your blog
 
@@ -28,26 +29,28 @@ If you want to send full content HTML emails to Public Subscribers too then upgr
 == Installation ==
 
 AUTOMATIC INSTALLATION
+
 1. Log in to your WordPress blog and visit Plugins->Add New.
-1. Search for Subscribe2, click "Install Now" and then Activate the Plugin
-1. Click the "Settings" admin menu link, and select "Subscribe2".
-1. Configure the options to taste, including the email template and any categories which should be excluded from notification
-1. Click the "Tools" admin menu link, and select "Subscribers".
-1. Manually subscribe people as you see fit.
-1. Create a [WordPress Page](http://codex.wordpress.org/Pages) to display the subscription form.  When creating the page, you may click the "S2" button on the QuickBar to automatically insert the subscribe2 token.  Or, if you prefer, you may manually insert the subscribe2 shortcode or token: [subscribe2] or the HTML invisible `<!--subscribe2-->` ***Ensure the token is on a line by itself and that it has a blank line above and below.***
+2. Search for Subscribe2, click "Install Now" and then Activate the Plugin
+3. Click the "Settings" admin menu link, and select "Subscribe2".
+4. Configure the options to taste, including the email template and any categories which should be excluded from notification
+5. Click the "Tools" admin menu link, and select "Subscribers".
+6. Manually subscribe people as you see fit.
+7. Create a [WordPress Page](http://codex.wordpress.org/Pages) to display the subscription form.  When creating the page, you may click the "S2" button on the QuickBar to automatically insert the subscribe2 token.  Or, if you prefer, you may manually insert the subscribe2 shortcode or token: [subscribe2] or the HTML invisible `<!--subscribe2-->` ***Ensure the token is on a line by itself and that it has a blank line above and below.***
 This token will automatically be replaced by dynamic subscription information and will display all forms and messages as necessary.
-1. In the WordPress "Settings" area for Subscribe2 select the page name in the "Appearance" section that of the WordPress page created in step 7.
+8. In the WordPress "Settings" area for Subscribe2 select the page name in the "Appearance" section that of the WordPress page created in step 7.
 
 MANUAL INSTALLATION
+
 1. Copy the entire /subscribe2/ directory into your /wp-content/plugins/ directory.
-1. Activate the plugin.
-1. Click the "Settings" admin menu link, and select "Subscribe2".
-1. Configure the options to taste, including the email template and any categories which should be excluded from notification
-1. Click the "Tools" admin menu link, and select "Subscribers".
-1. Manually subscribe people as you see fit.
-1. Create a [WordPress Page](http://codex.wordpress.org/Pages) to display the subscription form.  When creating the page, you may click the "S2" button on the QuickBar to automatically insert the subscribe2 token.  Or, if you prefer, you may manually insert the subscribe2 shortcode or token: [subscribe2] or the HTML invisible `<!--subscribe2-->` ***Ensure the token is on a line by itself and that it has a blank line above and below.***
+2. Activate the plugin.
+3. Click the "Settings" admin menu link, and select "Subscribe2".
+4. Configure the options to taste, including the email template and any categories which should be excluded from notification
+5. Click the "Tools" admin menu link, and select "Subscribers".
+6. Manually subscribe people as you see fit.
+7. Create a [WordPress Page](http://codex.wordpress.org/Pages) to display the subscription form.  When creating the page, you may click the "S2" button on the QuickBar to automatically insert the subscribe2 token.  Or, if you prefer, you may manually insert the subscribe2 shortcode or token: [subscribe2] or the HTML invisible `<!--subscribe2-->` ***Ensure the token is on a line by itself and that it has a blank line above and below.***
 This token will automatically be replaced by dynamic subscription information and will display all forms and messages as necessary.
-1. In the WordPress "Settings" area for Subscribe2 select the page name in the "Appearance" section that of the WordPress page created in step 7.
+8. In the WordPress "Settings" area for Subscribe2 select the page name in the "Appearance" section that of the WordPress page created in step 7.
 
 == Frequently Asked Questions ==
 
@@ -303,6 +306,17 @@ Secondly, make sure that the token ([subscribe2] or <!--subscribe2-->) is correc
 
 == Changelog ==
 
+= Version 8.4 by Matthew Robinson =
+
+* Fixed an error in the 'Send Mail' page that blocked emails from being sent
+* Added tracking features to Digest title links in HTML version - thanks to Jeremy Schultz
+* Provide clearer user feedback for Send and Preview buttons in "Send Email" window
+* Add new option to the Widget to return users to the home page on submission
+* Added warning to Settings page if selected sender email address is "off-domain"
+* Fixed numerous minor SQL injections vectors - thanks to Tom Adams (holizz)
+* Removed auto-embed iframes from HTML emails - thanks to Doug Lerner
+* Add more intuitive user messages for Public Subscribers when Unsubscribing - thanks to Doug Lerner
+
 = Version 8.3 by Matthew Robinson =
 
 * Fixed a bunch of PHP messages - should not show anyway unless WP_DEBUG is true or PHP error reporting is on a high setting
@@ -314,7 +328,7 @@ Secondly, make sure that the token ([subscribe2] or <!--subscribe2-->) is correc
 * Fixed implode error seen when sending preview emails on some configurations
 * Fixed a error in the admin user dropdown on installs (particularly Multisite) where there may be no administrator level users
 * Added a button text filter for the Subscribe and Unsubscribe buttons - proposed by casben79
-* Use wp_hash in place of MD5 to further obfuscate confirmation links - thanks to Otto and Ipstenu
+* Use wp_hash in place of MD5 to further obfuscate confirmation links - thanks to Charlie Eriksen, Otto and Ipstenu
 
 = Version 8.2 by Matthew Robinson =
 

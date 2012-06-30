@@ -64,7 +64,7 @@ class s2_frontend extends s2class {
 				$this->email = $this->sanitize_email($_POST['email']);
 				$this->ip = $_POST['ip'];
 				// does the supplied email belong to a registered user?
-				$check = $wpdb->get_var("SELECT user_email FROM $wpdb->users WHERE user_email = '$this->email'");
+				$check = $wpdb->get_var($wpdb->prepare("SELECT user_email FROM $wpdb->users WHERE user_email = %s", $this->email));
 				if ( '' != $check ) {
 					// this is a registered email
 					$this->s2form = $this->please_log_in;
@@ -150,7 +150,13 @@ class s2_frontend extends s2class {
 	function title_filter($title) {
 		// don't interfere if we've already done our thing
 		if ( in_the_loop() ) {
-			return __('Subscription Confirmation', 'subscribe2');
+			$code = $_GET['s2'];
+			$action = intval(substr($code, 0, 1));
+			if ( $action == '1' ) {
+				return __('Subscription Confirmation', 'subscribe2');
+			} else {
+				return __('Unsubscription Confirmation', 'subscribe2');
+			}
 		} else {
 			return $title;
 		}
