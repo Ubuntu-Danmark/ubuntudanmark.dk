@@ -91,6 +91,10 @@ eval($include_common_contents);
  * Loads Wordpress
  */
 
+if (!isset($_SESSION)) {
+    $_SESSION = null;
+}
+
 //save all vars before they're escaped by wordpress (but not $_FILE nor $GLOBALS)
 $saved_vars = array(
     'SERVER' => $_SERVER,
