@@ -28,7 +28,7 @@ class S2_Form_widget extends WP_Widget {
 			$hide = " link=\"" . __('(Un)Subscribe to Posts', 'subscribe2') . "\"";
 		}
 		$postid = '';
-		if ( $postto ) {
+		if ( !empty($postto) || $postto !== 'home' ) {
 			$postid = " id=\"" . $postto . "\"";
 		}
 		$size = " size=\"" . $textbox_size . "\"";
@@ -89,7 +89,6 @@ class S2_Form_widget extends WP_Widget {
 
 		global $wpdb, $mysubscribe2;
 		$sql = "SELECT ID, post_title FROM $wpdb->posts WHERE post_type='page' AND post_status='publish'";
-		$pages = $wpdb->get_results($sql);
 
 		echo "<div>\r\n";
 		echo "<p><label for=\"" . $this->get_field_name('title') . "\">" . __('Title', 'subscribe2') . ":\r\n";
@@ -108,14 +107,15 @@ class S2_Form_widget extends WP_Widget {
 			echo "<br /><input name=\"" . $this->get_field_name('hidebutton') . "\" type=\"radio\" value=\"link\"". checked('link', $hidebutton, false) . "/>" . __('Show as link', 'subscribe2');
 		}
 		echo "</label></p>\r\n";
-		if ( !empty($pages) ) {
-			echo "<p><label for=\"" . $this->get_field_name('postto') . "\">" . __('Post form content to page', 'subscribe2') . ":\r\n";
-			echo "<select id=\"" . $this->get_field_id('postto') . "\" name=\"" . $this->get_field_name('postto') . "\">\r\n";
-			echo "<option value=\"\">" . __('Use Subscribe2 Default', 'subscribe2') . "</option>\r\n";
-			global $mysubscribe2;
-			$mysubscribe2->pages_dropdown($postto);
-			echo "</select></label></p>\r\n";
-		}
+		echo "<p><label for=\"" . $this->get_field_name('postto') . "\">" . __('Post form content to page', 'subscribe2') . ":\r\n";
+		echo "<select id=\"" . $this->get_field_id('postto') . "\" name=\"" . $this->get_field_name('postto') . "\">\r\n";
+		global $mysubscribe2;
+		echo "<option value=\"" . $mysubscribe2->subscribe2_options['s2page'] . "\">" . __('Use Subscribe2 Default', 'subscribe2') . "</option>\r\n";
+		echo "<option value=\"home\"";
+		if ( $postto === 'home' ) { echo " selected=\"selected\""; }
+		echo ">" . __('Use Home Page', 'subscribe2') . "</option>\r\n";
+		$mysubscribe2->pages_dropdown($postto);
+		echo "</select></label></p>\r\n";
 		echo "</div>\r\n";
 	}
 } // End S2_Form_widget class

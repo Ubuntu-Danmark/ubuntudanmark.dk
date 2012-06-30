@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-15 08:28+0100\n"
+"POT-Creation-Date: 2012-06-23 21:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,443 +17,453 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: admin/send_email.php:42
+#: admin/send_email.php:41
+msgid "Preview message sent!"
+msgstr ""
+
+#: admin/send_email.php:46
 msgid "Your email was empty"
 msgstr ""
 
-#: admin/send_email.php:53
+#: admin/send_email.php:57
 msgid "Send an email to subscribers"
 msgstr ""
 
-#: admin/send_email.php:61
+#: admin/send_email.php:65
 msgid "A message from"
 msgstr ""
 
-#: admin/send_email.php:66
+#: admin/send_email.php:70
 msgid "Subject"
 msgstr ""
 
-#: admin/send_email.php:69
+#: admin/send_email.php:73
 msgid "Recipients:"
 msgstr ""
 
-#: admin/send_email.php:73
+#: admin/send_email.php:77
 msgid "Preview"
 msgstr ""
 
-#: admin/send_email.php:73
+#: admin/send_email.php:77
 msgid "Send"
 msgstr ""
 
-#: admin/settings.php:30
+#: admin/settings.php:18
+msgid ""
+"You appear to be sending notifications from an email address from a "
+"different domain name to your blog, this may result in failed emails"
+msgstr ""
+
+#: admin/settings.php:36
 msgid "Preview message(s) sent to logged in user"
 msgstr ""
 
-#: admin/settings.php:34
+#: admin/settings.php:40
 msgid ""
 "The Digest Notification email contained no post information. No email was "
 "sent"
 msgstr ""
 
-#: admin/settings.php:36
+#: admin/settings.php:42
 msgid "Attempt made to resend the Digest Notification email"
 msgstr ""
 
-#: admin/settings.php:205
+#: admin/settings.php:211
 msgid "Subscribe2 Settings"
 msgstr ""
 
-#: admin/settings.php:206
+#: admin/settings.php:212
 msgid "Plugin Blog"
 msgstr ""
 
-#: admin/settings.php:207
+#: admin/settings.php:213
 msgid "Make a donation via PayPal"
 msgstr ""
 
-#: admin/settings.php:219 admin/your_subscriptions.php:96
+#: admin/settings.php:225 admin/your_subscriptions.php:96
 msgid "Notification Settings"
 msgstr ""
 
-#: admin/settings.php:220
+#: admin/settings.php:226
 msgid "Restrict the number of recipients per email to (0 for unlimited)"
 msgstr ""
 
-#: admin/settings.php:222 admin/settings.php:370
+#: admin/settings.php:228 admin/settings.php:376
 msgid "Edit"
 msgstr ""
 
-#: admin/settings.php:225 admin/settings.php:373
+#: admin/settings.php:231 admin/settings.php:379
 msgid "Update"
 msgstr ""
 
-#: admin/settings.php:226 admin/settings.php:374
+#: admin/settings.php:232 admin/settings.php:380
 msgid "Revert"
 msgstr ""
 
-#: admin/settings.php:228
+#: admin/settings.php:234
 msgid "Send Admins notifications for new"
 msgstr ""
 
-#: admin/settings.php:230
+#: admin/settings.php:236
 msgid "Subscriptions"
 msgstr ""
 
-#: admin/settings.php:232
+#: admin/settings.php:238
 msgid "Unsubscriptions"
 msgstr ""
 
-#: admin/settings.php:234
+#: admin/settings.php:240
 msgid "Both"
 msgstr ""
 
-#: admin/settings.php:236
+#: admin/settings.php:242
 msgid "Neither"
 msgstr ""
 
-#: admin/settings.php:238
+#: admin/settings.php:244
 msgid "Include theme CSS stylesheet in HTML notifications"
 msgstr ""
 
-#: admin/settings.php:240 admin/settings.php:246 admin/settings.php:260
-#: admin/settings.php:265 admin/settings.php:415 admin/settings.php:420
-#: admin/settings.php:434 admin/settings.php:441 admin/settings.php:453
+#: admin/settings.php:246 admin/settings.php:252 admin/settings.php:266
+#: admin/settings.php:271 admin/settings.php:421 admin/settings.php:426
+#: admin/settings.php:440 admin/settings.php:447 admin/settings.php:459
 #: admin/subscribers.php:339 admin/your_subscriptions.php:121
 #: admin/your_subscriptions.php:161
 msgid "Yes"
 msgstr ""
 
-#: admin/settings.php:242 admin/settings.php:248 admin/settings.php:262
-#: admin/settings.php:267 admin/settings.php:412 admin/settings.php:417
-#: admin/settings.php:422 admin/settings.php:436 admin/settings.php:443
-#: admin/settings.php:450 admin/settings.php:455 admin/subscribers.php:341
+#: admin/settings.php:248 admin/settings.php:254 admin/settings.php:268
+#: admin/settings.php:273 admin/settings.php:418 admin/settings.php:423
+#: admin/settings.php:428 admin/settings.php:442 admin/settings.php:449
+#: admin/settings.php:456 admin/settings.php:461 admin/subscribers.php:341
 #: admin/your_subscriptions.php:123 admin/your_subscriptions.php:165
 msgid "No"
 msgstr ""
 
-#: admin/settings.php:244
+#: admin/settings.php:250
 msgid "Send Emails for Pages"
 msgstr ""
 
-#: admin/settings.php:252
+#: admin/settings.php:258
 msgid ""
 "Subscribe2 will send email notifications for the following custom post types"
 msgstr ""
 
-#: admin/settings.php:258
+#: admin/settings.php:264
 msgid "Send Emails for Password Protected Posts"
 msgstr ""
 
-#: admin/settings.php:263
+#: admin/settings.php:269
 msgid "Send Emails for Private Posts"
 msgstr ""
 
-#: admin/settings.php:268
+#: admin/settings.php:274
 msgid "Send Email From"
 msgstr ""
 
-#: admin/settings.php:273
+#: admin/settings.php:279
 msgid "Send Emails"
 msgstr ""
 
-#: admin/settings.php:275
+#: admin/settings.php:281
 msgid "For digest notifications, date order for posts is"
 msgstr ""
 
-#: admin/settings.php:277
+#: admin/settings.php:283
 msgid "Descending"
 msgstr ""
 
-#: admin/settings.php:279
+#: admin/settings.php:285
 msgid "Ascending"
 msgstr ""
 
-#: admin/settings.php:281
+#: admin/settings.php:287
 msgid "Add Tracking Parameters to the Permalink"
 msgstr ""
 
-#: admin/settings.php:283
+#: admin/settings.php:289
 msgid "eg. utm_source=subscribe2&utm_medium=email&utm_campaign=postnotify"
 msgstr ""
 
-#: admin/settings.php:288
+#: admin/settings.php:294
 msgid "Email Templates"
 msgstr ""
 
-#: admin/settings.php:292
+#: admin/settings.php:298
 msgid "New Post email (must not be empty)"
 msgstr ""
 
-#: admin/settings.php:293 admin/settings.php:323 admin/settings.php:328
+#: admin/settings.php:299 admin/settings.php:329 admin/settings.php:334
 msgid "Subject Line"
 msgstr ""
 
-#: admin/settings.php:298
+#: admin/settings.php:304
 msgid "Send Email Preview"
 msgstr ""
 
-#: admin/settings.php:299
+#: admin/settings.php:305
 msgid "Message substitutions"
 msgstr ""
 
-#: admin/settings.php:301
+#: admin/settings.php:307
 msgid ""
 "IF THE FOLLOWING KEYWORDS ARE ALSO IN YOUR POST THEY WILL BE SUBSTITUTED"
 msgstr ""
 
-#: admin/settings.php:304
+#: admin/settings.php:310
 msgid "the post's title<br />(<i>for per-post emails only</i>)"
 msgstr ""
 
-#: admin/settings.php:305
+#: admin/settings.php:311
 msgid ""
 "the excerpt or the entire post<br />(<i>based on the subscriber's "
 "preferences</i>)"
 msgstr ""
 
-#: admin/settings.php:306
+#: admin/settings.php:312
 msgid ""
 "the excerpt of the post and the time it was posted<br />(<i>for digest "
 "emails only</i>)"
 msgstr ""
 
-#: admin/settings.php:307
+#: admin/settings.php:313
 msgid "a list of post titles<br />(<i>for digest emails only</i>)"
 msgstr ""
 
-#: admin/settings.php:308
+#: admin/settings.php:314
 msgid ""
 "a list of post titles followed by links to the atricles<br />(<i>for digest "
 "emails only</i>)"
 msgstr ""
 
-#: admin/settings.php:309
+#: admin/settings.php:315
 msgid "the post's permalink<br />(<i>for per-post emails only</i>)"
 msgstr ""
 
-#: admin/settings.php:310
+#: admin/settings.php:316
 msgid ""
 "the post's permalink after conversion by TinyURL<br />(<i>for per-post "
 "emails only</i>)"
 msgstr ""
 
-#: admin/settings.php:311
+#: admin/settings.php:317
 msgid "the date the post was made<br />(<i>for per-post emails only</i>)"
 msgstr ""
 
-#: admin/settings.php:312
+#: admin/settings.php:318
 msgid "the time the post was made<br />(<i>for per-post emails only</i>)"
 msgstr ""
 
-#: admin/settings.php:313
+#: admin/settings.php:319
 msgid "the admin or post author's name"
 msgstr ""
 
-#: admin/settings.php:314
+#: admin/settings.php:320
 msgid "the admin or post author's email"
 msgstr ""
 
-#: admin/settings.php:315
+#: admin/settings.php:321
 msgid "the post author's name"
 msgstr ""
 
-#: admin/settings.php:316
+#: admin/settings.php:322
 msgid ""
 "the generated link to confirm a request<br />(<i>only used in the "
 "confirmation email template</i>)"
 msgstr ""
 
-#: admin/settings.php:317
+#: admin/settings.php:323
 msgid ""
 "Action performed by LINK in confirmation email<br />(<i>only used in the "
 "confirmation email template</i>)"
 msgstr ""
 
-#: admin/settings.php:318
+#: admin/settings.php:324
 msgid "the post's assigned categories"
 msgstr ""
 
-#: admin/settings.php:319
+#: admin/settings.php:325
 msgid "the post's assigned Tags"
 msgstr ""
 
-#: admin/settings.php:320
+#: admin/settings.php:326
 msgid ""
 "the number of posts included in the digest email<br />(<i>for digest emails "
 "only</i>)"
 msgstr ""
 
-#: admin/settings.php:322
+#: admin/settings.php:328
 msgid "Subscribe / Unsubscribe confirmation email"
 msgstr ""
 
-#: admin/settings.php:327
+#: admin/settings.php:333
 msgid "Reminder email to Unconfirmed Subscribers"
 msgstr ""
 
-#: admin/settings.php:336
+#: admin/settings.php:342
 msgid "Excluded Categories"
 msgstr ""
 
-#: admin/settings.php:338
+#: admin/settings.php:344
 msgid ""
 "Posts assigned to any Excluded Category do not generate notifications and "
 "are not included in digest notifications"
 msgstr ""
 
-#: admin/settings.php:342
+#: admin/settings.php:348
 msgid "Allow registered users to subscribe to excluded categories?"
 msgstr ""
 
-#: admin/settings.php:348
+#: admin/settings.php:354
 msgid "Excluded Formats"
 msgstr ""
 
-#: admin/settings.php:350
+#: admin/settings.php:356
 msgid ""
 "Posts assigned to any Excluded Format do not generate notifications and are "
 "not included in digest notifications"
 msgstr ""
 
-#: admin/settings.php:358
+#: admin/settings.php:364
 msgid "Appearance"
 msgstr ""
 
-#: admin/settings.php:362
+#: admin/settings.php:368
 msgid "Set default Subscribe2 page as ID"
 msgstr ""
 
-#: admin/settings.php:368
+#: admin/settings.php:374
 msgid "Set the number of Subscribers displayed per page"
 msgstr ""
 
-#: admin/settings.php:378
+#: admin/settings.php:384
 msgid "Show a link to your subscription page in \"meta\"?"
 msgstr ""
 
-#: admin/settings.php:382
+#: admin/settings.php:388
 msgid "Show the Subscribe2 button on the Write toolbar?"
 msgstr ""
 
-#: admin/settings.php:386
+#: admin/settings.php:392
 msgid "Enable AJAX style subscription form?"
 msgstr ""
 
-#: admin/settings.php:390
+#: admin/settings.php:396
 msgid "Enable Subscribe2 Widget?"
 msgstr ""
 
-#: admin/settings.php:394
+#: admin/settings.php:400
 msgid "Enable Subscribe2 Counter Widget?"
 msgstr ""
 
-#: admin/settings.php:398
+#: admin/settings.php:404
 msgid "Disable email notifications is checked by default on authoring pages?"
 msgstr ""
 
-#: admin/settings.php:404
+#: admin/settings.php:410
 msgid "Auto Subscribe"
 msgstr ""
 
-#: admin/settings.php:406
+#: admin/settings.php:412
 msgid "Subscribe new users registering with your blog"
 msgstr ""
 
-#: admin/settings.php:408
+#: admin/settings.php:414
 msgid "Automatically"
 msgstr ""
 
-#: admin/settings.php:410
+#: admin/settings.php:416
 msgid "Display option on Registration Form"
 msgstr ""
 
-#: admin/settings.php:413
+#: admin/settings.php:419
 msgid "Auto-subscribe includes any excluded categories"
 msgstr ""
 
-#: admin/settings.php:418
+#: admin/settings.php:424
 msgid "Registration Form option is checked by default"
 msgstr ""
 
-#: admin/settings.php:423
+#: admin/settings.php:429
 msgid "Auto-subscribe users to receive email as"
 msgstr ""
 
-#: admin/settings.php:425 admin/subscribers.php:329
+#: admin/settings.php:431 admin/subscribers.php:329
 #: admin/your_subscriptions.php:110
 msgid "HTML - Full"
 msgstr ""
 
-#: admin/settings.php:427 admin/subscribers.php:330
+#: admin/settings.php:433 admin/subscribers.php:330
 #: admin/your_subscriptions.php:112
 msgid "HTML - Excerpt"
 msgstr ""
 
-#: admin/settings.php:429 admin/subscribers.php:331
+#: admin/settings.php:435 admin/subscribers.php:331
 #: admin/your_subscriptions.php:114
 msgid "Plain Text - Full"
 msgstr ""
 
-#: admin/settings.php:431 admin/subscribers.php:332
+#: admin/settings.php:437 admin/subscribers.php:332
 #: admin/your_subscriptions.php:116
 msgid "Plain Text - Excerpt"
 msgstr ""
 
-#: admin/settings.php:432
+#: admin/settings.php:438
 msgid "Registered Users have the option to auto-subscribe to new categories"
 msgstr ""
 
-#: admin/settings.php:438
+#: admin/settings.php:444
 msgid "New categories are immediately excluded"
 msgstr ""
 
-#: admin/settings.php:439
+#: admin/settings.php:445
 msgid ""
 "Option for Registered Users to auto-subscribe to new categories is checked "
 "by default"
 msgstr ""
 
-#: admin/settings.php:444
+#: admin/settings.php:450
 msgid "Display checkbox to allow subscriptions from the comment form"
 msgstr ""
 
-#: admin/settings.php:446
+#: admin/settings.php:452
 msgid "Before the Comment Submit button"
 msgstr ""
 
-#: admin/settings.php:448
+#: admin/settings.php:454
 msgid "After the Comment Submit button"
 msgstr ""
 
-#: admin/settings.php:451
+#: admin/settings.php:457
 msgid "Show one-click subscription on profile page"
 msgstr ""
 
-#: admin/settings.php:460
+#: admin/settings.php:466
 msgid "Barred Domains"
 msgstr ""
 
-#: admin/settings.php:462
+#: admin/settings.php:468
 msgid ""
 "Enter domains to bar from public subscriptions: <br /> (Use a new line for "
 "each entry and omit the \"@\" symbol, for example email.com)"
 msgstr ""
 
-#: admin/settings.php:468
+#: admin/settings.php:474
 msgid "Submit"
 msgstr ""
 
-#: admin/settings.php:471
+#: admin/settings.php:477
 msgid "Reset Default"
 msgstr ""
 
-#: admin/settings.php:472
+#: admin/settings.php:478
 msgid ""
 "Use this to reset all options to their defaults. This <strong><em>will not</"
 "em></strong> modify your list of subscribers."
 msgstr ""
 
-#: admin/settings.php:474
+#: admin/settings.php:480
 msgid "RESET"
 msgstr ""
 
@@ -902,73 +912,73 @@ msgstr ""
 msgid "Options reset!"
 msgstr ""
 
-#: classes/class-s2-core.php:625
+#: classes/class-s2-core.php:635
 msgid "Plain Text Excerpt Preview"
 msgstr ""
 
-#: classes/class-s2-core.php:627
+#: classes/class-s2-core.php:637
 msgid "Plain Text Full Preview"
 msgstr ""
 
-#: classes/class-s2-core.php:629
+#: classes/class-s2-core.php:639
 msgid "HTML Excerpt Preview"
 msgstr ""
 
-#: classes/class-s2-core.php:631
+#: classes/class-s2-core.php:641
 msgid "HTML Full Preview"
 msgstr ""
 
-#: classes/class-s2-core.php:1210
+#: classes/class-s2-core.php:1228
 msgid "Registered User"
 msgstr ""
 
-#: classes/class-s2-core.php:1215
+#: classes/class-s2-core.php:1233
 msgid "Confirmed Public Subscriber"
 msgstr ""
 
-#: classes/class-s2-core.php:1217
+#: classes/class-s2-core.php:1235
 msgid "Unconfirmed Public Subscriber"
 msgstr ""
 
-#: classes/class-s2-core.php:1254
+#: classes/class-s2-core.php:1272
 msgid "Check here to Subscribe to email notifications for new posts"
 msgstr ""
 
-#: classes/class-s2-core.php:1260
+#: classes/class-s2-core.php:1278
 msgid ""
 "By registering with this blog you are also agreeing to receive email "
 "notifications for new posts but you can unsubscribe at anytime"
 msgstr ""
 
-#: classes/class-s2-core.php:1286
+#: classes/class-s2-core.php:1304
 msgid "Check here to Subscribe to notifications for new posts"
 msgstr ""
 
-#: classes/class-s2-core.php:1376
+#: classes/class-s2-core.php:1394
 msgid "Weekly"
 msgstr ""
 
-#: classes/class-s2-core.php:1499 classes/class-s2-core.php:1500
+#: classes/class-s2-core.php:1517 classes/class-s2-core.php:1518
 msgid "Author"
 msgstr ""
 
-#: classes/class-s2-core.php:1508
+#: classes/class-s2-core.php:1526
 msgid "Posted on"
 msgstr ""
 
-#: classes/class-s2-core.php:1512 classes/class-s2-core.php:1513
+#: classes/class-s2-core.php:1530 classes/class-s2-core.php:1531
 msgid "Posted in"
 msgstr ""
 
-#: classes/class-s2-core.php:1518 classes/class-s2-core.php:1519
+#: classes/class-s2-core.php:1536 classes/class-s2-core.php:1537
 msgid "Tagged as"
 msgstr ""
 
-#: classes/class-s2-core.php:1583
+#: classes/class-s2-core.php:1601
 msgid "Digest Email"
 msgstr ""
 
-#: classes/class-s2-core.php:1593
+#: classes/class-s2-core.php:1611
 msgid "Digest Preview"
 msgstr ""
 
@@ -980,31 +990,35 @@ msgstr ""
 msgid "Enter email address..."
 msgstr ""
 
-#: classes/class-s2-frontend.php:153
+#: classes/class-s2-frontend.php:156
 msgid "Subscription Confirmation"
 msgstr ""
 
-#: classes/class-s2-frontend.php:191
+#: classes/class-s2-frontend.php:158
+msgid "Unsubscription Confirmation"
+msgstr ""
+
+#: classes/class-s2-frontend.php:197
 msgid "New Subscription"
 msgstr ""
 
-#: classes/class-s2-frontend.php:193
+#: classes/class-s2-frontend.php:199
 msgid "subscribed to email notifications!"
 msgstr ""
 
-#: classes/class-s2-frontend.php:214
+#: classes/class-s2-frontend.php:220
 msgid "New Unsubscription"
 msgstr ""
 
-#: classes/class-s2-frontend.php:216
+#: classes/class-s2-frontend.php:222
 msgid "unsubscribed from email notifications!"
 msgstr ""
 
-#: classes/class-s2-frontend.php:242
+#: classes/class-s2-frontend.php:248
 msgid "[Un]Subscribe to Posts"
 msgstr ""
 
-#: classes/class-s2-frontend.php:266 classes/class-s2-frontend.php:268
+#: classes/class-s2-frontend.php:272 classes/class-s2-frontend.php:274
 msgid "Subscribe to this blog"
 msgstr ""
 
@@ -1113,52 +1127,56 @@ msgstr ""
 msgid "(Un)Subscribe to Posts"
 msgstr ""
 
-#: include/widget.php:95
+#: include/widget.php:94
 msgid "Title"
 msgstr ""
 
-#: include/widget.php:97
+#: include/widget.php:96
 msgid "Div class name"
 msgstr ""
 
-#: include/widget.php:99
+#: include/widget.php:98
 msgid "Pre-Content"
 msgstr ""
 
-#: include/widget.php:101
+#: include/widget.php:100
 msgid "Post-Content"
 msgstr ""
 
-#: include/widget.php:103
+#: include/widget.php:102
 msgid "Text Box Size"
 msgstr ""
 
-#: include/widget.php:105
+#: include/widget.php:104
 msgid "Display options"
 msgstr ""
 
-#: include/widget.php:106
+#: include/widget.php:105
 msgid "Show complete form"
 msgstr ""
 
-#: include/widget.php:106
+#: include/widget.php:105
 msgid "Hide Subscribe button"
 msgstr ""
 
-#: include/widget.php:106
+#: include/widget.php:105
 msgid "Hide Unsubscribe button"
 msgstr ""
 
-#: include/widget.php:108
+#: include/widget.php:107
 msgid "Show as link"
 msgstr ""
 
-#: include/widget.php:112
+#: include/widget.php:110
 msgid "Post form content to page"
 msgstr ""
 
-#: include/widget.php:114
+#: include/widget.php:113
 msgid "Use Subscribe2 Default"
+msgstr ""
+
+#: include/widget.php:116
+msgid "Use Home Page"
 msgstr ""
 
 #: subscribe2.php:39
