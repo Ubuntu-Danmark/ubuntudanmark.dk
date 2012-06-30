@@ -1,16 +1,16 @@
 === Facebook Members ===
-Contributors: netcrunched
+Contributors: iCrunchies
 Tags: Facebook, Facebook Members
 Requires at least: 3.2
-Tested up to: 3.4
-Stable tag: 4.2
+Tested up to: 3.4.1
+Stable tag: 4.2.1
 
 Facebook Members is a WordPres Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website.
 
 == Description ==
 Facebook Members is a WordPres Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website. It uses Facebook Like Box. 
 
-See how many users already like this page, and which of their friends like it too. Read recent posts from the page Like the page with one click, without needing to visit the page. Get more visitors and more traffic to your site by getting more Facebook Fans. Stay tuned on plugin <a href="http://netcrunched.com/plugins/facebook-members/" target="_blank">Homepage</a>.
+See how many users already like this page, and which of their friends like it too. Read recent posts from the page Like the page with one click, without needing to visit the page. Get more visitors and more traffic to your site by getting more Facebook Fans. Stay tuned on plugin <a href="http://iCrunchies.com/plugins/facebook-members/" target="_blank">Homepage</a>.
 
 **New**
 
@@ -20,7 +20,7 @@ See how many users already like this page, and which of their friends like it to
 
 **[Screenshots - Admin Panel and Preview](http://wordpress.org/extend/plugins/facebook-members/screenshots/)**
 
-Follow on <a href="http://twitter.com/NetCrunched" target="_blank">Twitter</a> and <a href="http://facebook.com/NetCrunched" target="_blank">Facebook</a>.
+Follow me on <a href="http://twitter.com/iCrunchies" target="_blank">Twitter</a> and <a href="http://facebook.com/iCrunchies" target="_blank">Facebook</a>.
 
 **Features**
 
@@ -52,7 +52,7 @@ Tags: facebook, FB members, facebook plugin, like box, likebox, facebook like bo
 * You need to provide whatever is after `facebook.com/`........ (URL).
 
 = Got a Question? =
-* Please report your questions or bugs at Plugin <a href="http://netcrunched.com/plugins/facebook-members/" target="_blank">Homepage</a>. Follow on <a href="http://twitter.com/NetCrunched" target="_blank">Twitter</a> and <a href="http://facebook.com/NetCrunched" target="_blank">Facebook</a>.
+* Please report your questions or bugs at Plugin <a href="http://iCrunchies.com/plugins/facebook-members/" target="_blank">Homepage</a> and stay tuned on iCrunchies <a href="https://www.facebook.com/iCrunchies" target="_blank">Facebook Page</a>.
 * NOTE: I created this plugin as of my personal interest only. 
 
 == Screenshots ==

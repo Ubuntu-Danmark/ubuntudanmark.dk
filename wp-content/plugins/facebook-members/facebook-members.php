@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: Facebook Members
-Plugin URI: http://netcrunched.com/plugins/facebook-members/
+Plugin URI: http://icrunchies.com/plugins/facebook-members/
 Description: Facebook Members is a WordPres Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website. It uses Like Box.
-Version: 4.2
-Author: NetCrunched
-Author URI: http://netcrunched.com
+Version: 4.2.1
+Author: iCrunchies
+Author URI: http://iCrunchies.com
 */
 
 /*
-    Copyright (C) 2012 NetCrunched.com
+    Copyright (C) 2012 iCrunchies.com
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -90,7 +90,7 @@ function as_facebook_mem_likebox()
 	}
 	else
 	{
-		$sponserlink_profile = '<div align="left">- <a href="http://netcrunched.com/plugins/facebook-members/" title="Facebook Members WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Members WordPress Plugin' . '</font></a></div>';
+		$sponserlink_profile = '<div align="left">- <a href="http://icrunchies.com/plugins/facebook-members/" title="Facebook Members WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Members WordPress Plugin' . '</font></a></div>';
 	}
 
 
@@ -172,6 +172,17 @@ function as_facebook_mem_options_page() {
 
 	<div id="poststuff" class="metabox-holder has-right-sidebar" >
 		<div style="float:left;width:60%;">
+
+<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FiCrunchies&amp;width=292&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
+<br>
+<a href="https://twitter.com/iCrunchies" class="twitter-follow-button" data-show-count="false">Follow @iCrunchies</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<a href="http://icrunchies.com/plugins/facebook-members/" target="_blank">Plugin Homepage</a>
+
+<br>
+<br>
+
 
 			<div class="postbox">
 				<h3>Facebook Members - Option Panel </h3>
@@ -361,7 +372,7 @@ function show_as_facebook_mem_likebox_widget($args)
 	}
 	else
 	{
-		$sponserlink_profile = '<div align="left">- <a href="http://netcrunched.com/plugins/facebook-members/" title="Facebook Members WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Members WordPress Plugin' . '</font></a></div>';
+		$sponserlink_profile = '<div align="left">- <a href="http://icrunchies.com/plugins/facebook-members/" title="Facebook Members WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Members WordPress Plugin' . '</font></a></div>';
 	}
 
  	$T2 = '<div id="likebox-frame"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2F'.$fm_widget_page_name.'&amp;width='.$fm_widget_width.'&amp;height='.$fm_widget_height.'&amp;colorscheme=light&amp;show_faces='.$fm_widget_faces.'&amp;border_color&amp;stream='.$fm_widget_stream.'&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:'.$fm_widget_width.'px; height:'.$fm_widget_height.'px; margin:-1px;" allowTransparency="true"></iframe></div>';
