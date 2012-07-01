@@ -606,7 +606,7 @@ class session
 			$this->cookie_data['k'] = '';
 			$this->cookie_data['u'] = ($bot) ? $bot : ANONYMOUS;
 
-			if (!$bot)
+			if (false)
 			{
 				$sql = 'SELECT *
 					FROM ' . USERS_TABLE . '
@@ -614,11 +614,11 @@ class session
 			}
 			else
 			{
-				// We give bots always the same session if it is not yet expired.
+				// We give always bots and anonymous the same session if it is not yet expired.
 				$sql = 'SELECT u.*, s.*
 					FROM ' . USERS_TABLE . ' u
 					LEFT JOIN ' . SESSIONS_TABLE . ' s ON (s.session_user_id = u.user_id)
-					WHERE u.user_id = ' . (int) $bot;
+					WHERE u.user_id = ' . (int) $this->cookie_data['u'];
 			}
 
 			$result = $db->sql_query($sql);
@@ -661,7 +661,7 @@ class session
 		$this->data['is_bot'] = ($bot) ? true : false;
 
 		// If our friend is a bot, we re-assign a previously assigned session
-		if ($this->data['is_bot'] && $bot == $this->data['user_id'] && $this->data['session_id'])
+		if ((($this->data['is_bot'] && $bot == $this->data['user_id']) || $this->data['user_id'] == ANONYMOUS) && !empty($this->data['session_id']))
 		{
 			// Only assign the current session if the ip, browser and forwarded_for match...
 			if (strpos($this->ip, ':') !== false && strpos($this->data['session_ip'], ':') !== false)
@@ -807,7 +807,7 @@ class session
 		$_SID = $this->session_id;
 		$this->data = array_merge($this->data, $sql_ary);
 
-		if (!$bot)
+		if ($this->data['is_registered'])
 		{
 			$cookie_expire = $this->time_now + (($config['max_autologin_time']) ? 86400 * (int) $config['max_autologin_time'] : 31536000);
 
