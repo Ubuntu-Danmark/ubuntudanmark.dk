@@ -112,6 +112,13 @@ if ($id)
 		exit;
 	}
 
+	//Browser already has this version
+	if ($theme['theme_mtime'] == $_SERVER['HTTP_IF_NONE_MATCH'] || $theme['theme_mtime'] == strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']))
+	{
+		send_status_line(304, 'Not Modified');
+		exit;
+	}
+
 	if ($user['user_id'] == ANONYMOUS)
 	{
 		$user['user_lang'] = $config['default_lang'];
@@ -209,6 +216,8 @@ if ($id)
 	}
 	else
 	{
+		header('ETag: ' . $theme['theme_mtime']);
+		header('Last-Modified: ' . gmdate('D, d M Y H:i:s \G\M\T', $theme['theme_mtime']));
 		header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + $expire_time));
 	}
 
