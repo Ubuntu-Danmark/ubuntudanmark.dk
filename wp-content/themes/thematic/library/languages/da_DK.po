@@ -1,14 +1,14 @@
 # Danske oversættelse af Thematic
-# Copyright 2010 Ask Hjorth Larsen m.fl.
+# Copyright 2010, 2012 Ask Hjorth Larsen m.fl.
 #
 # (Anders Jenbo?)
-# Ask Hjorth Larsen, 2010.
+# Ask Hjorth Larsen, 2010, 2012.
 #
 # Konventioner
 #
 # author page -> forfatterside
 #
-# trackback -> trackback.  I hvertfald indtil jeg finder ud af hvad det er
+# trackback -> tilbagehenvisning (et automatisk link mellem sider hvor ens artikel er blevet citeret eller genskrevet)
 #
 # comment -> kommentar
 # post -> indlæg
@@ -18,10 +18,10 @@ msgstr ""
 "Project-Id-Version: Thematic\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2012-07-01 00:24+0100\n"
-"Last-Translator: Anders Jenbo <anders@jenbo.dk>\n"
-"Language-Team: \n"
-"Language: \n"
+"PO-Revision-Date: 2012-07-20 02:52+0200\n"
+"Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"Language: Danish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -146,7 +146,7 @@ msgstr "Kommentar"
 # @ thematic
 #: library/extensions/comments-extensions.php:187
 msgid "Cancel reply"
-msgstr ""
+msgstr "Annullér svar"
 
 #: library/extensions/comments-extensions.php:198
 msgid "Post Comment"
@@ -169,9 +169,8 @@ msgstr "Mærkearkiver:"
 
 #: library/extensions/content-extensions.php:364
 #: library/extensions/content-extensions.php:373
-#, fuzzy
 msgid "Archives:"
-msgstr "Mærkearkiver:"
+msgstr "Arkiver:"
 
 #: library/extensions/content-extensions.php:379
 #, php-format
@@ -237,17 +236,15 @@ msgstr "Arkiver efter måned"
 # @ thematic
 #: library/extensions/content-extensions.php:1413
 msgid "Browse the "
-msgstr ""
+msgstr "Gennemse "
 
 #: library/extensions/content-extensions.php:1413
-#, fuzzy
 msgid " Archive"
-msgstr "Mærkearkiver:"
+msgstr " Arkiv"
 
 #: library/extensions/content-extensions.php:1414
-#, fuzzy
 msgid " archive"
-msgstr "Mærkearkiver:"
+msgstr " arkiv"
 
 # bruger ubestemt på dansk -- dette ødelægger næppe noget
 #: library/extensions/content-extensions.php:1417
@@ -271,9 +268,8 @@ msgid "Posted in "
 msgstr "Sendt til "
 
 #: library/extensions/content-extensions.php:1609
-#, fuzzy
 msgid " This entry is tagged"
-msgstr "Dette indlæg blev sendt til "
+msgstr " Denne post er mærket"
 
 #: library/extensions/content-extensions.php:1612
 msgid " and tagged"
@@ -377,7 +373,7 @@ msgstr "RSS-kilde for kommentarer"
 # @ thematic
 #: functions.php:253
 msgid "Primary Menu"
-msgstr ""
+msgstr "Primær menu"
 
 #: library/extensions/header-extensions.php:625
 msgid "Skip navigation to the content"
@@ -478,7 +474,7 @@ msgstr "Det nederste kontrolområde, der vises på en side."
 # @ thematic
 #: library/extensions/widgets.php:55
 msgid "A search form for your blog"
-msgstr ""
+msgstr "En søgeformular til din blog"
 
 #: library/extensions/widgets.php:77
 #: library/extensions/widgets.php:132
@@ -489,7 +485,7 @@ msgstr "Titel:"
 # @ thematic
 #: library/extensions/widgets.php:100
 msgid "Log in/out and admin"
-msgstr ""
+msgstr "Log ind/ud og administrér"
 
 #: library/extensions/widgets.php:101
 #: library/extensions/widgets.php:106
@@ -499,7 +495,7 @@ msgstr "Meta"
 # @ thematic
 #: library/extensions/widgets.php:145
 msgid "Links to your posts and comments feed"
-msgstr ""
+msgstr "Links til din indlægs- og kommentarkilde"
 
 #: library/extensions/widgets.php:146
 #: library/extensions/widgets.php:151
@@ -519,17 +515,16 @@ msgstr "Alle kommentarer"
 #: template-page-blog.php:22
 #, php-format
 msgid "The template %s"
-msgstr ""
+msgstr "Skabelonen %s"
 
 # @ thematic
 #: comments.php:24
 msgid "Please do not load this page directly."
-msgstr ""
+msgstr "Indlæs venligst ikke denne side direkte."
 
 #: comments.php:111
-#, fuzzy
 msgid "Trackbacks"
-msgstr "Trackback-adresse"
+msgstr "Tilbagehenvisninger"
 
 #: library/extensions/comments-extensions.php:131
 msgid "Comments"
@@ -547,17 +542,17 @@ msgstr "Beklager, men vi kunne ikke finde det, du ledte efter. Måske vil en sø
 #: library/extensions/content-extensions.php:1364
 #, php-format
 msgid "Read More %s"
-msgstr ""
+msgstr "Læs flere %s"
 
 # @ thematic
 #: library/extensions/content-extensions.php:1645
 msgid "Responses"
-msgstr ""
+msgstr "Svar"
 
 # @ thematic
 #: library/extensions/content-extensions.php:1648
 msgid "Response"
-msgstr ""
+msgstr "Svar"
 
 #: library/extensions/discussion.php:37
 msgid "Your comment is awaiting moderation"
@@ -570,37 +565,37 @@ msgstr "Din trackback afventer godkendelse fra moderator"
 # @ thematic
 #: library/extensions/theme-options.php:56
 msgid "Remove Legacy Options"
-msgstr ""
+msgstr "Fjern forældede indstillinger"
 
 # @ thematic
 #: library/extensions/theme-options.php:204
 msgid "For more information:"
-msgstr ""
+msgstr "For yderligere oplysninger:"
 
 # @ thematic
 #: library/extensions/theme-options.php:206
 msgid "For support:"
-msgstr ""
+msgstr "For at få hjælp:"
 
 # @ thematic
 #: library/extensions/theme-options.php:208
 msgid "forums"
-msgstr ""
+msgstr "fora"
 
 # @ thematic
 #: library/extensions/theme-options.php:212
 msgid "The options below are enabled by the Thematic Theme framework and/or a child theme."
-msgstr ""
+msgstr "Indstillingerne nedenfor kommer fra Thematic Theme-systemet og/eller et undertema."
 
 # @ thematic
 #: library/extensions/theme-options.php:213
 msgid "New options can be added and the default ones removed by creating a child theme. This contextual help can be customized in a child theme also."
-msgstr ""
+msgstr "Nye indstillinger kan tilføjes, og standardindstillingerne fjernes, ved at oprette et undertema. Denne konteksthjælp kan ligeledes tilpasses i et undertema."
 
 # @ thematic
 #: library/extensions/theme-options.php:219
 msgid "Overview"
-msgstr ""
+msgstr "Oversigt"
 
 #: library/extensions/theme-options.php:247
 msgid "For more information about this theme, <a href=\"http://thematictheme.com\">visit ThemeTheme.com</a>. Please visit the <a href=\"http://thematictheme.com/forums/\">ThematicTheme.com Forums</a> if you have any questions about Thematic."
@@ -610,7 +605,7 @@ msgstr "Besøg <a href=\"http://thematictheme.com\">ThemeTheme.com</a> for at f�
 #: library/extensions/theme-options.php:262
 #, php-format
 msgid "%s Theme Options"
-msgstr ""
+msgstr "Temaindstillinger for %s"
 
 #: library/extensions/theme-options.php:276
 msgid "Save Changes"
@@ -619,39 +614,41 @@ msgstr "Gem ændringer"
 # @ thematic
 #: library/extensions/theme-options.php:311
 msgid "The Index Insert widget area will appear after this post number. Entering nothing or 0 will disable this feature."
-msgstr ""
+msgstr "Index Insert-kontrolområdet vil blive vist efter dette indlægsnummer. Hvis der ikke indtastes noget, eller hvis der indtastes 0, vil denne funktion være deaktiveret."
 
+# ??? forfærdeligt
 # @ thematic
 #: library/extensions/theme-options.php:324
 msgid "Display a"
-msgstr ""
+msgstr "Vis en"
 
 # @ thematic
 #: library/extensions/theme-options.php:324
 msgid "with the author's avatar, bio and email on the author page."
-msgstr ""
+msgstr "med forfatterens profilbillede, biografi og e-mail på forfattersiden."
 
 # @ thematic
 #: library/extensions/theme-options.php:337
 msgid "You can use HTML and shortcodes in your footer text. Shortcode examples"
-msgstr ""
+msgstr "Du kan bruge HTML og \"shortcodes\" i din fodtekst. Eksempler på shortcode"
 
 # @ thematic
 #: library/extensions/theme-options.php:350
 #, php-format
 msgid "%s Theme Options have been upgraded to an improved format. Remove the legacy options from the database."
-msgstr ""
+msgstr "%s Temaindstillinger er blevet opgraderet til et forbedret format. Fjern de forældede indstillinger fra databasen."
 
 # @ thematic
 #: library/extensions/theme-options.php:377
 msgid "The index insert position value must be a number equal to or greater than zero. This setting has been reverted to the previous value."
-msgstr ""
+msgstr "Værdien for den position, indekset indsættes i, skal være et tal større end eller lig med nul. Denne indstilling er blevet ændret tilbage til sin forrige værdi."
 
+# ??
 # @ thematic
 #: template-page-blog.php:22
 #, php-format
 msgid "You can include a %s in a childtheme"
-msgstr ""
+msgstr "Du kan inkludere en %s i et undertema"
 
 #~ msgid "<span>%d</span> Trackbacks"
 #~ msgstr "<span>%d</span> trackbacks"
