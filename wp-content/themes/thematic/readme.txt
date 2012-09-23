@@ -3,7 +3,7 @@ Contributors: iandstewart, chrisgossmann, emhr
 Tags: white, three-columns, two-columns, fixed-width, theme-options, left-sidebar, right-sidebar, threaded-comments, sticky-post, microformats
 Requires at least: 3.2
 Tested up to: 3.4
-Stable tag: 1.0.2
+Stable tag: 1.0.2.1
 
 The ultimate in SEO-ready themes, Thematic is a highly extensible, WordPress Theme Framework featuring 13 widget-ready areas, &amp; a whole lot more.
 
@@ -28,6 +28,27 @@ Features:
 * Options for multi-author blogs
 
 == Changelog ==
+= 1.0.2.1 =
+* Added: $hook argument to <code>apply_filters()</code> in <code>thematic_before_widget_area()</code> and <code>thematicafter_widget_area()</code> to filter attribute id
+* Fixed: <code>thematic_wptitle</code> to use <code>!thematic_seo()</code> logic
+* Fixed: The <code>thematic_theme_setup()</code> framework and child theme data that feed the Constants and shortcodes generated from constants
+* Removed: Constants for namespacing changes as follows
+* Removed: THEMENAME
+* Added: THEMATIC_THEMENAME
+* Removed: THEMEAUTHOR
+* Added: THEMATIC_THEMEAUTHOR
+* Removed: THEMEURI
+* Added: THEMATIC_THEMEURI
+* Removed: THEMATICVERSION
+* Added: THEMATIC_VERSION
+* Removed: TEMPLATEAUTHOR
+* Added: THEMATIC_TEMPLATEAUTHOR
+* Removed: TEMPLATEURI
+* Added: THEMATIC_TEMPLATEURI
+* Removed: TEMPLATEVERSION
+* Added: THEMATIC_TEMPLATEVERSION
+* Removed: THEMELIB 
+* Added:THEMATIC_LIB
 = 1.0.2 =
 * Updated: German language files
 * Updated: Swedish language files
