@@ -3050,11 +3050,7 @@ function login_box($redirect = '', $l_explain = '', $l_success = '', $admin = fa
 
 			$redirect = meta_refresh(3, $redirect);
 //-- mod : AJenbo - Faster redirect on admin pannel
-            if(!$admin) {
-                redirect($redirect_url);
-            } else  {
-                redirect(append_sid("index.$phpEx"));
-            }
+            redirect($redirect);
 //-- fin mod : faster redirect on admin pannel end
 			trigger_error($message . '<br /><br />' . sprintf($l_redirect, '<a href="' . $redirect . '">', '</a>'));
 		}
