@@ -134,20 +134,12 @@ dl.details dt {
 	color: #FFF;
 }
 
-<<<<<<< HEAD
-=======
 .pagination span a:active {
 	color: #5C758C;
 	background-color: #ECEDEE;
 	border-color: #B4BAC0;
 }
 
-/* Pagination in viewforum for multipage topics */
-.row .pagination {
-	background-image: url("{T_THEME_PATH}/images/icon_pages.gif");
-}
-
->>>>>>> Update-phpbb-theme
 .row .pagination span a, li.pagination span a {
 	background-color: #ECEDEE;
 }
