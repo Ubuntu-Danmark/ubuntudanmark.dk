@@ -90,10 +90,13 @@ function kpg_ssp_global_Delete($ops) {
 }
 function kpg_ssp_global_unsetup() {
 	// if someone set the mu global options flag to 'N' then we have to unset the global setup
-		remove_filter('pre_update_option_'.$key,'kpg_ssp_global_set',10,2);
-		remove_filter('add_option_'.$key,'kpg_ssp_global_add',1,2);
-		remove_filter('delete_option_'.$key,'kpg_ssp_global_delete');
-		remove_filter('pre_option_'.$key,'kpg_ssp_global_get',1);	
+	$ops=array('kpg_stop_sp_reg_stats','kpg_stop_sp_reg_options');
+	foreach ($ops as $value) {
+		remove_filter('pre_update_option_'.$value,'kpg_pf_global_set',10,2);
+		remove_filter('add_option_'.$value,'kpg_pf_global_add',1,2);
+		remove_filter('delete_option_'.$value,'kpg_pf_global_delete');
+		remove_filter('pre_option_'.$value,'kpg_pf_global_get',1);
+	}
 		return;
 }
 

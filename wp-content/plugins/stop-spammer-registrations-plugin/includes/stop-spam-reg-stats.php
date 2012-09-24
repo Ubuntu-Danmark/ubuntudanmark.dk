@@ -36,7 +36,7 @@
 				$blist[]=$bbbb;
 				$options['blist']=$blist;
 				update_option('kpg_stop_sp_reg_options',$options);
-				echo "<h2>$bb Added to Black List</h2>";
+				echo "<h2>$bbbb Added to Black List</h2>";
 			}
 		}
 		if (array_key_exists('kpg_stop_add_white_list',$_POST)) {
@@ -81,7 +81,7 @@ function addwhite(ip) {
 	return false;
 }
 </script>
-  <h2>Stop Spammers Plugin Stats Version 3.3</h2>
+  <h2>Stop Spammers Plugin Stats Version 3.7</h2>
  <?php 
 
 	$nag='';
