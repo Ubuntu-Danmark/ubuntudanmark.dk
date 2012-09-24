@@ -1,22 +1,21 @@
 <h2>{L_TITLE}<!-- IF CUR_FOLDER_NAME -->: {CUR_FOLDER_NAME}<!-- ENDIF --></h2>
 
-	<!-- IF FOLDER_STATUS and FOLDER_MAX_MESSAGES neq 0 --><p>{FOLDER_STATUS}</p><!-- ENDIF -->
+<form id="viewfolder" method="post" action="{S_PM_ACTION}">
 
+<div class="panel">
+
+	<!-- IF FOLDER_STATUS and FOLDER_MAX_MESSAGES neq 0 --><p>{FOLDER_STATUS}</p><!-- ENDIF -->
 	<!-- IF U_POST_REPLY_PM or U_POST_NEW_TOPIC or U_FORWARD_PM -->
 		<div class="buttons">
 			<!-- IF U_POST_REPLY_PM --><form action="{U_POST_REPLY_PM}" method="get"><input type="submit" class="ufbn" title="{L_POST_REPLY_PM}" value="Besvar"></form>
-			<!-- ELSEIF U_POST_NEW_TOPIC --><form action="{U_POST_NEW_TOPIC}" method="get"><input type="submit" accesskey="n" class="ufbn" title="{L_UCP_PM_COMPOSE}" value="Ny PB"></form><!-- ENDIF -->
+			<!-- ELSEIF U_POST_NEW_TOPIC --><form action="{U_POST_NEW_TOPIC}" method="get"><input type="submit" accesskey="n" class="ufbn" title="{L_UCP_PM_COMPOSE}" value="Opret ny"></form><!-- ENDIF -->
 			<!-- IF U_FORWARD_PM --><form action="{U_FORWARD_PM}" method="get"><input type="submit" accesskey="n" class="ufbn" title="{L_POST_FORWARD_PM}" value="Vidersend"></form><!-- ENDIF -->
+			<!-- IF U_POST_REPLY_PM and S_PM_RECIPIENTS gt 1 --><form action="{U_POST_REPLY_ALL}" method="get"><input type="submit" class="left" title="{L_REPLY_TO_ALL}" value="Besvar allé"></form><!-- ENDIF -->
 		</div>
-
-		<!-- IF U_POST_REPLY_PM and S_PM_RECIPIENTS gt 1 -->
-			<div class="reply-all"><a title="{L_REPLY_TO_ALL}" href="{U_POST_REPLY_ALL}">&raquo; {L_REPLY_TO_ALL}</a></div>
-		<!-- ENDIF -->
-
 	<!-- ENDIF -->
 
-		<!-- IF TOTAL_MESSAGES or S_VIEW_MESSAGE -->
-	<ul class="linklist pm-return-to">
+	<!-- IF TOTAL_MESSAGES or S_VIEW_MESSAGE -->
+	<ul class="linklist">
 		<li class="rightside pagination">
 			<!-- IF S_VIEW_MESSAGE --><a class="{S_CONTENT_FLOW_BEGIN}" href="{U_CURRENT_FOLDER}">{L_RETURN_TO} {CUR_FOLDER_NAME}</a><!-- ENDIF -->
 			<!-- IF FOLDER_CUR_MESSAGES neq 0 -->
@@ -25,6 +24,4 @@
 			<!-- ENDIF -->
 		</li>
 	</ul>
-		<!-- ENDIF -->
-
-<form id="viewfolder" method="post" action="{S_PM_ACTION}">
+	<!-- ENDIF -->
