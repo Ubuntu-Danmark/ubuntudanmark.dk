@@ -416,86 +416,6 @@ function wpbb_passed_test($test_result) {
     }
 }
 
-/*
- * Functions list Part
- */
-
-/*function wpbb_get_functions_conflict() {
-    $functions_list = wpbb_folder_function_list(ABSPATH . PHPBBPATH);
-
-    $modules_directory = str_replace('/phpbb-single-sign-on', '', dirname(__FILE__));
-
-    $modules_list = wpbb_get_modules_list($modules_directory);
-
-    foreach ($modules_list as $module) {
-        $list = wpbb_folder_function_list($modules_directory . '/' . $module . '/');
-
-        print_r(array_intersect($list, $functions_list));
-    }
-}
-
-function wpbb_get_modules_list($modules_directory) {
-    $modules_list = array();
-
-    $iterator = new DirectoryIterator($modules_directory);
-    foreach ($iterator as $file) {
-        if ($file->isDir() && !$file->isDot()) {
-            $name = $file->getFilename();
-            if ($name != 'phpbb-single-sign-on') {
-                $modules_list[] = $name;
-            }
-        }
-    }
-    return $modules_list;
-}
-
-function wpbb_folder_function_list($folder) {
-    $file_list = wpbb_get_files_list($folder);
-
-    $function_list = array();
-    foreach ($file_list as $file) {
-        $file_path = $folder . $file;
-        $function_list = array_merge($function_list, wpbb_functions_list($file_path));
-    }
-
-    $function_list = array_unique($function_list);
-
-    return $function_list;
-}
-
-function wpbb_get_files_list($directory, &$list = array(), $base = '') {
-    $iterator = new DirectoryIterator($directory);
-    foreach ($iterator as $file) {
-
-        if (!$file->isDot()) {
-            $name = $file->getFilename();
-
-            if ($file->isDir() && $name != 'cache') {
-                wpbb_get_files_list($directory . '/' . $name, &$list, $base . $name . '/');
-            } else {
-                if (strpos($name, '.php') !== false && $name != 'auth_wpbb.php' && $name != 'common-orig.php') {
-                    $list[] = $base . $name;
-                }
-            }
-        }
-    }
-    return $list;
-}
-
-function wpbb_functions_list($file) {
-    if (file_exists($file)) {
-        $content = file_get_contents($file);
-
-        preg_match_all('/function\s{1,}([0-9A-Za-z_\-]+)\s{0,}\(/', $content, $functions);
-
-        if (count($functions != 0)) {
-            return $functions[1];
-        }
-    }
-    //else
-    return array();
-}*/
-
 function wpbb_validate_user_patch($file) {
     if (file_exists($file)) {
         $content = file_get_contents($file);
@@ -503,9 +423,9 @@ function wpbb_validate_user_patch($file) {
 
         file_put_contents($file, $content);
         return true;
-    } else {
-        return false;
     }
+    
+    return false;
 }
 
 function wpbb_validate_user_patched($file) {
@@ -514,13 +434,10 @@ function wpbb_validate_user_patched($file) {
 
         if(strpos($content,'validate_phpbb_username') !== false){
             return true;
-        } else {
-            return false;
         }
-        
-    } else {
-        return false;
     }
+    
+    return false;
 }
 
 
@@ -544,13 +461,36 @@ function wpbb_validate_user2_patched($file) {
 
         if(strpos($content,'$function = array_shift($validate);'."\n\t\t\t".'if($function == \'username\'){$function = \'phpbb_username\';}') !== false){
             return true;
-        } else {
-            return false;
         }
-
-    } else {
-        return false;
     }
+    
+    return false;
+}
+
+/**
+ * Get a numeric user ID from either an email address or a login.
+ *
+ * @since MU
+ * @uses is_email()
+ *
+ * @param string $string
+ * @return int
+ */
+function wpbb_get_user_id_from_string( $string ) {
+	$user_id = 0;
+	if ( is_email( $string ) ) {
+		$user = get_user_by('email', $string);
+		if ( $user )
+			$user_id = $user->ID;
+	} elseif ( is_numeric( $string ) ) {
+		$user_id = $string;
+	} else {
+		$user = get_user_by('login', $string);
+		if ( $user )
+			$user_id = $user->ID;
+	}
+
+	return $user_id;
 }
 
 
