@@ -108,7 +108,7 @@ class S2_Form_widget extends WP_Widget {
 		}
 		echo "</label></p>\r\n";
 		echo "<p><label for=\"" . $this->get_field_name('postto') . "\">" . __('Post form content to page', 'subscribe2') . ":\r\n";
-		echo "<select id=\"" . $this->get_field_id('postto') . "\" name=\"" . $this->get_field_name('postto') . "\">\r\n";
+		echo "<select class=\"widefat\" id=\"" . $this->get_field_id('postto') . "\" name=\"" . $this->get_field_name('postto') . "\">\r\n";
 		global $mysubscribe2;
 		echo "<option value=\"" . $mysubscribe2->subscribe2_options['s2page'] . "\">" . __('Use Subscribe2 Default', 'subscribe2') . "</option>\r\n";
 		echo "<option value=\"home\"";

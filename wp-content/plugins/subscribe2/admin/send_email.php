@@ -8,7 +8,7 @@ global $wpdb, $s2nonce, $current_user;
 // was anything POSTed?
 if ( isset($_POST['s2_admin']) && 'mail' == $_POST['s2_admin'] ) {
 	check_admin_referer('subscribe2-write_subscribers' . $s2nonce);
-	$subject = html_entity_decode($this->substitute(stripslashes(strip_tags($_POST['subject']))), ENT_QUOTES);
+	$subject = html_entity_decode(stripslashes(wp_kses($this->substitute($_POST['subject']), '')), ENT_QUOTES);
 	$body = $this->substitute(stripslashes($_POST['content']));
 	if ( '' != $current_user->display_name || '' != $current_user->user_email ) {
 		$this->myname = html_entity_decode($current_user->display_name, ENT_QUOTES);
@@ -55,7 +55,7 @@ if ( isset($_POST['s2_admin']) && 'mail' == $_POST['s2_admin'] ) {
 echo "<div class=\"wrap\">";
 echo "<div id=\"icon-edit\" class=\"icon32\"></div>";
 echo "<h2>" . __('Send an email to subscribers', 'subscribe2') . "</h2>\r\n";
-echo "<form method=\"post\" action=\"\">\r\n";
+echo "<form method=\"post\">\r\n";
 if ( function_exists('wp_nonce_field') ) {
 	wp_nonce_field('subscribe2-write_subscribers' . $s2nonce);
 }
@@ -74,7 +74,7 @@ echo __('Recipients:', 'subscribe2') . " ";
 $this->display_subscriber_dropdown('registered', false, array('all'));
 echo "<input type=\"hidden\" name=\"s2_admin\" value=\"mail\" />";
 echo "</p>";
-echo "<p class=\"submit\"><input type=\"submit\" class=\"button-secondary\" name=\"preview\" value=\""  . __('Preview', 'subscribe2') . "\" \><input type=\"submit\" class=\"button-primary\" name=\"send\" value=\"" . __('Send', 'subscribe2') . "\" /></p>";
+echo "<p class=\"submit\"><input type=\"submit\" class=\"button-secondary\" name=\"preview\" value=\""  . __('Preview', 'subscribe2') . "\" /><input type=\"submit\" class=\"button-primary\" name=\"send\" value=\"" . __('Send', 'subscribe2') . "\" /></p>";
 echo "</form></div>\r\n";
 echo "<div style=\"clear: both;\"><p>&nbsp;</p></div>";
 

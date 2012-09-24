@@ -80,10 +80,10 @@ if ( isset($_POST['s2_admin']) ) {
 		$this->unsubscribe_registered_users($_POST['exportcsv'], $_POST['category']);
 		echo "<div id=\"message\" class=\"updated fade\"><p><strong>" . __('Registered Users Unsubscribed!', 'subscribe2') . "</strong></p></div>";
 	} elseif ( isset($_POST['sub_format']) ) {
-		$this->format_change( $_POST['format'], $_POST['exportcsv'] );
+		$this->format_change( $_POST['exportcsv'], $_POST['format'] );
 		echo "<div id=\"message\" class=\"updated fade\"><p><strong>" . __('Format updated for Selected Registered Users!', 'subscribe2') . "</strong></p></div>";
 	} elseif ( isset($_POST['sub_digest']) ) {
-		$this->digest_change( $_POST['sub_category'], $_POST['exportcsv'] );
+		$this->digest_change( $_POST['exportcsv'], $_POST['sub_category'] );
 		echo "<div id=\"message\" class=\"updated fade\"><p><strong>" . __('Digest Subscription updated for Selected Registered Users!', 'subscribe2') . "</strong></p></div>";
 	}
 }
@@ -207,7 +207,7 @@ if ( !empty($subscribers) ) {
 echo "<div class=\"wrap\">";
 echo "<div id=\"icon-tools\" class=\"icon32\"></div>";
 echo "<h2>" . __('Manage Subscribers', 'subscribe2') . "</h2>\r\n";
-echo "<form method=\"post\" action=\"\">\r\n";
+echo "<form method=\"post\">\r\n";
 if ( function_exists('wp_nonce_field') ) {
 	wp_nonce_field('subscribe2-manage_subscribers' . $s2nonce);
 }
@@ -228,28 +228,28 @@ $this->display_subscriber_dropdown($what, __('Filter', 'subscribe2'));
 echo "<br /><br />";
 // show the selected subscribers
 $alternate = 'alternate';
-echo "<table class=\"widefat\" cellpadding=\"2\" cellspacing=\"2\" width=\"100%\">";
+echo "<table style=\"width: 100%; border-collapse: separate; border-spacing: 0px; *border-collapse: expression('separate', cellSpacing = '0px');\" class=\"widefat\" >";
 $searchterm = ( isset($_POST['searchterm']) ) ? stripslashes(esc_html($_POST['searchterm'])) : '';
 echo "<tr class=\"alternate\"><td colspan=\"3\"><input type=\"text\" name=\"searchterm\" value=\"" . $searchterm . "\" /></td>\r\n";
 echo "<td><input type=\"submit\" class=\"button-secondary\" name=\"search\" value=\"" . __('Search Subscribers', 'subscribe2') . "\" /></td>\r\n";
 if ( $reminderform ) {
-	echo "<td width=\"25%\" align=\"right\"><input type=\"hidden\" name=\"reminderemails\" value=\"" . $reminderemails . "\" />\r\n";
+	echo "<td style=\"width: 25%; text-align: right;\"><input type=\"hidden\" name=\"reminderemails\" value=\"" . $reminderemails . "\" />\r\n";
 	echo "<input type=\"submit\" class=\"button-secondary\" name=\"remind\" value=\"" . __('Send Reminder Email', 'subscribe2') . "\" /></td>\r\n";
 } else {
-	echo "<td width=\"25%\"></td>";
+	echo "<td style=\"width: 25%;\"></td>";
 }
 if ( !empty($subscribers) ) {
 	$exportcsv = implode(",\r\n", $subscribers);
-	echo "<td width=\"25%\" align=\"right\"><input type=\"hidden\" name=\"exportcsv\" value=\"" . $exportcsv . "\" />\r\n";
+	echo "<td style=\"width: 25%; text-align: right;\"><input type=\"hidden\" name=\"exportcsv\" value=\"" . $exportcsv . "\" />\r\n";
 	echo "<input type=\"submit\" class=\"button-secondary\" name=\"csv\" value=\"" . __('Save Emails to CSV File', 'subscribe2') . "\" /></td>\r\n";
 } else {
-	echo "<td width=\"25%\"></td>";
+	echo "<td style=\"width: 25%;\"></td>";
 }
 echo "</tr>";
 
 if ( !empty($subscribers) ) {
-	echo "<tr><td colspan=\"3\" align=\"center\"><input type=\"submit\" class=\"button-secondary\" name=\"process\" value=\"" . __('Process', 'subscribe2') . "\" /></td>\r\n";
-	echo "<td colspan=\"3\" align=\"right\">" . $strip . "</td></tr>\r\n";
+	echo "<tr><td colspan=\"3\" style=\"text-align: center;\"><input type=\"submit\" class=\"button-secondary\" name=\"process\" value=\"" . __('Process', 'subscribe2') . "\" /></td>\r\n";
+	echo "<td style=\"text-align: right;\" colspan=\"3\">" . $strip . "</td></tr>\r\n";
 }
 if ( !empty($subscribers) ) {
 	if ( is_int($this->subscribe2_options['entries']) ) {
@@ -260,39 +260,39 @@ if ( !empty($subscribers) ) {
 	$chunk = $page - 1;
 	$subscribers = $subscriber_chunks[$chunk];
 	echo "<tr class=\"alternate\" style=\"height:1.5em;\">\r\n";
-	echo "<td width=\"4%\" align=\"center\">";
+	echo "<td style=\"width: 4%; text-align: center;\">";
 	echo "<img src=\"" . $urlpath . "include/accept.png\" alt=\"&lt;\" title=\"" . __('Confirm this email address', 'subscribe2') . "\" /></td>\r\n";
-	echo "<td width=\"4%\" align=\"center\">";
+	echo "<td style=\"width: 4%; text-align: center;\">";
 	echo "<img src=\"" . $urlpath . "include/exclamation.png\" alt=\"&gt;\" title=\"" . __('Unconfirm this email address', 'subscribe2') . "\" /></td>\r\n";
-	echo "<td width=\"4%\" align=\"center\">";
+	echo "<td style=\"width: 4%; text-align: center;\">";
 	echo "<img src=\"" . $urlpath . "include/cross.png\" alt=\"X\" title=\"" . __('Delete this email address', 'subscribe2') . "\" /></td><td colspan=\"3\"></td></tr>\r\n";
-	echo "<tr class=\"\"><td align=\"center\"><input type=\"checkbox\" name=\"checkall\" value=\"confirm_checkall\" /></td>\r\n";
-	echo "<td align=\"center\"><input type=\"checkbox\" name=\"checkall\" value=\"unconfirm_checkall\" /></td>\r\n";
-	echo "<td align=\"center\"><input type=\"checkbox\" name=\"checkall\" value=\"delete_checkall\" /></td>\r\n";
-	echo "<td colspan =\"3\" align=\"left\"><strong>" . __('Select / Unselect All', 'subscribe2') . "</strong></td></tr>\r\n";
+	echo "<tr class=\"\"><td style=\"text-align: center;\"><input type=\"checkbox\" name=\"checkall\" value=\"confirm_checkall\" /></td>\r\n";
+	echo "<td style=\"text-align: center;\"><input type=\"checkbox\" name=\"checkall\" value=\"unconfirm_checkall\" /></td>\r\n";
+	echo "<td style=\"text-align: center;\"><input type=\"checkbox\" name=\"checkall\" value=\"delete_checkall\" /></td>\r\n";
+	echo "<td colspan =\"3\" style=\"text-align: left;\"><strong>" . __('Select / Unselect All', 'subscribe2') . "</strong></td></tr>\r\n";
 
 	foreach ( $subscribers as $subscriber ) {
 		echo "<tr class=\"$alternate\" style=\"height:1.5em;\">";
-		echo "<td align=\"center\">\r\n";
+		echo "<td style=\"text-align: center;\">\r\n";
 		if ( in_array($subscriber, $confirmed) ) {
-			echo "</td><td align=\"center\">\r\n";
+			echo "</td><td style=\"text-align: center;\">\r\n";
 			echo "<input class=\"unconfirm_checkall\" title=\"" . __('Unconfirm this email address', 'subscribe2') . "\" type=\"checkbox\" name=\"unconfirm[]\" value=\"" . $subscriber . "\" /></td>\r\n";
-			echo "<td align=\"center\">\r\n";
+			echo "<td style=\"text-align: center;\">\r\n";
 			echo "<input class=\"delete_checkall\" title=\"" . __('Delete this email address', 'subscribe2') . "\" type=\"checkbox\" name=\"delete[]\" value=\"" . $subscriber . "\" />\r\n";
 			echo "</td>\r\n";
 			echo "<td colspan=\"3\"><span style=\"color:#006600\">&#x221A;&nbsp;&nbsp;</span><abbr title=\"" . $this->signup_ip($subscriber) . "\"><a href=\"mailto:" . $subscriber . "\">" . $subscriber . "</a></abbr>\r\n";
 			echo "(<span style=\"color:#006600\">" . $this->signup_date($subscriber) . "</span>)\r\n";
 		} elseif ( in_array($subscriber, $unconfirmed) ) {
 			echo "<input class=\"confirm_checkall\" title=\"" . __('Confirm this email address', 'subscribe2') . "\" type=\"checkbox\" name=\"confirm[]\" value=\"" . $subscriber . "\" /></td>\r\n";
-			echo "<td align=\"center\"></td>\r\n";
-			echo "<td align=\"center\">\r\n";
+			echo "<td style=\"text-align: center;\"></td>\r\n";
+			echo "<td style=\"text-align: center;\">\r\n";
 			echo "<input class=\"delete_checkall\" title=\"" . __('Delete this email address', 'subscribe2') . "\" type=\"checkbox\" name=\"delete[]\" value=\"" . $subscriber . "\" />\r\n";
 			echo "</td>\r\n";
 			echo "<td colspan=\"3\"><span style=\"color:#FF0000\">&nbsp;!&nbsp;&nbsp;&nbsp;</span><abbr title=\"" . $this->signup_ip($subscriber) . "\"><a href=\"mailto:" . $subscriber . "\">" . $subscriber . "</a></abbr>\r\n";
 			echo "(<span style=\"color:#FF0000\">" . $this->signup_date($subscriber) . "</span>)\r\n";
 		} elseif ( in_array($subscriber, $all_users) ) {
 			$user_info = get_user_by('email', $subscriber);
-			echo "</td><td align=\"center\"></td><td align=\"center\"></td>\r\n";
+			echo "</td><td style=\"text-align: center;\"></td><td style=\"text-align: center;\"></td>\r\n";
 			echo "<td colspan=\"3\"><span style=\"color:#006600\">&reg;&nbsp;&nbsp;</span><abbr title=\"" . $user_info->user_login . "\"><a href=\"mailto:" . $subscriber . "\">" . $subscriber . "</a></abbr>\r\n";
 			echo "(<a href=\"" . get_option('siteurl') . "/wp-admin/admin.php?page=s2&amp;email=" . urlencode($subscriber) . "\">" . __('edit', 'subscribe2') . "</a>)\r\n";
 		}
@@ -301,14 +301,14 @@ if ( !empty($subscribers) ) {
 	}
 } else {
 	if ( $_POST['searchterm'] ) {
-		echo "<tr><td colspan=\"6\" align=\"center\"><b>" . __('No matching subscribers found', 'subscribe2') . "</b></td></tr>\r\n";
+		echo "<tr><td colspan=\"6\" style=\"text-align: center;\"><b>" . __('No matching subscribers found', 'subscribe2') . "</b></td></tr>\r\n";
 	} else {
-		echo "<tr><td colspan=\"6\" align=\"center\"><b>" . __('NONE', 'subscribe2') . "</b></td></tr>\r\n";
+		echo "<tr><td colspan=\"6\" style=\"text-align: center;\"><b>" . __('NONE', 'subscribe2') . "</b></td></tr>\r\n";
 	}
 }
 if ( !empty($subscribers) ) {
-	echo "<tr class=\"$alternate\"><td colspan=\"3\" align=\"center\"><input type=\"submit\" class=\"button-secondary\" name=\"process\" value=\"" . __('Process', 'subscribe2') . "\" /></td>\r\n";
-	echo "<td colspan=\"3\" align=\"right\">" . $strip . "</td></tr>\r\n";
+	echo "<tr class=\"$alternate\"><td colspan=\"3\" style=\"text-align: center;\"><input type=\"submit\" class=\"button-secondary\" name=\"process\" value=\"" . __('Process', 'subscribe2') . "\" /></td>\r\n";
+	echo "<td colspan=\"3\" style=\"text-align: right;\">" . $strip . "</td></tr>\r\n";
 }
 echo "</table>\r\n";
 echo "</div>\r\n";
