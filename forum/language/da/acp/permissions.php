@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: permissions.php 10017 2009-08-18 14:37:49Z bantu $
-* @version $Id: permissions.php 65 2010-07-12 18:26:51Z jan skovsgaard $
+* @version $Id: permissions.php 225 2012-06-04 19:34:45Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -186,7 +186,7 @@ $lang = array_merge($lang, array(
 	'ROLE_FORUM_POLLS'			=> 'Standardadgang + afstemninger',
 	'ROLE_FORUM_READONLY'		=> 'Kun læseadgang',
 	'ROLE_FORUM_STANDARD'		=> 'Standardadgang',
-	'ROLE_FORUM_NEW_MEMBER' => 'Nye brugere',
+	'ROLE_FORUM_NEW_MEMBER' => 'Nye brugeres adgang',
 	'ROLE_MOD_FULL'				=> 'Fuldgyldig redaktør',
 	'ROLE_MOD_QUEUE'		=> 'Køredaktør',
 	'ROLE_MOD_SIMPLE'		=> 'Simpel redaktør',
@@ -196,7 +196,7 @@ $lang = array_merge($lang, array(
 	'ROLE_USER_NOAVATAR'	=> 'Ingen avatar',
 	'ROLE_USER_NOPM'		=> 'Ingen private beskeder',
 	'ROLE_USER_STANDARD'	=> 'Standardfunktioner',
-	'ROLE_USER_NEW_MEMBER' => 'Nye brugere',
+	'ROLE_USER_NEW_MEMBER' => 'Nye brugeres funktioner',
 
 	'ROLE_DESCRIPTION_ADMIN_FORUM'		=> 'Kan tilgå forumadministration og forumtilladelsesindstillinger.',
 	'ROLE_DESCRIPTION_ADMIN_FULL'		=> 'Har adgang til alle administrative funktioner på dette board.<br />Anbefales ikke.',
@@ -287,7 +287,7 @@ $lang = array_merge($lang, array(
 	'TRACE_WHO'						=> 'Hvem',
 	'TRACE_TOTAL'					=> 'Total',
 
-	'USERS_NOT_ASSIGNED'			=> 'Ingen brugere er tildelt tilladelser i henhold til denne rolle',
+	'USERS_NOT_ASSIGNED'			=> 'Ingen brugere er tildelt tilladelser svarende til denne rolle',
 	'USER_IS_MEMBER_OF_DEFAULT'		=> 'er medlem af følgende prædefinerede grupper',
 	'USER_IS_MEMBER_OF_CUSTOM'		=> 'er medlem af følgende brugerdefinerede grupper',
 

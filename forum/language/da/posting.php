@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: posting.php 9742 2009-07-09 10:34:40Z bantu $
-* @version $Id: posting.php 161 2011-07-31 06:30:59Z Jan Skovsgaard $
+* @version $Id: posting.php 219 2012-04-20 19:27:44Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -57,6 +57,7 @@ $lang = array_merge($lang, array(
 	'ADD_POLL'					=> 'Oprettelse af afstemning',
 	'ADD_POLL_EXPLAIN'			=> 'Hvis du ikke ønsker at tilføje en afstemning til dit emne, lad felterne være tomme.',
 	'ALREADY_DELETED'			=> 'Beklager, men dette indlæg er allerede slettet.',
+	'ATTACH_DISK_FULL'      	=> 'Der er desværre ikke tilstrækkelig diskplads til dette indlæg.',
 	'ATTACH_QUOTA_REACHED'		=> 'Beklager, boardets kvote for vedhæftede filer er overskredet.',
 	'ATTACH_SIG'				=> 'Tilføj signatur (signaturen kan rettes i brugerkontrolpanelet)',
 

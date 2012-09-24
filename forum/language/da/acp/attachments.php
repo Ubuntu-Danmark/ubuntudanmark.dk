@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: attachments.php 10613 2010-05-14 00:45:13Z git-gate $
-* @version $Id: attachments.php 53 2010-05-14 19:17:29Z jan skovsgaard $
+* @version $Id: attachments.php 225 2012-06-04 19:34:45Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -52,7 +52,7 @@ if (empty($lang) || !is_array($lang))
 
 $lang = array_merge($lang, array(
 	'ACP_ATTACHMENT_SETTINGS_EXPLAIN'	=> 'Her kan du ændre og vedligeholde indstillingerne for vedhæftede filer og tilknyttede specialkategorier.',
-	'ACP_EXTENSION_GROUPS_EXPLAIN'		=> 'Her kan du ændre, slette, deaktivere og tilføje filtypegrupper, og tilføje en specialkategori til disse. Desuden kan downloadmulighederne ændres, og du definere et uploadikon, som vil blive vist foran en vedhæftet fil, som tilhører gruppen.',
+	'ACP_EXTENSION_GROUPS_EXPLAIN'		=> 'Her kan du ændre, slette, deaktivere og tilføje filtypegrupper, og tilføje en specialkategori til disse. Desuden kan downloadmulighederne ændres, og du kan definere et uploadikon, som vil blive vist foran en vedhæftet fil, som tilhører gruppen.',
 	'ACP_MANAGE_EXTENSIONS_EXPLAIN'		=> 'Her kan du administrere og kontrollere dine tilladte filtyper. For at aktivere dine filtyper, referer venligst til kontrolpanelet for filtypegrupper. Der advares kraftigt imod at tillade filtyper, der kan indeholde scripts (som <code>php</code>, <code>php3</code>, <code>php4</code>, <code>phtml</code>, <code>pl</code>, <code>cgi</code>, <code>asp</code>, <code>aspx</code>...).',
 	'ACP_ORPHAN_ATTACHMENTS_EXPLAIN'	=> 'Her vises vildfarne filer. Det sker oftest, når brugere vedhæfter filer, men ikke får klikket "Udfør" på det endelige indlæg. Du kan slette filerne, eller knytte dem til eksisterende indlæg. For at knytte filerne til indlæg kræves et gyldigt indlægs-ID, du skal selv angive dette ID. Den allerede uploadede fil vil herefter blive tilknyttet dette indlæg.',
 	'ADD_EXTENSION'						=> 'Tilføj filtype',
@@ -72,7 +72,7 @@ $lang = array_merge($lang, array(
 	'ATTACH_EXT_GROUPS_URL'				=> 'Filtypegrupper',
 	'ATTACH_ID'							=> 'ID',
 	'ATTACH_MAX_FILESIZE'				=> 'Maksimal filstørrelse',
-	'ATTACH_MAX_FILESIZE_EXPLAIN'		=> 'Hver fils maksimale størrelse, 0 betyder ubegrænset.',
+	'ATTACH_MAX_FILESIZE_EXPLAIN'		=> 'Er størrelsen sat til 0, er det alene din interne PHP-konfiguration, der begrænser filstørrelsen.',
 	'ATTACH_MAX_PM_FILESIZE'			=> 'Maksimal filstørrelse i private beskeder',
 	'ATTACH_MAX_PM_FILESIZE_EXPLAIN'	=> 'Maksimal størrelse pr. fil vedhæftet i private beskeder, 0 betyder ubegrænset.',
 	'ATTACH_ORPHAN_URL'					=> 'Vildfarne vedhæftede filer',

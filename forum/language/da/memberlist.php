@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: memberlist.php 9933 2009-08-06 09:12:21Z marshalrusty $
-* @version $Id: memberlist.php 134 2011-05-11 13:52:05Z jan skovsgaard $
+* @version $Id: memberlist.php 218 2012-04-20 19:22:19Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -125,7 +125,6 @@ $lang = array_merge($lang, array(
 
 	'POST_IP'				=> 'Sendt fra IP-adresse/domæne',
 
-	'RANK'					=> 'Rang',
 	'REAL_NAME'				=> 'Modtagers navn',
 	'RECIPIENT'				=> 'Modtager',
 	'REMOVE_FOE'			=> 'Fjern ignoreret bruger',

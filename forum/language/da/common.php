@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: common.php 11057 2011-03-13 04:45:12Z git-gate $
-* @version $Id: common.php 179 2011-11-25 08:07:09Z Jan Skovsgaard $
+* @version $Id: common.php 218 2012-04-20 19:22:19Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -206,7 +206,7 @@ $lang = array_merge($lang, array(
 	'FORM_INVALID'			=> 'Den indsendte formular var ugyldig. Prøv at indsende igen.',
 	'FORUM'	=> 'Forum',
 	'FORUMS'	=> 'Fora',
-	'FORUMS_MARKED'	=> 'Valgte fora er markeret læste.',
+	'FORUMS_MARKED'	=> 'Fora blev markeret læste.',
 	'FORUM_CAT'	=> 'Forumkategori',
 	'FORUM_INDEX'	=> 'Boardindeks',
 	'FORUM_LINK'	=> 'Forumlink',
@@ -400,7 +400,7 @@ $lang = array_merge($lang, array(
 	'NO_NEW_MESSAGES'	=> 'Ingen nye beskeder',
 	'NO_NEW_PM'	=> '<strong>0</strong> nye beskeder',
 	'NO_NEW_POSTS'	=> 'Ingen nye indlæg', // Not used anymore
-	'NO_ONLINE_USERS'			=> 'Ingen tilmeldte',
+	'NO_ONLINE_USERS'			=> 'Ingen',
 	'NO_POSTS'	=> 'Ingen indlæg',
 	'NO_POSTS_TIME_FRAME'		=> 'Ingen indlæg eksisterer i dette emne inden for det valgte tidsinterval.',
 	'NO_FEED_ENABLED'	=> 'Feeds er ikke tilgængelige på dette board.',
@@ -465,6 +465,7 @@ $lang = array_merge($lang, array(
 	'POST_TIME'	=> 'Skrevet',
 	'POST_TOPIC'	=> 'Skriv et nyt emne',
 	'POST_UNAPPROVED'	=> 'Dette indlæg afventer godkendelse.',
+	'POWERED_BY'      => 'Powered by %s',
 	'PREVIEW'	=> 'Vis prøve',
 	'PREVIOUS'	=> 'Foregående',// Used in pagination
 	'PREVIOUS_STEP'	=> 'Foregående',
@@ -474,6 +475,7 @@ $lang = array_merge($lang, array(
 	'PRIVATE_MESSAGING'	=> 'Private beskeder',
 	'PROFILE'	=> 'Brugerkontrolpanel',
 
+	'RANK'					=> 'Rang',
 	'READING_FORUM'	=> 'Læser emner i %s',
 	'READING_GLOBAL_ANNOUNCE'	=> 'Læser global bekendtgørelse',
 	'READING_LINK'	=> 'Følger forumlink %s',
@@ -484,7 +486,7 @@ $lang = array_merge($lang, array(
 	'REDIRECT'	=> 'Viderestil',
 	'REDIRECTS'	=> 'Viderestillinger',
 	'REGISTER'	=> 'Tilmeld',
-	'REGISTERED_USERS'	=> 'Tilmeldte brugere:',
+	'REGISTERED_USERS'	=> 'Tilmeldte online:',
 	'REG_USERS_ONLINE'	=> 'Der er %d tilmeldte brugere og ',
 	'REG_USERS_TOTAL'	=> '%d tilmeldte, ',
 	'REG_USERS_TOTAL_AND'		=> '%d tilmeldte og ',

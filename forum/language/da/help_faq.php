@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: help_faq.php 10716 2010-08-19 15:27:38Z git-gate $
-* @version $Id: help_faq.php 164 2011-10-13 17:31:19Z Jan Skovsgaard $
+* @version $Id: help_faq.php 223 2012-06-04 12:39:24Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group,
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -237,7 +237,7 @@ $help = array(
 	),
 	array(
 		0 => 'Hvad er brugergrupper?',
-		1 => 'Brugergrupper anvendes af boardets administratorer til at opdele brugere i overskuelige grupper. En bruger kan være medlem af flere grupper og hver gruppe kan tildeles individuelle tilladelser. Det gør det enkelt for administratorerne at ændre tilladelser for mange brugere samtidig, som at tildele redaktørtilladelser i et bestemt forum, eller til give brugere adgang til private fora.'
+		1 => 'Brugergrupper anvendes af boardets administratorer til at opdele brugere i overskuelige grupper. En bruger kan være medlem af flere grupper og hver gruppe kan tildeles individuelle tilladelser. Det gør det enkelt for administratorerne at ændre tilladelser for mange brugere samtidig, som at tildele redaktørtilladelser i et bestemt forum, eller til at give brugere adgang til private fora.'
 	),
 	array(
 		0 => 'Hvordan finder jeg brugergrupperne og hvordan tilmelder jeg mig?',
@@ -349,7 +349,7 @@ $help = array(
 	),
 	array(
 		0 => 'Hvorfor er X funktioner ikke til stede?',
-		1 => 'Denne software er udviklet og stillet til rådighed på licens af phpBB Group. Hvis du mener der er en funktion der mangler, besøg venligst hjemmesiden phpbb.com og undersøg hvad phpBB Group har at sige om den. Vær venlig ikke at at indsende ønsker om nye funktioner til dette board, phpBB Group benytter SourceForge til at organisere nye tiltag. Læs venligst gennem foraene for at se om vi allerede har den ønskede funktion under overvejelse eller i udvikling og følg derefter den der anviste procedure.'
+		1 => 'Denne software er udviklet og stillet til rådighed på licens af phpBB Group. Hvis du mener der er en funktion der mangler, besøg venligst hjemmesiden <a href="http://area51.phpbb.com/">Area51</a>, hvor der findes ressourcer hertil.'
 	),
 	array(
 		0 => 'Hvem kontakter jeg vedr. misbrug og/eller lovligheden af indlæg skrevet til dette board?',

@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: styles.php 10813 2010-10-17 20:00:22Z git-gate $
-* @version $Id: styles.php 124 2011-02-22 16:55:19Z jan skovsgaard $
+* @version $Id: styles.php 201 2012-01-06 09:58:02Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -282,6 +282,7 @@ $lang = array_merge($lang, array(
 	'IMG_USER_ICON9'		=> 'Brugerdefineret element 9',
 	'IMG_USER_ICON10'		=> 'Brugerdefineret element 10',
 
+	'INACTIVE_STYLES'      => 'Inaktive typografier',
 	'INCLUDE_DIMENSIONS'		=> 'Inkluder dimensioner',
 	'INCLUDE_IMAGESET'			=> 'Inkluder grafikpakke',
 	'INCLUDE_TEMPLATE'			=> 'Inkluder skabelon',
