@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: profile.php 9916 2009-08-03 15:46:56Z Kellanved $ 
-* @version $Id: profile.php 10 2010-02-06 18:13:13Z jan skovsgaard $
+* @version $Id: profile.php 235 2012-07-27 18:16:14Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -146,6 +146,8 @@ $lang = array_merge($lang, array(
 
 	'SAVE'							=> 'Gem',
 	'SECOND_OPTION'					=> 'Anden indstilling',
+	'SHOW_NOVALUE_FIELD'			=> 'Vis tomt profilfelt',
+	'SHOW_NOVALUE_FIELD_EXPLAIN'	=> 'Bestemmer om profilfelt skal vises selvom ingen værdi er angivet for krævede eller valgfrie felter.',
 	'STEP_1_EXPLAIN_CREATE'			=> 'Her kan du indtaste de første grundlæggende parametre for dit nye profilfelt. Denne information er nødvendig for det næste trin, hvor du kan sætte de resterende indstillinger og tilpasse profilfeltet yderligere.',
 	'STEP_1_EXPLAIN_EDIT'			=> 'Her kan du ændre basisparametrene for dit profilfelt. De relevante indstillinger genberegnes i andet trin.',
 	'STEP_1_TITLE_CREATE'			=> 'Tilføj profilfelt',

@@ -41,11 +41,23 @@ class s2_frontend extends s2class {
 		} else {
 			$url = get_site_url();
 		}
+
+		// allow remote setting of email in form
+		if ( isset($_REQUEST['email']) ) {
+			if ( is_email($_REQUEST['email']) ) {
+				$value = $this->sanitize_email($_REQUEST['email']);
+			}
+		} elseif ( $nojs == 'true' ) {
+			$value = '';
+		} else {
+			$value = __('Enter email address...', 'subscribe2');
+		}
+
 		// build default form
 		if ( $nojs == 'true' ) {
-			$this->form = "<form method=\"post\" action=\"" . $url . "\"><input type=\"hidden\" name=\"ip\" value=\"" . $_SERVER['REMOTE_ADDR'] . "\" /><p><label for=\"s2email\">" . __('Your email:', 'subscribe2') . "</label><br /><input type=\"text\" name=\"email\" id=\"s2email\" value=\"\" size=\"" . $size . "\" /></p><p>" . $this->input_form_action . "</p></form>";
+			$this->form = "<form method=\"post\" action=\"" . $url . "\"><input type=\"hidden\" name=\"ip\" value=\"" . $_SERVER['REMOTE_ADDR'] . "\" /><p><label for=\"s2email\">" . __('Your email:', 'subscribe2') . "</label><br /><input type=\"text\" name=\"email\" id=\"s2email\" value=\"" . $value . "\" size=\"" . $size . "\" /></p><p>" . $this->input_form_action . "</p></form>";
 		} else {
-			$this->form = "<form method=\"post\" action=\"" . $url . "\"><input type=\"hidden\" name=\"ip\" value=\"" . $_SERVER['REMOTE_ADDR'] . "\" /><p><label for=\"s2email\">" . __('Your email:', 'subscribe2') . "</label><br /><input type=\"text\" name=\"email\" id=\"s2email\" value=\"" . __('Enter email address...', 'subscribe2') . "\" size=\"" . $size . "\" onfocus=\"if (this.value == '" . __('Enter email address...', 'subscribe2') . "') {this.value = '';}\" onblur=\"if (this.value == '') {this.value = '" . __('Enter email address...', 'subscribe2') . "';}\" /></p><p>" . $this->input_form_action . "</p></form>\r\n";
+			$this->form = "<form method=\"post\" action=\"" . $url . "\"><input type=\"hidden\" name=\"ip\" value=\"" . $_SERVER['REMOTE_ADDR'] . "\" /><p><label for=\"s2email\">" . __('Your email:', 'subscribe2') . "</label><br /><input type=\"text\" name=\"email\" id=\"s2email\" value=\"" . $value . "\" size=\"" . $size . "\" onfocus=\"if (this.value == '" . __('Enter email address...', 'subscribe2') . "') {this.value = '';}\" onblur=\"if (this.value == '') {this.value = '" . __('Enter email address...', 'subscribe2') . "';}\" /></p><p>" . $this->input_form_action . "</p></form>\r\n";
 		}
 		$this->s2form = $this->form;
 
@@ -56,12 +68,12 @@ class s2_frontend extends s2class {
 		}
 		if ( isset($_POST['subscribe']) || isset($_POST['unsubscribe']) ) {
 			global $wpdb, $user_email;
-			if ( !is_email($_POST['email']) ) {
+			$this->email = $this->sanitize_email($_POST['email']);
+			if ( !is_email($this->email) ) {
 				$this->s2form = $this->form . $this->not_an_email;
-			} elseif ( $this->is_barred($_POST['email']) ) {
+			} elseif ( $this->is_barred($this->email) ) {
 				$this->s2form = $this->form . $this->barred_domain;
 			} else {
-				$this->email = $this->sanitize_email($_POST['email']);
 				$this->ip = $_POST['ip'];
 				// does the supplied email belong to a registered user?
 				$check = $wpdb->get_var($wpdb->prepare("SELECT user_email FROM $wpdb->users WHERE user_email = %s", $this->email));
@@ -104,7 +116,7 @@ class s2_frontend extends s2class {
 								$this->s2form = $this->error;
 							}
 						}
-						$this->action='unsubscribe';
+						$this->action = 'unsubscribe';
 					}
 				}
 			}

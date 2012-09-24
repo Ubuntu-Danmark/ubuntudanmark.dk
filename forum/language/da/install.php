@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: install.php 10900 2010-12-29 22:00:07Z git-gate $
-* @version $Id: install.php 184 2011-11-29 20:00:51Z Jan Skovsgaard $
+* @version $Id: install.php 207 2012-02-12 10:31:29Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -67,6 +67,7 @@ $lang = array_merge($lang, array(
 	'BLANK_PREFIX_FOUND'		=> 'En skanning af dine tabeller udviser en gyldig installation uden anvendelse af tabelpræfiks.',
 	'BOARD_NOT_INSTALLED'		=> 'Ingen installation fundet',
 	'BOARD_NOT_INSTALLED_EXPLAIN'	=> 'For at fungere kræver phpBB\'s Unified Converter Framework en standardinstallation af phpBB3, fortsæt derfor med at <a href="%s">udføre en installation</a>.',
+	'BACKUP_NOTICE'          => 'Skulle der opstå problemer i forbindelse med opdateringen, anbefales det at der tages en backup af boardet inden denne igangsættes.',
 
 	'CATEGORY'					=> 'Kategori',
 	'CACHE_STORE'				=> 'Cachetype',

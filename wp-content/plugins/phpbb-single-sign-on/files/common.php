@@ -6,7 +6,7 @@
  * This is for the loading without conflict of the two scripts
  *
  * @package login
- * @version 0.8.6
+ * @version 0.8.7
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */

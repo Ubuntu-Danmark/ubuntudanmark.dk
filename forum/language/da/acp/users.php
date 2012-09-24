@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: users.php 10700 2010-08-19 15:27:05Z git-gate $
-* @version $Id: users.php 150 2011-07-09 06:20:42Z jan skovsgaard $
+* @version $Id: users.php 235 2012-07-27 18:16:14Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -74,7 +74,7 @@ $lang = array_merge($lang, array(
 
 	'DELETE_POSTS'			=> 'Slet brugers indlæg',
 	'DELETE_USER'			=> 'Slet bruger',
-	'DELETE_USER_EXPLAIN'	=> 'Vær opmærksom på at når en bruger slettes er det definitivt, brugeren kan ikke gendannes.',
+	'DELETE_USER_EXPLAIN'	=> 'Vær opmærksom på at når en bruger slettes er det definitivt, brugeren kan ikke gendannes. Ulæste private beskeder fra denne bruger slettes og vil derfor ikke være tilgængelige af modtagere.',
 
 	'FORCE_REACTIVATION_SUCCESS'	=> 'Tvungen genaktivering gennemført',
 	'FOUNDER'						=> 'Grundlægger',
@@ -139,6 +139,7 @@ $lang = array_merge($lang, array(
 	'USER_GROUP_SPECIAL'			=> 'Bruger er medlem af følgende prædefinerede grupper',
 	'USER_LIFTED_NR'						=> 'Brugers status som ny tilmeldt bruger er fjernet.',
 	'USER_NO_ATTACHMENTS'			=> 'Der er ingen vedhæftede filer at vise.',
+	'USER_NO_POSTS_TO_DELETE'	=> 'Bruger har ingen indlæg at bibeholde eller slette.',
 	'USER_OUTBOX_EMPTIED'			=> 'Brugers udbakke i pb-systemet er tømt.',
 	'USER_OUTBOX_EMPTY'			=> 'Brugers udbakke var tom.',
 	'USER_OVERVIEW_UPDATED'			=> 'Brugerinformation er opdateret',

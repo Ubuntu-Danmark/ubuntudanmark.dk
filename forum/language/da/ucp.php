@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: ucp.php 10329 2009-12-13 14:03:45Z Kellanved $  
-* @version $Id: ucp.php 175 2011-11-14 19:23:38Z Jan Skovsgaard $
+* @version $Id: ucp.php 235 2012-07-27 18:16:14Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -153,6 +153,7 @@ $lang = array_merge($lang, array(
 	'CURRENT_IMAGE'				=> 'Nuværende avatar',
 	'CURRENT_PASSWORD'			=> 'Nuværende kodeord',
 	'CURRENT_PASSWORD_EXPLAIN'	=> 'Du skal bekræfte dit <strong>nuværende</strong> kodeord, når du ændrer brugernavn, emailadresse eller kodeord.',
+	'CURRENT_CHANGE_PASSWORD_EXPLAIN' => 'For at ændre kodeord, email-adresse eller brugernavn, skal du angive dit nuværende kodeord.',
 	'CUR_PASSWORD_EMPTY'    => 'Du indtastede ikke dit nuværende kodeord.',
 	'CUR_PASSWORD_ERROR'		=> 'Det indtastede kodeord var ikke korrekt.',
 	'CUSTOM_DATEFORMAT'			=> 'Valgfri...',
@@ -405,6 +406,7 @@ $lang = array_merge($lang, array(
 	'RULE_ADDED'				=> 'Regel tilføjet.',
 	'RULE_ALREADY_DEFINED'		=> 'Denne regel er defineret tidligere.',
 	'RULE_DELETED'				=> 'Regel fjernet.',
+	'RULE_LIMIT_REACHED'				=> 'Du er nået det maksimale antal regler, og kan derfor ikke tilføje flere regler for private beskeder.',
 	'RULE_NOT_DEFINED'			=> 'Regel ikke korrekt angivet.',
 	'RULE_REMOVED_MESSAGE'		=> 'En privat besked er blevet fjernet på grund af filtre for private beskeder.',
 	'RULE_REMOVED_MESSAGES'		=> '%d private beskeder er blevet fjernet på grund af filtre for private beskeder.',

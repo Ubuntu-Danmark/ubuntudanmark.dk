@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: common.php 10848 2010-11-07 14:00:05Z git-gate $
-* @version $Id: common.php 176 2011-11-16 13:21:57Z Jan Skovsgaard $
+* @version $Id: common.php 225 2012-06-04 19:34:45Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -419,8 +419,8 @@ $lang = array_merge($lang, array(
 	'INACTIVE_REASON_REMIND'		=> 'Tvungen genaktivering af brugerkonto',
 	'INACTIVE_REASON_UNKNOWN'		=> 'Ukendt',
 	'INACTIVE_USERS'				=> 'Inaktive brugere',
-	'INACTIVE_USERS_EXPLAIN'		=> 'Dette er en liste over brugere som er tilmeldt men hvis konti er inaktive. Du kan aktivere, slette eller erindre disse brugere pr. email hvis du ønsker det.',
-	'INACTIVE_USERS_EXPLAIN_INDEX'	=> 'De seneste 10 tilmeldte brugere med inaktive konti. En fuldstændig liste er tilgængelig ved at følge linket nedenfor, hvorfra du har mulighed for at aktivere, slette eller sende påmindelser til disse brugere. Samme liste kan også ses via fanebladet "Brugere & Grupper".',
+	'INACTIVE_USERS_EXPLAIN'		=> 'Dette er en liste over brugere som er tilmeldt, men hvis konti er inaktive. Du kan aktivere, slette eller påminde disse brugere pr. email.',
+	'INACTIVE_USERS_EXPLAIN_INDEX'	=> 'De seneste 10 tilmeldte brugere med inaktive konti. Konti kan være inaktive fordi aktivering ikke er gennemført af brugere, eller fordi konti er blevet deaktiveret. En fuldstændig liste er tilgængelig ved at følge linket nedenfor. Herfra får du også mulighed for at aktivere, slette eller sende påmindelser til disse brugere. Samme liste kan også ses via fanebladet "Brugere & Grupper".',
 
 	'NO_INACTIVE_USERS'	=> 'Ingen inaktive brugere',
 

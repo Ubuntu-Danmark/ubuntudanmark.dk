@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: PHPBB Single Sign On
-  Version: 0.8.6
+  Version: 0.8.7
   Plugin URI: http://www.onigoetz.ch/plugins/wordpress-phpbb-plugin/
   Description: Connecte un site wordpress à PHPBB
   Author: Stéphane Goetz

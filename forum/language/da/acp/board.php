@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: board.php 11245 2011-06-16 14:15:09Z git-gate $
-* @version $Id: board.php 167 2011-10-17 18:01:17Z Jan Skovsgaard $
+* @version $Id: board.php 221 2012-05-31 18:54:59Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -126,7 +126,7 @@ $lang = array_merge($lang, array(
 	'MAX_AVATAR_SIZE'				=> 'Største dimensioner for avatar',
 	'MAX_AVATAR_SIZE_EXPLAIN'		=> 'Bredde x højde i pixels.',
 	'MAX_FILESIZE'					=> 'Maksimal filstørrelse for avatar',
-	'MAX_FILESIZE_EXPLAIN'			=> 'For uploadede avatarfiler.',
+	'MAX_FILESIZE_EXPLAIN'			=> 'For uploadede avatarfiler. Er størrelsen sat til 0, er det alene din interne PHP-konfiguration, der begrænser filstørrelsen.',
 	'MIN_AVATAR_SIZE'				=> 'Mindste dimensioner for avatar',
 	'MIN_AVATAR_SIZE_EXPLAIN'		=> 'Bredde x højde i pixels.',
 ));

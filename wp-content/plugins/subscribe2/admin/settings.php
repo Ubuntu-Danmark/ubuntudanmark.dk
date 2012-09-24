@@ -5,19 +5,6 @@ if ( !function_exists('add_action') ) {
 
 global $s2nonce, $wpdb, $wp_version;
 
-// send error message if no WordPress page exists
-$sql = "SELECT ID FROM $wpdb->posts WHERE post_type='page' AND post_status='publish' LIMIT 1";
-$id = $wpdb->get_var($sql);
-if ( empty($id) ) {
-	echo "<div id=\"message\" class=\"error\"><p><strong>$this->no_page</strong></p></div>";
-}
-
-$sender = $this->get_userdata($this->subscribe2_options['sender']);
-list($user, $domain) = explode('@', $sender->user_email, 2);
-if ( !strstr($_SERVER['SERVER_NAME'], $domain) ) {
-	echo "<div id=\"message\" class=\"error\"><p><strong>" . __('You appear to be sending notifications from an email address from a different domain name to your blog, this may result in failed emails', 'subscribe2') . "</strong></p></div>";
-}
-
 // was anything POSTed?
 if ( isset( $_POST['s2_admin']) ) {
 	check_admin_referer('subscribe2-options_subscribers' . $s2nonce);
@@ -25,11 +12,12 @@ if ( isset( $_POST['s2_admin']) ) {
 		$this->reset();
 		echo "<div id=\"message\" class=\"updated fade\"><p><strong>$this->options_reset</strong></p></div>";
 	} elseif ( isset($_POST['preview']) ) {
-		global $user_email;
+		global $user_email, $post;
 		$this->preview_email = true;
 		if ( 'never' == $this->subscribe2_options['email_freq'] ) {
-			$post = get_posts('numberposts=1');
-			$this->publish($post[0], $user_email);
+			$posts = get_posts('numberposts=1');
+			$post = $posts[0];
+			$this->publish($post, $user_email);
 		} else {
 			$this->subscribe2_cron($user_email);
 		}
@@ -64,6 +52,7 @@ if ( isset( $_POST['s2_admin']) ) {
 		$this->subscribe2_options['pages'] = $_POST['pages'];
 		$this->subscribe2_options['password'] = $_POST['password'];
 		$this->subscribe2_options['private'] = $_POST['private'];
+		$this->subscribe2_options['stickies'] = $_POST['stickies'];
 		$this->subscribe2_options['cron_order'] = $_POST['cron_order'];
 		$this->subscribe2_options['tracking'] = $_POST['tracking'];
 
@@ -71,10 +60,6 @@ if ( isset( $_POST['s2_admin']) ) {
 		$email_freq = $_POST['email_freq'];
 		$scheduled_time = wp_next_scheduled('s2_digest_cron');
 		if ( $email_freq != $this->subscribe2_options['email_freq'] || $_POST['hour'] != date('H', $scheduled_time) ) {
-			// make sure the timezone strings are right
-			if ( function_exists('date_default_timezone_get') && date_default_timezone_get() != get_option('timezone_string') ) {
-				date_default_timezone_set(get_option('timezone_string'));
-			}
 			$this->subscribe2_options['email_freq'] = $email_freq;
 			wp_clear_scheduled_hook('s2_digest_cron');
 			$scheds = (array)wp_get_schedules();
@@ -86,25 +71,11 @@ if ( isset( $_POST['s2_admin']) ) {
 			} else {
 				// if we are using digest schedule the event and prime last_cron as now
 				$time = time() + $interval;
-				if ( $interval < 86400 ) {
-					// Schedule CRON events occurring less than daily starting now and periodically thereafter
-					$maybe_time = mktime($_POST['hour'], 0, 0, date('m', time()), date('d', time()), date('Y', time()));
-					// is maybe_time in the future
-					$offset = $maybe_time - time();
-					// is maybe_time + $interval in the future
-					$offset2 = ($maybe_time + $interval) - time();
-					if ( $offset < 0 ) {
-						if ( $offset2 < 0 ) {
-							$timestamp = &$time;
-						} else {
-							$timestamp = $maybe_time + $interval;
-						}
-					} else {
-						$timestamp = &$maybe_time;
-					}
-				} else {
-					// Schedule other CRON events starting at user defined hour and periodically thereafter
-					$timestamp = mktime($_POST['hour'], 0, 0, date('m', $time), date('d', $time), date('Y', $time));
+				$timestamp = mktime($_POST['hour'], 0, 0, date('m', $time), date('d', $time), date('Y', $time));
+				while ($timestamp < time()) {
+					// if we are trying to set the time in the past increment it forward
+					// by the interval period until it is in the future
+					$timestamp += $interval;
 				}
 				wp_schedule_event($timestamp, $email_freq, 's2_digest_cron');
 				if ( !isset($this->subscribe2_options['last_s2cron']) ) {
@@ -133,6 +104,15 @@ if ( isset( $_POST['s2_admin']) ) {
 		if ( !empty($_POST['remind_email']) ) {
 			$this->subscribe2_options['remind_email'] = $_POST['remind_email'];
 		}
+
+		// compulsory categories
+		if ( !empty($_POST['compulsory']) ) {
+			sort($_POST['compulsory']);
+			$compulsory_cats = implode(',', $_POST['compulsory']);
+		} else {
+			$compulsory_cats = '';
+		}
+		$this->subscribe2_options['compulsory'] = $compulsory_cats;
 
 		// excluded categories
 		if ( !empty($_POST['category']) ) {
@@ -196,6 +176,7 @@ if ( isset( $_POST['s2_admin']) ) {
 		$this->subscribe2_options['show_autosub'] = $_POST['show_autosub'];
 		$this->subscribe2_options['autosub_def'] = $_POST['autosub_def'];
 		$this->subscribe2_options['comment_subs'] = $_POST['comment_subs'];
+		$this->subscribe2_options['comment_def'] = $_POST['comment_def'];
 		$this->subscribe2_options['one_click_profile'] = $_POST['one_click_profile'];
 
 		//barred domains
@@ -205,13 +186,33 @@ if ( isset( $_POST['s2_admin']) ) {
 		update_option('subscribe2_options', $this->subscribe2_options);
 	}
 }
+
+// send error message if no WordPress page exists
+$sql = "SELECT ID FROM $wpdb->posts WHERE post_type='page' AND post_status='publish' LIMIT 1";
+$id = $wpdb->get_var($sql);
+if ( empty($id) ) {
+	echo "<div id=\"page_message\" class=\"error\"><p class=\"s2_error\"><strong>$this->no_page</strong></p></div>";
+}
+
+// send error message if sender email address is off-domain
+if ( $this->subscribe2_options['sender'] == 'blogname' ) {
+	$sender = get_bloginfo('admin_email');
+} else {
+	$userdata = $this->get_userdata($this->subscribe2_options['sender']);
+	$sender = $userdata->user_email;
+}
+list($user, $domain) = explode('@', $sender, 2);
+if ( !strstr($_SERVER['SERVER_NAME'], $domain) && $this->subscribe2_options['sender'] != 'author' ) {
+	echo "<div id=\"sender_message\" class=\"error\"><p class=\"s2_error\"><strong>" . __('You appear to be sending notifications from an email address from a different domain name to your blog, this may result in failed emails', 'subscribe2') . "</strong></p></div>";
+}
+
 // show our form
 echo "<div class=\"wrap\">";
 echo "<div id=\"icon-options-general\" class=\"icon32\"></div>";
 echo "<h2>" . __('Subscribe2 Settings', 'subscribe2') . "</h2>\r\n";
 echo "<a href=\"http://subscribe2.wordpress.com/\">" . __('Plugin Blog', 'subscribe2') . "</a> | ";
 echo "<a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=2387904\">" . __('Make a donation via PayPal', 'subscribe2') . "</a>";
-echo "<form method=\"post\" action=\"\">\r\n";
+echo "<form method=\"post\">\r\n";
 if ( function_exists('wp_nonce_field') ) {
 	wp_nonce_field('subscribe2-options_subscribers' . $s2nonce);
 }
@@ -271,6 +272,11 @@ echo "<label><input type=\"radio\" name=\"private\" value=\"yes\"" . checked($th
 echo __('Yes', 'subscribe2') . "</label>&nbsp;&nbsp;";
 echo "<label><input type=\"radio\" name=\"private\" value=\"no\"" . checked($this->subscribe2_options['private'], 'no', false) . " /> ";
 echo __('No', 'subscribe2') . "</label><br /><br />\r\n";
+echo __('Include Sticky Posts at the top of all Digest Notifications', 'subscribe2') . ': ';
+echo "<label><input type=\"radio\" name=\"stickies\" value=\"yes\"" . checked($this->subscribe2_options['stickies'], 'yes', false) . " /> ";
+echo __('Yes', 'subscribe2') . "</label>&nbsp;&nbsp;";
+echo "<label><input type=\"radio\" name=\"stickies\" value=\"no\"" . checked($this->subscribe2_options['stickies'], 'no', false) . " /> ";
+echo __('No', 'subscribe2') . "</label><br /><br />\r\n";
 echo __('Send Email From', 'subscribe2') . ': ';
 echo "<label>\r\n";
 $this->admin_dropdown(true);
@@ -286,21 +292,21 @@ if ( function_exists('wp_schedule_event') ) {
 }
 echo __('Add Tracking Parameters to the Permalink', 'subscribe2') . ": ";
 echo "<input type=\"text\" name=\"tracking\" value=\"" . stripslashes($this->subscribe2_options['tracking']) . "\" size=\"50\" /> ";
-echo "<br />" . __('eg. utm_source=subscribe2&utm_medium=email&utm_campaign=postnotify', 'subscribe2') . "<br /><br />\r\n";
+echo "<br />" . __('eg. utm_source=subscribe2&amp;utm_medium=email&amp;utm_campaign=postnotify&amp;utm_id={ID}', 'subscribe2') . "<br /><br />\r\n";
 echo "</div>\r\n";
 
 // email templates
 echo "<div class=\"s2_admin\" id=\"s2_templates\">\r\n";
 echo "<h2>" . __('Email Templates', 'subscribe2') . "</h2>\r\n";
 echo "<br />";
-echo "<table width=\"100%\" cellspacing=\"2\" cellpadding=\"1\" class=\"editform\">\r\n";
-echo "<tr><td>";
+echo "<table style=\"width: 100%; border-collapse: separate; border-spacing: 5px; *border-collapse: expression('separate', cellSpacing = '5px');\" class=\"editform\">\r\n";
+echo "<tr><td style=\"vertical-align: top; height: 350px; min-height: 350px;\">";
 echo __('New Post email (must not be empty)', 'subscribe2') . ":<br />\r\n";
 echo __('Subject Line', 'subscribe2') . ": ";
 echo "<input type=\"text\" name=\"notification_subject\" value=\"" . stripslashes($this->subscribe2_options['notification_subject']) . "\" size=\"30\" />";
 echo "<br />\r\n";
-echo "<textarea rows=\"9\" cols=\"60\" name=\"mailtext\">" . stripslashes($this->subscribe2_options['mailtext']) . "</textarea><br /><br />\r\n";
-echo "</td><td valign=\"top\" rowspan=\"3\">";
+echo "<textarea rows=\"9\" cols=\"60\" name=\"mailtext\">" . stripslashes($this->subscribe2_options['mailtext']) . "</textarea>\r\n";
+echo "</td><td style=\"vertical-align: top;\" rowspan=\"3\">";
 echo "<p class=\"submit\"><input type=\"submit\" class=\"button-secondary\" name=\"preview\" value=\"" . __('Send Email Preview', 'subscribe2') . "\" /></p>\r\n";
 echo "<h3>" . __('Message substitutions', 'subscribe2') . "</h3>\r\n";
 echo "<dl>";
@@ -324,17 +330,26 @@ echo "<dt><b>{ACTION}</b></dt><dd>" . __("Action performed by LINK in confirmati
 echo "<dt><b>{CATS}</b></dt><dd>" . __("the post's assigned categories", 'subscribe2') . "</dd>\r\n";
 echo "<dt><b>{TAGS}</b></dt><dd>" . __("the post's assigned Tags", 'subscribe2') . "</dd>\r\n";
 echo "<dt><b>{COUNT}</b></dt><dd>" . __("the number of posts included in the digest email<br />(<i>for digest emails only</i>)", 'subscribe2') . "</dd>\r\n";
-echo "</dl></td></tr><tr><td>";
+echo "</dl></td></tr><tr><td  style=\"vertical-align: top; height: 350px; min-height: 350px;\">";
 echo __('Subscribe / Unsubscribe confirmation email', 'subscribe2') . ":<br />\r\n";
 echo __('Subject Line', 'subscribe2') . ": ";
 echo "<input type=\"text\" name=\"confirm_subject\" value=\"" . stripslashes($this->subscribe2_options['confirm_subject']) . "\" size=\"30\" /><br />\r\n";
-echo "<textarea rows=\"9\" cols=\"60\" name=\"confirm_email\">" . stripslashes($this->subscribe2_options['confirm_email']) . "</textarea><br /><br />\r\n";
-echo "</td></tr><tr valign=\"top\"><td>";
+echo "<textarea rows=\"9\" cols=\"60\" name=\"confirm_email\">" . stripslashes($this->subscribe2_options['confirm_email']) . "</textarea>\r\n";
+echo "</td></tr><tr><td style=\"vertical-align: top; height: 350px; min-height: 350px;\">";
 echo __('Reminder email to Unconfirmed Subscribers', 'subscribe2') . ":<br />\r\n";
 echo __('Subject Line', 'subscribe2') . ": ";
 echo "<input type=\"text\" name=\"remind_subject\" value=\"" . stripslashes($this->subscribe2_options['remind_subject']) . "\" size=\"30\" /><br />\r\n";
 echo "<textarea rows=\"9\" cols=\"60\" name=\"remind_email\">" . stripslashes($this->subscribe2_options['remind_email']) . "</textarea><br /><br />\r\n";
 echo "</td></tr></table><br />\r\n";
+echo "</div>\r\n";
+
+// compulsory categories
+echo "<div class=\"s2_admin\" id=\"s2_compulsory_categories\">\r\n";
+echo "<h2>" . __('Complusory Categories', 'subscribe2') . "</h2>\r\n";
+echo "<p>";
+echo "<strong><em style=\"color: red\">" . __('Compulsory categories will be checked by default for Registered Subscribers', 'subscribe2') . "</em></strong><br />\r\n";
+echo "</p>";
+$this->display_category_form(array(), 1, explode(',', $this->subscribe2_options['compulsory']), 'compulsory');
 echo "</div>\r\n";
 
 // excluded categories
@@ -344,20 +359,22 @@ echo "<p>";
 echo "<strong><em style=\"color: red\">" . __('Posts assigned to any Excluded Category do not generate notifications and are not included in digest notifications', 'subscribe2') . "</em></strong><br />\r\n";
 echo "</p>";
 $this->display_category_form(explode(',', $this->subscribe2_options['exclude']));
-echo "<center><label><input type=\"checkbox\" name=\"reg_override\" value=\"1\"" . checked($this->subscribe2_options['reg_override'], '1', false) . " /> ";
-echo __('Allow registered users to subscribe to excluded categories?', 'subscribe2') . "</label></center><br />\r\n";
+echo "<p style=\"text-align: center;\"><label><input type=\"checkbox\" name=\"reg_override\" value=\"1\"" . checked($this->subscribe2_options['reg_override'], '1', false) . " /> ";
+echo __('Allow registered users to subscribe to excluded categories?', 'subscribe2') . "</label></p><br />\r\n";
+echo "</div>\r\n";
 
 // excluded post formats
 $formats = get_theme_support('post-formats');
 if ( $formats !== false ) {
 	// excluded formats
+	echo "<div class=\"s2_admin\" id=\"s2_excluded_formats\">\r\n";
 	echo "<h2>" . __('Excluded Formats', 'subscribe2') . "</h2>\r\n";
 	echo "<p>";
 	echo "<strong><em style=\"color: red\">" . __('Posts assigned to any Excluded Format do not generate notifications and are not included in digest notifications', 'subscribe2') . "</em></strong><br />\r\n";
 	echo "</p>";
 	$this->display_format_form($formats, explode(',', $this->subscribe2_options['exclude_formats']));
+	echo "</div>\r\n";
 }
-echo "</div>\r\n";
 
 // Appearance options
 echo "<div class=\"s2_admin\" id=\"s2_appearance_settings\">\r\n";
@@ -388,7 +405,7 @@ echo "<label><input type=\"checkbox\" name=\"show_button\" value=\"1\"" . checke
 echo __('Show the Subscribe2 button on the Write toolbar?', 'subscribe2') . "</label><br /><br />\r\n";
 
 // enable AJAX style form
-echo "<label><input type=\"checkbox\" name=\"ajax\" value=\"1\"" . checked($this->subscribe2_options['ajax'], '1', false) . " />";
+echo "<label><input type=\"checkbox\" name=\"ajax\" value=\"1\"" . checked($this->subscribe2_options['ajax'], '1', false) . " /> ";
 echo __('Enable AJAX style subscription form?', 'subscribe2') . "</label><br /><br />\r\n";
 
 // show Widget
@@ -454,6 +471,11 @@ echo "<label><input type=\"radio\" name=\"comment_subs\" value=\"after\"" . chec
 echo __('After the Comment Submit button', 'subscribe2') . "</label>&nbsp;&nbsp;";
 echo "<label><input type=\"radio\" name=\"comment_subs\" value=\"no\"" . checked($this->subscribe2_options['comment_subs'], 'no', false) . " /> ";
 echo __('No', 'subscribe2') . "</label><br /><br />";
+echo __('Comment form checkbox is checked by default', 'subscrib2') . ": <br />\r\n";
+echo "<label><input type=\"radio\" name=\"comment_def\" value=\"yes\"" . checked($this->subscribe2_options['comment_def'], 'yes', false) . " /> ";
+echo __('Yes', 'subscribe2') . "</label>&nbsp;&nbsp;";
+echo "<label><input type=\"radio\" name=\"comment_def\" value=\"no\"" . checked($this->subscribe2_options['comment_def'], 'no', false) . " /> ";
+echo __('No', 'subscribe2') . "</label><br /><br />\r\n";
 echo __('Show one-click subscription on profile page', 'subscribe2') . ":<br />\r\n";
 echo "<label><input type=\"radio\" name=\"one_click_profile\" value=\"yes\"" . checked($this->subscribe2_options['one_click_profile'], 'yes', false) . " /> ";
 echo __('Yes', 'subscribe2') . "</label>&nbsp;&nbsp;";
@@ -471,12 +493,12 @@ echo "</p>";
 echo "</div>\r\n";
 
 // submit
-echo "<p class=\"submit\" align=\"center\"><input type=\"submit\" class=\"button-primary\" name=\"submit\" value=\"" . __('Submit', 'subscribe2') . "\" /></p>";
+echo "<p class=\"submit\" style=\"text-align: center\"><input type=\"submit\" class=\"button-primary\" name=\"submit\" value=\"" . __('Submit', 'subscribe2') . "\" /></p>";
 
 // reset
 echo "<h2>" . __('Reset Default', 'subscribe2') . "</h2>\r\n";
 echo "<p>" . __('Use this to reset all options to their defaults. This <strong><em>will not</em></strong> modify your list of subscribers.', 'subscribe2') . "</p>\r\n";
-echo "<p class=\"submit\" align=\"center\">";
+echo "<p class=\"submit\" style=\"text-align: center\">";
 echo "<input type=\"submit\" id=\"deletepost\" name=\"reset\" value=\"" . __('RESET', 'subscribe2') .
 "\" />";
 echo "</p></form></div>\r\n";

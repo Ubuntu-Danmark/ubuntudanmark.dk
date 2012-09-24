@@ -28,6 +28,9 @@ P.S. : WP2BB was created by Alfredo de Hoces (http://www.alfredodehoces.com/)
 * Make it work on multiple db's
 * Uninstaller
 
+= 0.8.7 = 
+* added wpbb_get_user_id_from_string() to replace get_user_id_from_string() as it doesn't exist in non mulitsite installations
+
 = 0.8.6 =
 * Fixed a bug where we could login to the ACP with a wrong password
 * Managed to make the "remember me" work on both parts

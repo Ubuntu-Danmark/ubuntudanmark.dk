@@ -30,6 +30,10 @@ if (!isset($this->subscribe2_options['comment_subs'])) {
 	$this->subscribe2_options['comment_subs'] = "no";
 } // option for commenters to subscribe as public subscribers
 
+if (!isset($this->subscribe2_options['comment_def'])) {
+	$this->subscribe2_options['comment_def'] = "no";
+} // option for comments box to be checked by default
+
 if (!isset($this->subscribe2_options['one_click_profile'])) {
 	$this->subscribe2_options['one_click_profile'] = "no";
 } // option for displaying 'one-click' option on profile page
@@ -62,6 +66,10 @@ if (!isset($this->subscribe2_options['password'])) {
 	$this->subscribe2_options['password'] = "no";
 } // option for sending notifications for posts that are password protected
 
+if (!isset($this->subscribe2_options['stickies'])) {
+	$this->subscribe2_options['stickies'] = "no";
+} // option for including sticky posts in digest notifications
+
 if (!isset($this->subscribe2_options['private'])) {
 	$this->subscribe2_options['private'] = "no";
 } // option for sending notifications for posts that are private
@@ -73,6 +81,10 @@ if (!isset($this->subscribe2_options['email_freq'])) {
 if (!isset($this->subscribe2_options['cron_order'])) {
 	$this->subscribe2_options['cron_order'] = "desc";
 } // option for ordering of posts in digest email
+
+if (!isset($this->subscribe2_options['compulsory'])) {
+	$this->subscribe2_options['compulsory'] = "";
+} // option for compulsory categories
 
 if (!isset($this->subscribe2_options['exclude'])) {
 	$this->subscribe2_options['exclude'] = "";
