@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: Facebook Members
-Plugin URI: http://icrunchies.com/plugins/facebook-members/
+Plugin URI: http://icrunched.co/facebook-members/
 Description: Facebook Members is a WordPres Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website. It uses Like Box.
-Version: 4.2.1
-Author: iCrunchies
-Author URI: http://iCrunchies.com
+Version: 4.5.2
+Author: icrunched
+Author URI: http://iCrunched.co
 */
 
 /*
-    Copyright (C) 2012 iCrunchies.com
+    Copyright (C) 2012 iCrunched.co
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -90,7 +90,7 @@ function as_facebook_mem_likebox()
 	}
 	else
 	{
-		$sponserlink_profile = '<div align="left">- <a href="http://icrunchies.com/plugins/facebook-members/" title="Facebook Members WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Members WordPress Plugin' . '</font></a></div>';
+		$sponserlink_profile = '<div align="left">- <a href="http://icrunched.co/facebook-members/" title="Facebook Members WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Members WordPress Plugin' . '</font></a></div>';
 	}
 
 
@@ -147,7 +147,7 @@ function as_facebook_mem_options_page() {
 		update_option('as_facebook_mem_faces', (string)$_POST['as_facebook_mem_faces']);
 
         echo '<div id="message" class="updated fade"><p><strong>Settings saved.</strong></p></div>';
-        echo '</strong></p></div>';
+        echo '</strong>';
     }else
 	{
 			$as_facebook_mem_stream = get_option('as_facebook_mem_stream');
@@ -169,18 +169,30 @@ function as_facebook_mem_options_page() {
 
     <u><h2>Facebook Members Like Box Plugin</h2></u>
 
-
-	<div id="poststuff" class="metabox-holder has-right-sidebar" >
-		<div style="float:left;width:60%;">
-
-<iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FiCrunchies&amp;width=292&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
-<br>
-<a href="https://twitter.com/iCrunchies" class="twitter-follow-button" data-show-count="false">Follow @iCrunchies</a>
+	<div align="left">
+	<br>
+	<h3>Follow us on Twitter & Facebook to get latest update:</h3>
+	
+	<a href="https://twitter.com/iCrunched" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @iCrunched</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<a href="http://icrunchies.com/plugins/facebook-members/" target="_blank">Plugin Homepage</a>
+<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FiCrunchedco%2F117867008360385&amp;width=292&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
 
-<br>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-4032710958875645";
+/* divinepushti.post */
+google_ad_slot = "2406932865";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+	</div>
+	
+		<div style="float:left;width:60%;">
+
 <br>
 
 
@@ -255,6 +267,9 @@ function as_facebook_mem_options_page() {
 				</table>
 			</div>
 			</div>
+			
+					<a href="http://icrunched.co/facebook-members/" target="_blank">Feedback</a> | <a href="http://twitter.com/iCrunched" target="_blank">Twitter</a> | <a href="http://www.facebook.com/pages/iCrunchedco/117867008360385" target="_blank">Facebook</a>
+
    		 <div class="submit">
 	        <input type="submit" name="info_update" class="button-primary" value="<?php _e('Update options'); ?> &raquo;" />
 
@@ -326,6 +341,9 @@ function as_facebook_mem_options_page() {
  					</table>
 					</div>
 		</div>
+		
+							<a href="http://icrunched.co/facebook-members/" target="_blank">Feedback</a> | <a href="http://twitter.com/iCrunched" target="_blank">Twitter</a> | <a href="http://www.facebook.com/pages/iCrunchedco/117867008360385" target="_blank">Facebook</a>
+
    		 <div class="submit">
 	        <input type="submit" name="info_update" class="button-primary" value="<?php _e('Update options'); ?> &raquo;" />
 
@@ -335,7 +353,6 @@ function as_facebook_mem_options_page() {
     </form>
 </div>
 
-	</div>
     </div>
 
 <?php
@@ -372,7 +389,7 @@ function show_as_facebook_mem_likebox_widget($args)
 	}
 	else
 	{
-		$sponserlink_profile = '<div align="left">- <a href="http://icrunchies.com/plugins/facebook-members/" title="Facebook Members WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Members WordPress Plugin' . '</font></a></div>';
+		$sponserlink_profile = '<div align="left">- <a href="http://icrunched.co/facebook-members/" title="Facebook Members WordPress Plugin" target="_blank"> <font size="1">' . 'Facebook Members WordPress Plugin' . '</font></a></div>';
 	}
 
  	$T2 = '<div id="likebox-frame"><iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2F'.$fm_widget_page_name.'&amp;width='.$fm_widget_width.'&amp;height='.$fm_widget_height.'&amp;colorscheme=light&amp;show_faces='.$fm_widget_faces.'&amp;border_color&amp;stream='.$fm_widget_stream.'&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:'.$fm_widget_width.'px; height:'.$fm_widget_height.'px; margin:-1px;" allowTransparency="true"></iframe></div>';
