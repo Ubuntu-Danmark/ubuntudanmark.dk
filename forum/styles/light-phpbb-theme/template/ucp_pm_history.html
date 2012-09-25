@@ -16,7 +16,7 @@
 		<div class="postbody" id="pr{history_row.MSG_ID}">
 			<!-- IF history_row.U_QUOTE or history_row.MESSAGE_AUTHOR_QUOTE -->
 			<span class="profile-icons">
-			    <form<!-- IF not history_row.U_QUOTE --> onsubmit="return addquote({history_row.MSG_ID}, '{history_row.MESSAGE_AUTHOR_QUOTE}', '{LA_WROTE}');"<!-- ENDIF --> class="bnform" action="<!-- IF history_row.U_QUOTE -->{history_row.U_QUOTE}<!-- ENDIF -->" method="get"><input type="submit" title="{L_QUOTE} {history_row.MESSAGE_AUTHOR}" value="Citér"></form>
+			    <form<!-- IF not history_row.U_QUOTE --> onsubmit="return addquote({history_row.MSG_ID}, '{history_row.MESSAGE_AUTHOR_QUOTE}', '{LA_WROTE}');"<!-- ENDIF --> class="bnform" action="<!-- IF history_row.U_QUOTE -->{history_row.U_QUOTE}<!-- ENDIF -->" method="post"><input type="submit" title="{L_QUOTE} {history_row.MESSAGE_AUTHOR}" value="Citér"></form>
 			</span>
 			<!-- ENDIF -->
 

@@ -7,10 +7,10 @@
 	<!-- IF FOLDER_STATUS and FOLDER_MAX_MESSAGES neq 0 --><p>{FOLDER_STATUS}</p><!-- ENDIF -->
 	<!-- IF U_POST_REPLY_PM or U_POST_NEW_TOPIC or U_FORWARD_PM -->
 		<div class="buttons">
-			<!-- IF U_POST_REPLY_PM --><form action="{U_POST_REPLY_PM}" method="get"><input type="submit" class="ufbn" title="{L_POST_REPLY_PM}" value="Besvar"></form>
-			<!-- ELSEIF U_POST_NEW_TOPIC --><form action="{U_POST_NEW_TOPIC}" method="get"><input type="submit" accesskey="n" class="ufbn" title="{L_UCP_PM_COMPOSE}" value="Opret ny"></form><!-- ENDIF -->
-			<!-- IF U_FORWARD_PM --><form action="{U_FORWARD_PM}" method="get"><input type="submit" accesskey="n" class="ufbn" title="{L_POST_FORWARD_PM}" value="Vidersend"></form><!-- ENDIF -->
-			<!-- IF U_POST_REPLY_PM and S_PM_RECIPIENTS gt 1 --><form action="{U_POST_REPLY_ALL}" method="get"><input type="submit" class="left" title="{L_REPLY_TO_ALL}" value="Besvar allé"></form><!-- ENDIF -->
+			<!-- IF U_POST_REPLY_PM --><form action="{U_POST_REPLY_PM}" method="post"><input type="submit" class="ufbn" title="{L_POST_REPLY_PM}" value="Besvar"></form>
+			<!-- ELSEIF U_POST_NEW_TOPIC --><form action="{U_POST_NEW_TOPIC}" method="post"><input type="submit" accesskey="n" class="ufbn" title="{L_UCP_PM_COMPOSE}" value="Opret ny"></form><!-- ENDIF -->
+			<!-- IF U_FORWARD_PM --><form action="{U_FORWARD_PM}" method="post"><input type="submit" accesskey="n" class="ufbn" title="{L_POST_FORWARD_PM}" value="Vidersend"></form><!-- ENDIF -->
+			<!-- IF U_POST_REPLY_PM and S_PM_RECIPIENTS gt 1 --><form action="{U_POST_REPLY_ALL}" method="post"><input type="submit" class="left" title="{L_REPLY_TO_ALL}" value="Besvar allé"></form><!-- ENDIF -->
 		</div>
 	<!-- ENDIF -->
 
