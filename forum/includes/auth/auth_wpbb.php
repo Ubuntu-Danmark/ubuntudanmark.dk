@@ -63,7 +63,7 @@ function login_wpbb(&$username, &$password) {
          * * Exists in PHPBB ?
          */
         $phpBB_user = login_db($username, $password);
-        $in_phpBB = ($phpBB_user['status'] == LOGIN_SUCCESS);
+        $in_phpBB = isset($phpBB_user['username']) ? true : false;
 
         /*
          * * Exists in WP ?
