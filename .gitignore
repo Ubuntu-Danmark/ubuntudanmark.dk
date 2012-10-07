@@ -3,3 +3,5 @@
 forum/cache/*
 forum/config.php
 wp-config.php
+forum/files/*
+
