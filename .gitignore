@@ -4,4 +4,8 @@ forum/cache/*
 forum/config.php
 wp-config.php
 forum/files/*
+wp-content/advanced-cache.php
+wp-content/cache/blogs/
+wp-content/cache/supercache/
+wp-content/uploads/
 
