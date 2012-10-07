@@ -3,7 +3,7 @@
 Plugin Name: Facebook Members
 Plugin URI: http://icrunched.co/facebook-members/
 Description: Facebook Members is a WordPres Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website. It uses Like Box.
-Version: 4.5.2
+Version: 4.5.3
 Author: icrunched
 Author URI: http://iCrunched.co
 */
@@ -178,19 +178,10 @@ function as_facebook_mem_options_page() {
 
 <iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FiCrunchedco%2F117867008360385&amp;width=292&amp;height=62&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=false&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowTransparency="true"></iframe>
 
-<script type="text/javascript"><!--
-google_ad_client = "ca-pub-4032710958875645";
-/* divinepushti.post */
-google_ad_slot = "2406932865";
-google_ad_width = 468;
-google_ad_height = 60;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
 	</div>
-	
+		<div id="poststuff" class="metabox-holder has-right-sidebar">
+
+
 		<div style="float:left;width:60%;">
 
 <br>
@@ -268,7 +259,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 			</div>
 			</div>
 			
-					<a href="http://icrunched.co/facebook-members/" target="_blank">Feedback</a> | <a href="http://twitter.com/iCrunched" target="_blank">Twitter</a> | <a href="http://www.facebook.com/pages/iCrunchedco/117867008360385" target="_blank">Facebook</a>
+					<a href="http://icrunched.co/facebook-members/" target="_blank">Feedback</a> | <a href="http://twitter.com/iCrunched" target="_blank">Twitter</a> | <a href="http://www.facebook.com/iCrunched" target="_blank">Facebook</a>
 
    		 <div class="submit">
 	        <input type="submit" name="info_update" class="button-primary" value="<?php _e('Update options'); ?> &raquo;" />
@@ -342,7 +333,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 					</div>
 		</div>
 		
-							<a href="http://icrunched.co/facebook-members/" target="_blank">Feedback</a> | <a href="http://twitter.com/iCrunched" target="_blank">Twitter</a> | <a href="http://www.facebook.com/pages/iCrunchedco/117867008360385" target="_blank">Facebook</a>
+							<a href="http://icrunched.co/facebook-members/" target="_blank">Feedback</a> | <a href="http://twitter.com/iCrunched" target="_blank">Twitter</a> | <a href="http://www.facebook.com/iCrunched" target="_blank">Facebook</a>
 
    		 <div class="submit">
 	        <input type="submit" name="info_update" class="button-primary" value="<?php _e('Update options'); ?> &raquo;" />
@@ -353,6 +344,34 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     </form>
 </div>
 
+
+				 <div id="side-info-column" class="inner-sidebar">
+				<div class="postbox">
+				  <h3 class="hndle"><span>Facebook Members</span></h3>
+				  <div class="inside">
+	                <ul>
+	                <li><a href="http://icrunched.co/facebook-members/" title="All in One Webmaster" target="_blank">Plugin Homepage</a></li>
+	                </ul>          
+					</div>
+				</div>
+     </div>
+          <br>
+			<div id="side-info-column" class="inner-sidebar">
+				<div class="postbox">
+				  <h3 class="hndle"><span>My Other Plugins</span></h3>
+				  <div class="inside">
+					<ul>
+					<li>1) <a href="http://icrunched.co/twitter-goodies/" title="Twitter Goodies" target="_blank">Twitter Goodies</a></li>
+					<li>2) <a href="http://icrunched.co/wp-google-buzz/" title="All in One Webmaster" target="_blank">WP Google Buzz</a></li>
+					<li>3) <a href="http://icrunched.co/wp-archive-sitemap-generator/" title="WP Archive-Sitemap Generator" target="_blank">WP Archive-Sitemap Generator</a></li>
+					<li>4) <a href="http://icrunched.co/foursquare-integration/" title="FourSquare Integration" target="_blank">FourSquare Integration</a></li>
+					<li>5) <a href="http://icrunched.co/all-in-one-webmaster/" title="Facebook Members" target="_blank">All in One Webmaster</a></li>
+					</ul>
+				  </div>
+				</div>
+		     </div>
+			 
+</div>
     </div>
 
 <?php
