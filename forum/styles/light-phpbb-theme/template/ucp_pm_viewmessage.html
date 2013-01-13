@@ -92,6 +92,7 @@
 </div>
 
 <!-- IF S_VIEW_MESSAGE -->
+<form id="viewfolder" method="post" action="{S_PM_ACTION}">
 <fieldset class="display-options">
 	<!-- IF U_PREVIOUS_PM --><a href="{U_PREVIOUS_PM}" class="left-box {S_CONTENT_FLOW_BEGIN}">{L_VIEW_PREVIOUS_PM}</a><!-- ENDIF -->
 	<!-- IF U_NEXT_PM --><a href="{U_NEXT_PM}" class="right-box {S_CONTENT_FLOW_END}">{L_VIEW_NEXT_PM}</a><!-- ENDIF -->
@@ -102,6 +103,7 @@
 	<input type="hidden" name="cur_folder_id" value="{CUR_FOLDER_ID}" />
 	<input type="hidden" name="p" value="{MSG_ID}" />
 </fieldset>
+</form>
 <!-- ENDIF -->
 
 <!-- INCLUDE ucp_pm_message_footer.html -->
