@@ -34,7 +34,7 @@
 				<!-- IF not S_MERGE_SELECT -->
 				<dd class="mark">
 					<!-- IF not topicrow.S_MOVED_TOPIC --><input type="checkbox" name="topic_id_list[]" value="{topicrow.TOPIC_ID}"<!-- IF topicrow.S_TOPIC_CHECKED --> checked="checked"<!-- ENDIF --> /><!-- ELSE -->&nbsp;<!-- ENDIF -->
-					<!-- IF topicrow.S_MOVED_TOPIC and S_CAN_DELETE --><form action="{topicrow.U_DELETE_TOPIC}" method="post"><input type="button" title="{L_DELETE_SHADOW_TOPIC}" class="ufbn" value="X" /></form><!-- ENDIF -->
+					<!-- IF topicrow.S_MOVED_TOPIC and S_CAN_DELETE --><form action="{topicrow.U_DELETE_TOPIC}" method="post"><input type="submit" title="{L_DELETE_SHADOW_TOPIC}" class="ufbn" value="X" /></form><!-- ENDIF -->
 				</dd>
 				<!-- ENDIF -->
 			</dl>
