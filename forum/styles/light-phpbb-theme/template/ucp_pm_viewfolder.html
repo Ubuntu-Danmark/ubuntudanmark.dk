@@ -4,9 +4,9 @@
 	<!-- INCLUDE ucp_pm_message_header.html -->
 <!-- ENDIF -->
 
+	<form id="viewfolder" method="post" action="{S_PM_ACTION}">
 <!-- IF PROMPT -->
 	<h2>{L_EXPORT_AS_CSV}</h2>
-	<form id="viewfolder" method="post" action="{S_PM_ACTION}">
 		<h3>{L_OPTIONS}</h3>
 		<fieldset>
 			<dl>
@@ -24,7 +24,6 @@
 		<input class="button2" type="reset" value="Reset" name="reset" />&nbsp;
 		{S_FORM_TOKEN}
 	</fieldset>
-	</form>
 
 <!-- ELSE -->
 
@@ -118,4 +117,5 @@
 
 	<!-- INCLUDE ucp_pm_message_footer.html -->
 <!-- ENDIF -->
+	</form>
 <!-- INCLUDE ucp_footer.html -->
