@@ -1314,7 +1314,7 @@ function get_user_avatar($avatar, $avatar_type, $avatar_width, $avatar_height, $
 			$grav_rating = 'R';
 			//TODO get from max config
 			$grav_size = 80;
-			$grav_url = "http://www.gravatar.com/avatar/$grav_id?default=$grav_default&amp;size=$grav_size&amp;rating=$grav_rating";
+			$grav_url = "//www.gravatar.com/avatar/$grav_id?default=$grav_default&amp;size=$grav_size&amp;rating=$grav_rating";
 
 			return '<img src="' . $grav_url . '" width="' . $grav_size . '" height="' . $grav_size . '" alt="' . ((!empty($user->lang[$alt])) ? $user->lang[$alt] : $alt) . '" />';
 		} else {
