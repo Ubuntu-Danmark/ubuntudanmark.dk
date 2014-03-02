@@ -27,7 +27,7 @@ Colors: http://www.colourlovers.com/palette/1140455/Ubuntu_Lucid_Lynx
 @import url('../thematic/library/styles/images.css');  
 
 /* Import Ubuntu Web Font */
-@import url('http://fonts.googleapis.com/css?family=Ubuntu:regular,bold,italic&subset=latin-ext');
+@import url('//fonts.googleapis.com/css?family=Ubuntu:regular,bold,italic&subset=latin-ext');
 
 /*
 Real stuff starts here
