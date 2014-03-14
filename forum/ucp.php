@@ -1,17 +1,16 @@
 <?php
 // ----- Start mod - Block Tor network -------- //
-function ReverseIPOctets($inputip) {
-	$ipoc = explode(".",$inputip);
-	return $ipoc[3].".".$ipoc[2].".".$ipoc[1].".".$ipoc[0];
+function reverseIP($ip) {
+	return implode('.', array_reverse(explode('.', $ip)));
 }
 
 function IsTorExitPoint() {
-	if (gethostbyname(ReverseIPOctets($_SERVER['REMOTE_ADDR']).".".$_SERVER['SERVER_PORT'].".".ReverseIPOctets($_SERVER['SERVER_ADDR']).".ip-port.exitlist.torproject.org")=="127.0.0.2")
-	{
-		return true;
-	} else {
-		return false;
-	} 
+	return gethostbyname(
+		reverseIP($_SERVER['REMOTE_ADDR'])
+		. '.' . $_SERVER['SERVER_PORT']
+		. '.' . reverseIP($_SERVER['SERVER_ADDR'])
+		. '.ip-port.exitlist.torproject.org'
+	) == '127.0.0.2';
 }
 
 if (IsTorExitPoint())
