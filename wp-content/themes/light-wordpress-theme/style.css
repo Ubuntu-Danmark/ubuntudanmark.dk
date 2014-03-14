@@ -27,7 +27,7 @@ Colors: http://www.colourlovers.com/palette/1140455/Ubuntu_Lucid_Lynx
 @import url('../thematic/library/styles/images.css');  
 
 /* Import Ubuntu Web Font */
-@import url('http://fonts.googleapis.com/css?family=Ubuntu:regular,bold,italic&subset=latin-ext');
+@import url('//fonts.googleapis.com/css?family=Ubuntu:regular,bold,italic&subset=latin-ext');
 
 /*
 Real stuff starts here
@@ -392,5 +392,5 @@ html {overflow-y: scroll; background: #EEECEA; }
 code { background-color:#FFFFFF; border:1px solid #D8D8D8; padding:3px; color:#2E8B57; display:block; font:0.9em/1.3em Monaco,"Andale Mono","Courier New",Courier,mono; margin:2px 0; max-height:200px; overflow:auto; padding-top:5px; white-space:normal; }
 dd code { border:0; padding:0; }
 h2, h3 { color: #dd4814; }
-.info { border-top: 2px solid #b5d4fe; border-bottom: 2px solid #b5d4fe; padding: 5px 20px 5px 45px; background: #f8fafc url('/wp-content/uploads/2012/01/info.gif') no-repeat scroll 15px 50%; text-align: left; color: #5e6273; }
-.alert { border-top: 2px solid #ffd324; border-bottom: 2px solid #ffd324; padding: 5px 20px 5px 45px; background: #fff6bf url('/wp-content/uploads/2012/01/alert.gif') no-repeat scroll 15px 50%; text-align: left; color: #5e6273; }
+.guide_info { border-top: 2px solid #b5d4fe; border-bottom: 2px solid #b5d4fe; padding: 5px 20px 5px 45px; background: #f8fafc url('/wp-content/uploads/2012/01/info.gif') no-repeat scroll 15px 50%; text-align: left; color: #5e6273; }
+.guide_alert { border-top: 2px solid #ffd324; border-bottom: 2px solid #ffd324; padding: 5px 20px 5px 45px; background: #fff6bf url('/wp-content/uploads/2012/01/alert.gif') no-repeat scroll 15px 50%; text-align: left; color: #5e6273; }
