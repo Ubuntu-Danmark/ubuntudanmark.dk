@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: common.php 10848 2010-11-07 14:00:05Z git-gate $
-* @version $Id: common.php 225 2012-06-04 19:34:45Z Jan Skovsgaard $
+* @version $Id: common.php 296 2013-07-19 07:35:46Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -308,7 +308,7 @@ $lang = array_merge($lang, array(
 // PHP info
 $lang = array_merge($lang, array(
 	'ACP_PHP_INFO_EXPLAIN'	=> 'Denne side informerer om version og indstillinger for PHP (funktionen phpinfo()) installeret på denne server. PHP-indstillinger omfatter versionsinformation, information om indlæste moduler, tilgængelige variabler og standardindstillinger, som er egnet til at diagnosticere problemer.<br />Bemærk venligst, at nogle værter af sikkerhedshensyn har sat grænser for hvilken information, der bliver vist med PHP-indstillinger.<br />
-<b>Et godt råd</b>: Videregiv aldrig information om serverens PHP-indstillinger til andre, med mindre du bliver spurgt af <a href="http://www.phpbb.com/about/team/">officielle teammedlemmer på www.phpbb.com</a> eller af teammedlemmer på andre supportboards. Overvej i denne forbindelse eventuelt også muligheden for videregivelse af sådanne oplysninger pr. email eller privat besked.',
+<b>Et godt råd</b>: Videregiv aldrig information om serverens PHP-indstillinger til andre, med mindre du bliver spurgt af <a href="https://www.phpbb.com/about/team/">officielle teammedlemmer på www.phpbb.com</a> eller af teammedlemmer på andre supportboards. Overvej i denne forbindelse eventuelt også muligheden for videregivelse af sådanne oplysninger pr. email eller privat besked.',
 	'NO_PHPINFO_AVAILABLE'	=> 'Informationerne om din PHP-konfiguration kan ikke hentes. Funktionen phpinfo() er deaktiveret af sikkerhedsgrunde.',
 ));
 

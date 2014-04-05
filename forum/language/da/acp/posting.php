@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: posting.php 11098 2011-04-11 00:00:08Z git-gate $
-* @version $Id: posting.php 159 2011-07-17 09:40:13Z Jan Skovsgaard $
+* @version $Id: posting.php 296 2013-07-19 07:35:46Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -98,7 +98,8 @@ $lang = array_merge($lang, array(
 		'NUMBER'		=> 'Enhver serie cifre.',
 		'EMAIL'			=> 'En gyldig emailadresse.',
 		'URL'			=> 'En gyldig URL via enhver protokol (http, ftp, osv... kan ikke bruges til javascript exploits). Hvis intet angives tilføjes "http://" automatisk URL\'en.',
-		'LOCAL_URL'		=> 'En lokal URL. URL\'en skal være relativ til emnesiden og kan ikke indeholde et servernavn eller protokol.',
+		'LOCAL_URL'		=> 'En lokal URL. URL\'en skal være relativ til emnesiden og kan ikke indeholde et servernavn eller protokol, da links er præfikset med "%s"',
+		'RELATIVE_URL'	=> 'En relativ URL. Du kan anvende denne til at matche dele af en URL, men vær forsigtig, en komplet URL er en gyldig relativ URL. Hvis du ønsker at anvende relative URLs indenfor dit board, bør du bruge LOCAL_URL-tokenet.',
 		'COLOR'			=> 'En HTML-farve, kan angives i hexedecimal værdi <samp>#FF1234</samp> eller med et <a href="http://www.w3.org/TR/CSS21/syndata.html#value-def-color">CSS farvenavn</a>, for eksempel <samp>fuchsia</samp> eller <samp>InactiveBorder</samp>.'
 	)
 ));

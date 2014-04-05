@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: board.php 11245 2011-06-16 14:15:09Z git-gate $
-* @version $Id: board.php 221 2012-05-31 18:54:59Z Jan Skovsgaard $
+* @version $Id: board.php 296 2013-07-19 07:35:46Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -69,7 +69,7 @@ $lang = array_merge($lang, array(
 	'SYSTEM_TIMEZONE'				=> 'Tidszone for gæster',
 	'SYSTEM_TIMEZONE_EXPLAIN'      => 'Den tidszone der vises for brugere der ikke er logget ind (gæster, botter). Tilmeldte brugere vælger selv foretrukken tidszone under tilmeldingen og kan ændre denne i brugerkontrolpanelet.',
 	'WARNINGS_EXPIRE'				=> 'Varighed for advarsler',
-	'WARNINGS_EXPIRE_EXPLAIN'		=> 'Antal dage fra en advarsel udstedes, til den fjernes fra brugeres profildata. Angives 0, vil advarslen være permanent.',
+	'WARNINGS_EXPIRE_EXPLAIN'		=> 'Antal dage fra en advarsel udstedes, til den fjernes fra brugeres profildata. Angives 0, vil advarsler være permanent.',
 ));
 
 // Board Features
@@ -304,7 +304,7 @@ $lang = array_merge($lang, array(
 
 // Visual Confirmation Settings
 $lang = array_merge($lang, array(
-	'ACP_VC_SETTINGS_EXPLAIN'		=> 'Her kan du vælge, samt konfigurere moduler, som er designet til beskytte mod automatiserede tilmeldinger og indlæg fra spambotter. Modulerne vil typisk udfordre bruger med en <em>CAPTCHA</em>, en test som er vanskelig at løse for computere.',
+	'ACP_VC_SETTINGS_EXPLAIN'		=> 'Her kan du vælge, samt konfigurere moduler, som er designet til at beskytte mod automatiserede tilmeldinger og indlæg fra spambotter. Modulerne vil typisk udfordre bruger med en <em>CAPTCHA</em>, en test som er vanskelig at løse for computere.',
 	'AVAILABLE_CAPTCHAS'				=> 'Tilgængelige udvidelsesmoduler',
 	'CAPTCHA_UNAVAILABLE'				=> 'Dette modul kan ikke vælges, dets krav er ikke opfyldt.',
 	'CAPTCHA_GD'									=> 'GD billede',

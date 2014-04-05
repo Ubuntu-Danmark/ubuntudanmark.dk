@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: help_faq.php 10716 2010-08-19 15:27:38Z git-gate $
-* @version $Id: help_faq.php 223 2012-06-04 12:39:24Z Jan Skovsgaard $
+* @version $Id: help_faq.php 301 2013-08-03 07:02:02Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group,
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -345,11 +345,11 @@ $help = array(
 	),
 	array(
 		0 => 'Hvem har skrevet koden til dette board?',
-		1 => 'Denne software (i sin umodificerede udgave) er udviklet, frigivet og copyright <a href="http://www.phpbb.com/">phpBB Group</a>. Den er offentligt tilgængelig under GNU General Public License og kan frit distribueres. Klik på linket nederst på siden for yderligere information.'
+		1 => 'Denne software (i sin umodificerede udgave) er udviklet, frigivet og copyright <a href="https://www.phpbb.com/">phpBB Group</a>. Den er offentligt tilgængelig under GNU General Public License og kan frit distribueres. Klik på linket nederst på siden for yderligere information.'
 	),
 	array(
 		0 => 'Hvorfor er X funktioner ikke til stede?',
-		1 => 'Denne software er udviklet og stillet til rådighed på licens af phpBB Group. Hvis du mener der er en funktion der mangler, besøg venligst hjemmesiden <a href="http://area51.phpbb.com/">Area51</a>, hvor der findes ressourcer hertil.'
+		1 => 'Denne software er udviklet og stillet til rådighed på licens af phpBB Group. Hvis du mener der er en funktion der mangler, besøg venligst <a href="https://www.phpbb.com/ideas/">phpBB Ideas Centre</a>, hvor du kan forelå nye funktioner eller stemme på allerede stillede forslag.'
 	),
 	array(
 		0 => 'Hvem kontakter jeg vedr. misbrug og/eller lovligheden af indlæg skrevet til dette board?',

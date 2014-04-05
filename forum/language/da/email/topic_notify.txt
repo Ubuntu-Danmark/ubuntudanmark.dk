@@ -2,7 +2,7 @@ Subject: Nyt indlæg i emnet - "{TOPIC_TITLE}"
 
 Hej {USERNAME}
 
-Du overvåger ovennævnte emne på "{SITENAME}", hvor der er indsendt indlæg siden dit seneste besøg. Du modtager ikke flere beskeder vedrørende dette emne, før du har besøgt det. Benyt nedenstående link hvis du vil se:
+Du overvåger ovennævnte emne på "{SITENAME}", hvor der er indsendt et indlæg<!-- IF AUTHOR_NAME !== '' --> af {AUTHOR_NAME}<!-- ENDIF --> siden dit seneste besøg. Du modtager ikke flere beskeder vedrørende dette emne, før du har besøgt det. Benyt nedenstående link hvis du vil se:
 
 Seneste indlæg i emnet: {U_NEWEST_POST}
 

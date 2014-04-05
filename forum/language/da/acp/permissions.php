@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: permissions.php 10017 2009-08-18 14:37:49Z bantu $
-* @version $Id: permissions.php 225 2012-06-04 19:34:45Z Jan Skovsgaard $
+* @version $Id: permissions.php 296 2013-07-19 07:35:46Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -68,7 +68,7 @@ $lang = array_merge($lang, array(
 
 		<br />
 
-		<p>Læs mere i den overordnede engelske beskrivelse <a href="http://www.phpbb.com/support/documentation/3.0/quickstart/quick_permissions.html">Quick Start Guide kapitel 1.5</a> og den udvidede <a href="http://www.phpbb.com/support/documentation/3.0/adminguide/acp_permissions.html">Administration Guide kapitel 3.7</a>, hvor der findes yderligere information om opsætning og administration af tilladelser på dit phpBB3-board.</p>
+		<p>Læs mere i den overordnede engelske beskrivelse <a href="https://www.phpbb.com/support/documentation/3.0/quickstart/quick_permissions.html">Quick Start Guide kapitel 1.5</a> og den udvidede <a href="https://www.phpbb.com/support/documentation/3.0/adminguide/acp_permissions.html">Administration Guide kapitel 3.7</a>, hvor der findes yderligere information om opsætning og administration af tilladelser på dit phpBB3-board.</p>
 	',
 
 	'ACL_NEVER'				=> 'Aldrig',

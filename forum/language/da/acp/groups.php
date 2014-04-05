@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: groups.php 9701 2009-06-28 12:13:11Z toonarmy $
-* @version $Id: groups.php 10 2010-02-06 18:13:13Z jan skovsgaard $
+* @version $Id: groups.php 242 2012-09-01 06:04:35Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -51,7 +51,7 @@ if (empty($lang) || !is_array($lang))
 // in a url you again do not need to specify an order e.g., 'Click %sHERE%s' is fine
 
 $lang = array_merge($lang, array(
-	'ACP_GROUPS_MANAGE_EXPLAIN'		=> 'Her administrerer du alle dine brugergrupper. Du kan slette, oprette og redigere eksisterende grupper, herunder ændre disses navn, og status til at være åben, skult eller lukket. Desuden kan du her udpege gruppeledere.',
+	'ACP_GROUPS_MANAGE_EXPLAIN'		=> 'Her administrerer du alle dine brugergrupper. Du kan slette, oprette og redigere eksisterende grupper, herunder ændre disses navn, og status til at være åben, skjult eller lukket. Desuden kan du her udpege gruppeledere.',
 	'ADD_USERS'						=> 'Tilføj brugere',
 	'ADD_USERS_EXPLAIN'				=> 'Her kan du tilføje nye brugere til gruppen. Du kan vælge om gruppen skal være ny standardgruppe for de valgte brugere. Du kan ydermere udpege dem som gruppeledere. Indtast venligst hvert brugernavn på en separat linie.',
 
