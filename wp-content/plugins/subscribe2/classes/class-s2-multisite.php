@@ -15,7 +15,7 @@ class s2_multisite {
 				$user_ID = get_current_user_id();
 
 				// if user is not a user of the current blog
-				if ( !is_blog_user($sub_id) ) {
+				if ( !is_user_member_of_blog($user_ID, $sub_id) ) {
 					// add user to current blog as subscriber
 					add_user_to_blog($sub_id, $user_ID, 'subscriber');
 					// add an action hook for external manipulation of blog and user data
@@ -97,7 +97,7 @@ class s2_multisite {
 			$blog_list[$details['blog_id']] = $details;
 		}
 
-		if ( false == is_array( $blog_list ) ) {
+		if ( !is_array($blog_list) ) {
 			return array();
 		}
 
@@ -160,8 +160,8 @@ class s2_multisite {
 			if ( $changed ) {
 				update_option('sidebar_widgets', $sidebars);
 			}
+			restore_current_blog();
 		}
-		restore_current_blog();
 	} // end namechange_subscribe2_widget()
 }
 ?>

@@ -3,29 +3,34 @@ if ( !function_exists('add_action') ) {
 	exit();
 }
 
-global $wpdb, $s2nonce;
+global $wpdb, $subscribers, $what, $current_tab;
 
-//Get Registered Subscribers for bulk management
-$registered = $this->get_registered();
-$all_users = $this->get_all_registered();
+// detect or define which tab we are in
+$current_tab = isset( $_GET['tab'] ) ? esc_attr($_GET['tab']) : 'public';
 
 // was anything POSTed ?
 if ( isset($_POST['s2_admin']) ) {
-	check_admin_referer('subscribe2-manage_subscribers' . $s2nonce);
+	check_admin_referer('bulk-subscribers');
 	if ( !empty($_POST['addresses']) ) {
-		$sub_error = '';
+		$reg_sub_error = '';
+		$pub_sub_error = '';
 		$unsub_error = '';
-		foreach ( preg_split ("|[\s,]+|", $_POST['addresses']) as $email ) {
+		$message = '';
+		foreach ( preg_split("|[\s,]+|", $_POST['addresses']) as $email ) {
 			$email = $this->sanitize_email($email);
-			if ( is_email($email) && $_POST['subscribe'] ) {
+			if ( is_email($email) && isset($_POST['subscribe']) ) {
 				if ( $this->is_public($email) !== false ) {
-					('' == $sub_error) ? $sub_error = "$email" : $sub_error .= ", $email";
+					('' == $pub_sub_error) ? $pub_sub_error = "$email" : $pub_sub_error .= ", $email";
+					continue;
+				}
+				if ( $this->is_registered($email) ) {
+					('' == $reg_sub_error) ? $reg_sub_error = "$email" : $reg_sub_error .= ", $email";
 					continue;
 				}
 				$this->add($email, true);
 				$message = "<div id=\"message\" class=\"updated fade\"><p><strong>" . __('Address(es) subscribed!', 'subscribe2') . "</strong></p></div>";
-			} elseif ( is_email($email) && $_POST['unsubscribe'] ) {
-				if ( $this->is_public($email) === false ) {
+			} elseif ( is_email($email) && isset($_POST['unsubscribe']) ) {
+				if ( $this->is_public($email) === false || $this->is_registered($email) ) {
 					('' == $unsub_error) ? $unsub_error = "$email" : $unsub_error .= ", $email";
 					continue;
 				}
@@ -33,43 +38,48 @@ if ( isset($_POST['s2_admin']) ) {
 				$message = "<div id=\"message\" class=\"updated fade\"><p><strong>" . __('Address(es) unsubscribed!', 'subscribe2') . "</strong></p></div>";
 			}
 		}
-		if ( $sub_error != '' ) {
-			echo "<div id=\"message\" class=\"error\"><p><strong>" . __('Some emails were not processed, the following were already subscribed' , 'subscribe2') . ":<br />$sub_error</strong></p></div>";
+		if ( $reg_sub_error != '' ) {
+			echo "<div id=\"message\" class=\"error\"><p><strong>" . __('Some emails were not processed, the following are already Registered Subscribers' , 'subscribe2') . ":<br />$reg_sub_error</strong></p></div>";
+		}
+		if ( $pub_sub_error != '' ) {
+			echo "<div id=\"message\" class=\"error\"><p><strong>" . __('Some emails were not processed, the following are already Public Subscribers' , 'subscribe2') . ":<br />$pub_sub_error</strong></p></div>";
 		}
 		if ( $unsub_error != '' ) {
 			echo "<div id=\"message\" class=\"error\"><p><strong>" . __('Some emails were not processed, the following were not in the database' , 'subscribe2') . ":<br />$unsub_error</strong></p></div>";
 		}
-		echo $message;
+		if ( $message != '' ) {
+			echo $message;
+		}
 		$_POST['what'] = 'confirmed';
-	} elseif ( isset($_POST['process']) ) {
-		if ( isset($_POST['delete']) ) {
-			foreach ( $_POST['delete'] as $address ) {
+	} elseif ( (isset($_POST['action']) && $_POST['action'] === 'delete') || (isset($_POST['action2']) && $_POST['action2'] === 'delete') ) {
+		if ( $current_tab === 'public' ) {
+			foreach ( $_POST['subscriber'] as $address ) {
 				$this->delete($address);
 			}
 			echo "<div id=\"message\" class=\"updated fade\"><p><strong>" . __('Address(es) deleted!', 'subscribe2') . "</strong></p></div>";
-		}
-		if ( isset($_POST['confirm']) ) {
-			foreach ( $_POST['confirm'] as $address ) {
-				$this->toggle($this->sanitize_email($address));
+		} elseif ( $current_tab === 'registered' ) {
+			global $current_user;
+			$users_deleted_error = '';
+			$users_deleted = '';
+			foreach ( $_POST['subscriber'] as $address ) {
+				$user = get_user_by('email', $address);
+				if ( !current_user_can('delete_user', $user->ID) || $user->ID == $current_user->ID ) {
+					$users_deleted_error = __('Delete failed! You cannot delete some or all of these users', 'subscribe2') . "<br />";
+					continue;
+				} else {
+					$users_deleted = __('User(s) deleted! Any posts made by these users were assigned to you', 'subscribe2');
+					wp_delete_user($user->ID, $current_user->ID);
+				}
 			}
-			$message = "<div id=\"message\" class=\"updated fade\"><p><strong>" . __('Status changed!', 'subscribe2') . "</strong></p></div>";
+			echo "<div id=\"message\" class=\"updated fade\"><p><strong>" . $users_deleted_error . $users_deleted . "</strong></p></div>";
 		}
-		if ( isset($_POST['unconfirm']) ) {
-			foreach ( $_POST['unconfirm'] as $address ) {
-				$this->toggle($this->sanitize_email($address));
-			}
-			$message = "<div id=\"message\" class=\"updated fade\"><p><strong>" . __('Status changed!', 'subscribe2') . "</strong></p></div>";
+	} elseif ( (isset($_POST['action']) && $_POST['action'] === 'toggle') || (isset($_POST['action2']) && $_POST['action2'] === 'toggle') ) {
+		global $current_user;
+		$this->ip = $current_user->user_login;
+		foreach ( $_POST['subscriber'] as $address ) {
+			$this->toggle($address);
 		}
-		echo $message;
-	} elseif ( !empty($_POST['searchterm']) ) {
-		$confirmed = $this->get_public();
-		$unconfirmed = $this->get_public(0);
-		$subscribers = array_merge((array)$confirmed, (array)$unconfirmed, (array)$all_users);
-		foreach ( $subscribers as $subscriber ) {
-			if ( is_numeric(stripos($subscriber, $_POST['searchterm'])) ) {
-				$result[] = $subscriber;
-			}
-		}
+		echo "<div id=\"message\" class=\"updated fade\"><p><strong>" . __('Status changed!', 'subscribe2') . "</strong></p></div>";
 	} elseif ( isset($_POST['remind']) ) {
 		$this->remind($_POST['reminderemails']);
 		echo "<div id=\"message\" class=\"updated fade\"><p><strong>" . __('Reminder Email(s) Sent!', 'subscribe2') . "</strong></p></div>";
@@ -88,150 +98,143 @@ if ( isset($_POST['s2_admin']) ) {
 	}
 }
 
-//Get Public Subscribers once for filter
-$confirmed = $this->get_public();
-$unconfirmed = $this->get_public(0);
-// safety check for our arrays
-if ( '' == $confirmed ) { $confirmed = array(); }
-if ( '' == $unconfirmed ) { $unconfirmed = array(); }
-if ( '' == $registered ) { $registered = array(); }
-if ( '' == $all_users ) { $all_users = array(); }
+if ( $current_tab == 'registered' ) {
+	// Get Registered Subscribers
+	$registered = $this->get_registered();
+	$all_users = $this->get_all_registered();
+	// safety check for our arrays
+	if ( '' == $registered ) { $registered = array(); }
+	if ( '' == $all_users ) { $all_users = array(); }
+} else {
+	//Get Public Subscribers
+	$confirmed = $this->get_public();
+	$unconfirmed = $this->get_public(0);
+	// safety check for our arrays
+	if ( '' == $confirmed ) { $confirmed = array(); }
+	if ( '' == $unconfirmed ) { $unconfirmed = array(); }
+}
 
 $reminderform = false;
-$urlpath = str_replace("\\", "/", S2PATH);
-$urlpath = trailingslashit(get_option('siteurl')) . substr($urlpath,strpos($urlpath, "wp-content/"));
-if ( isset($_GET['s2page']) ) {
-	$page = (int) $_GET['s2page'];
-} else {
-	$page = 1;
-}
-
-if ( isset($_POST['what']) ) {
-	$page = 1;
-	if ( 'all' == $_POST['what'] ) {
-		$what = 'all';
-		$subscribers = array_merge((array)$confirmed, (array)$unconfirmed, (array)$all_users);
-	} elseif ( 'public' == $_POST['what'] ) {
+if ( isset($_REQUEST['what']) ) {
+	if ( 'public' == $_REQUEST['what'] ) {
 		$what = 'public';
 		$subscribers = array_merge((array)$confirmed, (array)$unconfirmed);
-	} elseif ( 'confirmed' == $_POST['what'] ) {
+	} elseif ( 'confirmed' == $_REQUEST['what'] ) {
 		$what = 'confirmed';
 		$subscribers = $confirmed;
-	} elseif ( 'unconfirmed' == $_POST['what'] ) {
+	} elseif ( 'unconfirmed' == $_REQUEST['what'] ) {
 		$what = 'unconfirmed';
 		$subscribers = $unconfirmed;
 		if ( !empty($subscribers) ) {
 			$reminderemails = implode(",", $subscribers);
 			$reminderform = true;
 		}
-	} elseif ( is_numeric($_POST['what']) ) {
-		$what = intval($_POST['what']);
+	} elseif ( is_numeric($_REQUEST['what']) ) {
+		$what = intval($_REQUEST['what']);
 		$subscribers = $this->get_registered("cats=$what");
-	} elseif ( 'registered' == $_POST['what'] ) {
+	} elseif ( 'registered' == $_REQUEST['what'] ) {
 		$what = 'registered';
 		$subscribers = $registered;
-	} elseif ( 'all_users' == $_POST['what'] ) {
-		$what = 'all_users';
-		$subscribers = $all_users;
-	}
-} elseif ( isset($_GET['what']) ) {
-	if ( 'all' == $_GET['what'] ) {
-		$what = 'all';
-		$subscribers = array_merge((array)$confirmed, (array)$unconfirmed, (array)$all_users);
-	} elseif ( 'public' == $_GET['what'] ) {
-		$what = 'public';
-		$subscribers = array_merge((array)$confirmed, (array)$unconfirmed);
-	} elseif ( 'confirmed' == $_GET['what'] ) {
-		$what = 'confirmed';
-		$subscribers = $confirmed;
-	} elseif ( 'unconfirmed' == $_GET['what'] ) {
-		$what = 'unconfirmed';
-		$subscribers = $unconfirmed;
-		if ( !empty($subscribers) ) {
-			$reminderemails = implode(",", $subscribers);
-			$reminderform = true;
-		}
-	} elseif ( is_numeric($_GET['what']) ) {
-		$what = intval($_GET['what']);
-		$subscribers = $this->get_registered("cats=$what");
-	} elseif ( 'registered' == $_GET['what'] ) {
-		$what = 'registered';
-		$subscribers = $registered;
-	} elseif ( 'all_users' == $_GET['what'] ) {
+	} elseif ( 'all_users' == $_REQUEST['what'] ) {
 		$what = 'all_users';
 		$subscribers = $all_users;
 	}
 } else {
-	$what = 'all';
-	$subscribers = array_merge((array)$confirmed, (array)$unconfirmed, (array)$all_users);
-}
-if ( !empty($_POST['searchterm']) ) {
-	$subscribers = &$result;
-	$what = 'public';
+	if ( $current_tab === 'public' ) {
+		$what = 'public';
+		$subscribers = array_merge((array)$confirmed, (array)$unconfirmed);
+	} else {
+		$what = 'all_users';
+		$subscribers = $all_users;
+	}
 }
 
-if ( !empty($subscribers) ) {
-	natcasesort($subscribers);
-	// Displays a page number strip - adapted from code in Akismet
-	$args['what'] = $what;
-	$total_subscribers = count($subscribers);
-	$total_pages = ceil($total_subscribers / $this->subscribe2_options['entries']);
-	$strip = '';
-	if ( $page > 1 ) {
-		$args['s2page'] = $page - 1;
-		$strip .= '<a class="prev" href="' . esc_url(add_query_arg($args)) . '">&laquo; '. __('Previous Page', 'subscribe2') .'</a>' . "\n";
-	}
-	if ( $total_pages > 1 ) {
-		for ( $page_num = 1; $page_num <= $total_pages; $page_num++ ) {
-			if ( $page == $page_num ) {
-				$strip .= "<strong>Page " . $page_num . "</strong>\n";
-			} else {
-				if ( $page_num < 3 || ( $page_num >= $page - 2 && $page_num <= $page + 2 ) || $page_num > $total_pages - 2 ) {
-					$args['s2page'] = $page_num;
-					$strip .= "<a class=\"page-numbers\" href=\"" . esc_url(add_query_arg($args)) . "\">" . $page_num . "</a>\n";
-					$trunc = true;
-				} elseif ( $trunc == true ) {
-					$strip .= "...\n";
-					$trunc = false;
-				}
+if ( !empty($_REQUEST['s']) ) {
+	if ( !empty($_POST['s']) ) {
+		foreach ( $subscribers as $subscriber ) {
+			if ( is_numeric(stripos($subscriber, $_POST['s'])) ) {
+				$result[] = $subscriber;
 			}
 		}
-	}
-	if ( ( $page ) * $this->subscribe2_options['entries'] < $total_subscribers ) {
-		$args['s2page'] = $page + 1;
-		$strip .= "<a class=\"next\" href=\"" . esc_url(add_query_arg($args)) . "\">". __('Next Page', 'subscribe2') . " &raquo;</a>\n";
+		$subscribers = $result;
+	} else {
+		foreach ( $subscribers as $subscriber ) {
+			if ( is_numeric(stripos($subscriber, $_REQUEST['s'])) ) {
+				$result[] = $subscriber;
+			}
+		}
+		$subscribers = $result;
 	}
 }
+
+if ( !class_exists('WP_List_Table') ) {
+	require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
+}
+if ( !class_exists('Subscribe2_List_Table') ) {
+	require_once( S2PATH . 'classes/class-s2-list-table.php' );
+}
+
+// Instantiate and prepare our table data - this also runs the bulk actions
+$S2ListTable = new Subscribe2_List_Table();
+$S2ListTable->prepare_items();
 
 // show our form
 echo "<div class=\"wrap\">";
-echo "<div id=\"icon-tools\" class=\"icon32\"></div>";
-echo "<h2>" . __('Manage Subscribers', 'subscribe2') . "</h2>\r\n";
-echo "<form method=\"post\">\r\n";
-if ( function_exists('wp_nonce_field') ) {
-	wp_nonce_field('subscribe2-manage_subscribers' . $s2nonce);
+if ( version_compare($GLOBALS['wp_version'], '3.8', '<=') ) {
+	echo "<div id=\"icon-tools\" class=\"icon32\"></div>";
 }
-echo "<div class=\"s2_admin\" id=\"s2_add_subscribers\">\r\n";
-echo "<h2>" . __('Add/Remove Subscribers', 'subscribe2') . "</h2>\r\n";
-echo "<p>" . __('Enter addresses, one per line or comma-separated', 'subscribe2') . "<br />\r\n";
-echo "<textarea rows=\"2\" cols=\"80\" name=\"addresses\"></textarea></p>\r\n";
+$tabs = array('public' => __('Public Subscribers', 'subscribe2'), 'registered' => __('Registered Subscribers', 'subscribe2'));
+echo "<h2 class=\"nav-tab-wrapper\">";
+foreach ( $tabs as $tab_key => $tab_caption ) {
+	$active = ($current_tab == $tab_key) ? "nav-tab-active" : "";
+	echo "<a class=\"nav-tab " . $active . "\" href=\"?page=s2_tools&amp;tab=" . $tab_key . "\">" . $tab_caption . "</a>";
+}
+echo "</h2>";
+echo "<form method=\"post\">\r\n";
 echo "<input type=\"hidden\" name=\"s2_admin\" />\r\n";
-echo "<p class=\"submit\" style=\"border-top: none;\"><input type=\"submit\" class=\"button-primary\" name=\"subscribe\" value=\"" . __('Subscribe', 'subscribe2') . "\" />";
-echo "&nbsp;<input type=\"submit\" class=\"button-primary\" name=\"unsubscribe\" value=\"" . __('Unsubscribe', 'subscribe2') . "\" /></p>\r\n";
-echo "</div>\r\n";
+switch ($current_tab) {
+	case 'public':
+		echo "<div class=\"s2_admin\" id=\"s2_add_subscribers\">\r\n";
+		echo "<h2>" . __('Add/Remove Subscribers', 'subscribe2') . "</h2>\r\n";
+		echo "<p>" . __('Enter addresses, one per line or comma-separated', 'subscribe2') . "<br />\r\n";
+		echo "<textarea rows=\"2\" cols=\"80\" name=\"addresses\"></textarea></p>\r\n";
+		echo "<input type=\"hidden\" name=\"s2_admin\" />\r\n";
+		echo "<p class=\"submit\" style=\"border-top: none;\"><input type=\"submit\" class=\"button-primary\" name=\"subscribe\" value=\"" . __('Subscribe', 'subscribe2') . "\" />";
+		echo "&nbsp;<input type=\"submit\" class=\"button-primary\" name=\"unsubscribe\" value=\"" . __('Unsubscribe', 'subscribe2') . "\" /></p>\r\n";
+		echo "</div>\r\n";
 
-// subscriber lists
-echo "<div class=\"s2_admin\" id=\"s2_current_subscribers\">\r\n";
-echo "<h2>" . __('Current Subscribers', 'subscribe2') . "</h2>\r\n";
-echo "<br />";
-$this->display_subscriber_dropdown($what, __('Filter', 'subscribe2'));
-echo "<br /><br />";
+		// subscriber lists
+		echo "<div class=\"s2_admin\" id=\"s2_current_subscribers\">\r\n";
+		echo "<h2>" . __('Current Subscribers', 'subscribe2') . "</h2>\r\n";
+		echo "<br />";
+		$cats = $this->all_cats();
+		$cat_ids = array();
+		foreach ( $cats as $cat) {
+			$cat_ids[] = $cat->term_id;
+		}
+		$exclude = array_merge(array('all', 'all_users', 'registered'), $cat_ids);
+		break;
+
+	case 'registered':
+		echo "<div class=\"s2_admin\" id=\"s2_add_subscribers\">\r\n";
+		echo "<h2>" . __('Add/Remove Subscribers', 'subscribe2') . "</h2>\r\n";
+		echo "<p class=\"submit\" style=\"border-top: none;\"><a class=\"button-primary\" href=\"" . admin_url() . "user-new.php\">" . __('Add Registered User', 'subscribe2') . "</a></p>\r\n";
+
+		echo "</div>\r\n";
+
+		// subscriber lists
+		echo "<div class=\"s2_admin\" id=\"s2_current_subscribers\">\r\n";
+		echo "<h2>" . __('Current Subscribers', 'subscribe2') . "</h2>\r\n";
+		echo "<br />";
+		$exclude = array('all', 'public', 'confirmed', 'unconfirmed');
+		break;
+}
+
 // show the selected subscribers
-$alternate = 'alternate';
-echo "<table style=\"width: 100%; border-collapse: separate; border-spacing: 0px; *border-collapse: expression('separate', cellSpacing = '0px');\" class=\"widefat\" >";
-$searchterm = ( isset($_POST['searchterm']) ) ? stripslashes(esc_html($_POST['searchterm'])) : '';
-echo "<tr class=\"alternate\"><td colspan=\"3\"><input type=\"text\" name=\"searchterm\" value=\"" . $searchterm . "\" /></td>\r\n";
-echo "<td><input type=\"submit\" class=\"button-secondary\" name=\"search\" value=\"" . __('Search Subscribers', 'subscribe2') . "\" /></td>\r\n";
+echo "<table style=\"width: 100%; border-collapse: separate; border-spacing: 0px; *border-collapse: expression('separate', cellSpacing = '0px');\"><tr>";
+echo "<td style=\"width: 50%; text-align: left;\">";
+$this->display_subscriber_dropdown($what, __('Filter', 'subscribe2'), $exclude);
+echo "</td>\r\n";
 if ( $reminderform ) {
 	echo "<td style=\"width: 25%; text-align: right;\"><input type=\"hidden\" name=\"reminderemails\" value=\"" . $reminderemails . "\" />\r\n";
 	echo "<input type=\"submit\" class=\"button-secondary\" name=\"remind\" value=\"" . __('Send Reminder Email', 'subscribe2') . "\" /></td>\r\n";
@@ -245,76 +248,15 @@ if ( !empty($subscribers) ) {
 } else {
 	echo "<td style=\"width: 25%;\"></td>";
 }
-echo "</tr>";
+echo "</tr></table>";
 
-if ( !empty($subscribers) ) {
-	echo "<tr><td colspan=\"3\" style=\"text-align: center;\"><input type=\"submit\" class=\"button-secondary\" name=\"process\" value=\"" . __('Process', 'subscribe2') . "\" /></td>\r\n";
-	echo "<td style=\"text-align: right;\" colspan=\"3\">" . $strip . "</td></tr>\r\n";
-}
-if ( !empty($subscribers) ) {
-	if ( is_int($this->subscribe2_options['entries']) ) {
-		$subscriber_chunks = array_chunk($subscribers, $this->subscribe2_options['entries']);
-	} else {
-		$subscriber_chunks = array_chunk($subscribers, 25);
-	}
-	$chunk = $page - 1;
-	$subscribers = $subscriber_chunks[$chunk];
-	echo "<tr class=\"alternate\" style=\"height:1.5em;\">\r\n";
-	echo "<td style=\"width: 4%; text-align: center;\">";
-	echo "<img src=\"" . $urlpath . "include/accept.png\" alt=\"&lt;\" title=\"" . __('Confirm this email address', 'subscribe2') . "\" /></td>\r\n";
-	echo "<td style=\"width: 4%; text-align: center;\">";
-	echo "<img src=\"" . $urlpath . "include/exclamation.png\" alt=\"&gt;\" title=\"" . __('Unconfirm this email address', 'subscribe2') . "\" /></td>\r\n";
-	echo "<td style=\"width: 4%; text-align: center;\">";
-	echo "<img src=\"" . $urlpath . "include/cross.png\" alt=\"X\" title=\"" . __('Delete this email address', 'subscribe2') . "\" /></td><td colspan=\"3\"></td></tr>\r\n";
-	echo "<tr class=\"\"><td style=\"text-align: center;\"><input type=\"checkbox\" name=\"checkall\" value=\"confirm_checkall\" /></td>\r\n";
-	echo "<td style=\"text-align: center;\"><input type=\"checkbox\" name=\"checkall\" value=\"unconfirm_checkall\" /></td>\r\n";
-	echo "<td style=\"text-align: center;\"><input type=\"checkbox\" name=\"checkall\" value=\"delete_checkall\" /></td>\r\n";
-	echo "<td colspan =\"3\" style=\"text-align: left;\"><strong>" . __('Select / Unselect All', 'subscribe2') . "</strong></td></tr>\r\n";
-
-	foreach ( $subscribers as $subscriber ) {
-		echo "<tr class=\"$alternate\" style=\"height:1.5em;\">";
-		echo "<td style=\"text-align: center;\">\r\n";
-		if ( in_array($subscriber, $confirmed) ) {
-			echo "</td><td style=\"text-align: center;\">\r\n";
-			echo "<input class=\"unconfirm_checkall\" title=\"" . __('Unconfirm this email address', 'subscribe2') . "\" type=\"checkbox\" name=\"unconfirm[]\" value=\"" . $subscriber . "\" /></td>\r\n";
-			echo "<td style=\"text-align: center;\">\r\n";
-			echo "<input class=\"delete_checkall\" title=\"" . __('Delete this email address', 'subscribe2') . "\" type=\"checkbox\" name=\"delete[]\" value=\"" . $subscriber . "\" />\r\n";
-			echo "</td>\r\n";
-			echo "<td colspan=\"3\"><span style=\"color:#006600\">&#x221A;&nbsp;&nbsp;</span><abbr title=\"" . $this->signup_ip($subscriber) . "\"><a href=\"mailto:" . $subscriber . "\">" . $subscriber . "</a></abbr>\r\n";
-			echo "(<span style=\"color:#006600\">" . $this->signup_date($subscriber) . "</span>)\r\n";
-		} elseif ( in_array($subscriber, $unconfirmed) ) {
-			echo "<input class=\"confirm_checkall\" title=\"" . __('Confirm this email address', 'subscribe2') . "\" type=\"checkbox\" name=\"confirm[]\" value=\"" . $subscriber . "\" /></td>\r\n";
-			echo "<td style=\"text-align: center;\"></td>\r\n";
-			echo "<td style=\"text-align: center;\">\r\n";
-			echo "<input class=\"delete_checkall\" title=\"" . __('Delete this email address', 'subscribe2') . "\" type=\"checkbox\" name=\"delete[]\" value=\"" . $subscriber . "\" />\r\n";
-			echo "</td>\r\n";
-			echo "<td colspan=\"3\"><span style=\"color:#FF0000\">&nbsp;!&nbsp;&nbsp;&nbsp;</span><abbr title=\"" . $this->signup_ip($subscriber) . "\"><a href=\"mailto:" . $subscriber . "\">" . $subscriber . "</a></abbr>\r\n";
-			echo "(<span style=\"color:#FF0000\">" . $this->signup_date($subscriber) . "</span>)\r\n";
-		} elseif ( in_array($subscriber, $all_users) ) {
-			$user_info = get_user_by('email', $subscriber);
-			echo "</td><td style=\"text-align: center;\"></td><td style=\"text-align: center;\"></td>\r\n";
-			echo "<td colspan=\"3\"><span style=\"color:#006600\">&reg;&nbsp;&nbsp;</span><abbr title=\"" . $user_info->user_login . "\"><a href=\"mailto:" . $subscriber . "\">" . $subscriber . "</a></abbr>\r\n";
-			echo "(<a href=\"" . get_option('siteurl') . "/wp-admin/admin.php?page=s2&amp;email=" . urlencode($subscriber) . "\">" . __('edit', 'subscribe2') . "</a>)\r\n";
-		}
-		echo "</td></tr>\r\n";
-		('alternate' == $alternate) ? $alternate = '' : $alternate = 'alternate';
-	}
-} else {
-	if ( $_POST['searchterm'] ) {
-		echo "<tr><td colspan=\"6\" style=\"text-align: center;\"><b>" . __('No matching subscribers found', 'subscribe2') . "</b></td></tr>\r\n";
-	} else {
-		echo "<tr><td colspan=\"6\" style=\"text-align: center;\"><b>" . __('NONE', 'subscribe2') . "</b></td></tr>\r\n";
-	}
-}
-if ( !empty($subscribers) ) {
-	echo "<tr class=\"$alternate\"><td colspan=\"3\" style=\"text-align: center;\"><input type=\"submit\" class=\"button-secondary\" name=\"process\" value=\"" . __('Process', 'subscribe2') . "\" /></td>\r\n";
-	echo "<td colspan=\"3\" style=\"text-align: right;\">" . $strip . "</td></tr>\r\n";
-}
-echo "</table>\r\n";
+// output our subscriber table
+$S2ListTable->search_box(__('Search', 'subscribe2'), 'search_id');
+$S2ListTable->display();
 echo "</div>\r\n";
 
 // show bulk managment form if filtered in some Registered Users
-if ( in_array($what, array('registered', 'all_users')) || is_numeric($what) ) {
+if ( $current_tab === 'registered' ) {
 	echo "<div class=\"s2_admin\" id=\"s2_bulk_manage\">\r\n";
 	echo "<h2>" . __('Bulk Management', 'subscribe2') . "</h2>\r\n";
 	if ( $this->subscribe2_options['email_freq'] == 'never' ) {
