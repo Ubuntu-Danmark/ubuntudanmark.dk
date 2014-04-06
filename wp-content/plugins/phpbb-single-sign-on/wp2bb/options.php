@@ -1,13 +1,13 @@
 <div class="wrap">
     <h2><?php _e('Wp2BB Plugin Options', 'wp2bb') ?></h2>
-    <small><a href="http://www.alfredodehoces.com/wp2bb">Wp2BB</a> by <a href="http://www.alfredodehoces.com">Alfredo de Hoces</a></small>
-    <?php if (!defined('PHPBBPATH')) {
- ?>
+
+    <?php if (!defined('PHPBBPATH')): ?>
         <div class="error"><p><strong>PhpBB not found!</strong> Please set PhpBB local path before creating or updating posts</p></div>
-    <?php } ?>
-<?php if (count($_POST)) { ?>
+    <?php endif; ?>
+
+    <?php if (count($_POST)): ?>
         <div class="updated"><p><strong><?php _e('Options saved.', 'wp2bb'); ?></strong></p></div>
-<?php } ?>
+    <?php endif; ?>
 
     <?php
     include_once($phpbb_root_path . 'includes/functions_admin.php');
@@ -113,10 +113,12 @@
             $fields[$key]['value'] = get_option($key);
         }
 
-        if ($data['type'] == 'field') {
-            $fields[$key]['field'] = '<input type="text" name="' . $key . '" value="' . $fields[$key]['value'] . '" size="60" />';
-        } else if ($data['type'] == 'textarea') {
-            $fields[$key]['field'] = '<textarea id="details" name="' . $key . '" rows="5" cols="53">' . $fields[$key]['value'] . '</textarea>';
+        switch ($data['type']) {
+            case 'field':
+                $fields[$key]['field'] = '<input type="text" name="' . $key . '" value="' . $fields[$key]['value'] . '" size="60" />';
+                break;
+            case 'textarea':
+                $fields[$key]['field'] = '<textarea id="details" name="' . $key . '" rows="3" cols="53">' . $fields[$key]['value'] . '</textarea>';
         }
     }
 
@@ -131,20 +133,22 @@
     ?>
     <form name="form1" method="post" id="configuration" action="<?php echo str_replace('%7E', '~', $_SERVER['REQUEST_URI']); ?>">
         <input type="hidden" name="stage" value="update" />
-        <table class="widefat" summary="" title="PHPBB">
-            <tbody id="the-list">
-<?php foreach ($fields as $key => $data) { ?>
-                    <tr valign="baseline">
-                        <th scope="row"><?php echo $data['title']; ?></th>
-                    <td><?php echo $data['field']; ?></td>
-                    <td><?php echo $data['desc']; ?></td>
-                </tr>
-<?php } ?>
-            </tbody>
+        <table class="form-table" title="PHPBB">
+        <?php foreach ($fields as $key => $data) { ?>
+            <tr valign="top">
+                <th scope="row"><?php echo $data['title']; ?></th>
+                <td>
+                    <?php echo $data['field']; ?>
+                    <p class=description><?php echo $data['desc']; ?></p>
+                </td>
+            </tr>
+        <?php } ?>
         </table>
         <p class="submit">
-            <input type="submit" name="Submit" value="<?php _e('Update Options', 'mt_trans_domain'); ?>" />
+            <input type="submit" class="button button-primary" name="Submit" value="<?php _e('Update Options', 'mt_trans_domain'); ?>" />
         </p>
 
+        <br />
+        <small><a href="http://www.alfredodehoces.com/wp2bb">Wp2BB</a> by <a href="http://www.alfredodehoces.com">Alfredo de Hoces</a></small>
     </form>
 </div>

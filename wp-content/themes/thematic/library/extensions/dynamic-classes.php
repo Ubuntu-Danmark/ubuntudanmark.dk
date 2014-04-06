@@ -6,56 +6,22 @@
  * @subpackage DynamicClasses
  */
  
-if ( function_exists( 'childtheme_override_body' ) )  {
-	/**
-	 * @ignore
-	 */function thematic_body() {
-		childtheme_override_body();
-	}
-} else {
-	/**
-	 * @ignore
-	 */function thematic_body() {
-		thematic_bodyopen();
-	}
-}
-
-/**
- * thematic_bodyopen function
- */
-function thematic_bodyopen() {
-    if ( apply_filters( 'thematic_show_bodyclass',TRUE ) ) { 
-        // Creating the body class
-    	if ( ! ( THEMATIC_COMPATIBLE_BODY_CLASS ) ) { 
-    		echo '<body ';
-    		body_class();
-    		echo '>' . "\n\n";
-    	} else { 
-    		echo '<body class="';
-    		thematic_body_class();
-    		echo '">' . "\n\n";
-    	}
-    } else {
-    	echo '<body>' . "\n\n";
-    }
-}
 
 if ( function_exists( 'childtheme_override_body_class' ) )  {
 	/**
 	 * @ignore
-	 */function thematic_body_class() {
+	 */
+	 function thematic_body_class() {
 		childtheme_override_body_class();
 	}
 } else {
 	/**
 	 * Generates semantic classes for BODY element
 	 *
-	 * @param bool $print (default: true)
+	 * @param array $c body classes
 	 */
-	function thematic_body_class( $print = true ) {
+	function thematic_body_class( $c ) {
 		global $wp_query, $current_user, $blog_id, $post, $taxonomy;
-	    
-	    $c = array();
 	
 		if ( apply_filters('thematic_show_bc_wordpress', TRUE ) ) {
 	        // It's surely a WordPress blog, right?
@@ -92,9 +58,7 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 	            $c[] = 'not-singular';
 	        }
 	    }
-	
-		// Special classes for BODY element when a single post
-		if ( is_single() && apply_filters( 'thematic_show_bc_singlepost', TRUE ) ) {
+	if ( is_single() && apply_filters( 'thematic_show_bc_singlepost', TRUE ) ) {
 			$postID = $wp_query->post->ID;
 			the_post();
 	
@@ -102,12 +66,15 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 	        $c[] = 'slug-' . $wp_query->post->post_name;
 	
 			// Adds 'single' class and class with the post ID
-			$c[] = 'single postid-' . $postID;
+			$c[] = 'single';
+			$c[] = 'postid-' . $postID;
 	
 			// Adds classes for the month, day, and hour when the post was published
 			if ( isset( $wp_query->post->post_date ) )
 				thematic_date_classes( mysql2date( 'U', $wp_query->post->post_date ), $c, 's-' );
 	
+		// Special classes for BODY element when a single post
+		
 			// Adds category classes for each category on single posts
 			if ( $cats = get_the_category() )
 				foreach ( $cats as $cat )
@@ -213,7 +180,8 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 	        // Adds post slug class, prefixed by 'slug-'
 	        $c[] = 'slug-' . $wp_query->post->post_name;
 	
-			$c[] = 'page pageid-' . $pageID;
+			$c[] = 'page';
+			$c[] = 'pageid-' . $pageID;
 			
 			$c[] = 'page-author-' . sanitize_title_with_dashes( strtolower( get_the_author_meta( 'user_nicename', $post->post_author) ) );
 			
@@ -294,7 +262,7 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 				        $c[] = 'search-paged-' . $page;
  				} 
  			// Paged classes; for page x = 1	For all post types
- 			} elseif ( strpos( $post->post_content, '<!--nextpage-->') )  { 
+ 			} elseif ( preg_match( '/<!--nextpage(.*?)-->/', $post->post_content ) )  { 
  				if ( thematic_is_custom_post_type() ) {
 				    	$c[] = str_replace( '_','-',$post->post_type ) . '-paged-1';
  				    } elseif (is_page()) {
@@ -304,26 +272,26 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 				}
   			}
   		}
-		
-	
-		// Separates classes with a single space, collates classes for BODY
-		$c = join( ' ', apply_filters( 'thematic_body_class',  $c ) ); // Available filter: thematic_body_class
-	
+
 		// And tada!
-		return $print ? print($c) : $c;
+		return array_unique(apply_filters( 'thematic_body_class', $c )); // Available filter: thematic_body_class
 	}
 }
 
-// Add browser CSS class to the end (queuing through priority) of the body classes 
-
-if ( ! ( THEMATIC_COMPATIBLE_BODY_CLASS ) ) {
-	add_filter( 'body_class', 'thematic_browser_class_names', 20 );
+/**
+ * Add thematic body classes if child theme activates it
+ */
+function thematic_activate_body_classes() {
+	if ( current_theme_supports ( 'thematic_legacy_body_class' ) ) {
+		add_filter( 'body_class', 'thematic_body_class', 20 );
 	}
 	
-if ( apply_filters( 'thematic_show_bc_browser', TRUE ) ) {
-	add_filter( 'thematic_body_class', 'thematic_browser_class_names', 20 ); 
+	// Add browser CSS class to the end (queuing through priority) of the body classes 
+	if ( apply_filters( 'thematic_show_bc_browser', TRUE ) ) {
+		add_filter( 'body_class', 'thematic_browser_class_names', 30 ); 
 	}
-
+}
+add_action( 'init', 'thematic_activate_body_classes' );
 
 
 
@@ -419,22 +387,27 @@ function thematic_browser_class_names($classes) {
 	return $classes;
 }
 
-	
+
 if (function_exists('childtheme_override_post_class'))  {
 	/**
 	 * @ignore
-	 */function thematic_post_class() {
+	 */
+	 function thematic_post_class() {
 		childtheme_override_post_class();
 	}
 } else {
 	/**
 	 * Generates semantic classes for each post DIV element
 	 */
-	function thematic_post_class( $print = true ) {
+	function thematic_post_class( $c ) {
+
 		global $post, $thematic_post_alt, $thematic_content_length, $taxonomy;
 	
 		// hentry for hAtom compliace, gets 'alt' for every other post DIV, describes the post type and p[n]
-		$c = array( 'hentry', "p$thematic_post_alt", str_replace( '_', '-', $post->post_type) , $post->post_status );
+		$c[] = 'hentry';
+		$c[] = "p$thematic_post_alt";
+		$c[] =  str_replace( '_', '-', $post->post_type );
+		$c[] =  $post->post_status ;
 	
 		// Author for the post queried
 		$c[] = 'author-' . sanitize_title_with_dashes( strtolower( get_the_author_meta( 'user_login' ) ) );
@@ -468,34 +441,26 @@ if (function_exists('childtheme_override_post_class'))  {
 			}
 		}
 
-		// For posts displayed as full content
-		if ($thematic_content_length == 'full')
-			$c[] = 'is-full';
+		$thematic_excerpt_more = preg_match( '/<!--more(.*?)-->/', $post->post_content );
 
 		// For posts displayed as excerpts
-		if ($thematic_content_length == 'excerpt') {
+		if ( $thematic_content_length == 'excerpt' || ( !is_single() && $thematic_excerpt_more ) ) {
 			$c[] = 'is-excerpt';
-			if ( has_excerpt() && !preg_match( '/<!--more(.*?)?-->/', $post->post_content ) ) {
+			if ( has_excerpt() ) {
 				// For wp-admin Write Page generated excerpts
 				$c[] = 'custom-excerpt';
+			} elseif ( $thematic_excerpt_more ) {
+				// For  more tag
+				$c[] = 'moretag-excerpt';
 			} else {
-				// For automatically generated excerpts
+				// For auto generated excerpts
 				$c[] = 'auto-excerpt';
 			}
+		// For posts displayed as full content
+		} elseif (  $thematic_content_length == 'full'  )  {
+				$c[] = 'is-full';
 		}
-		
-		// For single posts that had a wp-admin Write Page generated excerpt  
-		if ( has_excerpt() && is_single() )
-			$c[] = 'has-excerpt';
-			
-		//	For posts using more tag
-		if ( preg_match( '/<!--more(.*?)?-->/', $post->post_content ) ) {	
-			if ( !is_single() ) {
-				$c[] = 'wp-teaser';
-			} elseif ( is_single() ) {
-				$c[] = 'has-teaser';
-			}
-		}
+
 						
 		// For posts with comments open or closed
 		if ( comments_open() ) {
@@ -527,15 +492,22 @@ if (function_exists('childtheme_override_post_class'))  {
 			$c[] = 'alt';
 	
 	    // Adds post slug class, prefixed by 'slug-'
-	    $c[] = 'slug-' . $post->post_name;
-	
-		// Separates classes with a single space, collates classes for post DIV
-		$c = join( ' ', apply_filters( 'post_class', $c ) ); // Available filter: post_class
+	    $c[] = 'slug-' . $post->post_name; 
 	
 		// And tada!
-		return $print ? print($c) : $c;
+		return array_unique(apply_filters( 'thematic_post_class', $c )); // Available filter: thematic_post_class
 	}
 }
+
+/**
+ * Add thematic post classes if child theme activates it
+ */
+function thematic_activate_post_classes() {
+	if ( current_theme_supports ( 'thematic_legacy_post_class' ) ) {
+		add_filter( 'post_class', 'thematic_post_class', 20 );
+	}
+}
+add_action( 'init', 'thematic_activate_post_classes' );
 
 /**
  * Define the num val for 'alt' classes (in post DIV and comment LI)

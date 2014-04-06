@@ -1,10 +1,11 @@
 === Subscribe To Comments Reloaded ===
-Contributors: coolmann
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Z732JS7KQ6RRL&lc=US&item_name=Subscribe%20To%20Comments%20Reloaded&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
+Author: camu, Reedyseth, andreasbo, raamdev
+Contributors: coolmann, Reedyseth, raamdev
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=XF86X93FDCGYA&lc=US&item_name=Datasoft%20Engineering&item_number=DI%2dSTCR&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted
 Tags: subscribe, comments, notification, subscription, manage, double check-in, follow, commenting
 Requires at least: 2.9.2
-Tested up to: 3.2
-Stable tag: 2.0.2
+Tested up to: 3.8.1
+Stable tag: 140220
 
 Subscribe to Comments Reloaded allows commenters to sign up for e-mail notifications of subsequent replies.
 
@@ -48,7 +49,7 @@ Yes, each HTML tag has a CSS class or ID that you can use to change its position
 Add a custom field called `stcr_disable_subscriptions` to it, with value 'yes'
 
 = How do I add the management page URL to my posts? =
-Use the shortcode `[subscribe-url]`, or use the following code in your theme: 
+Use the shortcode `[subscribe-url]`, or use the following code in your theme:
 `if(function_exists('subscribe_reloaded_show')) echo '<a href="'.do_shortcode('[subscribe-url]').'">Subscribe</a>";`
 
 = Can I move the subscription checkbox to another position? =
@@ -59,9 +60,70 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 
 1. Manage your subscriptions
 2. Use your own messages to interact with your users
-3. Customize the plugin's behavior
+3. Configure the Virtual Management page
+4. Customize the notification messages
+5. Customize the plugin's behavior
+
+== Upgrade Notice ==
+
+= v140220 =
+
+**Security Fix; PLEASE UPGRADE IMMEDIATELY**. v140219 fixes an XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
 
 == Changelog ==
+
+= v140220 =
+
+**Bug Fix**. Fixes an encoding bug that broke HTML output after patching XSS vulnerability. If you started seeing raw HTML output at the bottom of your comment forms after upgrading to v140219, this update should fix that.
+
+= v140219 =
+
+* **Security Fix; PLEASE UPGRADE IMMEDIATELY**. Fixes XSS/CSRF vulnerability that was discovered by Tom Adams and reported by a WordPress Plugin Repository moderator.
+* **Translations**. Updated French translation (thanks to Jean-Michel MEYER).
+* Improvements to translation support (thanks to Carlos Alberto Lopez Perez).
+* Add trailing slash to comment-subscriptions page to avoid unnecessary redirections (thanks to Carlos Alberto Lopez Perez).
+
+= v140204 =
+
+* **New Feature**. There is a new Option that Sets the default Subscription Type when the Chechbox 'Checked by default' is enable *Settings -> Subscribe to Comments -> Comment Form -> Default Checkbox Value*.
+* Corrected reference to the language translation files. If you find something fuzzy please open a Issue on GitHub <https://github.com/stcr/subscribe-to-comments-reloaded/issues/new?title=Bug%20Report:%20%3Cshort%20description%3E&labels=bug>
+
+= v140129 =
+
+* **Bug Fix**. Fixed `Notice: Undefined variable: post_id` that was sometimes causing issues with creating a new subscription when WordPres Debug mode was enabled. See: <https://github.com/stcr/subscribe-to-comments-reloaded/issues/2>
+* Added missing `.mo` files for translations in `lang/`. See: <https://github.com/stcr/subscribe-to-comments-reloaded/issues/13>
+
+= v140128 =
+
+* **New Feature**. There is now an option to BCC the admin on all Notifications. This is very useful when troubleshooting email delivery issues.
+* **New Option**. There is a new 'HTMLify links in emails' Option. When using HTML emails for messages you can now choose to have StCR automatically HTMLify the links for you (*Settings -> Subscribe to Comments -> Options -> HTMLify links in emails*). You can, of course, leave this option disabled and add your own HTML to the messages if you prefer.
+* **New Option**. There is a new 'default subscription type' Option. If you're using Advanced subscriptions, you can now specify the Advanced default subscription type ("None", "All new comments", or "Replies to this comment") in *Settings -> Subscribe to Comments -> Comment Form -> Advanced default*. This will be the default option shown on the comment form.
+* **Bug Fix**. Paragraph tags are now properly added to the comment content when sending HTML emails with `[comment_content]`
+* **Bug Fix**. Partial fix for the broken Subscribe to Replies Only feature. The Replies Only feature has not been working as intended. Instead of only receiving notificaitons for replies to their own comment, subscribers were receiving notifications for all new comments on the post. This fix makes sure they only receiving replies to their own comment thread.
+* **Bug Fix**. Fix duplicate `MIME-Version` header bug resulting in unsent emails. Fixes a bug where using StCR with other plugins, like WP-Mail-SMTP, results in a quiet duplicate header error. `wp_mail()` already takes care of setting the `MIME-Version` header so this doesn't need to be done again.
+* **Bug Fix**. Fixed `Fatal Error: Cannot redeclare class Helper` when visiting the `[subscribe_link]`. See also: <http://wordpress.org/support/topic/bug-fatal-error-in-classeshelperclassphp>
+* New import routine for WP Comment Subscriptions plugin. If subscription data and options are found for WP Comment Subscriptions, StCR will import those upon activation. Options and data are only imported if there is no existing StCR subscription data.
+* New admin notices to improve messaging and indicate when data is imported from an existing plugin.
+* New `stcr_confirmation_email_message` hook to modify the message that is sent to confirm a subscription. (Thanks to ziofix!)
+* New `stcr_notify_user_message` hook to modify the notification message that is sent to a user. (Thanks to ziofix!)
+* New plugin versioning format of YYMMDD.
+* Plugin development is now actively happening over at the new GitHub Repository for Subscribe to Comments Reloaded. If you have a bug to report or want to make a feature request, please post a new Issue over at GitHub. If you're a programmer, you're welcome to submit a Pull Request! See: <https://github.com/stcr/subscribe-to-comments-reloaded>
+* Added WPML language configuration file.
+* Added Raam Dev (`raamdev`) to the contributors list.
+
+= 2.0.6 =
+* Updated: Updated the contact information on every laguage file, some links were missing.
+* Fixed: The Spanish translation had some missing text.
+
+= 2.0.5 =
+* Added: Since the authorship of the plugin has changed I added the correct information of the contact in order to have a faster response to the issues.
+
+= 2.0.4 =
+* Added: Dutch translation fixes provided by [Martijn Chel](http://www.martijnchel.com)
+* Fixed: There was vulnerability in the form where the URI was added.
+
+= 2.0.3 =
+* I would like to thank Andreas for contributing to the project and fixing some issues with the plugin
 
 = 2.0.2 =
 * Added: option to automatically subscribe authors to their posts (improves Wordpress' default alert system, thank you [Julius](http://wordpress.org/support/topic/plugin-subscribe-to-comments-reloaded-does-the-post-author-automatically-get-subscribed-to-comments))
@@ -102,11 +164,11 @@ Yes! Just disable the corresponding option under Settings > Comment Form and the
 
 Subscribe to Comments Reloaded can speak your language! If you want to provide a localized file in your
 language, use the template files (.pot) you'll find inside the `langs` folder,
-and [contact me](http://www.duechiacchiere.it/contatto) once your
+and [contact me](http://behstant.com/negocio/contact.php) once your
 localization is ready. Currently, we support the following languages:
 
 * Danish - [Torben Bendixen](http://www.freelancekonsulenten.dk/)
-* Dutch - [Muratje](http://www.muromedia.nl/)
+* Dutch - [Martijn Chel](http://mcpnetwork.nl/),[Muratje](http://www.muromedia.nl/)
 * French - [Anthony](http://imnotgeek.com/), Goormand, Maxime
 * German - [derhenry](http://www.derhenry.net/2010/subscribe-to-comments-reloaded/), [Stefan](http://www.beedy.de/)
 * Indonesian - [The Masked Cat](http://themaskedcat.tk)
@@ -119,12 +181,3 @@ localization is ready. Currently, we support the following languages:
 * Serbian - [Anna Swedziol](http://www.sneg.iz.rs/)
 * Spanish - [TodoWordPress team](http://www.todowp.org/), [Juan Luis Perez](http://www.juanluperez.com/)
 * Turkish - [MaD, Kali](http://www.dusunsel.com/)
-
-== List of donors ==
-
-Please send a donation of at least $5 in order to be included in this list. Thank you.
-
-[R. Eberle](http://www.gopusa.com), [T. Cerulli](http://www.tovarcerulli.com/), F. Fratellini, [T. Jordan](http://www.teresajordan.com), [T. de Haan](http://www.tomdehaan.nl),
-[Life as a Human, Inc](http://lifeasahuman.com/), H. Lisle, [Olivier](http://www.stocker-partager.fr), [Passione Maglie](http://www.passionemaglie.it/),
-L. Passuello, [Pausaxn](http://pausaxn.it), J. Pelletier, [R. Schilt](http://www.trupela.com), M. Temporale, [Vendiva](http://www.vendiva.com),
-[S. Watson](http://www.swearingdad.com/), Welcome Changes

@@ -2,7 +2,7 @@
 Contributors: onigoetz
 Tags: phpbb, authentication, password, login, single sign on, wrapper, connector
 Requires at least: 2.8.0
-Tested up to: 3.4.0
+Tested up to: 3.6.0
 
 Authenticate in Wordpress and phpBB at the same time
 
@@ -10,25 +10,40 @@ Authenticate in Wordpress and phpBB at the same time
 
 This plugin allows to use the password from a working phpBB installation to log into a Wordpress blog. or on the other side to log into phpBB with the Wordpress user.
 
-The user needs to exists in at least one of the two instllations. if the user doesn't exist in one installation, it will create the user.
-
-With WP2BB, you can now define that your posts are published in a forum, so that your community can add comments directly on them
-
 The username for the administration must be the same on the two installations.
 Otherwise you will end having admins that have no privileges on the other part.
 
-This version tries to get the application working with multiple databases.
-Please give me feedbacks.
+= How it works =
+
+There is no actual "sync" of the users.
+
+When the app is configured correctly. the app checks that the user who tries to log in is at least registered in one of the systems, if yes, and the password is correct : he's logged on both systems and his account is created if missing.
+On password change it should also set the password on both platforms.
+
+= WP2BB =
+
+With WP2BB, you can now define that your posts are published in a forum, so that your community can add comments directly on them.
+
+You can add the method "wp2bb()" on your template so that you have links to your forum to add comments and a replies count
+
+There is also a widget to list the last replies in the forums
 
 P.S. : WP2BB was created by Alfredo de Hoces (http://www.alfredodehoces.com/)
 
 == Changelog ==
 
 = Roadmap =
-* Make it work on multiple db's
 * Uninstaller
 
-= 0.8.7 = 
+= 0.9 =
+* supports separated databases
+* removed "mysql_*" calls - no dependency on mysql anymore
+* options page refinement
+* deleted lots of unused code
+* fixed wp2bb queries
+* fixed code style (follows PSR-2)
+
+= 0.8.7 =
 * added wpbb_get_user_id_from_string() to replace get_user_id_from_string() as it doesn't exist in non mulitsite installations
 
 = 0.8.6 =
@@ -118,7 +133,7 @@ P.S. : WP2BB was created by Alfredo de Hoces (http://www.alfredodehoces.com/)
 1. Configure the path to PHPBB in the options
 1. When the path is right some fields related to phpbb will appear, fill them and save.
 1. Click on "install files" to install files.
-1. If all tests are OK you cant logout and login to test.
+1. If all tests are OK you can logout and login to test.
 
 How to configure ?
 
@@ -155,7 +170,7 @@ To Wordpress from PHPBB : ../blog/
 
 If for any reason you removed the "common-orig.php" file and can't get your forum to work again, simply go to phpbb.com and download the complete package corresponding to your version.
 
-in that package get the file named "common.php" and upload it to your server named "common-orig.php"
+in that package get the file named "common.php" and upload it to your server as "common-orig.php"
 
 == Uninstall ==
 

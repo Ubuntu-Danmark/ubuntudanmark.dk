@@ -23,7 +23,8 @@ $config_files = array(
 /*
  * Updater Part
  */
-function wpbb_get_file_version($file) {
+function wpbb_get_file_version($file)
+{
     if (file_exists($file)) {
         $content = file_get_contents($file);
         if (strpos($content, '@version $Id') !== false) {
@@ -36,24 +37,26 @@ function wpbb_get_file_version($file) {
     }
 }
 
-function wpbb_create_form($action, $title) {
+function wpbb_create_form($action, $title)
+{
     static $form_num;
 
-    if(empty($form_num)){
+    if (empty($form_num)) {
         $form_num = 1;
     } else {
         $form_num++;
     }
 
-return '
-    <form name="form'.$form_num.'" method="post" action="'.WPBB_OPTIONS_PAGE.'">
-        <input type="hidden" name="stage" value="'.$action.'" />
-        <input type="submit" name="Submit" value="'.__($title, 'phpbb').'" class="button" />
+    return '
+    <form name="form' . $form_num . '" method="post" action="' . WPBB_OPTIONS_PAGE . '">
+        <input type="hidden" name="stage" value="' . $action . '" />
+        <input type="submit" name="Submit" value="' . __($title, 'phpbb') . '" class="button" />
     </form>
 ';
 }
 
-function wpbb_get_file_versions() {
+function wpbb_get_file_versions()
+{
     global $config_files;
     //GETS all the files versions ::
     $file_versions = array(
@@ -76,46 +79,9 @@ function wpbb_get_file_versions() {
  * PHPBB config Part
  */
 
-function wpbb_get_config_value($config_name) {
-    global $wpdb;
-
-    //Get_the phpbb prefix
-    $phpbb_db_prefix = wpbb_get_phpbb_prefix();
-    $config_table = $phpbb_db_prefix . 'config';
-
-    $data = $wpdb->get_var('SELECT config_value FROM ' . $config_table . ' WHERE config_name = \'' . $config_name . '\'', 0, 0);
-
-    return $data;
-}
-
-function wpbb_set_config_value($prefix, $config_name, $value) {
-    global $wpdb;
-
-    if ($prefix != '') {
-        $config_table = $prefix . 'config';
-
-        $query = "UPDATE `" . $config_table . "` SET `config_value` = '" . $value . "' WHERE `config_name` = '" . $config_name . "'";
-        $wpdb->query($query);
-    }
-}
-
-function wpbb_get_phpbb_prefix() {
-    $file = wpbb_phpBB3::phpbbConfig();
-
-    if (file_exists($file)) {
-        $content = file_get_contents($file);
-
-        preg_match('/dbname\s{0,}=\s{0,}[\'"]([0-9A-Za-z_]+)[\'"]/', $content, $dbname);
-        preg_match('/table_prefix\s{0,}=\s{0,}[\'"]([0-9A-Za-z_]+)[\'"]/', $content, $table_prefix);
-
-        return $table_prefix[1];
-    } else {
-        return 0;
-    }
-}
-
 //function to get the auth modes, copied from phpbb 3.0.6 : /includes/acp_/acp_board.php line 665
-function wpbb_select_auth_method($selected_method, $key = '') {
+function wpbb_select_auth_method($selected_method)
+{
     $phpbb_root_path = ABSPATH . PHPBBPATH;
     $phpEx = 'php';
 
@@ -145,47 +111,47 @@ function wpbb_select_auth_method($selected_method, $key = '') {
     return $auth_select;
 }
 
-function wpbb_reauth_enabled(){
-    $filename = ABSPATH . PHPBBPATH.'adm/index.php';
+function wpbb_reauth_enabled()
+{
+    $filename = ABSPATH . PHPBBPATH . 'adm/index.php';
     $file = file_get_contents($filename);
 
-    if(strpos($file, '//login_box(\'\', $user->lang[\'LOGIN_ADMIN_CONFIRM\'], $user->lang[\'LOGIN_ADMIN_SUCCESS\'], true, false);') !== false){
+    if (strpos($file,'//login_box(\'\', $user->lang[\'LOGIN_ADMIN_CONFIRM\'], $user->lang[\'LOGIN_ADMIN_SUCCESS\'], true, false);') !== false) {
         return false;
     } else {
         return true;
     }
 }
 
-function wpbb_reauth_disable(){
-    $filename = ABSPATH . PHPBBPATH.'adm/index.php';
+function wpbb_reauth_disable()
+{
+    $filename = ABSPATH . PHPBBPATH . 'adm/index.php';
     $file = file_get_contents($filename);
 
     $file = str_replace(
-            "\t".'login_box(\'\', $user->lang[\'LOGIN_ADMIN_CONFIRM\'], $user->lang[\'LOGIN_ADMIN_SUCCESS\'], true, false);',
-            "\t".'//login_box(\'\', $user->lang[\'LOGIN_ADMIN_CONFIRM\'], $user->lang[\'LOGIN_ADMIN_SUCCESS\'], true, false);',
-            $file);
+        "\t" . 'login_box(\'\', $user->lang[\'LOGIN_ADMIN_CONFIRM\'], $user->lang[\'LOGIN_ADMIN_SUCCESS\'], true, false);',
+        "\t" . '//login_box(\'\', $user->lang[\'LOGIN_ADMIN_CONFIRM\'], $user->lang[\'LOGIN_ADMIN_SUCCESS\'], true, false);',
+        $file
+    );
     file_put_contents($filename, $file);
 }
 
-function wpbb_reauth_enable(){
-    $filename = ABSPATH . PHPBBPATH.'adm/index.php';
+function wpbb_reauth_enable()
+{
+    $filename = ABSPATH . PHPBBPATH . 'adm/index.php';
     $file = file_get_contents($filename);
 
     $file = str_replace(
-            "\t".'//login_box(\'\', $user->lang[\'LOGIN_ADMIN_CONFIRM\'], $user->lang[\'LOGIN_ADMIN_SUCCESS\'], true, false);',
-            "\t".'login_box(\'\', $user->lang[\'LOGIN_ADMIN_CONFIRM\'], $user->lang[\'LOGIN_ADMIN_SUCCESS\'], true, false);',
-            $file);
+        "\t" . '//login_box(\'\', $user->lang[\'LOGIN_ADMIN_CONFIRM\'], $user->lang[\'LOGIN_ADMIN_SUCCESS\'], true, false);',
+        "\t" . 'login_box(\'\', $user->lang[\'LOGIN_ADMIN_CONFIRM\'], $user->lang[\'LOGIN_ADMIN_SUCCESS\'], true, false);',
+        $file
+    );
     file_put_contents($filename, $file);
 }
 
-function wpbb_select_reauth() {
-    $phpbb_root_path = ABSPATH . PHPBBPATH;
-
-    if(wpbb_reauth_enabled()){
-        $selected_auth = 'enabled';
-    } else {
-        $selected_auth = 'disabled';
-    }
+function wpbb_select_reauth()
+{
+    $selected_auth = wpbb_reauth_enabled()? 'enabled' : 'disabled';
 
     $auth_plugins = array(
         'enabled' => __('Enabled'),
@@ -204,13 +170,11 @@ function wpbb_select_reauth() {
 /*
  * Test Part
  */
-
-function wpbb_run_test($echo = true) {
+function wpbb_run_test($echo = true)
+{
     global $config_files;
     wp_cache_delete('connect_phpbb_options', 'options');
     $file_versions = wpbb_get_file_versions();
-
-    $plugin_url = WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__)).'/';
 
     $test = array(
         'auth_wpbb' => true,
@@ -223,24 +187,16 @@ function wpbb_run_test($echo = true) {
     );
     $error = false;
 
-    $phpbb_db_prefix = wpbb_get_phpbb_prefix();
-    if ($phpbb_db_prefix != '') {
-        $phpbb_found = true;
-    } else {
-        $phpbb_found = false;
-    }
-
-
+    $phpbb_found = wpbb_phpBB3::foundInstall();
 
     /**
      * Configurations
      */
 
-    $result = '<tr><th colspan="5">'.__('configuration', 'phpbb').'</th></tr>';
+    $result = '<tr><th colspan="5">' . __('Configuration', 'phpbb') . '</th></tr>';
 
     ////////////////////////////////////////////////////////////////////////////
     //path_var
-    
 
     $path_var = get_option('connect_phpbb_options');
     if (!(isset($path_var['path']) && $path_var['path'] != '')) {
@@ -248,26 +204,29 @@ function wpbb_run_test($echo = true) {
         $test['path_var'] = false;
     }
 
-    if($echo){
+    if ($echo) {
         $result .= '<tr class="alternate">
                 <td>Wordpress Path</td>
                 <th><i>Variable</i></th>
                 <td>' . $path_var['path'] . '</td>
                 <td>' . wpbb_passed_test($test['path_var']) . '</td>
-                <td><a href="#configuration" class="button" style="height:17px; margin:1px; line-height:23px;">'.__('Configure').'</a></td>
+                <td><a href="#configuration" class="button" style="height:17px; margin:1px; line-height:23px;">' . __(
+                'Configure'
+            ) . '</a></td>
             </tr>';
     }
 
     ////////////////////////////////////////////////////////////////////////////
     //auth_method
-    $auth_method = wpbb_get_config_value('auth_method');
+
+    $auth_method = wpbb_phpBB3::getConfigValue('auth_method');
     if ($auth_method != 'wpbb') {
         $error = true;
         $test['auth_method'] = false;
     }
 
-    if($echo){
-            $result .= '<tr>
+    if ($echo) {
+        $result .= '<tr>
                 <td>Auth Mode</td>
                 <td>wpbb</td>
                 <td>' . $auth_method . '</td>
@@ -276,26 +235,26 @@ function wpbb_run_test($echo = true) {
             </tr>';
     }
 
-    if($echo){
-        $result .= '<tr class="alternate"><th colspan="5">'.__('Files', 'phpbb').'</th></tr>';
+    if ($echo) {
+        $result .= '<tr class="alternate"><th colspan="5">' . __('Files', 'phpbb') . '</th></tr>';
     }
 
     ////////////////////////////////////////////////////////////////////////////
     //auth_wpbb.php
+
     if ($file_versions['auth_wpbb']['source'] != $file_versions['auth_wpbb']['destin']) {
         $error = true;
         $test['auth_wpbb'] = false;
     }
 
 
-
-    if($echo){
+    if ($echo) {
         $result .= '<tr>
                 <td>auth_wpbb.php</td>
                 <td>' . $file_versions['auth_wpbb']['source'] . '</td>
                 <td>' . $file_versions['auth_wpbb']['destin'] . '</td>
                 <td>' . wpbb_passed_test($test['auth_wpbb']) . '</td>
-                <td>' . (($phpbb_found)? wpbb_create_form('install-auth','Install') : '').'</td>
+                <td>' . (($phpbb_found) ? wpbb_create_form('install-auth', 'Install') : '') . '</td>
             </tr>';
     }
 
@@ -306,13 +265,13 @@ function wpbb_run_test($echo = true) {
         $test['common'] = false;
     }
 
-    if($echo){
+    if ($echo) {
         $result .= '<tr class="alternate">
                 <td>common.php</td>
                 <td>' . $file_versions['common']['source'] . '</td>
                 <td>' . $file_versions['common']['destin'] . '</td>
                 <td>' . wpbb_passed_test($test['common']) . '</td>
-                <td>' . (($phpbb_found)? wpbb_create_form('install-common','Install') : '').'</td>
+                <td>' . (($phpbb_found) ? wpbb_create_form('install-common', 'Install') : '') . '</td>
             </tr>';
     }
 
@@ -329,83 +288,84 @@ function wpbb_run_test($echo = true) {
         $test['common-orig'] = array('state' => false, 'message' => 'File not found');
     }
 
-    if($echo){
+    if ($echo) {
         $result .= '<tr>
                 <td>common-orig.php</td>
                 <td>-</td>
                 <td>' . $test['common-orig']['message'] . '</td>
                 <td>' . wpbb_passed_test($test['common-orig']) . '</td>
-                <td>' . (($phpbb_found)? wpbb_create_form('install-common','Install') : '').'</td>
+                <td>' . (($phpbb_found) ? wpbb_create_form('install-common', 'Install') : '') . '</td>
             </tr>';
     }
 
     ////////////////////////////////////////////////////////////////////////////
 
-    $result .= '<tr class="alternate"><th colspan="5">'.__('Patches', 'phpbb').'</th></tr>';
+    $result .= '<tr class="alternate"><th colspan="5">' . __('Patches', 'phpbb') . '</th></tr>';
 
     ////////////////////////////////////////////////////////////////////////////
     //posting.php
-    $posting_patched = wpbb_validate_user_patched(realpath(ABSPATH . PHPBBPATH).'/posting.php');
-    if(!$posting_patched){
+    $posting_patched = wpbb_validate_user_patched(realpath(ABSPATH . PHPBBPATH) . '/posting.php');
+    if (!$posting_patched) {
         $error = true;
         $test['posting.php'] = false;
     }
 
-    if($echo){
+    if ($echo) {
         $result .= '<tr>
                 <td>posting.php</td>
-                <th>'.__('Yes').'</th>
-                <td>' . (($posting_patched)? __('Yes') : __('No')) . '</td>
+                <th>' . __('Yes') . '</th>
+                <td>' . (($posting_patched) ? __('Yes') : __('No')) . '</td>
                 <td>' . wpbb_passed_test($test['posting.php']) . '</td>
-                <td>' . (($phpbb_found)? wpbb_create_form('patch-posting','Patch') : '').'</td>
+                <td>' . (($phpbb_found) ? wpbb_create_form('patch-posting', 'Patch') : '') . '</td>
             </tr>';
     }
 
 
     ////////////////////////////////////////////////////////////////////////////
     //includes/functions_user.php
-    $functions_user = wpbb_validate_user_patched(realpath(ABSPATH . PHPBBPATH).'/includes/functions_user.php');
-    $functions_user2 = wpbb_validate_user2_patched(realpath(ABSPATH . PHPBBPATH).'/includes/functions_user.php');
-    if(!$functions_user OR !$functions_user2){
+    $functions_user = wpbb_validate_user_patched(realpath(ABSPATH . PHPBBPATH) . '/includes/functions_user.php');
+    $functions_user2 = wpbb_validate_user2_patched(realpath(ABSPATH . PHPBBPATH) . '/includes/functions_user.php');
+    if (!$functions_user OR !$functions_user2) {
         $error = true;
         $test['functions_user.php'] = false;
     }
 
-    if($echo){
+    if ($echo) {
         $result .= '<tr class="alternate">
                 <td>functions_user.php</td>
-                <th>'.__('Yes').'</th>
-                <td>' . (($functions_user)? __('Yes') : __('No')) . '</td>
+                <th>' . __('Yes') . '</th>
+                <td>' . (($functions_user) ? __('Yes') : __('No')) . '</td>
                 <td>' . wpbb_passed_test($test['functions_user.php']) . '</td>
-                <td>' . (($phpbb_found)? wpbb_create_form('patch-user_function','Patch') : '').'</td>
+                <td>' . (($phpbb_found) ? wpbb_create_form('patch-user_function', 'Patch') : '') . '</td>
             </tr>';
     }
 
-    
+
     ////////////////////////////////////////////////////////////////////////////
 
-    if ($echo){
+    if ($echo) {
         echo '
-	<table class="widefat" summary="" title="PHPBB">
-		<thead>
-		<tr>
-                        <th scope="col">&nbsp;</th>
-			<th scope="col">'.__('Recommended', 'phpbb').'</th>
-			<th scope="col">'.__('Current', 'phpbb').'</th>
-			<th scope="col">'.__('OK ?', 'phpbb').'</th>
-                        <th scope="col">'.__('Action', 'phpbb').'</th>
-		</tr>
-		<tbody id="the-list">
-                '.$result.'
-		</tbody>
-	</table>
+        <h2>' . __('Installation Status', 'phpbb') . '</h2>
+        <table class=widefat>
+            <thead>
+            <tr>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">' . __('Recommended', 'phpbb') . '</th>
+                <th scope="col">' . __('Current', 'phpbb') . '</th>
+                <th scope="col">' . __('OK ?', 'phpbb') . '</th>
+                <th scope="col">' . __('Action', 'phpbb') . '</th>
+            </tr>
+            </thead>
+            <tbody>' . $result . '</tbody>
+        </table>
         ';
     }
 
     return $error;
 }
 
-function wpbb_passed_test($test_result) {
+function wpbb_passed_test($test_result)
+{
     if (is_array($test_result)) {
         $test_result = $test_result['state'];
     }
@@ -416,91 +376,85 @@ function wpbb_passed_test($test_result) {
     }
 }
 
-function wpbb_validate_user_patch($file) {
-    if (file_exists($file)) {
-        $content = file_get_contents($file);
-        $content = str_replace(' validate_username', ' validate_phpbb_username', $content);
-        $content = str_replace(' validate_email', ' validate_phpbb_email', $content);
-
-        file_put_contents($file, $content);
-        return true;
-    }
-    
-    return false;
-}
-
-function wpbb_validate_user_patched($file) {
-    if (file_exists($file)) {
-        $content = file_get_contents($file);
-
-        if(strpos($content,'validate_phpbb_username') !== false
-            && strpos($content,'validate_email') === false
-        ){
-            return true;
-        }
-    }
-    
-    return false;
-}
-
-
-function wpbb_validate_user2_patch($file) {
-    if (file_exists($file)) {
-        $content = file_get_contents($file);
-        $content = str_replace(
-                '$function = array_shift($validate);'."\n\t\t\t".'array',
-                '$function = array_shift($validate);'
-                ."\n\t\t\t".'if($function == \'email\'){$function = \'phpbb_email\';}'
-                ."\n\t\t\t".'if($function == \'username\'){$function = \'phpbb_username\';}'
-                ."\n\t\t\t".'array',$content);
-
-        file_put_contents($file, $content);
-        return true;
-    } else {
+function wpbb_validate_user_patch($file)
+{
+    if (!file_exists($file)) {
         return false;
     }
+
+    $content = file_get_contents($file);
+    $content = str_replace(' validate_username', ' validate_phpbb_username', $content);
+    $content = str_replace(' validate_email', ' validate_phpbb_email', $content);
+
+    file_put_contents($file, $content);
+    return true;
 }
 
-function wpbb_validate_user2_patched($file) {
-    if (file_exists($file)) {
-        $content = file_get_contents($file);
-
-        if(strpos($content,'$function = array_shift($validate);'
-        ."\n\t\t\t".'if($function == \'email\'){$function = \'phpbb_email\';}'
-        ."\n\t\t\t".'if($function == \'username\'){$function = \'phpbb_username\';}') !== false){
-            return true;
-        }
+function wpbb_validate_user_patched($file)
+{
+    if (!file_exists($file)) {
+        return false;
     }
-    
+
+    $content = file_get_contents($file);
+    if (strpos($content, 'validate_phpbb_username') !== false
+        && strpos($content,'validate_email') === false
+    ) {
+        return true;
+    }
+
+    return false;
+}
+
+
+function wpbb_validate_user2_patch($file)
+{
+    if (!file_exists($file)) {
+        return false;
+    }
+
+    $content = file_get_contents($file);
+    $content = str_replace(
+        '$function = array_shift($validate);' . "\n\t\t\t" . 'array',
+        '$function = array_shift($validate);' . "\n\t\t\t" . 'if($function == \'email\'){$function = \'phpbb_email\';}' . "\n\t\t\t" . 'if($function == \'username\'){$function = \'phpbb_username\';}' . "\n\t\t\t" . 'array',
+        $content
+    );
+
+    file_put_contents($file, $content);
+    return true;
+}
+
+function wpbb_validate_user2_patched($file)
+{
+    if (!file_exists($file)) {
+        return false;
+    }
+
+    $content = file_get_contents($file);
+    if (strpos($content, '$function = array_shift($validate);' . "\n\t\t\t" . 'if($function == \'email\'){$function = \'phpbb_email\';}' . "\n\t\t\t" . 'if($function == \'username\'){$function = \'phpbb_username\';}') !== false) {
+        return true;
+    }
+
     return false;
 }
 
 /**
- * Get a numeric user ID from either an email address or a login.
+ * Redirects to another page.
  *
- * @since MU
- * @uses is_email()
+ * @since 1.5.1
+ * @uses apply_filters() Calls 'wp_redirect' hook on $location.
  *
- * @param string $string
- * @return int
+ * @param string $location The path to redirect to
+ * @return bool False if $location is not set
  */
-function wpbb_get_user_id_from_string( $string ) {
-	$user_id = 0;
-	if ( is_email( $string ) ) {
-		$user = get_user_by('email', $string);
-		if ( $user )
-			$user_id = $user->ID;
-	} elseif ( is_numeric( $string ) ) {
-		$user_id = $string;
-	} else {
-		$user = get_user_by('login', $string);
-		if ( $user )
-			$user_id = $user->ID;
-	}
+function wpbb_redirect($location)
+{
+    $status = 302;
+    $location = apply_filters('wp_redirect', $location, $status);
+    $location = wp_sanitize_redirect($location);
 
-	return $user_id;
+    echo '<script>window.location.href= ' . json_encode($location) . '</script>';
 }
-
 
 class Registry extends ArrayObject
 {
@@ -512,14 +466,14 @@ class Registry extends ArrayObject
 
     /**
      * Registry object provides storage for shared objects.
-     * @var Zend_Registry
+     * @var Registry
      */
     private static $_registry = null;
 
     /**
      * Retrieves the default registry instance.
      *
-     * @return Zend_Registry
+     * @return Registry
      */
     public static function getInstance()
     {
@@ -533,10 +487,10 @@ class Registry extends ArrayObject
     /**
      * Set the default registry instance to a specified instance.
      *
-     * @param Zend_Registry $registry An object instance of type Zend_Registry,
+     * @param Registry $registry An object instance of type Zend_Registry,
      *   or a subclass.
      * @return void
-     * @throws Zend_Exception if registry is already initialized.
+     * @throws Exception if registry is already initialized.
      */
     public static function setInstance(Registry $registry)
     {
@@ -565,7 +519,7 @@ class Registry extends ArrayObject
      *
      * @param string $registryClassName
      * @return void
-     * @throws Zend_Exception if the registry is initialized or if the
+     * @throws Exception if the registry is initialized or if the
      *   class name is not valid.
      */
     public static function setClassName($registryClassName = 'Registry')
@@ -600,7 +554,7 @@ class Registry extends ArrayObject
      *
      * @param string $index - get the value associated with $index
      * @return mixed
-     * @throws Zend_Exception if no entry is registerd for $index.
+     * @throws Exception if no entry is registerd for $index.
      */
     public static function get($index)
     {
@@ -660,7 +614,7 @@ class Registry extends ArrayObject
 
     /**
      * @param string $index
-     * @returns mixed
+     * @return bool
      *
      * Workaround for http://bugs.php.net/bug.php?id=40442 (ZF-960).
      */
@@ -668,5 +622,4 @@ class Registry extends ArrayObject
     {
         return array_key_exists($index, $this);
     }
-
 }

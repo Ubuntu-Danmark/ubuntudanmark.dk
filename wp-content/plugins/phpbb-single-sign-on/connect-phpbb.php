@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: PHPBB Single Sign On
-  Version: 0.8.7
+  Version: 0.9
   Plugin URI: http://www.onigoetz.ch/plugins/wordpress-phpbb-plugin/
   Description: Connecte un site wordpress à PHPBB
   Author: Stéphane Goetz
@@ -12,55 +12,52 @@ if (!defined('LOADED_PHPBB')) {
     define('LOADED_WP', true);
 }
 
-include (dirname(__FILE__) . '/module.phpbb.php');
-include (dirname(__FILE__) . '/module.wp.php');
-include (dirname(__FILE__) . '/common-functions.php');
-
+include(dirname(__FILE__) . '/module.phpbb.php');
+include(dirname(__FILE__) . '/module.wp.php');
+include(dirname(__FILE__) . '/common-functions.php');
 
 $wp2bb_enabled = get_option('wp2bb_enabled', false);
-if($wp2bb_enabled){
-    include (dirname(__FILE__) . '/wp2bb/main.php');
+if ($wp2bb_enabled) {
+    include(dirname(__FILE__) . '/wp2bb/main.php');
 }
 
-define('WPBB_OPTIONS_PAGE', get_option('siteurl') . '/wp-admin/admin.php?page=' . dirname(plugin_basename(__FILE__)) . '/options.php');
+if (is_admin()) {
+    define('WPBB_OPTIONS_FILE', dirname(plugin_basename(__FILE__)) . '/options.php');
+    define('WPBB_OPTIONS_PAGE', get_option('siteurl') . '/wp-admin/admin.php?page=' . WPBB_OPTIONS_FILE);
 
-////////////////////////////////////////////////////////////////////////////////
+    /**
+     * Installation Hook
+     */
+    function wpbb_install()
+    {
+        $default_options = array('path' => 'forum/');
+        add_option('connect_phpbb_options', $default_options);
+    }
 
-/**
- * Installation Hook
- */
-function wpbb_install() {
-    $default_options = array(
-        'path' => 'forum/'
-    );
-    add_option('connect_phpbb_options', $default_options);
+    register_activation_hook(__FILE__, 'wpbb_install');
+
+    /**
+     * Options Page
+     */
+    function wpbb_options_page()
+    {
+        add_options_page('PHP BB', 'PHP BB Options', 10, WPBB_OPTIONS_FILE);
+    }
+
+    add_action('admin_menu', 'wpbb_options_page');
 }
-
-register_activation_hook(__FILE__, 'wpbb_install');
-
-////////////////////////////////////////////////////////////////////////////////
-
-/**
- * Options Page
- */
-function wpbb_options_page() {
-    add_options_page('PHP BB', 'PHP BB Options', 10, 'phpbb-single-sign-on/options.php');
-}
-
-add_action('admin_menu', 'wpbb_options_page');
-
-////////////////////////////////////////////////////////////////////////////////
 
 /**
  * On login actions
  *
- * @param string $userdata
+ * @param WP_User|WP_Error $userdata
  * @param string $password
  * @return object
  */
-function wpbb_login($userdata, $password) {
+function wpbb_login($userdata, $password)
+{
     // check to see if phpBB exists
-    if (!wpbb_phpBB3::phpbbConfig() OR !wpbb_phpBB3::phpbbPatched()){
+    if (!wpbb_phpBB3::phpbbConfig() OR !wpbb_phpBB3::phpbbPatched()) {
         return $userdata;
     }
 
@@ -99,8 +96,8 @@ function wpbb_login($userdata, $password) {
         $id = wpbb_phpBB3::addUser($user_row);
         $phpBB_user = wpbb_phpBB3::getUserById($id);
     }
-    
-    wpbb_phpBB3::checkPasswordAndLogin($phpBB_user->user_id, $userdata->user_login, $password);
+
+    wpbb_phpBB3::checkPasswordAndLogin($phpBB_user['user_id'], $userdata->user_login, $password);
 
     return $userdata;
 }
@@ -115,8 +112,9 @@ if (defined('LOADED_WP')) {
 /**
  * Logout action
  */
-function wpbb_logout() {
-    if (!defined('FROM_WP')){
+function wpbb_logout()
+{
+    if (!defined('FROM_WP')) {
         define('FROM_WP', TRUE);
     }
 
@@ -140,7 +138,8 @@ add_action('wp_logout', 'wpbb_logout');
  * @param string $pass2
  * @return bool
  */
-function wpbb_change_password($username, $pass1, $pass2) {
+function wpbb_change_password($username, $pass1, $pass2)
+{
     if (!empty($pass1) && !empty($pass2) && $pass1 == $pass2) {
         wpbb_phpBB3::load();
         if (wpbb_phpBB3::getUserByName($username)) {
@@ -159,15 +158,21 @@ add_filter('check_passwords', 'wpbb_change_password', 10, 3);
  *
  * @return null
  */
-function wpbb_admin_warnings() {
+function wpbb_admin_warnings()
+{
     if (wpbb_run_test(false)) {
 
-        function wpbb_warning() {
+        function wpbb_warning()
+        {
+            $link = sprintf(
+                __('You have to <a href="%s">Follow the instructions</a> for it to work.'),
+                get_option('siteurl') . '/wp-admin/admin.php?page=phpbb-single-sign-on/options.php'
+            );
+
             echo "
             <div id='phpbb-warning' class='updated fade'>
-            <p><strong>" . __('PHP Single Sign On is almost ready.') . "</strong>
-                " . sprintf(__('You have to <a href="%s">Follow the instructions</a> for it to work.'),
-                    get_option('siteurl') . '/wp-admin/admin.php?page=phpbb-single-sign-on/options.php') . "</p></div>
+                <p><strong>" . __('PHP Single Sign On is almost ready.') . "</strong>$link</p>
+            </div>
             ";
         }
 
@@ -188,13 +193,17 @@ add_action('init', 'wpbb_admin_warnings');
  * @param object $errors
  * @return null
  */
-function wpbb_register_post($login, $email, $errors) {
+function wpbb_register_post($login, $email, $errors)
+{
     if ($errors->get_error_code()) {
         return; // No need to add to the despair
     }
 
     if (wpbb_phpBB3::get_wp_user_by_email($email)) {
-        $errors->add('email_exists', __('<strong>ERROR</strong>: This email is already registered, please choose another one.'));
+        $errors->add(
+            'email_exists',
+            __('<strong>ERROR</strong>: This email is already registered, please choose another one.')
+        );
     }
 }
 
@@ -210,23 +219,28 @@ add_action('register_post', 'wpbb_register_post', 10, 3);
  * @param object $errors
  * @return null
  */
-function wpbb_register_hint($login, $email, $errors) {
+function wpbb_register_hint($login, $email, $errors)
+{
     error_log($errors->get_error_code());
 
-
-    if ($errors->get_error_code() != 'email_exists' and
-            $errors->get_error_code() != 'username_exists'
-    )
+    if ($errors->get_error_code() != 'email_exists' and $errors->get_error_code() != 'username_exists') {
         return;
+    }
 
-    $errors->add('email_exists', sprintf("<a href=\"%s\">%s</a>",
-                    site_url('wp-login.php', 'login'),
-                    __('Log In')));
+    $errors->add(
+        'email_exists',
+        sprintf("<a href=\"%s\">%s</a>", site_url('wp-login.php', 'login'), __('Log In'))
+    );
 
-    $errors->add('email_exists', sprintf("<a href=\"%s\" title=\"%s\">%s</a>",
-                    site_url('wp-login.php?action=lostpassword', 'recover password'),
-                    __('Password Lost and Found'),
-                    __('Lost your password?')));
+    $errors->add(
+        'email_exists',
+        sprintf(
+            "<a href=\"%s\" title=\"%s\">%s</a>",
+            site_url('wp-login.php?action=lostpassword', 'recover password'),
+            __('Password Lost and Found'),
+            __('Lost your password?')
+        )
+    );
 }
 
 add_action('register_post', 'wpbb_register_hint', 11, 3);

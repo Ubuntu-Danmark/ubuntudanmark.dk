@@ -1,29 +1,11 @@
 <?php
 
-function remove_bbcode($msgtext) {
+function remove_bbcode($msgtext)
+{
     $search = '|[[\/\!]*?[^\[\]]*?]|si';
     $text = preg_replace($search, '', $msgtext);
     return $text;
 }
-
-// -------------------------------------------------------------------------------------------------
-// PHPBB FUNCTIONS
-// -------------------------------------------------------------------------------------------------
-
-/* define('IN_PHPBB', true);
-  if (!file_exists($phpbb_root_path . '/config.php')) {error_reporting(E_ERROR);}
-  include_once($phpbb_root_path . 'config.php');
-  include_once($phpbb_root_path . 'includes/utf/utf_tools.php');
-  include_once($phpbb_root_path . 'includes/utf/utf_normalizer.php');
-  include_once($phpbb_root_path . 'includes/db/dbal.php');
-  include_once($phpbb_root_path . 'includes/db/db_tools.php');
-  include_once($phpbb_root_path . 'includes/db/mysql.php');
-  include_once($phpbb_root_path . 'includes/db/mysqli.php');
-  include_once($phpbb_root_path . 'includes/functions.php');
-  include_once($phpbb_root_path . 'includes/constants.php');
-  include_once($phpbb_root_path . 'includes/auth.php');
-  include_once($phpbb_root_path . 'includes/acm/acm_file.php');
-  include_once($phpbb_root_path . 'includes/cache.php'); */
 
 /**
  * Slightly modified 'Submit Post' function in php_bb
@@ -57,7 +39,7 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
 
     // Collect some basic information about which tables and which rows to update/insert
     $sql_data = $topic_row = array();
-    $poster_id = ($mode == 'edit') ? $data['poster_id'] : (int) $user->data['user_id'];
+    $poster_id = ($mode == 'edit') ? $data['poster_id'] : (int)$user->data['user_id'];
 
     // Start the transaction here
     $db->sql_transaction('begin');
@@ -81,7 +63,8 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
         'bbcode_bitfield' => '',
         'bbcode_uid' => $data['bbcode_uid'],
         'post_postcount' => ($auth->acl_get('f_postcount', $data['forum_id'])) ? 1 : 0,
-        'post_edit_locked' => $data['post_edit_locked']);
+        'post_edit_locked' => $data['post_edit_locked']
+    );
 
 
     $post_approved = $sql_data[POSTS_TABLE]['sql']['post_approved'];
@@ -110,15 +93,17 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
         $sql_data[FORUMS_TABLE]['stat'][] = 'forum_topics_real = forum_topics_real + 1' . (($auth->acl_get('f_noapprove', $data['forum_id']) || $auth->acl_get('m_approve', $data['forum_id'])) ? ', forum_topics = forum_topics + 1' : '');
     }
 
-    $sql = 'INSERT INTO ' . TOPICS_TABLE . ' ' .
-            $db->sql_build_array('INSERT', $sql_data[TOPICS_TABLE]['sql']);
+    $sql = 'INSERT INTO ' . TOPICS_TABLE . ' ' . $db->sql_build_array('INSERT', $sql_data[TOPICS_TABLE]['sql']);
 
     $db->sql_query($sql);
 
     $data['topic_id'] = $db->sql_nextid();
 
-    $sql_data[POSTS_TABLE]['sql'] = array_merge($sql_data[POSTS_TABLE]['sql'], array(
-                'topic_id' => $data['topic_id'])
+    $sql_data[POSTS_TABLE]['sql'] = array_merge(
+        $sql_data[POSTS_TABLE]['sql'],
+        array(
+            'topic_id' => $data['topic_id']
+        )
     );
     unset($sql_data[TOPICS_TABLE]['sql']);
 
@@ -133,7 +118,8 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
         'topic_last_post_time' => $posttime,
         'topic_last_poster_id' => $usid,
         'topic_last_poster_name' => $username,
-        'topic_last_poster_colour' => $usercolor);
+        'topic_last_poster_colour' => $usercolor
+    );
 
     unset($sql_data[POSTS_TABLE]['sql']);
 
@@ -177,7 +163,12 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
     }
 
     // Update forum stats
-    $where_sql = array(POSTS_TABLE => 'post_id = ' . $data['post_id'], TOPICS_TABLE => 'topic_id = ' . $data['topic_id'], FORUMS_TABLE => 'forum_id = ' . $data['forum_id'], USERS_TABLE => 'user_id = ' . $user->data['user_id']);
+    $where_sql = array(
+        POSTS_TABLE => 'post_id = ' . $data['post_id'],
+        TOPICS_TABLE => 'topic_id = ' . $data['topic_id'],
+        FORUMS_TABLE => 'forum_id = ' . $data['forum_id'],
+        USERS_TABLE => 'user_id = ' . $user->data['user_id']
+    );
 
     foreach ($sql_data as $table => $update_ary) {
         if (isset($update_ary['stat']) && implode('', $update_ary['stat'])) {
@@ -192,7 +183,6 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
 
 
     // Index message contents
-
     if ($update_message && $data['enable_indexing']) {
         // Select the search method and do some additional checks to ensure it can actually be utilised
         $search_type = 'fulltext_mysql';
@@ -212,7 +202,14 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
             trigger_error($error);
         }
 
-        $search->index($mode, $data['post_id'], $data['message'], $subject, $poster_id, ($topic_type == POST_GLOBAL) ? 0 : $data['forum_id']);
+        $search->index(
+            $mode,
+            $data['post_id'],
+            $data['message'],
+            $subject,
+            $poster_id,
+            ($topic_type == POST_GLOBAL) ? 0 : $data['forum_id']
+        );
     }
 
 
@@ -222,10 +219,9 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
             $sql = 'INSERT INTO ' . TOPICS_WATCH_TABLE . ' (user_id, topic_id)
 				VALUES (' . $user->data['user_id'] . ', ' . $data['topic_id'] . ')';
             $db->sql_query($sql);
-        } else if ($data['notify_set'] && !$data['notify']) {
-            $sql = 'DELETE FROM ' . TOPICS_WATCH_TABLE . '
-				WHERE user_id = ' . $user->data['user_id'] . '
-					AND topic_id = ' . $data['topic_id'];
+        } elseif ($data['notify_set'] && !$data['notify']) {
+            $sql = 'DELETE FROM ' . TOPICS_WATCH_TABLE . 'WHERE user_id = ' . $user->data['user_id'] .
+                'AND topic_id = ' . $data['topic_id'];
             $db->sql_query($sql);
         }
     }
@@ -246,10 +242,12 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
 			WHERE user_id = ' . $user->data['user_id'] . '
 				AND forum_id = ' . $data['forum_id'];
         $result = $db->sql_query($sql);
-        $f_mark_time = (int) $db->sql_fetchfield('mark_time');
+        $f_mark_time = (int)$db->sql_fetchfield('mark_time');
         $db->sql_freeresult($result);
-    } else if ($config['load_anon_lastread'] || $user->data['is_registered']) {
-        $f_mark_time = false;
+    } else {
+        if ($config['load_anon_lastread'] || $user->data['is_registered']) {
+            $f_mark_time = false;
+        }
     }
 
 
@@ -259,14 +257,14 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
 			FROM ' . FORUMS_TABLE . '
 			WHERE forum_id = ' . $data['forum_id'];
         $result = $db->sql_query($sql);
-        $forum_last_post_time = (int) $db->sql_fetchfield('forum_last_post_time');
+        $forum_last_post_time = (int)$db->sql_fetchfield('forum_last_post_time');
         $db->sql_freeresult($result);
 
         update_forum_tracking_info($data['forum_id'], $forum_last_post_time, $f_mark_time, false);
     }
 
     // Send Notifications
-    if ($mode != 'edit' && $mode != 'delete' && ($auth->acl_get('f_noapprove', $data['forum_id']) || $auth->acl_get('m_approve', $data['forum_id']))) {
+    if ($mode != 'edit' && $mode != 'delete' && ($auth->acl_get('f_noapprove', $data['forum_id']) || $auth->acl_get('m_approve',$data['forum_id']))) {
         //user_notification($mode, $subject, $data['topic_title'], $data['forum_name'], $data['forum_id'], $data['topic_id'], $data['post_id']);
     }
 
@@ -279,7 +277,7 @@ function wp2bb_submit_post($auth, &$user, $subject, $username, $usercolor, $post
             $params .= '&amp;p=' . $data['post_id'];
             $add_anchor = '#p' . $data['post_id'];
         }
-    } else if ($mode != 'post' && $post_mode != 'edit_first_post' && $post_mode != 'edit_topic') {
+    } elseif ($mode != 'post' && $post_mode != 'edit_first_post' && $post_mode != 'edit_topic') {
         $params .= '&amp;t=' . $data['topic_id'];
     }
 
@@ -304,13 +302,13 @@ function wp2bb_generate_text_for_storage(&$text, &$uid, &$bitfield, &$flags, $al
         return;
     }
 
-
     $flags = (($allow_bbcode) ? OPTION_FLAG_BBCODE : 0) + (($allow_smilies) ? OPTION_FLAG_SMILIES : 0) + (($allow_urls) ? OPTION_FLAG_LINKS : 0);
     $bitfield = $message_parser->bbcode_bitfield;
     return;
 }
 
-function wp2bb_update_post($topic, $subject, $text) {
+function wp2bb_update_post($topic, $subject, $text)
+{
     global $db;
     $subject = str_replace("'", "\'", $subject);
     $subject = str_replace('"', '\"', $subject);
@@ -332,13 +330,15 @@ function wp2bb_update_post($topic, $subject, $text) {
     return;
 }
 
-function catexcluded($postid) {
+function catexcluded($postid)
+{
     $postcats = get_the_category($postid);
     $excludedcats = explode(",", get_option('wp2bb_excludecats'));
     foreach ($postcats as $category) {
         $catid = $category->cat_ID;
-        if (in_array($catid, $excludedcats))
+        if (in_array($catid, $excludedcats)) {
             return true;
+        }
     }
     return false;
 }
