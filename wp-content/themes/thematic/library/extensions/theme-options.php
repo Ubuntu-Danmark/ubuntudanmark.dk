@@ -167,7 +167,7 @@ function thematic_default_opt() {
  
 function thematic_opt_add_page() {
 
-	$thematic_opt_page = add_theme_page ('Theme Options', 'Theme Options', 'edit_theme_options', 'thematic_opt', 'thematic_do_opt_page');
+	$thematic_opt_page = add_theme_page ( __('Theme Options', 'thematic') , __('Theme Options', 'thematic'), 'edit_theme_options', 'thematic_opt', 'thematic_do_opt_page');
 	$thematic_opt_page = apply_filters ('thematic_theme_add_opt_page', $thematic_opt_page );
 	
 	if ( ! $thematic_opt_page ) {
@@ -188,7 +188,6 @@ add_action( 'admin_menu', 'thematic_opt_add_page' );
  * Override: childtheme_override_opt_page_help <br>
  * 
  * @since Thematic 1.0 
- * @todo remove conditional compatibilty  WP version > 3.3 and remove fallback to 3.2
  */
 if (function_exists('childtheme_override_opt_page_help')) {
 	function thematic_opt_page_help() {
@@ -212,49 +211,28 @@ if (function_exists('childtheme_override_opt_page_help')) {
 		
 		$help = apply_filters ( 'thematic_theme_opt_help_txt', $help );
 	
-        if ( method_exists( $screen, 'add_help_tab' ) ) {
-        	// WordPress 3.3
-			$screen->add_help_tab( array( 'title' => __( 'Overview', 'thematic' ), 'id' => 'theme-opt-help', 'content' => $help, ) );
-			$screen->set_help_sidebar( $sidebar );
+        $screen->add_help_tab( array( 'title' => __( 'Overview', 'thematic' ), 'id' => 'theme-opt-help', 'content' => $help, ) );
+		$screen->set_help_sidebar( $sidebar );
                         
-			} else {
-             	thematic_legacy_help();
-           	}
         }
 }
 
 /**
- * Adds a settings section to display legacy help text and theme links
- *
- * @since Thematic 1.0
- * @todo remove Legacy help when two point relases of WP have occurred after 3.3
- */
-function thematic_legacy_help() {
-        add_settings_section ('thematic_opt_help_section', '', 'thematic_do_legacy_help_section', 'thematic_opt_page');
-}
-
-
-/**
- * Renders the legacy help text and theme links
- * 
- * @since Thematic 1.0
- * @todo remove Legacy help when two point relases of WP have occurred after 3.3
- */
-function thematic_do_legacy_help_section() { 
-        echo ('<p>'. __( 'For more information about this theme, <a href="http://thematictheme.com">visit ThemeTheme.com</a>. Please visit the <a href="http://thematictheme.com/forums/">ThematicTheme.com Forums</a> if you have any questions about Thematic.', 'thematic' ) .'</p>') ;
-}
-
-
-/**
  * Renders the them options page
  *
- * @since Thematic 1.0 
+ * @since Thematic 1.0
  */
 function thematic_do_opt_page() { ?>
 
  <div class="wrap">
 	<?php screen_icon(); ?>
-	<h2><?php printf( __( '%s Theme Options', 'thematic' ), get_current_theme() ); ?></h2>
+
+	<?php 
+		$frameworkData = wp_get_theme();
+    	$theme = $frameworkData->display( 'Name', false ); 
+ 	?>
+
+	<h2><?php printf( _x( '%s Theme Options', '{$current theme} Theme Options', 'thematic' ), $theme ); ?></h2>
 	<?php settings_errors(); ?>
 	
 	<form action="options.php" method="post" >
@@ -305,7 +283,7 @@ function thematic_do_insert_opt() {
 function thematic_do_auth_opt() { 
 ?>
 	<input id="thm_authorinfo" type="checkbox"  value="1" name="thematic_theme_opt[author_info]"  <?php checked( thematic_get_theme_opt('author_info') , 1 ); ?> />
-	<label for="thm_authorinfo"><?php _e('Display a', 'thematic') ?> <a target="_blank" href="http://microformats.org/wiki/hcard">microformatted vCard</a> <?php _e("with the author's avatar, bio and email on the author page.", 'thematic') ?></label>
+	<label for="thm_authorinfo"><?php printf( _x('Display a %1$smicroformatted vCard%2$s with the author\'s avatar, bio and email on the author page.', '%1$s and %2$s are <a> tags', 'thematic' ) , '<a target="_blank" href="http://microformats.org/wiki/hcard">', '</a>' ); ?></label>
 <?php
 }
 
@@ -318,7 +296,7 @@ function thematic_do_auth_opt() {
 function thematic_do_footer_opt() { 
 ?>
 	<textarea rows="5" cols="94" id="thm_footertext" name="thematic_theme_opt[footer_txt]"><?php thematic_get_theme_opt('footer_txt', true ); ?></textarea>
-	<br><?php _e('You can use HTML and shortcodes in your footer text. Shortcode examples', 'thematic'); ?>: [wp-link] [theme-link] [loginout-link] [blog-title] [blog-link] [the-year]
+	<br><?php printf( _x('You can use HTML and shortcodes in your footer text. Shortcode examples: %s', '%s are shortcode tags', 'thematic'), '[wp-link] [theme-link] [loginout-link] [blog-title] [blog-link] [the-year]' ); ?>
 <?php
 }
 
@@ -331,7 +309,13 @@ function thematic_do_footer_opt() {
 function thematic_do_legacy_opt() {
 ?>
 	<input id="thm_legacy_opt" type="checkbox" value="1" name="thematic_theme_opt[del_legacy_opt]"  <?php checked( thematic_get_theme_opt('del_legacy_opt'), 1 ); ?> />
-	<label for="thm_legacy_opt"><?php printf( __( '%s Theme Options have been upgraded to an improved format. Remove the legacy options from the database.', 'thematic' ), get_current_theme() ); ?></label>
+
+	<?php 
+        $frameworkData = wp_get_theme();
+        $theme = $frameworkData->display( 'Name', false );
+ 	?>
+
+	<label for="thm_legacy_opt"><?php printf( _x( '%s Theme Options have been upgraded to an improved format. Remove the legacy options from the database.', '{$current theme} Theme Options', 'thematic' ), $theme ); ?></label>
 <?php
 }
 
@@ -346,8 +330,8 @@ function thematic_do_legacy_opt() {
  * @since Thematic 1.0 
  */
 if (function_exists('childtheme_override_validate_opt')) {
-	function thematic_thematic_validate_opt() {
-		childtheme_override_validate_opt();
+	function thematic_validate_opt($input) {
+		childtheme_override_validate_opt($input);
 	}
 } else {
  	function thematic_validate_opt($input){
@@ -356,10 +340,10 @@ if (function_exists('childtheme_override_validate_opt')) {
  	   // Index Insert position must be a non-negative number
  	   if ( !is_numeric( $input['index_insert'] ) || $input['index_insert'] < 0 )  {
  	   		add_settings_error(
- 	   		'thematic_theme_opt',
- 	   		'thematic_insert_opt',
- 	   		__('The index insert position value must be a number equal to or greater than zero. This setting has been reverted to the previous value.', 'thematic' ),
- 	   		'error'
+ 	   			'thematic_theme_opt',
+ 	   			'thematic_insert_opt',
+ 	   			__('The index insert position value must be a number equal to or greater than zero. This setting has been reverted to the previous value.', 'thematic' ),
+ 	   			'error'
  	   		);
  	   } else {
  	   	// A sanitize numeric value to ensure a whole number
@@ -367,7 +351,9 @@ if (function_exists('childtheme_override_validate_opt')) {
  	   }
  	   
  	   // Author Info CheckBox value either 1(yes) or 0(no)
+ 	   if ( isset( $input['author_info'] ) ) {
  	   	$output['author_info'] =  ( $input['author_info'] == 0 ? 0 : 1 );
+ 	   }
  	 
  	   // Footer Text sanitized allowing HTML and WP shortcodes
  	   if ( isset( $input['footer_txt'] ) ) {
@@ -375,7 +361,9 @@ if (function_exists('childtheme_override_validate_opt')) {
  	   }
  	   
  	   // Remove Legacy Options CheckBox value either 1(yes) or 0(no)
- 	   $output['del_legacy_opt'] = ( $input['del_legacy_opt'] == 0 ? 0 : 1 );
+ 	   if ( isset( $input['del_legacy_opt'] ) ) {
+ 	   	$output['del_legacy_opt'] = ( $input['del_legacy_opt'] == 0 ? 0 : 1 );
+ 	   }
  	   
  	   if ( 1 == $output['del_legacy_opt'] ) {
  	   	
