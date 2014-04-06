@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-04 10:20-0700\n"
+"POT-Creation-Date: 2014-02-04 10:34-0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
 "Language-Team: \n"
-"Language: id_ID\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,26 +21,20 @@ msgstr ""
 msgid ""
 "Your subscription to this post needs to be confirmed. <a "
 "href='[manager_link]'>Manage your subscriptions</a>."
-msgstr ""
-"Permintaan berlangganan Anda untuk artikel ini perlu dikonfirmasi. <a "
-"href='[manager_link]'>Aturlah cara berlangganan Anda</a>."
+msgstr "你需要激活你的订阅。<a href='[manager_link]'>管理你的订阅</a>。"
 
 #: subscribe-to-comments-reloaded.php:56
 #: subscribe-to-comments-reloaded.php:289
 msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
-msgstr ""
-"Anda telah berlangganan artikel ini. <a href='[manager_link]'>Atur</a> cara "
-"berlangganan Anda."
+msgstr "你已经订阅过本篇文章。<a href='[manager_link]'>管理</a>你的订阅。"
 
 #: subscribe-to-comments-reloaded.php:67
 #: subscribe-to-comments-reloaded.php:291
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
-msgstr ""
-"Anda dapat <a href='[manager_link]'>mengatur cara berlangganan</a> pada "
-"artikel ini."
+msgstr "你可以<a href='[manager_link]'>管理</a>本篇文章的订阅。"
 
 #: subscribe-to-comments-reloaded.php:74
 #: subscribe-to-comments-reloaded.php:288
@@ -48,25 +42,24 @@ msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
 msgstr ""
-"Beritahu saya melalui email jika ada balasan komentar di artikel ini. Anda "
-"juga dapat <a href='[subscribe_link]'>berlangganan</a> tanpa harus memberi "
-"komentar."
+"有新评论,请电子邮件通知我。你也不需要留评论就可以<a href='[subscribe_link]'>"
+"订阅</a>。"
 
 #: subscribe-to-comments-reloaded.php:93
 msgid "Don't subscribe"
-msgstr "Jangan berlangganan"
+msgstr "不要 订阅 评论"
 
 #: subscribe-to-comments-reloaded.php:94
 msgid "All"
-msgstr "Semua"
+msgstr "订阅 所有评论"
 
 #: subscribe-to-comments-reloaded.php:95 templates/user.php:67
 msgid "Replies to my comments"
-msgstr "Balasan pada komentar saya saja"
+msgstr "订阅 我评论的回答"
 
 #: subscribe-to-comments-reloaded.php:294 options/index.php:54
 msgid "Manage subscriptions"
-msgstr "Atur Langganan"
+msgstr "管理评论订阅"
 
 #: subscribe-to-comments-reloaded.php:296
 msgid ""
@@ -74,9 +67,8 @@ msgid ""
 "will send you a message containing the link to access your personal "
 "management page."
 msgstr ""
-"Untuk mengatur cara berlangganan, masukkan alamat email Anda di bawah ini. "
-"Kami akan mengirimkan sebuah pesan yang berisi tautan untuk mengakses "
-"Halaman Pengaturan Pribadi milik Anda."
+"为了管理你的评论订阅，请在这里输入你的邮箱地址。我们会把管理你个人订阅的链接"
+"发到你的邮箱。"
 
 #: subscribe-to-comments-reloaded.php:297
 msgid ""
@@ -84,9 +76,8 @@ msgid ""
 "completed, and you should receive an email with the management link in a few "
 "minutes."
 msgstr ""
-"Terima kasih telah memanfaatkan layanan berlangganan kami. Permintaan Anda "
-"telah diproses, dan Anda akan menerima sebuah email yang berisi tautan ke "
-"pengaturan dalam beberapa menit ke depan."
+"谢谢你使用评论订阅。你的请求已处理完，过几分钟你就会收到有管理页面链接的邮"
+"件。"
 
 #: subscribe-to-comments-reloaded.php:298
 msgid ""
@@ -94,9 +85,8 @@ msgid ""
 "having to leave a comment. Cool, huh? Just enter your email address in the "
 "form here below and you're all set."
 msgstr ""
-"Anda dapat menyimak diskusi pada <strong>[post_title]</strong> tanpa harus "
-"memberikan komentar terlebih dulu. Keren, kan? Masukkan saja alamat email "
-"Anda ke isian berikut."
+"你不需要留评论就可以关注《<strong>[post_title]</strong>》的讨论。不错，啊？在"
+"下面输入你的邮箱地址就可以。"
 
 #: subscribe-to-comments-reloaded.php:299
 msgid ""
@@ -104,9 +94,8 @@ msgid ""
 "completed. You will receive a notification email every time a new comment to "
 "this article is approved and posted by the administrator."
 msgstr ""
-"Terima kasih telah memanfaatkan layanan berlangganan kami. Permintaan Anda "
-"telah diproses. Anda akan menerima sebuah email notifikasi setiap ada "
-"komentar baru pada artikel ini."
+"谢谢你使用评论订阅。你的请求已处理完。每次管理员审核和发布新评论你就会收到邮"
+"件通知。"
 
 #: subscribe-to-comments-reloaded.php:300
 msgid ""
@@ -114,17 +103,15 @@ msgid ""
 "request, please check your email for the verification message and follow the "
 "instructions."
 msgstr ""
-"Terima kasih telah memanfaatkan layanan berlangganan kami. Selanjutnya Anda "
-"perlu melakukan konfirmasi melalui sebuah pesan yang kami kirimkan ke alamat "
-"email Anda, dan lakukanlah langkah-langkah yang diinstruksikan."
+"谢谢你使用评论订阅。为了确认你的请求，请查看你的电子邮箱，你会收到确认邮件和"
+"下一步的说明。"
 
 #: subscribe-to-comments-reloaded.php:301
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
 msgstr ""
-"Untuk membatalkan atau menangguhkan satu atau lebih notifikasi, pilihlah "
-"pada checkbox yang dimaksud dan klik pada tombol di akhir daftar."
+"为了取消或者停止一个或更多的通知，请点击相关的复选框，并点击最下面的按钮。"
 
 #: subscribe-to-comments-reloaded.php:302
 msgid ""
@@ -132,13 +119,12 @@ msgid ""
 "corresponding checkbox(es) and click on the button at the end of the list. "
 "You are currently subscribed to:"
 msgstr ""
-"Untuk membatalkan atau menangguhkan satu atau lebih notifikasi, pilihlah "
-"pada checkbox yang dimaksud dan klik pada tombol di akhir daftar. Saat ini "
-"Anda berlangganan:"
+"为了取消或者停止一个或更多的通知，请点击相关的复选框，并点击最下面的按钮。你"
+"已经订阅了这些："
 
 #: subscribe-to-comments-reloaded.php:306
 msgid "There is a new comment to [post_title]"
-msgstr "Hey, ada komentar baru pada artikel  [post_title]"
+msgstr "[post_title]有一条新的评论"
 
 #: subscribe-to-comments-reloaded.php:307
 msgid ""
@@ -150,17 +136,17 @@ msgid ""
 "Permalink: [post_permalink]\n"
 "Manage your subscriptions: [manager_link]"
 msgstr ""
-"Ada komentar baru pada artikel [post_title].\n"
-"Tautan komentar: [comment_permalink]\n"
-"Oleh: [comment_author]\n"
-"Komentar:\n"
+"《[post_title]》有新的评论。\n"
+"文章链接: [post_permalink]\n"
+"用户名：[comment_author]\n"
+"评论：\n"
 "[comment_content]\n"
-"Tautan: [post_permalink]\n"
-"Atur cara berlangganan Anda: [manager_link]"
+"评论链接：[comment_permalink]\n"
+"管理你的订阅：[manager_link]"
 
 #: subscribe-to-comments-reloaded.php:308
 msgid "Please confirm your subscription to [post_title]"
-msgstr "Mohon lakukan konfirmasi berlangganan Anda pada artikel [post_title]"
+msgstr "请确认你要订阅《[post_title]》"
 
 #: subscribe-to-comments-reloaded.php:309
 msgid ""
@@ -170,15 +156,15 @@ msgid ""
 "Please confirm your request by clicking on this link:\n"
 "[confirm_link]"
 msgstr ""
-"Anda telah meminta untuk diberitahu setiap ada komentar baru pada:\n"
+"你提交过申请每次这篇文章有新评论邮件通知你\n"
 "[post_permalink]\n"
 "\n"
-"Lakukan konfirmasi permintaan Anda dengan melakukan klik pada tautan ini:\n"
+"请通过点击以下的链接确认：\n"
 "[confirm_link]"
 
 #: subscribe-to-comments-reloaded.php:310
 msgid "Manage your subscriptions on [blog_name]"
-msgstr "Aturlah cara berlangganan Anda pada [blog_name]"
+msgstr "管理你在[blog_name]上的订阅"
 
 #: subscribe-to-comments-reloaded.php:311
 msgid ""
@@ -186,8 +172,7 @@ msgid ""
 "[blog_name]. Follow this link to access your personal page:\n"
 "[manager_link]"
 msgstr ""
-"Anda telah meminta untuk mengatur cara berlanggan Anda pada artikel di "
-"[blog_name]. Ikuti tautan berikut untuk mengakses halaman personal Anda:\n"
+"你申请过管理[blog_name]的评论订阅。请点击以下的链接去你的个人管理页面：\n"
 "[manager_link]"
 
 #: subscribe-to-comments-reloaded.php:366
@@ -200,26 +185,24 @@ msgstr ""
 #: options/panel5.php:103 options/panel5.php:113 options/panel5.php:122
 #: options/panel5.php:131
 msgid "No"
-msgstr "Tidak"
+msgstr "No"
 
 #: subscribe-to-comments-reloaded.php:1310
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
-msgstr ""
-"Perlu bantuan tentang cara penggunaan Subscribe to Comments Reloaded? "
-"Kunjungi situs resmi"
+msgstr "需要帮忙如何使用Subscribe to Comments Reloaded？ 请访问官方"
 
 #: subscribe-to-comments-reloaded.php:1310
 msgid "support forum"
-msgstr "forum bantuan"
+msgstr "技术论坛"
 
 #: subscribe-to-comments-reloaded.php:1311
 msgid "Feeling generous?"
-msgstr "Merasa dermawan?"
+msgstr "想做贡献"
 
 #: subscribe-to-comments-reloaded.php:1311
 msgid "Donate a few bucks!"
-msgstr "Beri sedikit sumbangan"
+msgstr "捐赠几元！"
 
 #: subscribe-to-comments-reloaded.php:1380
 #: subscribe-to-comments-reloaded.php:1526
@@ -286,68 +269,68 @@ msgstr ""
 
 #: options/index.php:55
 msgid "Comment Form"
-msgstr "Formulir Komentar"
+msgstr "评论form"
 
 #: options/index.php:56
 msgid "Management Page"
-msgstr "Halaman Pengaturan"
+msgstr "管理页面"
 
 #: options/index.php:57
 msgid "Notifications"
-msgstr "Notifikasi"
+msgstr "通知"
 
 #: options/index.php:58 options/panel2.php:58 options/panel3.php:60
 #: options/panel4.php:51
 msgid "Options"
-msgstr "Pilihan"
+msgstr "设置"
 
 #: options/index.php:59
 msgid "You can help"
-msgstr "Bantu kami"
+msgstr "你可以帮助"
 
 #: options/panel1-business-logic.php:19
 msgid "Subscription added."
-msgstr "Berlangganan telah ditambahkan."
+msgstr "增加了订阅。"
 
 #: options/panel1-business-logic.php:31
 msgid "Subscriptions updated."
-msgstr "Berlangganan telah diperbaharui."
+msgstr "更新了订阅。"
 
 #: options/panel1-business-logic.php:40
 msgid "Subscription deleted."
-msgstr "Berlangganan telah dihapus."
+msgstr "删除了订阅。"
 
 #: options/panel1-business-logic.php:59 templates/author.php:23
 #: templates/user.php:23
 msgid "Subscriptions deleted:"
-msgstr "Berlangganan telah dihapus."
+msgstr "删除了订阅："
 
 #: options/panel1-business-logic.php:63 templates/author.php:27
 #: templates/user.php:27
 msgid "Subscriptions suspended:"
-msgstr "Berlangganan telah ditangguhkan."
+msgstr "停止了订阅："
 
 #: options/panel1-business-logic.php:67 templates/author.php:31
 #: templates/user.php:31
 msgid "Subscriptions activated:"
-msgstr "Berlangganan telah diaktifkan."
+msgstr "激活了订阅："
 
 #: options/panel1-business-logic.php:71 options/panel1-business-logic.php:75
 #: templates/author.php:35 templates/author.php:39 templates/user.php:35
 msgid "Subscriptions updated:"
-msgstr "Berlangganan telah diperbaharui."
+msgstr "更新了订阅："
 
 #: options/panel1-business-logic.php:99
 msgid "&laquo; Previous"
-msgstr "&laquo; Sebelumnya"
+msgstr "&laquo; 之前"
 
 #: options/panel1-business-logic.php:103
 msgid "Next &raquo;"
-msgstr "Berikutnya &raquo;"
+msgstr "之后 &raquo;"
 
 #: options/panel1-edit-subscription.php:8
 msgid "Update Subscription"
-msgstr "Perbaharui cara berlangganan"
+msgstr "更新订阅"
 
 #: options/panel1-edit-subscription.php:11
 #: options/panel1-edit-subscription.php:21
@@ -355,7 +338,7 @@ msgstr "Perbaharui cara berlangganan"
 #: options/panel1-edit-subscription.php:23 options/panel1.php:28
 #: options/panel1.php:29 options/panel1.php:30
 msgid "optional"
-msgstr "tidak wajib diisi"
+msgstr "可选"
 
 #: options/panel1-edit-subscription.php:11 options/panel1.php:22
 #: options/panel1.php:102 options/panel1.php:138 templates/author.php:52
@@ -363,56 +346,54 @@ msgstr "tidak wajib diisi"
 msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
 "proceed?"
-msgstr ""
-"Ingat: tindakan berikut tidak dapat dikembalikan. Anda yakin untuk "
-"melakukannya?"
+msgstr "注意：这个请求是不可恢复的。你确定要这样做？"
 
 #: options/panel1-edit-subscription.php:13
 msgid "Post:"
-msgstr "Artikel:"
+msgstr "文章："
 
 #: options/panel1-edit-subscription.php:16 options/panel1.php:24
 msgid "From"
-msgstr "Dari"
+msgstr "来自"
 
 #: options/panel1-edit-subscription.php:20 options/panel1.php:27
 msgid "To"
-msgstr "Ke"
+msgstr "To"
 
 #: options/panel1-edit-subscription.php:26 options/panel1.php:33
 #: options/panel1.php:59 options/panel1.php:124
 msgid "Status"
-msgstr "Status"
+msgstr "情况"
 
 #: options/panel1-edit-subscription.php:28 options/panel1.php:35
 msgid "Keep unchanged"
-msgstr "Jangan diganti"
+msgstr "保持不变"
 
 #: options/panel1-edit-subscription.php:29 options/panel1.php:36
 #: options/panel1.php:61
 msgid "Active"
-msgstr "Aktif"
+msgstr "Active"
 
 #: options/panel1-edit-subscription.php:30 options/panel1.php:37
 #: options/panel1.php:62
 msgid "Replies only"
-msgstr "Balasan saja"
+msgstr "限制与回复"
 
 #: options/panel1-edit-subscription.php:31 options/panel1.php:38
 msgid "Suspended"
-msgstr "Ditangguhkan"
+msgstr "停止"
 
 #: options/panel1-edit-subscription.php:33 options/panel1.php:40
 msgid "Update"
-msgstr "Perbaharui"
+msgstr "更新"
 
 #: options/panel1.php:19
 msgid "Mass Update Subscriptions"
-msgstr "Pembaruan berlangganan secara massal"
+msgstr "批量更新订阅"
 
 #: options/panel1.php:48
 msgid "Add New Subscription"
-msgstr "Tambahkan Langganan Baru"
+msgstr "增加新的订阅"
 
 #: options/panel1.php:53
 msgid "Post ID"
@@ -426,24 +407,22 @@ msgstr "Email"
 
 #: options/panel1.php:63
 msgid "Ask user to confirm"
-msgstr "Minta pengguna untuk konfirmasi"
+msgstr "让用户确认"
 
 #: options/panel1.php:65
 msgid "Add"
-msgstr "Tambahkan"
+msgstr "增加"
 
 #: options/panel1.php:76
 msgid "Search subscriptions"
-msgstr "Cari langganan"
+msgstr "搜索订阅"
 
 #: options/panel1.php:80
 #, php-format
 msgid ""
 "You can either <a href=\"%s\">view all the subscriptions</a> or find those "
 "where the"
-msgstr ""
-"Anda dapat <a href=\"%s\">melihat semua langganan</a> atau menemukan di mana "
-"mereka"
+msgstr "你可以<a href=\"%s\">所有的订阅</a>或者搜索在"
 
 #: options/panel1.php:84
 msgid "email"
@@ -455,43 +434,43 @@ msgstr "post ID"
 
 #: options/panel1.php:86
 msgid "status"
-msgstr "status"
+msgstr "情况"
 
 #: options/panel1.php:89
 msgid "equals"
-msgstr "equals (sama)"
+msgstr "等于"
 
 #: options/panel1.php:90
 msgid "contains"
-msgstr "mengandung"
+msgstr "包含"
 
 #: options/panel1.php:91
 msgid "does not contain"
-msgstr "tidak mengandung"
+msgstr "不包含"
 
 #: options/panel1.php:92
 msgid "starts with"
-msgstr "dimulai dengan"
+msgstr "的开头是"
 
 #: options/panel1.php:93
 msgid "ends with"
-msgstr "diakhiri dengan"
+msgstr "的结尾是"
 
 #: options/panel1.php:96
 msgid "results per page:"
-msgstr "hasil per halaman:"
+msgstr "每页显示："
 
 #: options/panel1.php:98
 msgid "Search"
-msgstr "Cari"
+msgstr "搜索"
 
 #: options/panel1.php:106
 msgid "Reverse the order by Post ID"
-msgstr "Balik urutan berdasar Post ID"
+msgstr "按照Post ID反过来排列"
 
 #: options/panel1.php:107 options/panel1.php:108
 msgid "Reverse the order by Date/Time"
-msgstr "Balik urutan berdasar Tanggal/Waktu"
+msgstr "按照日期和时间反过来排列"
 
 #: options/panel1.php:110
 msgid "Post (ID)"
@@ -499,140 +478,138 @@ msgstr "Post (ID)"
 
 #: options/panel1.php:113
 msgid "Search query:"
-msgstr "Query pencarian:"
+msgstr "搜索内容："
 
 #: options/panel1.php:113
 msgid "Rows:"
-msgstr "Baris:"
+msgstr "行："
 
 #: options/panel1.php:113
 msgid "of"
-msgstr "pada"
+msgstr "of"
 
 #: options/panel1.php:114 templates/author.php:58 templates/user.php:54
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
-msgstr "Legenda: Y = seluruh komentar, R = balasan saja, C = tidak aktif"
+msgstr "指南: Y = 所有评论, R = 限制与回答, C = 停止"
 
 #: options/panel1.php:123
 msgid "Date and Time"
-msgstr "Tanggal dan Waktu"
+msgstr "日期和时间"
 
 #: options/panel1.php:135
 msgid "Subscription"
-msgstr "Langganan"
+msgstr ""
 
 #: options/panel1.php:137
 msgid "Edit"
-msgstr "Edit"
+msgstr "编辑"
 
 #: options/panel1.php:138 templates/author.php:72 templates/user.php:65
 msgid "Delete"
-msgstr "Hapus"
+msgstr "删除"
 
 #: options/panel1.php:146 templates/author.php:71 templates/user.php:64
 msgid "Action:"
-msgstr "Tindakan:"
+msgstr "命令："
 
 #: options/panel1.php:147
 msgid "Delete forever"
-msgstr "Hapus selamanya"
+msgstr "永久删除"
 
 #: options/panel1.php:148 templates/author.php:73 templates/user.php:66
 msgid "Suspend"
-msgstr "Tangguhkan"
+msgstr "停止"
 
 #: options/panel1.php:149
 msgid "Activate and set to Y"
-msgstr "Aktifkan dan atur ke Y"
+msgstr "启用并改为Y"
 
 #: options/panel1.php:150
 msgid "Activate and set to R"
-msgstr "Aktifkan dan atur ke R"
+msgstr "启用并改为R"
 
 #: options/panel1.php:151 templates/author.php:75 templates/user.php:68
 msgid "Activate"
-msgstr "Aktifkan"
+msgstr "启用"
 
 #: options/panel1.php:152 templates/author.php:76 templates/user.php:69
 msgid "Update subscriptions"
-msgstr "Perbaharui langganan"
+msgstr "更新订阅"
 
 #: options/panel1.php:155
 msgid "Sorry, no subscriptions match your search criteria."
-msgstr "Maaf, tidak ada langganan yang cocok dengan kriteria pencarian Anda."
+msgstr "对不起，没有符合搜索条件的结果"
 
 #: options/panel2.php:12 options/panel2.php:63
 msgid "Enable default checkbox"
-msgstr "Nyalakan checkbox bawaan"
+msgstr "启用默认的复选框"
 
 #: options/panel2.php:15 options/panel2.php:73
 msgid "Checked by default"
-msgstr "Dicentang sebagai bawaan"
+msgstr "默认打勾"
 
 #: options/panel2.php:18
 msgid "Checked by default Value"
-msgstr "Dicentang sebagai bawaan"
+msgstr "默认打勾"
 
 #: options/panel2.php:21 options/panel2.php:24 options/panel2.php:102
 msgid "Advanced subscription"
-msgstr "Cara berlangganan lanjutan"
+msgstr "高级订阅"
 
 #: options/panel2.php:27 options/panel2.php:130
 msgid "Custom inline style"
-msgstr "Gaya inline tersuai"
+msgstr "自定义inline样式"
 
 #: options/panel2.php:30 options/panel2.php:139
 msgid "Custom HTML"
-msgstr "HTML tersuai"
+msgstr "自定义HTML"
 
 #: options/panel2.php:34
 msgid "Checkbox label"
-msgstr "Label checkbox"
+msgstr "复选款的label"
 
 #: options/panel2.php:37 options/panel2.php:163
 msgid "Subscribed label"
-msgstr "Label berlangganan"
+msgstr "订阅过的label"
 
 #: options/panel2.php:40
 msgid "Awaiting label"
-msgstr "Label menunggu"
+msgstr "等待的label"
 
 #: options/panel2.php:43 options/panel2.php:180
 msgid "Author label"
-msgstr "Label penulis"
+msgstr "作者的label"
 
 #: options/panel2.php:49 options/panel3.php:48 options/panel4.php:41
 #: options/panel5.php:42
 msgid "Your settings have been successfully updated."
-msgstr "Pengaturan Anda telah diperbarui."
+msgstr "你的设置已经成功更新了。"
 
 #: options/panel2.php:51 options/panel3.php:50 options/panel4.php:43
 #: options/panel5.php:44
 msgid "There was an error updating the following fields:"
-msgstr "Terdapat galat saat memperbaharui ruas berikut:"
+msgstr "更新以下内容时出现错误了："
 
 #: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
 #: options/panel5.php:65 options/panel5.php:74 options/panel5.php:83
 #: options/panel5.php:93 options/panel5.php:102 options/panel5.php:112
 #: options/panel5.php:121 options/panel5.php:130
 msgid "Yes"
-msgstr "Ya"
+msgstr "Yes"
 
 #: options/panel2.php:68
 msgid ""
 "Disable this option if you want to move the subscription checkbox to a "
 "different place on your page."
-msgstr ""
-"Matikan pilihan ini jika Anda mau memindah checkbox langganan ke tempat lain "
-"dalam halaman."
+msgstr "如果你想自己安排订阅复选框，请禁用这个复选框。"
 
 #: options/panel2.php:78
 msgid "Decide if the checkbox should be checked by default or not."
-msgstr "Tentukan bahwa checkbox akan tercentang secara bawaan atau tidak."
+msgstr "确定复选框是否默认的打勾。"
 
 #: options/panel2.php:87
 msgid "Default Checkbox Value"
-msgstr "Nyalakan checkbox bawaan"
+msgstr "启用默认的复选框"
 
 #: options/panel2.php:91 options/panel2.php:120
 msgid "All new comments"
@@ -640,7 +617,7 @@ msgstr ""
 
 #: options/panel2.php:92 options/panel2.php:121
 msgid "Replies to this comment"
-msgstr "Balasan pada komentar saya saja"
+msgstr "订阅 我评论的回答"
 
 #: options/panel2.php:94
 msgid ""
@@ -651,11 +628,11 @@ msgstr ""
 #: options/panel2.php:107
 msgid ""
 "Allow users to choose from different subscription types (all, replies only)."
-msgstr "Ijikan pengguna untuk memilih tipe berlangganan (semua, balasan saja)."
+msgstr "允许用户选择不同订阅种类（所有评论，回答等）"
 
 #: options/panel2.php:115
 msgid "Advanced default"
-msgstr "Dicentang sebagai bawaan"
+msgstr "默认打勾"
 
 #: options/panel2.php:119
 msgid "None"
@@ -669,112 +646,103 @@ msgstr ""
 
 #: options/panel2.php:135
 msgid "Custom inline CSS to add to the checkbox."
-msgstr "Inline CSS tersuai untuk ditambahkan pada checkbox."
+msgstr "为复选框增加的自定义inline CSS。"
 
 #: options/panel2.php:143
 msgid ""
 "Custom HTML code to be used when displaying the checkbox. Allowed tags: "
 "[checkbox_field], [checkbox_label]"
-msgstr ""
-"Kode HTML tersuai untuk digunakan ketika menampilkan checkbox. Tag yang "
-"diijinkan: [checkbox_field], [checkbox_label]"
+msgstr "现实复选框的自定义HTML。允许的标签：[checkbox_field], [checkbox_label]"
 
 #: options/panel2.php:149
 msgid "Messages for your visitors"
-msgstr "Pesan untuk pengunjung Anda"
+msgstr "给访问者的信息"
 
 #: options/panel2.php:153
 msgid "Default label"
-msgstr "Label bawaan"
+msgstr "默认的label解释"
 
 #: options/panel2.php:158
 msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
-msgstr ""
-"Label yang terasosiasi dengan checkbox. Tag yang diijinkan: [subscribe_link]"
+msgstr "给复选框的label解释。允许的标签：[subscribe_link]"
 
 #: options/panel2.php:167
 msgid ""
 "Label shown to those who are already subscribed to a post. Allowed tag: "
 "[manager_link]"
-msgstr ""
-"Label yang diperlihatkan kepada mereka yang telah berlangganan suatu "
-"artikel. Tag yang diijinkan: [manager_link]"
+msgstr "给已经订阅的用户的label解释。允许的标签：[manager_link]"
 
 #: options/panel2.php:172
 msgid "Pending label"
-msgstr "Label penundaan"
+msgstr "等待的label解释"
 
 #: options/panel2.php:176
 msgid ""
 "Label shown to those who are already subscribed, but haven't clicked on the "
 "confirmation link yet. Allowed tag: [manager_link]"
-msgstr ""
-"Label yang diperlihatkan kepada mereka yang telah berlangganan, tetapi belum "
-"melakukan klik pada tautan konfirmasi. Tag yang diijinkan: [manager_link]"
+msgstr "给已经订阅但没有激活的用户的label解释。允许的标签：[manager_link]"
 
 #: options/panel2.php:184
 msgid ""
 "Label shown to authors (and administrators). Allowed tag: [manager_link]"
-msgstr ""
-"Label yang diperlihatkan kepada penulis (dan admin). Tag yang diijinkan: "
-"[manager_link]"
+msgstr "给作者（和管理员）的label解释。允许的标签：[manager_link]"
 
 #: options/panel2.php:189 options/panel3.php:210 options/panel4.php:152
 #: options/panel5.php:137
 msgid "Save Changes"
-msgstr "Simpan Perubahan"
+msgstr "保存更改"
 
 #: options/panel3.php:11 options/panel3.php:65
 msgid "Virtual Management Page"
-msgstr "Halaman Pengaturan Virtual"
+msgstr "虚拟管理页面"
 
 #: options/panel3.php:14 options/panel3.php:74
 msgid "Page title"
-msgstr "Judul halaman"
+msgstr "页面标题"
 
 #: options/panel3.php:17 options/panel3.php:83
 msgid "Management URL"
-msgstr "URL Pengaturan"
+msgstr "管理URL"
 
 #: options/panel3.php:20 options/panel3.php:95
 msgid "Custom HEAD meta"
-msgstr "Meta HEAD tersuai"
+msgstr "自定义HEAD meta"
 
 #: options/panel3.php:24 options/panel3.php:109
 msgid "Request link"
-msgstr "Meminta tautan"
+msgstr "请求链接"
 
 #: options/panel3.php:27 options/panel3.php:124
 msgid "Request submitted"
-msgstr "Permintaan diajukan"
+msgstr "请求提交完成了"
 
 #: options/panel3.php:30 options/panel3.php:139
 msgid "Subscribe without commenting"
-msgstr "Berlangganan tanpa memberi komentar"
+msgstr "不留评论订阅"
 
 #: options/panel3.php:33 options/panel3.php:154
 msgid "Subscription processed"
-msgstr "Langganan yang diproses"
+msgstr "订阅处理完了"
 
 #: options/panel3.php:36 options/panel3.php:169
 msgid "Subscription processed (DCI)"
-msgstr "Langganan yang diproses (DCI)"
+msgstr "订阅处理完了（需要确认）"
 
 #: options/panel3.php:39 options/panel3.php:183
 msgid "Authors"
-msgstr "Penulis"
+msgstr "作者"
 
 #: options/panel3.php:42 options/panel3.php:196
 msgid "Users"
-msgstr "Pengguna"
+msgstr "用户"
 
 #: options/panel3.php:68
 msgid "Enabled"
-msgstr "Dinyalakan"
+msgstr "启用"
 
 #: options/panel3.php:69
 msgid "Disabled"
-msgstr "Dimatikan"
+msgstr "禁用"
 
 #: options/panel3.php:70
 msgid ""
@@ -782,15 +750,12 @@ msgid ""
 "lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to make your "
 "theme happy."
 msgstr ""
-"Matikan Halaman Pengaturan Virtual jika Anda ingin membuat sebuah <a href="
-"\"http://lab.duechiacchiere.it/index.php?topic=71.0\">halaman riil</a> yang "
-"lebih bersahabat dengan tema."
+"如果你需要一个<a href=\"http://lab.duechiacchiere.it/index.php?topic=71.0\">"
+"真正的页面</a>配合你的主体，要禁用虚拟管理页面。"
 
 #: options/panel3.php:79
 msgid "Title of the page your visitors will use to manage their subscriptions."
-msgstr ""
-"Judul pada halaman pengunjung akan digunakan untuk mengatur cara "
-"berlangganan mereka."
+msgstr "用户管理他们的订阅，那个页面的标题。"
 
 #: options/panel3.php:87
 msgid ""
@@ -799,157 +764,144 @@ msgid ""
 "b> actually exist in the system, but its link must follow your permalink "
 "structure."
 msgstr ""
-"Permalink untuk halaman pengaturan Anda (sesuatu seperti <code>/pengaturan-"
-"langganan</code> atau <code>/?page_id=345</code>). Halaman ini <b>tidak</b> "
-"benar-benar ada dalam sistem, tetapi tautannya harus mengikuti struktur "
-"tautan di web Anda."
+"管理页面的永久链接（比如 <code>/manage-subscriptions</code> 或者 <code>/?"
+"page_id=345</code> ）。你的系统<b>没有</b>这个页面，但他的形式需要和你系统的"
+"永久链接形式一致。"
 
 #: options/panel3.php:89
 msgid ""
 "Warning: it looks like the value you are using may be incompatible with your "
 "permalink structure"
-msgstr ""
-"Peringatan: sepertinya nilai yang Anda gunakan tidak kompatibel dengan "
-"struktur permalink web Anda."
+msgstr "注意：你用的内容可能不兼容你的永久链接形式。"
 
 #: options/panel3.php:99
 msgid ""
 "Specify your custom HTML code to be added to the HEAD section of the page. "
 "Use <strong>single</strong> quotes for values."
-msgstr ""
-"Tentukan kode HTML tersuai Anda untuk ditambahkan ke dalam bagian HEAD pada "
-"halaman. Gunakan tanda kutip <strong>tunggal</strong> untuk nilai."
+msgstr "要加入到HEAD的自定义代码。要用<strong>单引号</strong>。"
 
 #: options/panel3.php:105 options/panel4.php:74
 msgid "Messages"
-msgstr "Pesan"
+msgstr "信息"
 
 #: options/panel3.php:112 options/panel3.php:127 options/panel3.php:142
 #: options/panel3.php:157 options/panel3.php:172 options/panel3.php:185
 #: options/panel3.php:198 options/panel4.php:92 options/panel4.php:117
 #: options/panel4.php:140
 msgid "Bold"
-msgstr "Tebal"
+msgstr "加黑"
 
 #: options/panel3.php:113 options/panel3.php:128 options/panel3.php:143
 #: options/panel3.php:158 options/panel3.php:173 options/panel3.php:186
 #: options/panel3.php:199 options/panel4.php:93 options/panel4.php:118
 #: options/panel4.php:141
 msgid "Italic"
-msgstr "Cetak miring"
+msgstr "斜体"
 
 #: options/panel3.php:114 options/panel3.php:129 options/panel3.php:144
 #: options/panel3.php:159 options/panel3.php:174 options/panel3.php:187
 #: options/panel3.php:200 options/panel4.php:94 options/panel4.php:119
 #: options/panel4.php:142
 msgid "Link"
-msgstr "Tautan"
+msgstr "链接"
 
 #: options/panel3.php:115 options/panel3.php:130 options/panel3.php:145
 #: options/panel3.php:160 options/panel3.php:175 options/panel3.php:188
 #: options/panel3.php:201 options/panel4.php:95 options/panel4.php:120
 #: options/panel4.php:143
 msgid "Image"
-msgstr "Gambar"
+msgstr "图片"
 
 #: options/panel3.php:119
 msgid "Text shown to those who request to manage their subscriptions."
-msgstr ""
-"Teks yang diperlihatkan kepada mereka yang ingin mengatur cara berlangganan."
+msgstr "这些内容要显示给想管理自己的订阅的人。"
 
 #: options/panel3.php:134
 msgid ""
 "Thank you note shown after the request here above has been processed. "
 "Allowed tags: [post_title], [post_permalink]"
 msgstr ""
-"Ucapan Terima Kasih yang diperlihatkan setelah permintaan di atas telah "
-"diproses. Tag yang diijinkan: [post_title], [post_permalink]"
+"感谢信在处理上面的请求完成之后。允许的标签：[post_title], [post_permalink]"
 
 #: options/panel3.php:149
 msgid ""
 "Text shown to those who want to subscribe without commenting. Allowed tags: "
 "[post_title], [post_permalink]"
 msgstr ""
-"Teks yang diperlihatkan kepada pengguna yang ingin berlangganan tanpa "
-"meninggalkan komentar. Tag yang diijinkan: [post_title], [post_permalink]"
+"这些内容要显示给想订阅但不想留言的人。允许的标签：[post_title], "
+"[post_permalink]"
 
 #: options/panel3.php:164
 msgid ""
 "Thank you note shown after the subscription request has been processed "
 "(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
 msgstr ""
-"Ucapan Terima Kasih yang diperlihatkan setelah permintaan berlangganan "
-"diproses (konfirmasi ganda dimatikan). Tag yang diijinkan: [post_title], "
-"[post_permalink]"
+"感谢信在申请订阅处理完成之后（不需要激活的情况下）。允许的标签："
+"[post_title], [post_permalink]"
 
 #: options/panel3.php:179
 msgid ""
 "Thank you note shown after the subscription request has been processed "
 "(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
 msgstr ""
-"Ucapan Terima Kasih yang diperlihatkan setelah permintaan berlangganan "
-"diproses (konfirmasi ganda dinyalakan). Tag yang diijinkan: [post_title], "
+"感谢信在申请订阅处理完成之后（需要激活的情况下）。允许的标签：[post_title], "
 "[post_permalink]"
 
 #: options/panel3.php:192
 msgid "Introductory text for the authors' management page."
-msgstr "Teks pengantar pada Halaman Pengaturan milik penulis."
+msgstr "给作者的管理页面的介绍内容。"
 
 #: options/panel3.php:205
 msgid "Introductory text for the users' management page."
-msgstr "Teks pengantar pada Halaman Pengaturan milik pengguna."
+msgstr "给用户的管理页面的介绍内容。"
 
 #: options/panel4.php:14 options/panel4.php:55
 msgid "Sender name"
-msgstr "Nama pengirim"
+msgstr "发送人的名字"
 
 #: options/panel4.php:17 options/panel4.php:63
 msgid "Sender email address"
-msgstr "Alamat email pengirim"
+msgstr "发送人的邮件地址"
 
 #: options/panel4.php:20 options/panel4.php:79
 msgid "Notification subject"
-msgstr "Subjek notifikasi"
+msgstr "通知标题"
 
 #: options/panel4.php:23 options/panel4.php:89
 msgid "Notification message"
-msgstr "Pesan notifikasi"
+msgstr "通知内容"
 
 #: options/panel4.php:26 options/panel4.php:104
 msgid "Double check subject"
-msgstr "Subjek konfirmasi ganda"
+msgstr "确认标题"
 
 #: options/panel4.php:29 options/panel4.php:114
 msgid "Double check message"
-msgstr "Pesan konfirmasi ganda"
+msgstr "确认内容"
 
 #: options/panel4.php:32 options/panel4.php:129
 msgid "Management subject"
-msgstr "Subjek pengaturan"
+msgstr "管理标题"
 
 #: options/panel4.php:35 options/panel4.php:138
 msgid "Management message"
-msgstr "Pesan pengaturan"
+msgstr "管理内容"
 
 #: options/panel4.php:59
 msgid ""
 "Name to use for the \"from\" field when sending a new notification to the "
 "user."
-msgstr ""
-"Nama yang digunakan untuk ruas \"from\" ketika mengirimkan sebuah notifikasi "
-"kepada pengguna."
+msgstr "给用户发送新的通知时，\"from\"要用的名字"
 
 #: options/panel4.php:68
 msgid ""
 "Email address to use for the \"from\" field when sending a new notification "
 "to the user."
-msgstr ""
-"Alamat email yang digunakan untuk ruas \"from\" ketika mengirimkan sebuah "
-"notifikasi kepada pengguna."
+msgstr "给用户发送新的通知时，\"from\"要用的电子邮箱"
 
 #: options/panel4.php:84
 msgid "Subject of the notification email. Allowed tag: [post_title]"
-msgstr "Subjek pada email notifikasi. Tag yang diijinkan: [post_title]"
+msgstr "通知邮件的标题。允许的标签：[post_title]"
 
 #: options/panel4.php:99
 msgid ""
@@ -957,43 +909,39 @@ msgid ""
 "[comment_permalink], [comment_author], [comment_content], [post_permalink], "
 "[manager_link]"
 msgstr ""
-"Isi pada email notifikasi. Tag yang diijinkan: [post_title], "
-"[comment_permalink], [comment_author], [comment_content], [post_permalink], "
-"[manager_link]"
+"通知邮件的内容。允许的标签：[post_title], [comment_permalink], "
+"[comment_author], [comment_content], [post_permalink], [manager_link]"
 
 #: options/panel4.php:109
 msgid "Subject of the confirmation email. Allowed tag: [post_title]"
-msgstr "Subjek pada email konfirmasi. Tag yang diijinkan: [post_title]"
+msgstr "确认邮件的标题。允许的标签：[post_title]"
 
 #: options/panel4.php:124
 msgid ""
 "Content of the confirmation email. Allowed tags: [post_permalink], "
 "[confirm_link], [post_title], [manager_link]"
 msgstr ""
-"Isi pada email konfirmasi. Tag yang diijinkan: [post_permalink], "
-"[confirm_link], [post_title], [manager_link]"
+"确认邮件的内容。允许的标签：[post_permalink], [confirm_link], [post_title], "
+"[manager_link]"
 
 #: options/panel4.php:133
 msgid ""
 "Subject of the mail sent to those who request to access their management "
 "page. Allowed tag: [blog_name]"
-msgstr ""
-"Subjek pada email yang dikirimkan kepada mereka yang meminta akses ke "
-"Halaman Pengaturan. Tag yang diijinkan: [blog_name]"
+msgstr "用户想进入管理订阅页面后，邮件的标题。允许的标签：[blog_name]"
 
 #: options/panel4.php:147
 msgid ""
 "Content of the management email. Allowed tags: [blog_name], [manager_link]"
-msgstr ""
-"Isi pada email pengaturan: Tag yang diijinkan: [blog_name], [manager_link]"
+msgstr "进入管理页面的邮件内容。允许的标签：[blog_name], [manager_link]"
 
 #: options/panel5.php:12 options/panel5.php:54
 msgid "Autopurge requests"
-msgstr "Permintaan pembersihan-otomatis"
+msgstr "自动删除的请求"
 
 #: options/panel5.php:15 options/panel5.php:63
 msgid "Enable double check"
-msgstr "Nyalakan konfirmasi ganda"
+msgstr "启用确认"
 
 #: options/panel5.php:18 options/panel5.php:71
 msgid "Subscribe authors"
@@ -1001,7 +949,7 @@ msgstr ""
 
 #: options/panel5.php:21 options/panel5.php:81
 msgid "Enable HTML emails"
-msgstr "Nyalakan email HTML"
+msgstr "启用HTML的邮件"
 
 #: options/panel5.php:24
 msgid "HTMLify Links in HTML emails"
@@ -1009,39 +957,35 @@ msgstr ""
 
 #: options/panel5.php:27
 msgid "Send trackbacks"
-msgstr "Kirim taut balik"
+msgstr "发送trackback"
 
 #: options/panel5.php:30
 msgid "Notify admin"
-msgstr "Beritahu admin"
+msgstr "通知管理员"
 
 #: options/panel5.php:33 options/panel5.php:119
 msgid "Let admin subscribe"
-msgstr "Ijinkan admin berlangganan"
+msgstr "让管理员订阅"
 
 #: options/panel5.php:36 options/panel5.php:128
 msgid "BCC admin on Notifications"
-msgstr "Notifikasi"
+msgstr "通知"
 
 #: options/panel5.php:57
 msgid "days"
-msgstr "hari"
+msgstr "天"
 
 #: options/panel5.php:58
 msgid ""
 "Delete pending subscriptions (not confirmed) after X days. Zero disables "
 "this feature."
-msgstr ""
-"Hapus langganan yang ditunda (tanpa konfirmasi) setelah X hari. Masukkan Nol "
-"untuk mematikan fitur ini."
+msgstr "在X天之后删除没有激活的订阅（没有确认）。0代表禁用此功能。"
 
 #: options/panel5.php:67
 msgid ""
 "Send a notification email to confirm the subscription (to avoid addresses "
 "misuse)."
-msgstr ""
-"Kirim sebuah email notifikasi untuk konfirmasi berlangganan (mencegah "
-"penyalahgunaan alamat)."
+msgstr "发送激活邮件确认订阅（避免提交他人的邮箱）。"
 
 #: options/panel5.php:76
 msgid ""
@@ -1052,9 +996,7 @@ msgstr ""
 msgid ""
 "If enabled, will send email messages with content-type = text/html instead "
 "of text/plain"
-msgstr ""
-"Jika dimungkinkan, akan mengirim pesan email dengan content-type = text/html "
-"daripada text/plain"
+msgstr "如果启用的话，发送的邮件会content-type = text/html而不是text/plain"
 
 #: options/panel5.php:90
 msgid "HTMLify links in emails"
@@ -1068,28 +1010,24 @@ msgstr ""
 
 #: options/panel5.php:100
 msgid "Process trackbacks"
-msgstr "Proses taut balik"
+msgstr "处理tackbacks"
 
 #: options/panel5.php:104
 msgid ""
 "Notify users when a new trackback or pingback is added to the discussion."
-msgstr ""
-"Beritahu pengguna ketika sebuah tautbalik atau pingback ditambahkan dalam "
-"diskusi."
+msgstr "收到新的trackback或pingback之后通知订阅者。"
 
 #: options/panel5.php:109
 msgid "Track all subscriptions"
-msgstr "Telusuri semua langganan"
+msgstr "Track all subscriptions"
 
 #: options/panel5.php:114
 msgid "Notify the administrator when users subscribe without commenting."
-msgstr ""
-"Beritahu admin ketika ada pengguna yg berlangganan tanpa meninggalkan "
-"komentar."
+msgstr "人不留评论订阅时，通知管理员。"
 
 #: options/panel5.php:123
 msgid "Let the administrator subscribe to comments when logged in."
-msgstr "Ijinkan admin berlangganan komentar ketika masuk log."
+msgstr "让管理员登录后订阅评论。"
 
 #: options/panel5.php:132
 msgid "Send a copy of all Notifications to the administrator."
@@ -1097,7 +1035,7 @@ msgstr ""
 
 #: options/panel6.php:8
 msgid "Support the developer"
-msgstr "Dukung pembuat plugin"
+msgstr "支持作者"
 
 #: options/panel6.php:18
 msgid ""
@@ -1108,16 +1046,16 @@ msgid ""
 "in the development of Subscribe to Comments Reloaded, and to buy some food "
 "for my hungry family."
 msgstr ""
-"Seberapa bernilai fitur yang ditawarkan oleh plugin ini untuk pengunjung "
-"Anda? Subscribe to Comments Reloaded adalah plugin gratis, tetapi Anda bisa "
-"mempertimbangkan untuk membantu pembuat plugin untuk membuat website Anda "
-"lebih baik, terutama jika Anda mendapatkan uang dari penggunaannya. Setiap "
-"donasi yang diterima akan diinvestasikan pada pengembangan Subscribe to "
-"Comments Reloaded, dan untuk membeli sedikit makanan untuk keluarga."
+"How valuable is the feature offered by this plugin to your visitors? "
+"Subscribe to Comments Reloaded is and will always be free, but consider "
+"supporting the author if this plugin made your web site better, especially "
+"if you are making money out of it. Any donation received will be reinvested "
+"in the development of Subscribe to Comments Reloaded, and to buy some food "
+"for my hungry family."
 
 #: options/panel6.php:20
 msgid "Don't want to donate? You can still help"
-msgstr "Tidak memberi donasi? Anda tetap bisa membantu"
+msgstr "Don't want to donate? You can still help"
 
 #: options/panel6.php:21
 msgid ""
@@ -1128,17 +1066,16 @@ msgid ""
 "improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks "
 "for using my plugin!"
 msgstr ""
-"Jika Anda tidak ingin memberi donasi dalam bentuk uang, mohon pertimbangkan "
-"untuk menuliskan tentang plugin ini di blog Anda dengan sebuah tautan ke "
-"halaman plugin. Beritahu pembaca Anda apa yang membuat blog Anda lebih baik. "
-"Anda juga dapat mendonasikan sebagian waktu Anda: jangan sungkan untuk "
-"mengirimkan laporan bug, file pelokalan, ide atau bagaimana cara membuat "
-"Subscribe to Comments Reloaded jadi lebih baik. Apapun yang Anda lakukan, "
-"terima kasih karena telah menggunakan plugin buatan saya!"
+"If you don't want to donate money, please consider blogging about my plugin "
+"with a link to the plugin's page. Please let your readers know what makes "
+"your blog better. You can also contribute donating your time: do not "
+"hesitate to send me bug reports, your localization files, ideas on how to "
+"improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks "
+"for using my plugin!"
 
 #: options/panel6.php:23
 msgid "Vote and show your appreciation"
-msgstr "Voting dan tunjukkan apresiasi Anda"
+msgstr "Vote and show your appreciation"
 
 #: options/panel6.php:24
 msgid ""
@@ -1146,73 +1083,71 @@ msgid ""
 "good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
 "comments-reloaded/\">Rate it</a> on its Plugin Directory page."
 msgstr ""
-"Sampaikan ke orang lain jika plugin Subscribe to Comments Reloaded "
-"bermanfaat untuk Anda dan seberapa bergunanya plugin ini. <a href=\"http://"
-"wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Beri "
-"peringkat</a> pada halaman Direktori Plugin."
+"Tell other people if Subscribe to Comments Reloaded works for you and how "
+"good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
+"comments-reloaded/\">Rate it</a> on its Plugin Directory page."
 
 #: options/panel6.php:26
 msgid "Sponsor's Corner"
-msgstr "Pojok sponsor"
+msgstr "Sponsor's Corner"
 
 #: options/panel6.php:27
 msgid ""
 "If you want to sponsor this plugin, don't hesitate to <a href='http://"
 "behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
 msgstr ""
-"Jika Anda ingin mensponsori plugin ini, jangan segan-segan untuk <a "
-"href='http://behstant.com/negocio/contact.php' target='_blank'>menghubungi "
-"saya</a>."
+"If you want to sponsor this plugin, don't hesitate to <a href='http://"
+"behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
 
 #: templates/author.php:57
 msgid "Title"
-msgstr "Judul"
+msgstr "标题"
 
 #: templates/author.php:69 templates/user.php:62
 msgid "Select all"
-msgstr "Pilih semua"
+msgstr "选择全部"
 
 #: templates/author.php:70 templates/user.php:63
 msgid "Invert selection"
-msgstr "Invert seleksi"
+msgstr "反过来选择"
 
 #: templates/author.php:74
 msgid "Set to Y"
-msgstr "Atur menjadi Y"
+msgstr "设为 Y (所有评论）"
 
 #: templates/author.php:79 templates/user.php:72
 msgid "No subscriptions match your search criteria."
-msgstr "Tidak ada langganan yang sesuai dengan kriteria pencarian Anda."
+msgstr "没有符合搜索要求的订阅。"
 
 #: templates/request-management-link.php:77 templates/subscribe.php:91
 msgid "Send"
-msgstr "Kirim"
+msgstr "发送"
 
 #: templates/subscribe.php:43 templates/subscribe.php:44
 msgid "New subscription to"
-msgstr "Langganan baru untuk"
+msgstr "新订阅为"
 
 #: templates/subscribe.php:44
 msgid "User:"
-msgstr "Pengguna:"
+msgstr "用户："
 
 #~ msgid "Daily digest"
-#~ msgstr "Intisari Harian"
+#~ msgstr "每天的总结"
 
 #~ msgid "Replies"
-#~ msgstr "Balasan"
+#~ msgstr "回复"
 
 #~ msgid "Digest"
-#~ msgstr "Intisari"
+#~ msgstr "总结"
 
 #~ msgid "Pending"
-#~ msgstr "Penundaan"
+#~ msgstr "处理中"
 
 #~ msgid "Notify authors"
-#~ msgstr "Beritahu para penulis"
+#~ msgstr "通知作者"
 
 #~ msgid "Notify the administrator when a new comment is posted."
-#~ msgstr "Beritahu admin ketika ada sebuah komentar baru diterima."
+#~ msgstr "有了新评论通知管理员。"
 
 #~ msgid ""
 #~ "Update the email address associated to a specific subscription (by post "

@@ -2,17 +2,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Subscribe to Comments Reloaded\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-04 10:20-0700\n"
-"PO-Revision-Date: \n"
+"POT-Creation-Date: 2014-02-04 10:33-0700\n"
+"PO-Revision-Date: 2014-02-04 10:33-0700\n"
 "Last-Translator: Israel Barragan <reedyseth@gmail.com>\n"
-"Language-Team: \n"
-"Language: id_ID\n"
+"Language-Team: Terese Mörtvik <terese.mortvik@tiarin.se>\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ../\n"
-"Plural-Forms: s;\n"
+"Plural-Forms: er, nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
@@ -22,8 +22,8 @@ msgid ""
 "Your subscription to this post needs to be confirmed. <a "
 "href='[manager_link]'>Manage your subscriptions</a>."
 msgstr ""
-"Permintaan berlangganan Anda untuk artikel ini perlu dikonfirmasi. <a "
-"href='[manager_link]'>Aturlah cara berlangganan Anda</a>."
+"Din prenumeration på inlägget måste bekräftas. <a "
+"href='[manager_link]'>Redigera dina prenumerationer</a>."
 
 #: subscribe-to-comments-reloaded.php:56
 #: subscribe-to-comments-reloaded.php:289
@@ -31,16 +31,16 @@ msgid ""
 "You are subscribed to this post. <a href='[manager_link]'>Manage</a> your "
 "subscriptions."
 msgstr ""
-"Anda telah berlangganan artikel ini. <a href='[manager_link]'>Atur</a> cara "
-"berlangganan Anda."
+"Du prenumererar på detta inlägg. <a href='[manager_link]'>Redigera</a> dina "
+"prenumerationer."
 
 #: subscribe-to-comments-reloaded.php:67
 #: subscribe-to-comments-reloaded.php:291
 msgid ""
 "You can <a href='[manager_link]'>manage the subscriptions</a> of this post."
 msgstr ""
-"Anda dapat <a href='[manager_link]'>mengatur cara berlangganan</a> pada "
-"artikel ini."
+"Du kan <a href='[manager_link]'>redigera </a> din prenumeration på detta "
+"inlägg."
 
 #: subscribe-to-comments-reloaded.php:74
 #: subscribe-to-comments-reloaded.php:288
@@ -48,25 +48,26 @@ msgid ""
 "Notify me of followup comments via e-mail. You can also <a "
 "href='[subscribe_link]'>subscribe</a> without commenting."
 msgstr ""
-"Beritahu saya melalui email jika ada balasan komentar di artikel ini. Anda "
-"juga dapat <a href='[subscribe_link]'>berlangganan</a> tanpa harus memberi "
-"komentar."
+"Vill du veta när din kommentar har fått ett svar, eller prenumerera på "
+"inläggets kommentarer via e-post? Du kan även <a "
+"href='[subscribe_link]'>prenumerera</a> utan att lämna en kommentar."
 
 #: subscribe-to-comments-reloaded.php:93
 msgid "Don't subscribe"
-msgstr "Jangan berlangganan"
+msgstr "Prenumerera inte"
 
+# Alla
 #: subscribe-to-comments-reloaded.php:94
 msgid "All"
-msgstr "Semua"
+msgstr "Alla"
 
 #: subscribe-to-comments-reloaded.php:95 templates/user.php:67
 msgid "Replies to my comments"
-msgstr "Balasan pada komentar saya saja"
+msgstr "Endast svar på mina kommentarer"
 
 #: subscribe-to-comments-reloaded.php:294 options/index.php:54
 msgid "Manage subscriptions"
-msgstr "Atur Langganan"
+msgstr "Administrera prenumerationer"
 
 #: subscribe-to-comments-reloaded.php:296
 msgid ""
@@ -74,9 +75,9 @@ msgid ""
 "will send you a message containing the link to access your personal "
 "management page."
 msgstr ""
-"Untuk mengatur cara berlangganan, masukkan alamat email Anda di bawah ini. "
-"Kami akan mengirimkan sebuah pesan yang berisi tautan untuk mengakses "
-"Halaman Pengaturan Pribadi milik Anda."
+"För att administrera dina prenumerationer, vänligen ange din e-postadress "
+"här nedanför. Du får sedan ett meddelande med en aktiveringslänk så att du "
+"kan komma åt din personliga administrationssida."
 
 #: subscribe-to-comments-reloaded.php:297
 msgid ""
@@ -84,9 +85,8 @@ msgid ""
 "completed, and you should receive an email with the management link in a few "
 "minutes."
 msgstr ""
-"Terima kasih telah memanfaatkan layanan berlangganan kami. Permintaan Anda "
-"telah diproses, dan Anda akan menerima sebuah email yang berisi tautan ke "
-"pengaturan dalam beberapa menit ke depan."
+"Tack för att du prenumerar! Du borde få e-postmeddelandet med "
+"aktiveringslänken inom några minuter."
 
 #: subscribe-to-comments-reloaded.php:298
 msgid ""
@@ -94,9 +94,9 @@ msgid ""
 "having to leave a comment. Cool, huh? Just enter your email address in the "
 "form here below and you're all set."
 msgstr ""
-"Anda dapat menyimak diskusi pada <strong>[post_title]</strong> tanpa harus "
-"memberikan komentar terlebih dulu. Keren, kan? Masukkan saja alamat email "
-"Anda ke isian berikut."
+"Du kan följa diskussionen för <strong>[post_title]</strong> utan att lämna "
+"en kommentar. Skriv bara in din e-postadress här nedanför så är det klart "
+"sen."
 
 #: subscribe-to-comments-reloaded.php:299
 msgid ""
@@ -104,9 +104,8 @@ msgid ""
 "completed. You will receive a notification email every time a new comment to "
 "this article is approved and posted by the administrator."
 msgstr ""
-"Terima kasih telah memanfaatkan layanan berlangganan kami. Permintaan Anda "
-"telah diproses. Anda akan menerima sebuah email notifikasi setiap ada "
-"komentar baru pada artikel ini."
+"Tack för att du prenumererar! Du kommer nu att få ett e-postmeddelande varje "
+"gång en kommentar publiceras på inlägget."
 
 #: subscribe-to-comments-reloaded.php:300
 msgid ""
@@ -114,17 +113,17 @@ msgid ""
 "request, please check your email for the verification message and follow the "
 "instructions."
 msgstr ""
-"Terima kasih telah memanfaatkan layanan berlangganan kami. Selanjutnya Anda "
-"perlu melakukan konfirmasi melalui sebuah pesan yang kami kirimkan ke alamat "
-"email Anda, dan lakukanlah langkah-langkah yang diinstruksikan."
+"Tack för att du prenumererar! För att bekräfta prenumerationen, vänligen "
+"logga in på din e-post och följ instruktionerna i aktiveringsmeddelandet."
 
 #: subscribe-to-comments-reloaded.php:301
 msgid ""
 "In order to cancel or suspend one or more notifications, select the "
 "corresponding checkbox(es) and click on the button at the end of the list."
 msgstr ""
-"Untuk membatalkan atau menangguhkan satu atau lebih notifikasi, pilihlah "
-"pada checkbox yang dimaksud dan klik pada tombol di akhir daftar."
+"Vill du redigera dina prenumerationer? För att säga upp en eller flera "
+"prenumerationer, vänligen klicka i motsvarande ruta eller rutor och bekräfta "
+"på knappen längst ned."
 
 #: subscribe-to-comments-reloaded.php:302
 msgid ""
@@ -132,13 +131,13 @@ msgid ""
 "corresponding checkbox(es) and click on the button at the end of the list. "
 "You are currently subscribed to:"
 msgstr ""
-"Untuk membatalkan atau menangguhkan satu atau lebih notifikasi, pilihlah "
-"pada checkbox yang dimaksud dan klik pada tombol di akhir daftar. Saat ini "
-"Anda berlangganan:"
+"Vill du redigera dina prenumerationer? För att säga upp en eller flera "
+"prenumerationer, vänligen klicka i motsvarande ruta eller rutor och bekräfta "
+"på knappen längst ned.  Du prenumererar för närvarande på:"
 
 #: subscribe-to-comments-reloaded.php:306
 msgid "There is a new comment to [post_title]"
-msgstr "Hey, ada komentar baru pada artikel  [post_title]"
+msgstr "Det har kommit en ny kommentar på [post_title]"
 
 #: subscribe-to-comments-reloaded.php:307
 msgid ""
@@ -150,17 +149,16 @@ msgid ""
 "Permalink: [post_permalink]\n"
 "Manage your subscriptions: [manager_link]"
 msgstr ""
-"Ada komentar baru pada artikel [post_title].\n"
-"Tautan komentar: [comment_permalink]\n"
-"Oleh: [comment_author]\n"
-"Komentar:\n"
-"[comment_content]\n"
-"Tautan: [post_permalink]\n"
-"Atur cara berlangganan Anda: [manager_link]"
+"Det finns en ny kommentar på [post_title].\n"
+"Länk: [comment_permalink]\n"
+"Skriven av: [comment_author]\n"
+"Kommentar:[comment_content]\n"
+"Permalänk: [post_permalink]\n"
+"Redigera dina prenumerationer: [manager_link]"
 
 #: subscribe-to-comments-reloaded.php:308
 msgid "Please confirm your subscription to [post_title]"
-msgstr "Mohon lakukan konfirmasi berlangganan Anda pada artikel [post_title]"
+msgstr "Vänligen bekräfta din prenumeration på [post_title]"
 
 #: subscribe-to-comments-reloaded.php:309
 msgid ""
@@ -170,15 +168,16 @@ msgid ""
 "Please confirm your request by clicking on this link:\n"
 "[confirm_link]"
 msgstr ""
-"Anda telah meminta untuk diberitahu setiap ada komentar baru pada:\n"
-"[post_permalink]\n"
-"\n"
-"Lakukan konfirmasi permintaan Anda dengan melakukan klik pada tautan ini:\n"
-"[confirm_link]"
+"Du, eller någon med din adress, har begärt att prenumerera på kommentarer "
+"till följande inlägg: [post_permalink]\n"
+"Vänligen bekräfta prenumerationen genom att klicka på länken här nedanför:\n"
+"[confirm_link] \n"
+"Om länken inte går att klicka på, kopiera adressen och klistra in den i "
+"adressfönstret på din webbläsare."
 
 #: subscribe-to-comments-reloaded.php:310
 msgid "Manage your subscriptions on [blog_name]"
-msgstr "Aturlah cara berlangganan Anda pada [blog_name]"
+msgstr "Administrera dina prenumerationer på [blog_name]"
 
 #: subscribe-to-comments-reloaded.php:311
 msgid ""
@@ -186,8 +185,8 @@ msgid ""
 "[blog_name]. Follow this link to access your personal page:\n"
 "[manager_link]"
 msgstr ""
-"Anda telah meminta untuk mengatur cara berlanggan Anda pada artikel di "
-"[blog_name]. Ikuti tautan berikut untuk mengakses halaman personal Anda:\n"
+"Du har begärt att redigera dina prenumerationer för artiklarna på "
+"[blog_name]. Följ denna länk för att logga in på din personliga sida: \n"
 "[manager_link]"
 
 #: subscribe-to-comments-reloaded.php:366
@@ -200,26 +199,26 @@ msgstr ""
 #: options/panel5.php:103 options/panel5.php:113 options/panel5.php:122
 #: options/panel5.php:131
 msgid "No"
-msgstr "Tidak"
+msgstr "Nej"
 
 #: subscribe-to-comments-reloaded.php:1310
 msgid ""
 "Need help on how to use Subscribe to Comments Reloaded? Visit the official"
 msgstr ""
-"Perlu bantuan tentang cara penggunaan Subscribe to Comments Reloaded? "
-"Kunjungi situs resmi"
+"Behöver du hjälp med att använda Subscribe to Comments Reloaded? Besök det "
+"officiella"
 
 #: subscribe-to-comments-reloaded.php:1310
 msgid "support forum"
-msgstr "forum bantuan"
+msgstr "supportforumet"
 
 #: subscribe-to-comments-reloaded.php:1311
 msgid "Feeling generous?"
-msgstr "Merasa dermawan?"
+msgstr "Känner du dig generös?"
 
 #: subscribe-to-comments-reloaded.php:1311
 msgid "Donate a few bucks!"
-msgstr "Beri sedikit sumbangan"
+msgstr "Donera några kronor!"
 
 #: subscribe-to-comments-reloaded.php:1380
 #: subscribe-to-comments-reloaded.php:1526
@@ -286,68 +285,68 @@ msgstr ""
 
 #: options/index.php:55
 msgid "Comment Form"
-msgstr "Formulir Komentar"
+msgstr "Kommentarsfält"
 
 #: options/index.php:56
 msgid "Management Page"
-msgstr "Halaman Pengaturan"
+msgstr "Administrationssida"
 
 #: options/index.php:57
 msgid "Notifications"
-msgstr "Notifikasi"
+msgstr "Notifieringar"
 
 #: options/index.php:58 options/panel2.php:58 options/panel3.php:60
 #: options/panel4.php:51
 msgid "Options"
-msgstr "Pilihan"
+msgstr "Alternativ"
 
 #: options/index.php:59
 msgid "You can help"
-msgstr "Bantu kami"
+msgstr "Du kan hjälpa till"
 
 #: options/panel1-business-logic.php:19
 msgid "Subscription added."
-msgstr "Berlangganan telah ditambahkan."
+msgstr "Prenumeration tillagd."
 
 #: options/panel1-business-logic.php:31
 msgid "Subscriptions updated."
-msgstr "Berlangganan telah diperbaharui."
+msgstr "Prenumerationer uppdaterade."
 
 #: options/panel1-business-logic.php:40
 msgid "Subscription deleted."
-msgstr "Berlangganan telah dihapus."
+msgstr "Prenumeration raderad."
 
 #: options/panel1-business-logic.php:59 templates/author.php:23
 #: templates/user.php:23
 msgid "Subscriptions deleted:"
-msgstr "Berlangganan telah dihapus."
+msgstr "Raderade prenumerationer:"
 
 #: options/panel1-business-logic.php:63 templates/author.php:27
 #: templates/user.php:27
 msgid "Subscriptions suspended:"
-msgstr "Berlangganan telah ditangguhkan."
+msgstr "Pausade prenumerationer:"
 
 #: options/panel1-business-logic.php:67 templates/author.php:31
 #: templates/user.php:31
 msgid "Subscriptions activated:"
-msgstr "Berlangganan telah diaktifkan."
+msgstr "Aktiverade prenumerationer:"
 
 #: options/panel1-business-logic.php:71 options/panel1-business-logic.php:75
 #: templates/author.php:35 templates/author.php:39 templates/user.php:35
 msgid "Subscriptions updated:"
-msgstr "Berlangganan telah diperbaharui."
+msgstr "Uppdaterade prenumerationer:"
 
 #: options/panel1-business-logic.php:99
 msgid "&laquo; Previous"
-msgstr "&laquo; Sebelumnya"
+msgstr "&laquo; Tidigare"
 
 #: options/panel1-business-logic.php:103
 msgid "Next &raquo;"
-msgstr "Berikutnya &raquo;"
+msgstr "Nästa &raquo;"
 
 #: options/panel1-edit-subscription.php:8
 msgid "Update Subscription"
-msgstr "Perbaharui cara berlangganan"
+msgstr "Uppdatera prenumeration"
 
 #: options/panel1-edit-subscription.php:11
 #: options/panel1-edit-subscription.php:21
@@ -355,7 +354,7 @@ msgstr "Perbaharui cara berlangganan"
 #: options/panel1-edit-subscription.php:23 options/panel1.php:28
 #: options/panel1.php:29 options/panel1.php:30
 msgid "optional"
-msgstr "tidak wajib diisi"
+msgstr "frivilligt"
 
 #: options/panel1-edit-subscription.php:11 options/panel1.php:22
 #: options/panel1.php:102 options/panel1.php:138 templates/author.php:52
@@ -363,21 +362,19 @@ msgstr "tidak wajib diisi"
 msgid ""
 "Please remember: this operation cannot be undone. Are you sure you want to "
 "proceed?"
-msgstr ""
-"Ingat: tindakan berikut tidak dapat dikembalikan. Anda yakin untuk "
-"melakukannya?"
+msgstr "OBS! Detta val kan inte ångras. Är du säker på att du vill fortsätta?"
 
 #: options/panel1-edit-subscription.php:13
 msgid "Post:"
-msgstr "Artikel:"
+msgstr "Inlägg:"
 
 #: options/panel1-edit-subscription.php:16 options/panel1.php:24
 msgid "From"
-msgstr "Dari"
+msgstr "Från"
 
 #: options/panel1-edit-subscription.php:20 options/panel1.php:27
 msgid "To"
-msgstr "Ke"
+msgstr "Till"
 
 #: options/panel1-edit-subscription.php:26 options/panel1.php:33
 #: options/panel1.php:59 options/panel1.php:124
@@ -386,55 +383,55 @@ msgstr "Status"
 
 #: options/panel1-edit-subscription.php:28 options/panel1.php:35
 msgid "Keep unchanged"
-msgstr "Jangan diganti"
+msgstr "Lämna oförändrat"
 
 #: options/panel1-edit-subscription.php:29 options/panel1.php:36
 #: options/panel1.php:61
 msgid "Active"
-msgstr "Aktif"
+msgstr "Aktiv"
 
 #: options/panel1-edit-subscription.php:30 options/panel1.php:37
 #: options/panel1.php:62
 msgid "Replies only"
-msgstr "Balasan saja"
+msgstr "Endast svar"
 
 #: options/panel1-edit-subscription.php:31 options/panel1.php:38
 msgid "Suspended"
-msgstr "Ditangguhkan"
+msgstr "Pausad"
 
 #: options/panel1-edit-subscription.php:33 options/panel1.php:40
 msgid "Update"
-msgstr "Perbaharui"
+msgstr "Uppdatera"
 
 #: options/panel1.php:19
 msgid "Mass Update Subscriptions"
-msgstr "Pembaruan berlangganan secara massal"
+msgstr "Uppdatera flera"
 
 #: options/panel1.php:48
 msgid "Add New Subscription"
-msgstr "Tambahkan Langganan Baru"
+msgstr "Lägg till prenumeration"
 
 #: options/panel1.php:53
 msgid "Post ID"
-msgstr "Post ID"
+msgstr "Inlägg ID"
 
 #: options/panel1.php:56 options/panel1.php:111
 #: templates/request-management-link.php:75 templates/subscribe.php:89
 #: templates/user.php:53
 msgid "Email"
-msgstr "Email"
+msgstr "E-post"
 
 #: options/panel1.php:63
 msgid "Ask user to confirm"
-msgstr "Minta pengguna untuk konfirmasi"
+msgstr "Be användare att bekräfta"
 
 #: options/panel1.php:65
 msgid "Add"
-msgstr "Tambahkan"
+msgstr "Lägg till"
 
 #: options/panel1.php:76
 msgid "Search subscriptions"
-msgstr "Cari langganan"
+msgstr "Sök bland prenumerationer"
 
 #: options/panel1.php:80
 #, php-format
@@ -442,16 +439,15 @@ msgid ""
 "You can either <a href=\"%s\">view all the subscriptions</a> or find those "
 "where the"
 msgstr ""
-"Anda dapat <a href=\"%s\">melihat semua langganan</a> atau menemukan di mana "
-"mereka"
+"Du kan antingen <a href=\"%s\">se alla prenumerationer</a> eller hitta de där"
 
 #: options/panel1.php:84
 msgid "email"
-msgstr "email"
+msgstr "e-post"
 
 #: options/panel1.php:85
 msgid "post ID"
-msgstr "post ID"
+msgstr "inlägg ID"
 
 #: options/panel1.php:86
 msgid "status"
@@ -459,180 +455,180 @@ msgstr "status"
 
 #: options/panel1.php:89
 msgid "equals"
-msgstr "equals (sama)"
+msgstr "är lika med"
 
 #: options/panel1.php:90
 msgid "contains"
-msgstr "mengandung"
+msgstr "innehåller"
 
 #: options/panel1.php:91
 msgid "does not contain"
-msgstr "tidak mengandung"
+msgstr "innehåller inte"
 
 #: options/panel1.php:92
 msgid "starts with"
-msgstr "dimulai dengan"
+msgstr "börjar med"
 
 #: options/panel1.php:93
 msgid "ends with"
-msgstr "diakhiri dengan"
+msgstr "slutar med"
 
 #: options/panel1.php:96
 msgid "results per page:"
-msgstr "hasil per halaman:"
+msgstr "resultat per sida:"
 
 #: options/panel1.php:98
 msgid "Search"
-msgstr "Cari"
+msgstr "Sök"
 
 #: options/panel1.php:106
 msgid "Reverse the order by Post ID"
-msgstr "Balik urutan berdasar Post ID"
+msgstr "Omvänd ordningen med Post ID"
 
 #: options/panel1.php:107 options/panel1.php:108
 msgid "Reverse the order by Date/Time"
-msgstr "Balik urutan berdasar Tanggal/Waktu"
+msgstr "Omvänd ordningen med Datum/Tid"
 
 #: options/panel1.php:110
 msgid "Post (ID)"
-msgstr "Post (ID)"
+msgstr "Inlägg (ID)"
 
 #: options/panel1.php:113
 msgid "Search query:"
-msgstr "Query pencarian:"
+msgstr "Sök:"
 
 #: options/panel1.php:113
 msgid "Rows:"
-msgstr "Baris:"
+msgstr "Rader:"
 
 #: options/panel1.php:113
 msgid "of"
-msgstr "pada"
+msgstr "av"
 
 #: options/panel1.php:114 templates/author.php:58 templates/user.php:54
 msgid "Legend: Y = all comments, R = replies only, C = inactive"
-msgstr "Legenda: Y = seluruh komentar, R = balasan saja, C = tidak aktif"
+msgstr "Legend: Y = alla kommentarer, R = endast svar, C = inaktiv"
 
 #: options/panel1.php:123
 msgid "Date and Time"
-msgstr "Tanggal dan Waktu"
+msgstr "Datum och Tid"
 
 #: options/panel1.php:135
 msgid "Subscription"
-msgstr "Langganan"
+msgstr "Prenumeration"
 
 #: options/panel1.php:137
 msgid "Edit"
-msgstr "Edit"
+msgstr "Redigera"
 
 #: options/panel1.php:138 templates/author.php:72 templates/user.php:65
 msgid "Delete"
-msgstr "Hapus"
+msgstr "Radera"
 
 #: options/panel1.php:146 templates/author.php:71 templates/user.php:64
 msgid "Action:"
-msgstr "Tindakan:"
+msgstr "Handling:"
 
 #: options/panel1.php:147
 msgid "Delete forever"
-msgstr "Hapus selamanya"
+msgstr "Radera permanent"
 
 #: options/panel1.php:148 templates/author.php:73 templates/user.php:66
 msgid "Suspend"
-msgstr "Tangguhkan"
+msgstr "Inaktivera"
 
 #: options/panel1.php:149
 msgid "Activate and set to Y"
-msgstr "Aktifkan dan atur ke Y"
+msgstr "Aktivera och sätt som Y"
 
 #: options/panel1.php:150
 msgid "Activate and set to R"
-msgstr "Aktifkan dan atur ke R"
+msgstr "Aktivera och sätt som R"
 
 #: options/panel1.php:151 templates/author.php:75 templates/user.php:68
 msgid "Activate"
-msgstr "Aktifkan"
+msgstr "Aktivera"
 
 #: options/panel1.php:152 templates/author.php:76 templates/user.php:69
 msgid "Update subscriptions"
-msgstr "Perbaharui langganan"
+msgstr "Uppdatera prenumerationer"
 
 #: options/panel1.php:155
 msgid "Sorry, no subscriptions match your search criteria."
-msgstr "Maaf, tidak ada langganan yang cocok dengan kriteria pencarian Anda."
+msgstr "Beklagar, men inga prenumerationer matchar dina sökkriteria."
 
 #: options/panel2.php:12 options/panel2.php:63
 msgid "Enable default checkbox"
-msgstr "Nyalakan checkbox bawaan"
+msgstr "Aktivera standardmarkeringsruta"
 
 #: options/panel2.php:15 options/panel2.php:73
 msgid "Checked by default"
-msgstr "Dicentang sebagai bawaan"
+msgstr "Välj som standard"
 
 #: options/panel2.php:18
 msgid "Checked by default Value"
-msgstr "Dicentang sebagai bawaan"
+msgstr "Välj som standard"
 
 #: options/panel2.php:21 options/panel2.php:24 options/panel2.php:102
 msgid "Advanced subscription"
-msgstr "Cara berlangganan lanjutan"
+msgstr "Avancerad prenumeration"
 
 #: options/panel2.php:27 options/panel2.php:130
 msgid "Custom inline style"
-msgstr "Gaya inline tersuai"
+msgstr "Inline-CSS"
 
 #: options/panel2.php:30 options/panel2.php:139
 msgid "Custom HTML"
-msgstr "HTML tersuai"
+msgstr "Egendefinierad HTML"
 
 #: options/panel2.php:34
 msgid "Checkbox label"
-msgstr "Label checkbox"
+msgstr "Etikett for ikryssningsruta"
 
 #: options/panel2.php:37 options/panel2.php:163
 msgid "Subscribed label"
-msgstr "Label berlangganan"
+msgstr "Etikett prenumeration"
 
 #: options/panel2.php:40
 msgid "Awaiting label"
-msgstr "Label menunggu"
+msgstr "Obestämd etikett"
 
 #: options/panel2.php:43 options/panel2.php:180
 msgid "Author label"
-msgstr "Label penulis"
+msgstr "Etikett författare"
 
 #: options/panel2.php:49 options/panel3.php:48 options/panel4.php:41
 #: options/panel5.php:42
 msgid "Your settings have been successfully updated."
-msgstr "Pengaturan Anda telah diperbarui."
+msgstr "Dina inställningar har sparats."
 
 #: options/panel2.php:51 options/panel3.php:50 options/panel4.php:43
 #: options/panel5.php:44
 msgid "There was an error updating the following fields:"
-msgstr "Terdapat galat saat memperbaharui ruas berikut:"
+msgstr "Det uppstod ett fel vid uppdateringen av följande:"
 
 #: options/panel2.php:66 options/panel2.php:76 options/panel2.php:105
 #: options/panel5.php:65 options/panel5.php:74 options/panel5.php:83
 #: options/panel5.php:93 options/panel5.php:102 options/panel5.php:112
 #: options/panel5.php:121 options/panel5.php:130
 msgid "Yes"
-msgstr "Ya"
+msgstr "Ja"
 
 #: options/panel2.php:68
 msgid ""
 "Disable this option if you want to move the subscription checkbox to a "
 "different place on your page."
 msgstr ""
-"Matikan pilihan ini jika Anda mau memindah checkbox langganan ke tempat lain "
-"dalam halaman."
+"Inaktivera detta alternativ om du vill flytta ikryssningsrutan för "
+"prenumeration till någon annanstans på sidan."
 
 #: options/panel2.php:78
 msgid "Decide if the checkbox should be checked by default or not."
-msgstr "Tentukan bahwa checkbox akan tercentang secara bawaan atau tidak."
+msgstr "Anger om ikryssningsrutan ska vara förkryssad som standard."
 
 #: options/panel2.php:87
 msgid "Default Checkbox Value"
-msgstr "Nyalakan checkbox bawaan"
+msgstr "Aktivera standardmarkeringsruta"
 
 #: options/panel2.php:91 options/panel2.php:120
 msgid "All new comments"
@@ -640,7 +636,7 @@ msgstr ""
 
 #: options/panel2.php:92 options/panel2.php:121
 msgid "Replies to this comment"
-msgstr "Balasan pada komentar saya saja"
+msgstr "Endast svar på mina kommentarer"
 
 #: options/panel2.php:94
 msgid ""
@@ -651,11 +647,12 @@ msgstr ""
 #: options/panel2.php:107
 msgid ""
 "Allow users to choose from different subscription types (all, replies only)."
-msgstr "Ijikan pengguna untuk memilih tipe berlangganan (semua, balasan saja)."
+msgstr ""
+"Tillåt användare att välja olika prenumerationstyper (alla, endast svar)."
 
 #: options/panel2.php:115
 msgid "Advanced default"
-msgstr "Dicentang sebagai bawaan"
+msgstr "Välj som standard"
 
 #: options/panel2.php:119
 msgid "None"
@@ -669,112 +666,112 @@ msgstr ""
 
 #: options/panel2.php:135
 msgid "Custom inline CSS to add to the checkbox."
-msgstr "Inline CSS tersuai untuk ditambahkan pada checkbox."
+msgstr "Egen inline-CSS att använda till ikryssningsrutan."
 
 #: options/panel2.php:143
 msgid ""
 "Custom HTML code to be used when displaying the checkbox. Allowed tags: "
 "[checkbox_field], [checkbox_label]"
 msgstr ""
-"Kode HTML tersuai untuk digunakan ketika menampilkan checkbox. Tag yang "
-"diijinkan: [checkbox_field], [checkbox_label]"
+"Egendefinierad HTML-kod för ikryssningsrutan. Tillåtna taggar: "
+"[checkbox_field], [checkbox_label]"
 
 #: options/panel2.php:149
 msgid "Messages for your visitors"
-msgstr "Pesan untuk pengunjung Anda"
+msgstr "Meddelande till dina besökare"
 
 #: options/panel2.php:153
 msgid "Default label"
-msgstr "Label bawaan"
+msgstr "Standardetikett"
 
 #: options/panel2.php:158
 msgid "Label associated to the checkbox. Allowed tag: [subscribe_link]"
 msgstr ""
-"Label yang terasosiasi dengan checkbox. Tag yang diijinkan: [subscribe_link]"
+"Etikett förknippad med ikryssningsrutan. Tillåtna taggar: [subscribe_link]"
 
 #: options/panel2.php:167
 msgid ""
 "Label shown to those who are already subscribed to a post. Allowed tag: "
 "[manager_link]"
 msgstr ""
-"Label yang diperlihatkan kepada mereka yang telah berlangganan suatu "
-"artikel. Tag yang diijinkan: [manager_link]"
+"Etikett som visas för de som redan prenumererar på inlägget. Tillåtna "
+"taggar: [manager_link]"
 
 #: options/panel2.php:172
 msgid "Pending label"
-msgstr "Label penundaan"
+msgstr "Obekräftad etikett"
 
 #: options/panel2.php:176
 msgid ""
 "Label shown to those who are already subscribed, but haven't clicked on the "
 "confirmation link yet. Allowed tag: [manager_link]"
 msgstr ""
-"Label yang diperlihatkan kepada mereka yang telah berlangganan, tetapi belum "
-"melakukan klik pada tautan konfirmasi. Tag yang diijinkan: [manager_link]"
+"Etikett som visas för de som redan prenumererar, men inte har klickat på "
+"aktiveringslänken än. Tillåtna taggar: [manager_link]"
 
 #: options/panel2.php:184
 msgid ""
 "Label shown to authors (and administrators). Allowed tag: [manager_link]"
 msgstr ""
-"Label yang diperlihatkan kepada penulis (dan admin). Tag yang diijinkan: "
+"Etikett som visas för författare (och administratörer). Tillåtna taggar: "
 "[manager_link]"
 
 #: options/panel2.php:189 options/panel3.php:210 options/panel4.php:152
 #: options/panel5.php:137
 msgid "Save Changes"
-msgstr "Simpan Perubahan"
+msgstr "Spara ändringar"
 
 #: options/panel3.php:11 options/panel3.php:65
 msgid "Virtual Management Page"
-msgstr "Halaman Pengaturan Virtual"
+msgstr "Administrationssida"
 
 #: options/panel3.php:14 options/panel3.php:74
 msgid "Page title"
-msgstr "Judul halaman"
+msgstr "Sidans titel"
 
 #: options/panel3.php:17 options/panel3.php:83
 msgid "Management URL"
-msgstr "URL Pengaturan"
+msgstr "Administrationssida URL"
 
 #: options/panel3.php:20 options/panel3.php:95
 msgid "Custom HEAD meta"
-msgstr "Meta HEAD tersuai"
+msgstr "Modifiera meta för HEAD"
 
 #: options/panel3.php:24 options/panel3.php:109
 msgid "Request link"
-msgstr "Meminta tautan"
+msgstr "Begär länk"
 
 #: options/panel3.php:27 options/panel3.php:124
 msgid "Request submitted"
-msgstr "Permintaan diajukan"
+msgstr "Begäran har sänts"
 
 #: options/panel3.php:30 options/panel3.php:139
 msgid "Subscribe without commenting"
-msgstr "Berlangganan tanpa memberi komentar"
+msgstr "Prenumerera utan att kommentera"
 
 #: options/panel3.php:33 options/panel3.php:154
 msgid "Subscription processed"
-msgstr "Langganan yang diproses"
+msgstr "Om prenumeration har behandlats"
 
 #: options/panel3.php:36 options/panel3.php:169
 msgid "Subscription processed (DCI)"
-msgstr "Langganan yang diproses (DCI)"
+msgstr "Om prenumeration har behandlats (DCI)"
 
 #: options/panel3.php:39 options/panel3.php:183
 msgid "Authors"
-msgstr "Penulis"
+msgstr "Författare"
 
 #: options/panel3.php:42 options/panel3.php:196
 msgid "Users"
-msgstr "Pengguna"
+msgstr "Användare"
 
 #: options/panel3.php:68
 msgid "Enabled"
-msgstr "Dinyalakan"
+msgstr "Aktiverat"
 
 #: options/panel3.php:69
 msgid "Disabled"
-msgstr "Dimatikan"
+msgstr "Inaktiverat"
 
 #: options/panel3.php:70
 msgid ""
@@ -782,15 +779,13 @@ msgid ""
 "lab.duechiacchiere.it/index.php?topic=71.0\">real page</a> to make your "
 "theme happy."
 msgstr ""
-"Matikan Halaman Pengaturan Virtual jika Anda ingin membuat sebuah <a href="
-"\"http://lab.duechiacchiere.it/index.php?topic=71.0\">halaman riil</a> yang "
-"lebih bersahabat dengan tema."
+"Inaktivera den virtuella administrationssidan om du behöver skapa en <a href="
+"\"http://lab.duechiacchiere.it/index.php?topic=71.0\">riktig sida</a> för "
+"att komma överens med ditt tema."
 
 #: options/panel3.php:79
 msgid "Title of the page your visitors will use to manage their subscriptions."
-msgstr ""
-"Judul pada halaman pengunjung akan digunakan untuk mengatur cara "
-"berlangganan mereka."
+msgstr "Titel på sidan där besökarna kan redigera sina prenumerationer."
 
 #: options/panel3.php:87
 msgid ""
@@ -799,157 +794,155 @@ msgid ""
 "b> actually exist in the system, but its link must follow your permalink "
 "structure."
 msgstr ""
-"Permalink untuk halaman pengaturan Anda (sesuatu seperti <code>/pengaturan-"
-"langganan</code> atau <code>/?page_id=345</code>). Halaman ini <b>tidak</b> "
-"benar-benar ada dalam sistem, tetapi tautannya harus mengikuti struktur "
-"tautan di web Anda."
+"Permalänken för administrationssidan (ex. <code>/manage-subscriptions</code> "
+"eller <code>/?page_id=345</code>). Denna sida existerar egentligen <b>inte</"
+"b>, men dess länk måste följa din permalänkstruktur."
 
 #: options/panel3.php:89
 msgid ""
 "Warning: it looks like the value you are using may be incompatible with your "
 "permalink structure"
 msgstr ""
-"Peringatan: sepertinya nilai yang Anda gunakan tidak kompatibel dengan "
-"struktur permalink web Anda."
+"Varning: det ser ut som att värdet du använder kanske är inkompetibelt med "
+"din permalänkstruktur"
 
 #: options/panel3.php:99
 msgid ""
 "Specify your custom HTML code to be added to the HEAD section of the page. "
 "Use <strong>single</strong> quotes for values."
 msgstr ""
-"Tentukan kode HTML tersuai Anda untuk ditambahkan ke dalam bagian HEAD pada "
-"halaman. Gunakan tanda kutip <strong>tunggal</strong> untuk nilai."
+"Skriv in din egna HTML-kod som ska läggas till Header-delen av sidan. Använd "
+"<strong>enkelcitat</strong> (enkla apostrofer, inte citattecken alltså) för "
+"värden."
 
 #: options/panel3.php:105 options/panel4.php:74
 msgid "Messages"
-msgstr "Pesan"
+msgstr "Meddelanden"
 
 #: options/panel3.php:112 options/panel3.php:127 options/panel3.php:142
 #: options/panel3.php:157 options/panel3.php:172 options/panel3.php:185
 #: options/panel3.php:198 options/panel4.php:92 options/panel4.php:117
 #: options/panel4.php:140
 msgid "Bold"
-msgstr "Tebal"
+msgstr "Fetstil"
 
 #: options/panel3.php:113 options/panel3.php:128 options/panel3.php:143
 #: options/panel3.php:158 options/panel3.php:173 options/panel3.php:186
 #: options/panel3.php:199 options/panel4.php:93 options/panel4.php:118
 #: options/panel4.php:141
 msgid "Italic"
-msgstr "Cetak miring"
+msgstr "Kursivt"
 
 #: options/panel3.php:114 options/panel3.php:129 options/panel3.php:144
 #: options/panel3.php:159 options/panel3.php:174 options/panel3.php:187
 #: options/panel3.php:200 options/panel4.php:94 options/panel4.php:119
 #: options/panel4.php:142
 msgid "Link"
-msgstr "Tautan"
+msgstr "Länk"
 
 #: options/panel3.php:115 options/panel3.php:130 options/panel3.php:145
 #: options/panel3.php:160 options/panel3.php:175 options/panel3.php:188
 #: options/panel3.php:201 options/panel4.php:95 options/panel4.php:120
 #: options/panel4.php:143
 msgid "Image"
-msgstr "Gambar"
+msgstr "Bild"
 
 #: options/panel3.php:119
 msgid "Text shown to those who request to manage their subscriptions."
 msgstr ""
-"Teks yang diperlihatkan kepada mereka yang ingin mengatur cara berlangganan."
+"Text som visas för de som har begärt att få redigera sina prenumerationer."
 
 #: options/panel3.php:134
 msgid ""
 "Thank you note shown after the request here above has been processed. "
 "Allowed tags: [post_title], [post_permalink]"
 msgstr ""
-"Ucapan Terima Kasih yang diperlihatkan setelah permintaan di atas telah "
-"diproses. Tag yang diijinkan: [post_title], [post_permalink]"
+"Tackmeddelande som visas efter att begäran har bearbetats. Tillåtna taggar: "
+"[post_title], [post_permalink]"
 
 #: options/panel3.php:149
 msgid ""
 "Text shown to those who want to subscribe without commenting. Allowed tags: "
 "[post_title], [post_permalink]"
 msgstr ""
-"Teks yang diperlihatkan kepada pengguna yang ingin berlangganan tanpa "
-"meninggalkan komentar. Tag yang diijinkan: [post_title], [post_permalink]"
+"Text som visas för de som vill prenumerera utan att kommentera. Tillåtna "
+"taggar: [post_title], [post_permalink]"
 
 #: options/panel3.php:164
 msgid ""
 "Thank you note shown after the subscription request has been processed "
 "(double check-in disabled). Allowed tags: [post_title], [post_permalink]"
 msgstr ""
-"Ucapan Terima Kasih yang diperlihatkan setelah permintaan berlangganan "
-"diproses (konfirmasi ganda dimatikan). Tag yang diijinkan: [post_title], "
-"[post_permalink]"
+"Tackmeddelande som visas efter att begäran om prenumeration har bearbetats "
+"(med dubbelkoll inaktiverad). Tillåtna taggar: [post_title], [post_permalink]"
 
 #: options/panel3.php:179
 msgid ""
 "Thank you note shown after the subscription request has been processed "
 "(double check-in enabled). Allowed tags: [post_title], [post_permalink]"
 msgstr ""
-"Ucapan Terima Kasih yang diperlihatkan setelah permintaan berlangganan "
-"diproses (konfirmasi ganda dinyalakan). Tag yang diijinkan: [post_title], "
-"[post_permalink]"
+"Tackmeddelande som visas efter att begäran om prenumeration har bearbetats "
+"(med dubbelkoll aktiverad). Tillåtna taggar: [post_title], [post_permalink]"
 
 #: options/panel3.php:192
 msgid "Introductory text for the authors' management page."
-msgstr "Teks pengantar pada Halaman Pengaturan milik penulis."
+msgstr "Introtext på författarnas administrationssida."
 
 #: options/panel3.php:205
 msgid "Introductory text for the users' management page."
-msgstr "Teks pengantar pada Halaman Pengaturan milik pengguna."
+msgstr "Introtext på användarnas administrationssida."
 
 #: options/panel4.php:14 options/panel4.php:55
 msgid "Sender name"
-msgstr "Nama pengirim"
+msgstr "Avsändare"
 
 #: options/panel4.php:17 options/panel4.php:63
 msgid "Sender email address"
-msgstr "Alamat email pengirim"
+msgstr "Avsändarens adress"
 
 #: options/panel4.php:20 options/panel4.php:79
 msgid "Notification subject"
-msgstr "Subjek notifikasi"
+msgstr "Titel på meddelande"
 
 #: options/panel4.php:23 options/panel4.php:89
 msgid "Notification message"
-msgstr "Pesan notifikasi"
+msgstr "Meddelande"
 
 #: options/panel4.php:26 options/panel4.php:104
 msgid "Double check subject"
-msgstr "Subjek konfirmasi ganda"
+msgstr "Dubbelkolla ämne"
 
 #: options/panel4.php:29 options/panel4.php:114
 msgid "Double check message"
-msgstr "Pesan konfirmasi ganda"
+msgstr "Dubbelkolla meddelande"
 
 #: options/panel4.php:32 options/panel4.php:129
 msgid "Management subject"
-msgstr "Subjek pengaturan"
+msgstr "Ämnesfält administration"
 
 #: options/panel4.php:35 options/panel4.php:138
 msgid "Management message"
-msgstr "Pesan pengaturan"
+msgstr "Administrationsmeddelande"
 
 #: options/panel4.php:59
 msgid ""
 "Name to use for the \"from\" field when sending a new notification to the "
 "user."
 msgstr ""
-"Nama yang digunakan untuk ruas \"from\" ketika mengirimkan sebuah notifikasi "
-"kepada pengguna."
+"Namn att använda i \"från\" fältet när ett meddelande skickas till avändaren."
 
 #: options/panel4.php:68
 msgid ""
 "Email address to use for the \"from\" field when sending a new notification "
 "to the user."
 msgstr ""
-"Alamat email yang digunakan untuk ruas \"from\" ketika mengirimkan sebuah "
-"notifikasi kepada pengguna."
+"E-postadress att använda i \"från\" fältet när ett meddelande skickas till "
+"avändaren."
 
 #: options/panel4.php:84
 msgid "Subject of the notification email. Allowed tag: [post_title]"
-msgstr "Subjek pada email notifikasi. Tag yang diijinkan: [post_title]"
+msgstr ""
+"Ämnesfält för administrationsmeddelandet. Tillåtna taggar: [post_title]"
 
 #: options/panel4.php:99
 msgid ""
@@ -957,20 +950,20 @@ msgid ""
 "[comment_permalink], [comment_author], [comment_content], [post_permalink], "
 "[manager_link]"
 msgstr ""
-"Isi pada email notifikasi. Tag yang diijinkan: [post_title], "
+"Innehåll i administrationsmeddelandet. Tillåtna taggar: [post_title], "
 "[comment_permalink], [comment_author], [comment_content], [post_permalink], "
 "[manager_link]"
 
 #: options/panel4.php:109
 msgid "Subject of the confirmation email. Allowed tag: [post_title]"
-msgstr "Subjek pada email konfirmasi. Tag yang diijinkan: [post_title]"
+msgstr "Ämnesfält för bekräftelsemeddelandet. Tillåtna taggar: [post_title]"
 
 #: options/panel4.php:124
 msgid ""
 "Content of the confirmation email. Allowed tags: [post_permalink], "
 "[confirm_link], [post_title], [manager_link]"
 msgstr ""
-"Isi pada email konfirmasi. Tag yang diijinkan: [post_permalink], "
+"Innehåll i bekräftelsemeddelandet. Tillåtna taggar: [post_permalink], "
 "[confirm_link], [post_title], [manager_link]"
 
 #: options/panel4.php:133
@@ -978,30 +971,31 @@ msgid ""
 "Subject of the mail sent to those who request to access their management "
 "page. Allowed tag: [blog_name]"
 msgstr ""
-"Subjek pada email yang dikirimkan kepada mereka yang meminta akses ke "
-"Halaman Pengaturan. Tag yang diijinkan: [blog_name]"
+"Ämnesfält för meddelandet som skickas till de som begärt att få tillträdelse "
+"till sin administrationssida. Tillåtna taggar: [blog_name]"
 
 #: options/panel4.php:147
 msgid ""
 "Content of the management email. Allowed tags: [blog_name], [manager_link]"
 msgstr ""
-"Isi pada email pengaturan: Tag yang diijinkan: [blog_name], [manager_link]"
+"Innehåll i administrationsmeddelandet. Tillåtna taggar:  [blog_name], "
+"[manager_link]"
 
 #: options/panel5.php:12 options/panel5.php:54
 msgid "Autopurge requests"
-msgstr "Permintaan pembersihan-otomatis"
+msgstr "Autorensa obekräftade"
 
 #: options/panel5.php:15 options/panel5.php:63
 msgid "Enable double check"
-msgstr "Nyalakan konfirmasi ganda"
+msgstr "Aktivera dubbelkoll"
 
 #: options/panel5.php:18 options/panel5.php:71
 msgid "Subscribe authors"
-msgstr ""
+msgstr "Prenumeration författare"
 
 #: options/panel5.php:21 options/panel5.php:81
 msgid "Enable HTML emails"
-msgstr "Nyalakan email HTML"
+msgstr "Aktivera HTML-e-post"
 
 #: options/panel5.php:24
 msgid "HTMLify Links in HTML emails"
@@ -1009,52 +1003,53 @@ msgstr ""
 
 #: options/panel5.php:27
 msgid "Send trackbacks"
-msgstr "Kirim taut balik"
+msgstr "Skicka trackbacks"
 
 #: options/panel5.php:30
 msgid "Notify admin"
-msgstr "Beritahu admin"
+msgstr "Meddela administratör"
 
 #: options/panel5.php:33 options/panel5.php:119
 msgid "Let admin subscribe"
-msgstr "Ijinkan admin berlangganan"
+msgstr "Låt administratör prenumerera"
 
 #: options/panel5.php:36 options/panel5.php:128
 msgid "BCC admin on Notifications"
-msgstr "Notifikasi"
+msgstr "Notifieringar"
 
 #: options/panel5.php:57
 msgid "days"
-msgstr "hari"
+msgstr "dagar"
 
 #: options/panel5.php:58
 msgid ""
 "Delete pending subscriptions (not confirmed) after X days. Zero disables "
 "this feature."
 msgstr ""
-"Hapus langganan yang ditunda (tanpa konfirmasi) setelah X hari. Masukkan Nol "
-"untuk mematikan fitur ini."
+"Radera obekräftade prenumerationer efter X dagar. 0 inaktiverar denna tjänst."
 
 #: options/panel5.php:67
 msgid ""
 "Send a notification email to confirm the subscription (to avoid addresses "
 "misuse)."
 msgstr ""
-"Kirim sebuah email notifikasi untuk konfirmasi berlangganan (mencegah "
-"penyalahgunaan alamat)."
+"Skicka administrationsmeddelande för att bekräfta prenumeration (för att "
+"undvika missbruk)."
 
 #: options/panel5.php:76
 msgid ""
 "Automatically subscribe authors to their own articles (not retroactive)."
 msgstr ""
+"Låt författare automatiskt prenumerera på sina egna artiklar (ej "
+"retroaktivt)."
 
 #: options/panel5.php:85
 msgid ""
 "If enabled, will send email messages with content-type = text/html instead "
 "of text/plain"
 msgstr ""
-"Jika dimungkinkan, akan mengirim pesan email dengan content-type = text/html "
-"daripada text/plain"
+"Om aktiverat skickar detta alternativ ut e-postmeddelanden med innehållet = "
+"text/html istället för text/plain."
 
 #: options/panel5.php:90
 msgid "HTMLify links in emails"
@@ -1068,28 +1063,25 @@ msgstr ""
 
 #: options/panel5.php:100
 msgid "Process trackbacks"
-msgstr "Proses taut balik"
+msgstr "Bearbeta trackbacks"
 
 #: options/panel5.php:104
 msgid ""
 "Notify users when a new trackback or pingback is added to the discussion."
 msgstr ""
-"Beritahu pengguna ketika sebuah tautbalik atau pingback ditambahkan dalam "
-"diskusi."
+"Meddela användare när en trackback eller pingback läggs till i diskussionen."
 
 #: options/panel5.php:109
 msgid "Track all subscriptions"
-msgstr "Telusuri semua langganan"
+msgstr "Spåra alla prenumerationer"
 
 #: options/panel5.php:114
 msgid "Notify the administrator when users subscribe without commenting."
-msgstr ""
-"Beritahu admin ketika ada pengguna yg berlangganan tanpa meninggalkan "
-"komentar."
+msgstr "Meddela administratör när användare prenumererar utan att kommentera."
 
 #: options/panel5.php:123
 msgid "Let the administrator subscribe to comments when logged in."
-msgstr "Ijinkan admin berlangganan komentar ketika masuk log."
+msgstr "Låt administratör prenumerera på kommentarer även när inloggad."
 
 #: options/panel5.php:132
 msgid "Send a copy of all Notifications to the administrator."
@@ -1097,7 +1089,7 @@ msgstr ""
 
 #: options/panel6.php:8
 msgid "Support the developer"
-msgstr "Dukung pembuat plugin"
+msgstr "Stöd författaren"
 
 #: options/panel6.php:18
 msgid ""
@@ -1108,16 +1100,15 @@ msgid ""
 "in the development of Subscribe to Comments Reloaded, and to buy some food "
 "for my hungry family."
 msgstr ""
-"Seberapa bernilai fitur yang ditawarkan oleh plugin ini untuk pengunjung "
-"Anda? Subscribe to Comments Reloaded adalah plugin gratis, tetapi Anda bisa "
-"mempertimbangkan untuk membantu pembuat plugin untuk membuat website Anda "
-"lebih baik, terutama jika Anda mendapatkan uang dari penggunaannya. Setiap "
-"donasi yang diterima akan diinvestasikan pada pengembangan Subscribe to "
-"Comments Reloaded, dan untuk membeli sedikit makanan untuk keluarga."
+"Hur värdefull är tjänsten som detta tillägg erbjuder dina besökare? Att "
+"prenumerera på Comments Reloaded är och kommer alltid vara gratis, men "
+"fundera gärna på att stödja författaren om detta tillägg gjorde din sida "
+"bättre. Speciellt om du tjänar pengar på det. Alla donationer går till att "
+"förbättra Subscribe to Comments Reloaded, och att föda min hungriga familj."
 
 #: options/panel6.php:20
 msgid "Don't want to donate? You can still help"
-msgstr "Tidak memberi donasi? Anda tetap bisa membantu"
+msgstr "Vill eller kan du inte donera? Du kan fortfarande hjälpa"
 
 #: options/panel6.php:21
 msgid ""
@@ -1128,17 +1119,16 @@ msgid ""
 "improve Subscribe to Comments Reloaded and so on. Whatever you do, thanks "
 "for using my plugin!"
 msgstr ""
-"Jika Anda tidak ingin memberi donasi dalam bentuk uang, mohon pertimbangkan "
-"untuk menuliskan tentang plugin ini di blog Anda dengan sebuah tautan ke "
-"halaman plugin. Beritahu pembaca Anda apa yang membuat blog Anda lebih baik. "
-"Anda juga dapat mendonasikan sebagian waktu Anda: jangan sungkan untuk "
-"mengirimkan laporan bug, file pelokalan, ide atau bagaimana cara membuat "
-"Subscribe to Comments Reloaded jadi lebih baik. Apapun yang Anda lakukan, "
-"terima kasih karena telah menggunakan plugin buatan saya!"
+"Om du inte vill donera pengar var snäll och berätta om mitt tillägg (plugin) "
+"med en länk till tilläggets sida. Låt gärna dina läsare veta vad som gör din "
+"blogg bättre. Du kan också hjälpa till genom att donera din tid: tveka inte "
+"att skicka mig dina felrapporter, översättningsfiler, idéer om hur Subscribe "
+"to Comments kan förbättras, med mera. Oavsett vad du gör, tack för att du "
+"använder mitt tillägg!"
 
 #: options/panel6.php:23
 msgid "Vote and show your appreciation"
-msgstr "Voting dan tunjukkan apresiasi Anda"
+msgstr "Rösta och visa din uppskattning"
 
 #: options/panel6.php:24
 msgid ""
@@ -1146,102 +1136,144 @@ msgid ""
 "good it is. <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
 "comments-reloaded/\">Rate it</a> on its Plugin Directory page."
 msgstr ""
-"Sampaikan ke orang lain jika plugin Subscribe to Comments Reloaded "
-"bermanfaat untuk Anda dan seberapa bergunanya plugin ini. <a href=\"http://"
-"wordpress.org/extend/plugins/subscribe-to-comments-reloaded/\">Beri "
-"peringkat</a> pada halaman Direktori Plugin."
+"Berätta för andra om Subscribe to Comments Reloaded fungerar för dig och hur "
+"bra det är.  <a href=\"http://wordpress.org/extend/plugins/subscribe-to-"
+"comments-reloaded/\">Betygsätt det</a> på dess sida på Plugin Directory."
 
 #: options/panel6.php:26
 msgid "Sponsor's Corner"
-msgstr "Pojok sponsor"
+msgstr "Sponsorhörnet"
 
 #: options/panel6.php:27
 msgid ""
 "If you want to sponsor this plugin, don't hesitate to <a href='http://"
 "behstant.com/negocio/contact.php' target='_blank'>contact me</a>."
 msgstr ""
-"Jika Anda ingin mensponsori plugin ini, jangan segan-segan untuk <a "
-"href='http://behstant.com/negocio/contact.php' target='_blank'>menghubungi "
-"saya</a>."
+"Om du vill sponsra detta tillägg (plugin), tevka inte att <a href='http://"
+"behstant.com/negocio/contact.php' target='_blank'>kontakta mig</a>."
 
 #: templates/author.php:57
 msgid "Title"
-msgstr "Judul"
+msgstr "Titel"
 
 #: templates/author.php:69 templates/user.php:62
 msgid "Select all"
-msgstr "Pilih semua"
+msgstr "Välj alla"
 
 #: templates/author.php:70 templates/user.php:63
 msgid "Invert selection"
-msgstr "Invert seleksi"
+msgstr "Invertera val"
 
 #: templates/author.php:74
 msgid "Set to Y"
-msgstr "Atur menjadi Y"
+msgstr "Sätt till Y"
 
 #: templates/author.php:79 templates/user.php:72
 msgid "No subscriptions match your search criteria."
-msgstr "Tidak ada langganan yang sesuai dengan kriteria pencarian Anda."
+msgstr "Inga prenumerationer matchar dina sökkriteria."
 
 #: templates/request-management-link.php:77 templates/subscribe.php:91
 msgid "Send"
-msgstr "Kirim"
+msgstr "Skicka"
 
 #: templates/subscribe.php:43 templates/subscribe.php:44
 msgid "New subscription to"
-msgstr "Langganan baru untuk"
+msgstr "Ny prenumeration på"
 
 #: templates/subscribe.php:44
 msgid "User:"
-msgstr "Pengguna:"
+msgstr "Användare:"
 
 #~ msgid "Daily digest"
-#~ msgstr "Intisari Harian"
+#~ msgstr "Daglig sammanfattning"
 
 #~ msgid "Replies"
-#~ msgstr "Balasan"
+#~ msgstr "Svar"
 
 #~ msgid "Digest"
-#~ msgstr "Intisari"
+#~ msgstr "Sammanfattning"
 
 #~ msgid "Pending"
-#~ msgstr "Penundaan"
+#~ msgstr "Behandlas"
 
 #~ msgid "Notify authors"
-#~ msgstr "Beritahu para penulis"
+#~ msgstr "Meddela författare"
 
 #~ msgid "Notify the administrator when a new comment is posted."
-#~ msgstr "Beritahu admin ketika ada sebuah komentar baru diterima."
+#~ msgstr "Meddela administratör varje gång en kommentar läggs in."
 
-#~ msgid ""
-#~ "Update the email address associated to a specific subscription (by post "
-#~ "ID)."
-#~ msgstr ""
-#~ "Aggiorna l'indirizzo email associato ad una specifica iscrizione "
-#~ "(necessita l'ID dell'articolo)."
+#~ msgid "Management Page ID"
+#~ msgstr "ID for administrasjonsside"
+
+#~ msgid "Management page"
+#~ msgstr "Administrasjonsside"
+
+#~ msgid "Awaiting confirmation"
+#~ msgstr "Venter på bekreftelse"
+
+#~ msgid "Stats"
+#~ msgstr "Statistikk"
+
+#~ msgid "Other Messages"
+#~ msgstr "Andre meldinger"
+
+#~ msgid "Support"
+#~ msgstr "Support"
+
+#~ msgid "The status has been successfully updated. Rows affected:"
+#~ msgstr "Statusen har blitt vellykket oppdatert. Rader affisert:"
 
 #~ msgid ""
 #~ "Change the status of an email address or permanently delete all its "
 #~ "subscriptions."
 #~ msgstr ""
-#~ "Cambia lo stato o cancella tutte le sottoscrizioni associate ad un dato "
-#~ "indirizzo email."
+#~ "Endre statusen til en e-postadresse eller permanent slette alle "
+#~ "tilknyttede abonnement."
+
+#~ msgid "Resume"
+#~ msgstr "Reaktiver"
+
+#~ msgid "Update email address"
+#~ msgstr "Oppdater e-postadresse"
 
 #~ msgid ""
 #~ "You can \"mass update\" all the occurrences of a given email address "
 #~ "(exact matches only)."
 #~ msgstr ""
-#~ "Puoi effettuare un aggiornamento globale di tutte le occorrenze di un "
-#~ "indirizzo email."
+#~ "Du kan \"masseoppdatere\" alle forekomstene av en gitt e-postadresse (kun "
+#~ "eksakte treff)."
+
+#~ msgid "Search email address"
+#~ msgstr "Søk etter e-postadresse"
 
 #~ msgid "Legend: Y: subscribed, N: suspended, C: awaiting confirmation"
 #~ msgstr ""
-#~ "Legenda: Y: iscritto, N: notifiche sospese, C: in attesa di conferma"
+#~ "Forklaring: Y = aktivt abonnement, N = deaktivert, C = venter på "
+#~ "bekreftelse"
+
+#~ msgid "Custom CSS Class"
+#~ msgstr "Egendefinert CSS-klasse"
 
 #~ msgid ""
 #~ "Custom CSS class to associate to the checkbox, if you want to customize "
 #~ "its style."
 #~ msgstr ""
-#~ "Puoi associare una classe CSS speciale al checkbox, per personalizzarne "
-#~ "l'aspetto."
+#~ "Egendefinert CSS-klasse å bruke på avkrysningsboksen, dersom du ønsker å "
+#~ "egendefinere dens utseende."
+
+#, fuzzy
+#~ msgid "StCR table has been successfully optimized."
+#~ msgstr "Statusen har blitt vellykket oppdatert."
+
+#~ msgid "Subscriptions have been successfully updated."
+#~ msgstr "Abonnementene er blitt vellykket oppdatert."
+
+#~ msgid "Sorry, no subscriptions found."
+#~ msgstr "Beklager, ingen abonnement funnet."
+
+#, fuzzy
+#~ msgid "All the subscriptions have been successfully updated."
+#~ msgstr "Abonnementene er blitt vellykket oppdatert."
+
+#~ msgid "Remove or suspend email address"
+#~ msgstr "Fjerne eller midlertidig deaktivere varsling til en e-postadresse"
