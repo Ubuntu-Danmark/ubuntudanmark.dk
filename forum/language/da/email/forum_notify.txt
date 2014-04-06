@@ -2,7 +2,7 @@ Subject: Nyt indlæg i forummet - "{FORUM_NAME}"
 
 Hej {USERNAME}
 
-Du overvåger ovennævnte forum på "{SITENAME}". Der er indsendt et nyt indlæg i emnet "{TOPIC_TITLE}" siden dit seneste besøg. Der fremsendes ikke flere beskeder om forummet, før du har besøgt det. Benyt nedenstående link hvis du vil se:
+Du overvåger ovennævnte forum på "{SITENAME}". Der er indsendt et nyt indlæg i emnet "{TOPIC_TITLE}"<!-- IF AUTHOR_NAME !== '' --> af {AUTHOR_NAME}<!-- ENDIF --> siden dit seneste besøg. Der fremsendes ikke flere beskeder om forummet, før du har besøgt det. Benyt nedenstående link hvis du vil se:
 
 Seneste indlæg i forummet: {U_NEWEST_POST}
 

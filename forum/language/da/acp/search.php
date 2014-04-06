@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: search.php 10830 2010-10-25 20:30:20Z git-gate $
-* @version $Id: search.php 87 2010-10-29 14:08:41Z jan skovsgaard $
+* @version $Id: search.php 293 2013-06-05 05:29:26Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -68,7 +68,7 @@ $lang = array_merge($lang, array(
 	'DELETING_INDEX_IN_PROGRESS_EXPLAIN'	=> 'Søgemotoren er ved at slette indeks. Det kan tage nogle minutter.',
 
 	'FULLTEXT_MYSQL_INCOMPATIBLE_VERSION'	=> 'MySQL\'s fuldtekstsøgemotor kan kun bruges fra MySQL4 og nyere.',
-	'FULLTEXT_MYSQL_NOT_MYISAM'				=> 'MySQL\'s fuldtekstindeksering kan kun anvendes sammen med MyISAM-tabeller.',
+	'FULLTEXT_MYSQL_NOT_SUPPORTED'				=> 'MySQL\'s fuldtekstindeksering kan kun anvendes sammen med MyISAM- eller InnoDB-tabeller. MySQL 5.6.4 eller nyere kræves for at understøtte fuldtekstindeksering med InnoDB-tabeller.',
 	'FULLTEXT_MYSQL_TOTAL_POSTS'			=> 'Det totale antal indekserede indlæg',
 	'FULLTEXT_MYSQL_MBSTRING'				=> 'Understøttelse af UTF-8-tegnsæt under mbstring:',
 	'FULLTEXT_MYSQL_PCRE'					=> 'Understøttelse af UTF-8-tegnsæt under PCRE:',

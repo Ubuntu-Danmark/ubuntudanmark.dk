@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: ucp.php 10329 2009-12-13 14:03:45Z Kellanved $  
-* @version $Id: ucp.php 235 2012-07-27 18:16:14Z Jan Skovsgaard $
+* @version $Id: ucp.php 296 2013-07-19 07:35:46Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -54,7 +54,7 @@ if (empty($lang) || !is_array($lang))
 $lang = array_merge($lang, array(
 	'TERMS_OF_USE_CONTENT'	=> 'Når du tilmelder dig "%1$s" (i det følgende "vi", "os", "vores", "%1$s", "%2$s"), indvilliger du i at være retsgyldigt bundet af de følgende betingelser. Vær venlig ikke at tilmelde dig og/eller bruge "%1$s", hvis du ikke indvilliger i at være retsgyldigt bundet af alle de følgende betingelser. Vi kan ændre disse til enhver tid, og vi vil gøre vort yderste for at informere dig, alligevel vil det være fornuftigt, at du selv gennemgår disse betingelser regelmæssigt, da din fortsatte brug af "%1$s" efter ændringer af betingelserne betyder, at du indvilliger at være retgyldigt bundet af betingelserne efter de er opdateret og/eller skærpet.<br />
 	<br />
-	Vort board er baseret på phpBB (i det følgende "de", "dem", "deres", "phpBB software", "www.phpbb.com", "phpBB Group", "phpBB Teams") hvilket er en bulletin board løsning frigivet under "<a href="http://opensource.org/licenses/gpl-license.php">General Public License</a>" (i det følgende "GPL") og kan downloades fra <a href="http://www.phpbb.com/">www.phpbb.com</a>. phpBB softwaren giver mulighed for internetbaserede debatter, og GPL\'en afskærer dem fra indflydelse på, hvad vi tillader og/eller afviser som tilladeligt indhold og/eller tilladelig adfærd. For yderligere information om phpBB, se venligst: <a href="http://www.phpbb.com/">http://www.phpbb.com/</a>.<br />
+	Vort board er baseret på phpBB (i det følgende "de", "dem", "deres", "phpBB software", "www.phpbb.com", "phpBB Group", "phpBB Teams") hvilket er en bulletin board løsning frigivet under "<a href="http://opensource.org/licenses/gpl-license.php">General Public License</a>" (i det følgende "GPL") og kan downloades fra <a href="https://www.phpbb.com/">www.phpbb.com</a>. phpBB softwaren giver mulighed for internetbaserede debatter, og GPL\'en afskærer dem fra indflydelse på, hvad vi tillader og/eller afviser som tilladeligt indhold og/eller tilladelig adfærd. For yderligere information om phpBB, se venligst: <a href="https://www.phpbb.com/">https://www.phpbb.com/</a>.<br />
 	<br />
 	Du indvilliger i ikke at indsende nogen form for fornærmende, uanstændigt, vulgært, bagtalende, hadefuldt, truende eller sexuelt orienteret materiale eller indsende andet materiale, som er i strid med lovgivningen, det være sig i dit eget land, landet hvor "%1$s"  er hostet eller international lovgivning. Gør du dette, kan dette medføre, at du øjeblikkeligt og permanent bliver udelukket, med meddelelse herom til din Internet udbyder, hvis det vurderes påkrævet af os. IP-adresserne for alle indlæg logges for at give mulighed for at håndhæve disse betingelser. Du indvilliger i at "%1$s" har ret til at fjerne, ændre, flytte eller låse enhvert emne til enhver tid, såfremt vi finder dette passende. Som bruger indvilliger du i at al information du har skrevet, bliver lagret i en database. Selvom denne information ikke vil blive videregivet til tredjemand uden dit samtykke, vil hverken "%1$s" eller phpBB blive holdt ansvarlig for ethvert hackingforsøg, som kan medføre at dataene bliver kompromitteret.
 	',
@@ -191,7 +191,6 @@ $lang = array_merge($lang, array(
 
 	'EDIT_DRAFT_EXPLAIN'		=> 'Her er du i stand til at redigere din kladde. Kladder indeholder ikke informationer om vedhæftede filer og afstemninger.',
 	'EMAIL_BANNED_EMAIL'		=> 'Den indtastede emailadresse er det ikke tilladt at anvende.',
-	'EMAIL_INVALID_EMAIL'		=> 'Den indtastede emailadresse er ugyldig.',
 	'EMAIL_REMIND'				=> 'Emailadressen tilknyttet din brugerkonto. Hvis du ikke har ændret denne i brugerkontrolpanelet, er det den samme emailadresse som den du tilmeldte dig med.',
 	'EMAIL_TAKEN_EMAIL'			=> 'Den indtastede emailadresse er allerede i brug.',
 	'EMPTY_DRAFT'				=> 'Du skal indtaste en besked for at kunne sende dine ændringer.',
@@ -275,6 +274,7 @@ $lang = array_merge($lang, array(
 	'MESSAGE_BY_AUTHOR'			=> 'af',
 	'MESSAGE_COLOURS'			=> 'Farveforklaring',
 	'MESSAGE_DELETED'			=> 'Besked slettet.',
+	'MESSAGE_EDITED'        	=> 'Besked redigeret.',
 	'MESSAGE_HISTORY'			=> 'Historik for besked',
 	'MESSAGE_REMOVED_FROM_OUTBOX'	=> 'Denne besked er blevet fjernet af dens forfatter før den blev leveret.',
 	'MESSAGE_SENT_ON'			=> 'den',

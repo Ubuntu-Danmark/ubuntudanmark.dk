@@ -4,8 +4,7 @@
 * common [Danish]
 *
 * @package language
-* @version Id: common.php 11057 2011-03-13 04:45:12Z git-gate $
-* @version $Id: common.php 218 2012-04-20 19:22:19Z Jan Skovsgaard $
+* @version $Id: common.php 292 2013-06-01 06:14:44Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -175,6 +174,7 @@ $lang = array_merge($lang, array(
 	'EDIT_POST'	=> 'Rediger indlæg',
 	'EMAIL'	=> 'Email', // Short form for EMAIL_ADDRESS
 	'EMAIL_ADDRESS'	=> 'Emailadresse',
+	'EMAIL_INVALID_EMAIL'		=> 'Den indtastede emailadresse er ugyldig.',
 	'EMAIL_SMTP_ERROR_RESPONSE'	=> 'Løb ind i problemer med at sende email: <strong>Linie %1$s</strong>. Svar: %2$s.',
 	'EMPTY_SUBJECT'	=> 'Du skal angive en titel når du skriver et nyt emne.',
 	'EMPTY_MESSAGE_SUBJECT'	=> 'Du skal angive en titel når du skriver en ny besked.',
@@ -405,6 +405,7 @@ $lang = array_merge($lang, array(
 	'NO_POSTS_TIME_FRAME'		=> 'Ingen indlæg eksisterer i dette emne inden for det valgte tidsinterval.',
 	'NO_FEED_ENABLED'	=> 'Feeds er ikke tilgængelige på dette board.',
 	'NO_FEED'			=> 'Forlangte feed er ikke tilgængelig.',
+	'NO_STYLE_DATA'        => 'Typografidata kunne ikke findes',
 	'NO_SUBJECT'	=> 'Intet emne angivet.',// Used for posts having no subject defined but displayed within management pages.
 	'NO_SUCH_SEARCH_MODULE'	=> 'Det angivne søgesystem findes ikke.',
 	'NO_SUPPORTED_AUTH_METHODS'	=> 'Ingen understøttede autentifikationsmetoder.',
@@ -583,12 +584,14 @@ $lang = array_merge($lang, array(
 	'SUBJECT'	=> 'Emne',
 	'SUBMIT'	=> 'Udfør',
 
+	'TB'        => 'TB',
 	'TERMS_USE'	=> 'Betingelser for brug',
 	'TEST_CONNECTION'	=> 'Test forbindelse',
 	'THE_TEAM'	=> 'Holdet',
+	'TIB'        => 'TiB',
 	'TIME'	=> 'Tid',
 
-	'TOO_LARGE'										=> 'Den indtastede værdi er for stor.',
+	'TOO_LARGE'									=> 'Den indtastede værdi er for stor.',
 	'TOO_LARGE_MAX_RECIPIENTS'		=> 'Du indtastede et for højt antal i indstillingen af <strong>Maximalt antal tilladte modtagere af private beskeder</strong>.',
 
 	'TOO_LONG'			=> 'Den indtastede værdi er for lang.',
@@ -733,6 +736,7 @@ $lang = array_merge($lang, array(
 	'WHO_IS_ONLINE'	=> 'Hvem er online',
 	'WRONG_PASSWORD'	=> 'Du indtastede et forkert kodeord.',
 
+	'WRONG_DATA_COLOUR'      => 'Den indtastede farveværdi er ikke gyldig.',
 	'WRONG_DATA_ICQ'	=> 'Det indtastede nummer er ikke et gyldigt ICQ-nummer.',
 	'WRONG_DATA_JABBER'	=> 'Det indtastede navn er ikke et gyldigt Jabberkontonavn.',
 	'WRONG_DATA_LANG'	=> 'Det valgte sprog er ikke gyldigt.',

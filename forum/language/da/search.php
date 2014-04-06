@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: search.php 10884 2010-12-13 14:30:09Z git-gate $
-* @version $Id: search.php 104 2010-12-13 19:24:56Z jan skovsgaard $
+* @version $Id: search.php 296 2013-07-19 07:35:46Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -92,6 +92,7 @@ $lang = array_merge($lang, array(
 
 	'SEARCHED_FOR'			=> 'Anvendt søgeord',
 	'SEARCHED_TOPIC'		=> 'Det søgte emne',
+	'SEARCHED_QUERY'      	=> 'Anvendt søgeparameter',
 	'SEARCH_ALL_TERMS'		=> 'Søg efter alle udtryk eller brug indtastet søgeparameter ',
 	'SEARCH_ANY_TERMS'		=> 'Søg efter alle udtryk',
 	'SEARCH_AUTHOR'			=> 'Søg efter en bestemt forfatter',

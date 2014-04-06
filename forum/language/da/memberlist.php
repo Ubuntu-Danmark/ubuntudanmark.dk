@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: memberlist.php 9933 2009-08-06 09:12:21Z marshalrusty $
-* @version $Id: memberlist.php 218 2012-04-20 19:22:19Z Jan Skovsgaard $
+* @version $Id: memberlist.php 310 2013-09-29 08:38:05Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -79,7 +79,7 @@ $lang = array_merge($lang, array(
 	'EMPTY_SUBJECT_EMAIL'	=> 'Du skal angive et emne i emnefeltet til denne email.',
 	'EQUAL_TO'				=> 'Svarer til',
 
-	'FIND_USERNAME_EXPLAIN'	=> 'Brug denne formular for at søge efter specifikke tilmeldte brugere. Du behøver ikke at udfylde alle felterne. Brug * som ubekendt for ukendte tegn. Hvis du bruger dato som søgeparameter, så brug formatet <kpd>yyyy-mm-dd</kbpd>, f.eks. <samp>2007-01-31</samp>. Brug markeringsboksene for at vælge et eller flere brugernavne (flere brugernavne kan accepteres afhængig af selve formatet) og klik på vælg markerede for at returnere til forrige side.',
+	'FIND_USERNAME_EXPLAIN'	=> 'Brug denne formular for at søge efter specifikke tilmeldte brugere. Du behøver ikke at udfylde alle felterne. Brug * som ubekendt for ukendte tegn. Hvis du bruger dato som søgeparameter, så brug formatet <kbd>yyyy-mm-dd</kbd>, f.eks. <samp>2007-01-31</samp>. Brug markeringsboksene for at vælge et eller flere brugernavne (flere brugernavne kan accepteres afhængig af selve formatet) og klik på vælg markerede for at returnere til forrige side.',
 	'FLOOD_EMAIL_LIMIT'		=> 'Du kan ikke sende endnu en email lige nu, prøv venligst igen senere.',
 
 	'GROUP_LEADER'			=> 'Gruppeleder',

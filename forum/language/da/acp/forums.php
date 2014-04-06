@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: forums.php 10531 2010-02-23 23:50:36Z naderman $
-* @version $Id: forums.php 23 2010-02-24 13:39:19Z jan skovsgaard $
+* @version $Id: forums.php 242 2012-09-01 06:04:35Z Jan Skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -99,7 +99,7 @@ $lang = array_merge($lang, array(
 	'ENABLE_TOPIC_ICONS'			=> 'Aktiver emneikoner',
 
 	'FORUM_ADMIN'						=> 'Administrer fora',
-	'FORUM_ADMIN_EXPLAIN'				=> 'I phpBB3 er alt er forumbaseret. Du vælger mellem forumtyperne: Kategori (samling af fora), Forum (her kan indsendes indlæg), Link (til URL). Forumtyperne Kategori og Forum kan indeholde et ubegrænset antal underfora. Du har her mulighed for at tilføje, rette, slette, låse, oplåse individuelle fora og sætte bestemte andre indstillinger. Hvis antal indlæg og emner er kommet ud af synkronisering kan du også resynkronisere et forum. <strong>Nyoprettede fora skal tildeles de rette tilladelser for at vises på boardindekset. Når du opretter et nyt forum kan du kopiere tilladelser fra et eksisterende forum, alternativt skal du efterfølgende manuelt indstille disse.</strong>',
+	'FORUM_ADMIN_EXPLAIN'				=> 'I phpBB3 er alt forumbaseret. Du vælger mellem forumtyperne: Kategori (samling af fora), Forum (her kan indsendes indlæg), Link (til URL). Forumtyperne Kategori og Forum kan indeholde et ubegrænset antal underfora. Du har her mulighed for at tilføje, rette, slette, låse, oplåse individuelle fora og sætte bestemte andre indstillinger. Hvis antal indlæg og emner er kommet ud af synkronisering kan du også resynkronisere et forum. <strong>Nyoprettede fora skal tildeles de rette tilladelser for at vises på boardindekset. Når du opretter et nyt forum kan du kopiere tilladelser fra et eksisterende forum, alternativt skal du efterfølgende manuelt indstille disse.</strong>',
 	'FORUM_AUTO_PRUNE'					=> 'Aktiver autobeskæring af forum',
 	'FORUM_AUTO_PRUNE_EXPLAIN'			=> 'Beskærer emner i forummet, sæt indstillinger for frekvens og alder herunder.',
 	'FORUM_CREATED'						=> 'Forum korrekt oprettet.',

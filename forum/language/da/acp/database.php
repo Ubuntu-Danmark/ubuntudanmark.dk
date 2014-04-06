@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: database.php 9765 2009-07-17 10:11:10Z bantu $
-* @version $Id: database.php 199 2012-01-03 18:51:55Z Jan Skovsgaard $
+* @version $Id: database.php 295 2013-06-26 18:30:31Z jan_skovsgaard $
 * @source file is copyright (c) 2005,phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -82,7 +82,7 @@ $lang = array_merge($lang, array(
 	'START_BACKUP'		=> 'Start backup',
 	'START_RESTORE'			=> 'Start gendannelse',
 	'STORE_AND_DOWNLOAD'	=> 'Gem og download',
-	'STORE_LOCAL'		=> 'Gem fil lokalt',
+	'STORE_LOCAL'		=> 'Gem fil på server',
 	'STRUCTURE_ONLY'	=> 'Struktur alene',
 
 	'TABLE_SELECT'		=> 'Tabelvalg',

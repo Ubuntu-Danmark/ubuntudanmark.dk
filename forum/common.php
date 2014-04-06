@@ -131,4 +131,3 @@ foreach ($saved_vars as $key => $val) {
     global $$varname;
     $$varname = $val;
 }
-

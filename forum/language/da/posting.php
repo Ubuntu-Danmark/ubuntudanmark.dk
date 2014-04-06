@@ -5,7 +5,7 @@
 *
 * @package language
 * @version Id: posting.php 9742 2009-07-09 10:34:40Z bantu $
-* @version $Id: posting.php 219 2012-04-20 19:27:44Z Jan Skovsgaard $
+* @version $Id: posting.php 296 2013-07-19 07:35:46Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 * @modified and translated by Olympus DK Team
 * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU Public License version 2
@@ -69,9 +69,9 @@ $lang = array_merge($lang, array(
 	'BBCODE_IS_OFF'				=> '%sBBkode%s er slået <em>FRA</em>',
 	'BBCODE_IS_ON'				=> '%sBBkode%s er slået <em>TIL</em>',
 	'BBCODE_I_HELP'				=> 'Kursiv tekst: [i]tekst[/i]',
-	'BBCODE_L_HELP'				=> 'Liste: [list]tekst[/list]',
-	'BBCODE_LISTITEM_HELP'		=> 'Listeelement: [*]tekst[/*]',
-	'BBCODE_O_HELP'				=> 'Sorteret liste: [list=]tekst[/list]',
+	'BBCODE_L_HELP'				=> 'Liste: [list][*]tekst[/list]',
+	'BBCODE_LISTITEM_HELP'		=> 'Listeelement: [*]tekst',
+	'BBCODE_O_HELP'				=> 'Sorteret liste: F.eks. [list=1][*]Første punkt[/list] eller [list=a][*]Punkt a[/list]',
 	'BBCODE_P_HELP'				=> 'Indsæt billede: [img]http://billed_url[/img]',
 	'BBCODE_Q_HELP'				=> 'Citer tekst: [quote]tekst[/quote]',
 	'BBCODE_S_HELP'				=> 'Fontfarve: [color=red]tekst[/color]  Tip: du kan også bruge color=#FF0000',
