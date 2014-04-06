@@ -1,20 +1,30 @@
 <?php
 /*
-mu-options.php
+sfr-mu-options.php
 
-Provides mu support to the stop spammer registrations plugin
+Provides mu support to the Stop Spammers plugin
 
 This hooks the options functions of wp in order to update one option from blog #1`
 
 */
+if (!defined('ABSPATH')) exit; // just in case
 
 // now we need to get a ask the user for a list of options that he wants to get
-	// call the setup from the plugin proper
+// call the setup from the plugin proper
 // kpg_ssp_global_setup(); // when plugin is loaded this get's done
 
 $kpg_ssp_semaphore=0;
 // add the options. Since the add action is already implied at the load_plugins level we don't need to add_action 
-// get a list of option names and values from the site config 
+// get a list of option names and values from the site config
+
+// user must be able to 'manage_network_plugins' to see the plugin.
+// user must be able to 'manage_network_options' to change the plugin
+
+/***********************************************
+* kpg_ssp_global_setup()
+* This installs the global hooks and redirects
+* all plugin options to blog #1
+***********************************************/
 function kpg_ssp_global_setup() {
 	global $blog_id;
 	if ($blog_id==1) {
@@ -97,7 +107,7 @@ function kpg_ssp_global_unsetup() {
 		remove_filter('delete_option_'.$value,'kpg_pf_global_delete');
 		remove_filter('pre_option_'.$value,'kpg_pf_global_get',1);
 	}
-		return;
+	return;
 }
 
 ?>
