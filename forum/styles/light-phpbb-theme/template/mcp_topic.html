@@ -95,7 +95,7 @@ onload_functions.push('subPanels()');
 		<div class="post <!-- IF postrow.S_ROW_COUNT is odd -->bg1<!-- ELSE -->bg2<!-- ENDIF -->">
 
 			<div class="postbody" id="pr{postrow.POST_ID}">
-			
+
 				<ul class="profile-icons"><li><input onclick="javascript:location.href='{postrow.U_POST_DETAILS}'" type="submit" title="{L_POST_DETAILS}" value="?" /></li><li><label for="post_id_list_select_{postrow.POST_ID}">{L_SELECT}: <input type="checkbox" id="post_id_list_select_{postrow.POST_ID}" name="post_id_list[]" value="{postrow.POST_ID}"<!-- IF postrow.S_CHECKED --> checked="checked"<!-- ENDIF --> /></label></li></ul>
 
 				<h3><a href="{postrow.U_POST_DETAILS}">{postrow.POST_SUBJECT}</a></h3>

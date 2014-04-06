@@ -418,6 +418,10 @@ table.info tbody th {
     text-align:center;
 }
 
+.forumbg table.table1 {
+	margin: 0;
+}
+
 .forumbg-table > .inner {
 	margin: 0 -1px;
 }
