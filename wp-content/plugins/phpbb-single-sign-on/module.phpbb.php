@@ -1,11 +1,45 @@
 <?php
 
-class wpbb_phpBB3 {
+class wpbb_phpBB3
+{
+    public static function getConfigValue($config_name)
+    {
+        if (self::foundInstall()) {
+            self::load();
+        }
 
-    var $user;
-    var $loggedin;
+        global $db;
 
-    function getIdentity() {
+        //may be called before we have a valid configuration
+        if (!is_object($db)) {
+            return null;
+        }
+
+        $sql = 'SELECT config_value FROM ' . CONFIG_TABLE . ' WHERE config_name = \'' . $config_name . '\'';
+        $result = $db->sql_query($sql);
+        $row = $db->sql_fetchrow($result);
+        $db->sql_freeresult($result);
+        return $row['config_value'];
+    }
+
+    public static function setConfigValue($config_name, $value)
+    {
+        if (self::foundInstall()) {
+            self::load();
+        }
+
+        if (function_exists('set_config')) {
+            set_config($config_name, $value);
+        }
+    }
+
+    public static function foundInstall()
+    {
+        return (bool)self::phpbbConfig();
+    }
+
+    public static function getIdentity()
+    {
         global $user;
 
         if ($user->data['is_registered'] == TRUE) {
@@ -20,22 +54,26 @@ class wpbb_phpBB3 {
         }
     }
 
-    function load(){
-        if(defined('IN_PHPBB') OR defined('PHPBB_INSTALLED')){
+    public static function load()
+    {
+        if (defined('IN_PHPBB') OR defined('PHPBB_INSTALLED')) {
             return false;
         }
-        
-        define('IN_PHPBB', true);
+
+        if (!defined('IN_PHPBB')) {
+            define('IN_PHPBB', true);
+        }
+
         global $phpbb_root_path, $phpEx, $auth, $template, $cache, $db, $config, $user;
 
         $prp = $phpbb_root_path = ABSPATH . PHPBBPATH;
         $phpEx = substr(strrchr(__FILE__, '.'), 1);
 
-        if(!wpbb_phpBB3::phpbbPatched()){
+        if (!wpbb_phpBB3::phpbbPatched()) {
             return array();
         }
 
-        $common_file = $phpbb_root_path .'common-orig.'.$phpEx;
+        $common_file = $phpbb_root_path . 'common-orig.' . $phpEx;
 
         // Hack to fix declaration of make_clickable
         $include_contents = file_get_contents($common_file);
@@ -51,10 +89,11 @@ class wpbb_phpBB3 {
         Registry::set('user', $user);
 
         wpbb_phpBB3::getIdentity();
-        
+
     }
 
-    function loadConstants(){
+    public static function loadConstants()
+    {
         $connect_phpbb_options = get_option('connect_phpbb_options');
         if ($connect_phpbb_options == '') {
             $connect_phpbb_options = array('path' => '');
@@ -74,77 +113,32 @@ class wpbb_phpBB3 {
         }
     }
 
-    function phpbbPatched(){
-        if(file_exists(ABSPATH . PHPBBPATH .'common-orig.php')){
+    public static function phpbbPatched()
+    {
+        if (file_exists(ABSPATH . PHPBBPATH . 'common-orig.php')) {
             return true;
         }
         return false;
     }
 
-    function phpbbExists(){
-        if(file_exists(ABSPATH . PHPBBPATH .'common.php')){
-            return true;
+    public static function phpbbConfig()
+    {
+        if (file_exists(ABSPATH . PHPBBPATH . 'config.php')) {
+            return ABSPATH . PHPBBPATH . 'config.php';
         }
         return false;
     }
 
-    function phpbbConfig(){
-        if(file_exists(ABSPATH . PHPBBPATH .'config.php')){
-            return ABSPATH . PHPBBPATH .'config.php';
-        }
-        return false;
-    }
-
-    /*
-     * WP wants a user obj on success and an WP_Error on failure
-     */
-
-    function login($username, $password) {
-
-        global $db;
-
-        //PHPBB
-        $phpBB_user = self::getUserByName($username);
-
-        //Wordpress
-        $wp_user = wpbb_Wordpress::getIdByName($username);
-        $in_wp = ($wp_user == 0) ? FALSE : TRUE;
-
-        //WP 1 BB 0 ?
-        if (!$phpBB_user && $in_wp) { //If he doesn't exists, create the user in phpbb
-            $email = $wp_user->user_email ? $wp_user->user_email : '';
-
-            // since group IDs may change, use a query to make sure it is the right default group.
-            $sql = 'SELECT group_id FROM ' . GROUPS_TABLE . " WHERE group_name = '" . $db->sql_escape(REGISTERED) . "' AND group_type = " . GROUP_SPECIAL;
-            $result = $db->sql_query($sql);
-
-            $row = $db->sql_fetchrow($result);
-            $group_id = $row['group_id'];
-
-            $user_row = array(
-                'username' => $username,
-                'user_password' => phpbb_hash($password),
-                'group_id' => $group_id,
-                'user_email' => $email,
-                'user_type' => 0
-            );
-
-            $id = wpbb_phpBB3::addUser($user_row);
-            $phpBB_user = wpbb_phpBB3::getUserById($id);
-        }
-
-        //has to be done when identity is checked
-        //wpbb_phpBB3::changePassword($username, $password);
-    }
-
-    function logout() {
+    public static function logout()
+    {
         global $user;
 
         $user->session_kill();
         $user->session_begin();
     }
 
-    function changePassword($username, $password) {
+    public static function changePassword($username, $password)
+    {
         global $db;
 
         $hashed = phpbb_hash($password);
@@ -153,7 +147,8 @@ class wpbb_phpBB3 {
         $result = $db->sql_query($sql);
     }
 
-    function addUser($user) {
+    public static function addUser($user)
+    {
         global $phpbb_root_path, $phpEx;
 
         // Use the user_add function, this code is from auth.php line 864-869
@@ -164,13 +159,12 @@ class wpbb_phpBB3 {
         return user_add($user);
     }
 
-    function getUserById($id) {
+    public static function getUserById($id)
+    {
         global $db;
-        mysql_select_db($db->dbname);
 
-        $sql = 'SELECT user_id, username, user_password, user_passchg, user_pass_convert, user_email, user_type, user_login_attempts
-                FROM ' . USERS_TABLE . "
-                WHERE user_id = '" . $id . "'";
+        $cols = 'user_id, username, user_password, user_passchg, user_pass_convert, user_email, user_type, user_login_attempts';
+        $sql = 'SELECT ' . $cols . ' FROM ' . USERS_TABLE . " WHERE user_id = '" . $id . "'";
 
         $result = $db->sql_query($sql);
         $user = $db->sql_fetchrow($result);
@@ -178,148 +172,109 @@ class wpbb_phpBB3 {
         return $user;
     }
 
-    function getUserByName($name) {
-        $phpbb_root_path = ABSPATH . PHPBBPATH;
+    public static function getUserByName($name)
+    {
+        global $db;
 
-        require($phpbb_root_path . 'config.php');
+        $cols = 'user_id, username, user_password, user_passchg, user_pass_convert, user_email, user_type, user_login_attempts';
+        $sql = 'SELECT ' . $cols . ' FROM ' . USERS_TABLE . " WHERE username_clean = '" . utf8_clean_string($name) . "'";
 
-        $dbr = mysql_connect($dbhost, $dbuser, $dbpasswd);
-        mysql_select_db($dbname);
-        define('USERS_TABLE', $table_prefix . 'users');
-
-        $sql = 'SELECT user_id, username, user_password, user_passchg, user_pass_convert, user_email, user_type, user_login_attempts
-                FROM ' . USERS_TABLE . " WHERE username_clean = '" . utf8_clean_string($name) . "'";
-
-        $result = mysql_query($sql);
+        $result = $db->sql_query($sql);
         if ($result) {
-            $user = mysql_fetch_object($result);
-            mysql_free_result($result);
+            $user = $db->sql_fetchrow($result);
+            $db->sql_freeresult($result);
             return $user;
         }
 
         return false;
     }
-    
-    function checkPasswordAndLogin($user_id, $username, $password){
+
+    public static function checkPasswordAndLogin($user_id, $username, $password)
+    {
         global $phpbb_root_path, $phpEx;
-            
+
         $user = Registry::get('user');
-        
-        if(!function_exists('login_db')){
+
+        if (!function_exists('login_db')) {
             include($phpbb_root_path . 'includes/auth/auth_db.' . $phpEx);
         }
-        
+
         $login = login_db($username, $password);
-        
+
         $viewonline = 1;
         $autologin = 0;
-        if ( ! empty($_POST['rememberme']) ){
+        if (!empty($_POST['rememberme'])) {
             $autologin = 1;
         }
 
         // If login succeeded, we will log the user in... else we pass the login array through...
-        if ($login['status'] == LOGIN_SUCCESS)
-        {
-                $old_session_id = $user->session_id;
+        if ($login['status'] == LOGIN_SUCCESS) {
+            $old_session_id = $user->session_id;
 
-                //TODO :: find how it is managed for the admin part
-                $admin = 0;
-                if ($admin)
-                {
-                        global $SID, $_SID;
+            //TODO :: find how it is managed for the admin part
+            $admin = 0;
+            if ($admin) {
+                global $SID, $_SID;
 
-                        $cookie_expire = time() - 31536000;
-                        $user->set_cookie('u', '', $cookie_expire);
-                        $user->set_cookie('sid', '', $cookie_expire);
-                        unset($cookie_expire);
+                $cookie_expire = time() - 31536000;
+                $user->set_cookie('u', '', $cookie_expire);
+                $user->set_cookie('sid', '', $cookie_expire);
+                unset($cookie_expire);
 
-                        $SID = '?sid=';
-                        $user->session_id = $_SID = '';
-                }
+                $SID = '?sid=';
+                $user->session_id = $_SID = '';
+            }
 
-                $result = $user->session_create($user_id, $admin, $autologin, $viewonline);
+            $result = $user->session_create($user_id, $admin, $autologin, $viewonline);
 
-                // Successful session creation
-                if ($result === true)
-                {
-                        // If admin re-authentication we remove the old session entry because a new one has been created...
-                        if ($admin)
-                        {
-                                // the login array is used because the user ids do not differ for re-authentication
-                                $sql = 'DELETE FROM ' . SESSIONS_TABLE . "
+            // Successful session creation
+            if ($result === true) {
+                // If admin re-authentication we remove the old session entry because a new one has been created...
+                if ($admin) {
+                    // the login array is used because the user ids do not differ for re-authentication
+                    $sql = 'DELETE FROM ' . SESSIONS_TABLE . "
                                         WHERE session_id = '" . $db->sql_escape($old_session_id) . "'
                                         AND session_user_id = {$login['user_row']['user_id']}";
-                                $db->sql_query($sql);
-                        }
-
-                        return array(
-                                'status'		=> LOGIN_SUCCESS,
-                                'error_msg'		=> false,
-                                'user_row'		=> $login['user_row'],
-                        );
+                    $db->sql_query($sql);
                 }
 
                 return array(
-                        'status'		=> LOGIN_BREAK,
-                        'error_msg'		=> $result,
-                        'user_row'		=> $login['user_row'],
+                    'status' => LOGIN_SUCCESS,
+                    'error_msg' => false,
+                    'user_row' => $login['user_row'],
                 );
+            }
+
+            return array(
+                'status' => LOGIN_BREAK,
+                'error_msg' => $result,
+                'user_row' => $login['user_row'],
+            );
         }
     }
 
-    ////////////////////////////////////////////////////////////
-
-    function get_wp_user_by_email($email) {
+    public static function get_wp_user_by_email($email)
+    {
         $lcemail = strtolower($email);
 
-        $phpbb_root_path = ABSPATH . PHPBBPATH;
-        require($phpbb_root_path . 'config.php');
-        $dbr = mysql_connect($dbhost, $dbuser, $dbpasswd);
-        mysql_select_db($dbname);
-        define('USERS_TABLE', $table_prefix . 'users');
-        $sql = 'SELECT username, user_email FROM ' . USERS_TABLE .
-                " WHERE user_email = '" . esc_sql($lcemail) . "'";
-        $result = mysql_query($sql);
+        global $db;
+
+        $sql = 'SELECT username, user_email FROM ' . USERS_TABLE . " WHERE user_email = '" . esc_sql($lcemail) . "'";
+        $result = $db->sql_query($sql);
         if ($result) {
-            $user = mysql_fetch_row($result);
-            if ($user[0]) {
+            $user = $db->sql_fetchrow($result);
+            $db->sql_freeresult($result);
+            if ($user) {
                 $user_row = array(
-                    'username' => $user[0],
-                    'email' => $user[1],
+                    'username' => $user['username'],
+                    'email' => $user['user_email'],
                     'password' => wp_generate_password(),
                 );
                 return wpbb_WordPress::addUser($user_row);
             }
+
         }
 
         return false;
     }
-
-    ////////////////////////////////////////////////////////////
-
-    function get_wp_user_by_name($name) {
-        $phpbb_root_path = ABSPATH . PHPBBPATH;
-        require($phpbb_root_path . 'config.php');
-        $dbr = mysql_connect($dbhost, $dbuser, $dbpasswd);
-        mysql_select_db($dbname);
-        define('USERS_TABLE', $table_prefix . 'users');
-        $sql = 'SELECT username, user_email FROM ' . USERS_TABLE .
-                " WHERE username_clean = '" . esc_sql(utf8_clean_string($name)) . "'";
-        $result = mysql_query($sql);
-        if ($result) {
-            $user = mysql_fetch_row($result);
-            if ($user[0]) {
-                $user_row = array(
-                    'username' => $user[0],
-                    'email' => $user[1],
-                    'password' => wp_generate_password(),
-                );
-                return wpbb_WordPress::addUser($user_row);
-            }
-        }
-
-        return false;
-    }
-
 }
-

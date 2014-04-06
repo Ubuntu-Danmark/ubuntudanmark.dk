@@ -2,11 +2,11 @@
 
 /**
  * Database auth plug-in for PHPBB - Wordpress Connector
- * 
+ *
  * This is for authentication via the integrated user table
  *
  * @package login
- * @version 0.8.7
+ * @version 0.9
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
@@ -23,12 +23,14 @@ if (!defined('IN_PHPBB')) {
     exit;
 }
 
-function init_wpbb() {
+function init_wpbb()
+{
 
 }
 
 // Provide option for WordPress path
-function acp_wpbb(&$new) {
+function acp_wpbb(&$new)
+{
     // These are fields required in the config table
     $tpl = '
 	<dl>
@@ -46,17 +48,18 @@ function acp_wpbb(&$new) {
 /**
  * Login function
  */
-function login_wpbb(&$username, &$password) {
+function login_wpbb(&$username, &$password)
+{
     global $db, $config;
 
     //checks if Wordpress is loaded, if not uses simple authentication
     if (function_exists('wp_signon')) {
 
         //Manage Autologin -> transfer from BB to WP
-        if ( ! empty($_POST['autologin']) ){
+        if (!empty($_POST['autologin'])) {
             $_POST['rememberme'] = 'forever';
         }
-        
+
         global $current_user;
 
         /*
@@ -79,17 +82,23 @@ function login_wpbb(&$username, &$password) {
             wp_clear_auth_cookie();
         }
 
-        if (is_ssl() && force_ssl_login() && !force_ssl_admin() && ( 0 !== strpos($redirect_to, 'https') ) && ( 0 === strpos($redirect_to, 'http') )) {
+        if (
+            is_ssl() && force_ssl_login() && !force_ssl_admin()
+            && (0 !== strpos($redirect_to, 'https')) && (0 === strpos($redirect_to, 'http'))
+        ) {
             $secure_cookie = false;
         } else {
             $secure_cookie = '';
         }
 
         // Use the wp_signon function to get the object of our user from WP
-        $wp_user = wp_signon(array(
-                    'user_login' => $username,
-                    'user_password' => html_entity_decode($password)
-                        ), $secure_cookie);
+        $wp_user = wp_signon(
+            array(
+                'user_login' => $username,
+                'user_password' => html_entity_decode($password)
+            ),
+            $secure_cookie
+        );
 
 
         // Flag whether or not the user exists in wordpress
@@ -107,32 +116,36 @@ function login_wpbb(&$username, &$password) {
 
             $wp_user = wpbb_WordPress::addUser($user_row);
 
-            $wp_user = wp_signon(array(
-                        'user_login' => $username,
-                        'user_password' => html_entity_decode($password)
-                            ), $secure_cookie);
-
-            //mysql_select_db($db->db_name); // Select phpBB database
-        } else if (!$phpBB_user && $in_wp) {
-            $email = $wp_user->user_email ? $wp_user->user_email : '';
-
-            // since group IDs may change, use a query to make sure it is the right default group.
-            $sql = 'SELECT group_id FROM ' . GROUPS_TABLE . " WHERE group_name = '" . $db->sql_escape(REGISTERED) . "' AND group_type = " . GROUP_SPECIAL;
-            $result = $db->sql_query($sql);
-
-            $row = $db->sql_fetchrow($result);
-            $group_id = $row['group_id'];
-
-            $user_row = array(
-                'username' => $username,
-                'user_password' => phpbb_hash($password),
-                'group_id' => $group_id,
-                'user_email' => $email,
-                'user_type' => 0
+            $wp_user = wp_signon(
+                array(
+                    'user_login' => $username,
+                    'user_password' => html_entity_decode($password)
+                ),
+                $secure_cookie
             );
+        } else {
+            if (!$phpBB_user && $in_wp) {
+                $email = $wp_user->user_email ? $wp_user->user_email : '';
 
-            $id = wpbb_phpBB3::addUser($user_row);
-            $phpBB_user = wpbb_phpBB3::getUserById($id);
+                // since group IDs may change, use a query to make sure it is the right default group.
+                $sql = 'SELECT group_id FROM ' . GROUPS_TABLE . " WHERE group_name = '" .
+                    $db->sql_escape(REGISTERED) . "' AND group_type = " . GROUP_SPECIAL;
+                $result = $db->sql_query($sql);
+
+                $row = $db->sql_fetchrow($result);
+                $group_id = $row['group_id'];
+
+                $user_row = array(
+                    'username' => $username,
+                    'user_password' => phpbb_hash($password),
+                    'group_id' => $group_id,
+                    'user_email' => $email,
+                    'user_type' => 0
+                );
+
+                $id = wpbb_phpBB3::addUser($user_row);
+                $phpBB_user = wpbb_phpBB3::getUserById($id);
+            }
         }
 
         //logon phpBB is the access right in wordpress ?
@@ -156,15 +169,16 @@ function login_wpbb(&$username, &$password) {
 }
 
 //Executed when the session is closed
-function logout_wpbb($data, $new_session) {
-    if (function_exists('wp_clear_auth_cookie')) {    //if WP is loaded
+function logout_wpbb($data, $new_session)
+{
+    if (function_exists('wp_clear_auth_cookie')) { //if WP is loaded
         wp_clear_auth_cookie();
     }
     return $data;
 }
 
-//TODO :: WTH is that ?!?!?
-function validate_session_wpbb() {
+function validate_session_wpbb()
+{
     global $phpbb_root_path, $phpEx;
     // Need to block registrations for users that already exist
     $mode = request_var('mode', '');
@@ -188,7 +202,8 @@ function validate_session_wpbb() {
         $check_ary = array(
             'new_password' => array(
                 array('string', true, $config['min_pass_chars'], $config['max_pass_chars']),
-                array('password')),
+                array('password')
+            ),
             'password_confirm' => array('string', true, $config['min_pass_chars'], $config['max_pass_chars'])
         );
 
@@ -199,32 +214,38 @@ function validate_session_wpbb() {
             );
         }
 
-        if (sizeof(validate_data($data, $check_ary)))
+        if (sizeof(validate_data($data, $check_ary))) {
             return true;
-        if ($auth->acl_get('u_chgpasswd') && $data['new_password'] && $data['password_confirm'] != $data['new_password'])
+        }
+        if ($auth->acl_get('u_chgpasswd') && $data['new_password'] && $data['password_confirm'] != $data['new_password']) {
             return true;
-        if (($data['new_password'] || ($auth->acl_get('u_chgemail') && $data['email'] != $user->data['user_email']) || ($data['username'] != $user->data['username'] && $auth->acl_get('u_chgname') && $config['allow_namechange'])) && !phpbb_check_hash($data['cur_password'], $user->data['user_password']))
+        }
+        if (
+            (
+                $data['new_password']
+                || ($auth->acl_get('u_chgemail') && $data['email'] != $user->data['user_email'])
+                || ($data['username'] != $user->data['username'] && $auth->acl_get('u_chgname') && $config['allow_namechange'])
+            ) && !phpbb_check_hash($data['cur_password'], $user->data['user_password'])
+        ) {
             return true;
+        }
 
-        if ($auth->acl_get('u_chgemail') && $data['email'] != $user->data['user_email'] && $data['email_confirm'] != $data['email'])
+        if ($auth->acl_get('u_chgemail') && $data['email'] != $user->data['user_email'] && $data['email_confirm'] != $data['email']) {
             return true;
+        }
 
         define('WP_ADMIN', true);
         wpbb_WordPress::loadAdminAPI();
         wpbb_WordPress::updateUser($data);
     }
 
-    if ($mode != 'register' || !request_var('username', '', true))
+    if ($mode != 'register' || !request_var('username', '', true)) {
         return true;
+    }
 
-    global $current_user;
-
-    $username = utf8_normalize_nfc(request_var('username', '', true));
-
-    if ($user->data['is_registered'] || isset($_REQUEST['not_agreed'])) {      //FIX BY BRIAN PAN
+    if ($user->data['is_registered'] || isset($_REQUEST['not_agreed'])) { //FIX BY BRIAN PAN
         //if(wpbb_userExists($username, 'phpbb')){
         // User exists, TODO -- notify user somehow
-        //header('Location: http://www.opc.dev/forum/ucp.php?mode=register');
         redirect(append_sid($phpbb_root_path . 'index' . $phpEx));
     } else {
         return true;

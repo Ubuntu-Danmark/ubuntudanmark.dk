@@ -1,14 +1,10 @@
 <?php
-//wpbb_get_functions_conflict(); //TEST
 $connect_phpbb_options = get_option('connect_phpbb_options');
 if (empty($connect_phpbb_options)) {
     $connect_phpbb_options = array('path' => '');
 }
 
-$message ='';
-
 switch ($_POST['stage']) {
-
     //Check if there are new options set
     case 'update':
         //Processing the Wordpress Part
@@ -24,13 +20,15 @@ switch ($_POST['stage']) {
 
         //Processing the phpbb part
         //--------------------------------------------------------------------------
-        $phpbb_db_prefix = wpbb_get_phpbb_prefix();
-        if ($phpbb_db_prefix != '') {
+
+        if (wpbb_phpBB3::foundInstall()) { // check to see if phpBB exists
+
+
             if (isset($_POST['auth_method']) && $_POST['auth_method'] != '') {
-                wpbb_set_config_value($phpbb_db_prefix, 'auth_method', $_POST['auth_method']);
+                wpbb_phpBB3::setConfigValue('auth_method', $_POST['auth_method']);
             }
             if (isset($_POST['wpbb_path']) && $_POST['wpbb_path'] != '') {
-                wpbb_set_config_value($phpbb_db_prefix, 'wpbb_path', $_POST['wpbb_path']);
+                wpbb_phpBB3::setConfigValue('wpbb_path', $_POST['wpbb_path']);
             }
         }
 
@@ -48,7 +46,7 @@ switch ($_POST['stage']) {
             update_option('wp2bb_enabled', false);
         }
 
-        $message = '<div class="updated"><p>' . __('Updated files', 'phpbb') . '</p></div>';
+        wpbb_redirect(WPBB_OPTIONS_PAGE . '&message=' . urlencode(__('Updated configuration', 'phpbb')));exit;
         break;
     case 'install-common':
 
@@ -73,7 +71,7 @@ switch ($_POST['stage']) {
             $error = true;
         }
 
-        $message = '<div class="updated"><p>' . __('Installed common.php', 'phpbb') . '</p></div>';
+        wpbb_redirect(WPBB_OPTIONS_PAGE . '&message=' . urlencode(__('Installed common.php', 'phpbb')));exit;
         break;
     case 'install-auth':
 
@@ -91,98 +89,102 @@ switch ($_POST['stage']) {
             $error = true;
         }
 
-        $message = '<div class="updated"><p>' . __('WPBB Install', 'phpbb') . '</p></div>';
+        wpbb_redirect(WPBB_OPTIONS_PAGE . '&message=' . urlencode(__('Installed wpbb.php', 'phpbb')));exit;
         break;
     case 'patch-posting':
         wpbb_validate_user_patch(realpath(ABSPATH . PHPBBPATH) . '/posting.php');
 
-        $message = '<div class="updated"><p>' . __('Patched file', 'phpbb') . '</p></div>';
+        wpbb_redirect(WPBB_OPTIONS_PAGE . '&message=' . __('Patched file', 'phpbb'));exit;
         break;
 
     case 'patch-user_function';
         wpbb_validate_user_patch(realpath(ABSPATH . PHPBBPATH) . '/includes/functions_user.php');
         wpbb_validate_user2_patch(realpath(ABSPATH . PHPBBPATH) . '/includes/functions_user.php');
 
-        $message = '<div class="updated"><p>' . __('Patched file', 'phpbb') . '</p></div>';
+        wpbb_redirect(WPBB_OPTIONS_PAGE . '&message=' . urlencode(__('Patched file', 'phpbb')));exit;
         break;
 }
 
 
-$phpbb_db_prefix = wpbb_get_phpbb_prefix();
-if ($phpbb_db_prefix != '') {
-    $phpbb_found = true;
-} else {
-    $phpbb_found = false;
-}
+$phpbb_found = wpbb_phpBB3::foundInstall();
 ?>
 <div class="wrap">
     <h2><?php _e('PHP BB Options', 'phpbb') ?></h2>
-    <?php echo $message; ?>
+    <?php
+    if (array_key_exists('message', $_GET)) {
+        echo '<div class="updated"><p>' . $_GET['message'] . '</p></div>';
+    }
+    ?>
     <form name="form1" method="post" id="configuration" action="<?php echo WPBB_OPTIONS_PAGE ?>">
         <input type="hidden" name="stage" value="update" />
-        <table class="widefat" summary="" title="PHPBB">
-            <thead>
-            <tr>
-                <th scope="col" colspan="2"><?php _e('Wordpress Part', 'phpbb') ?></th>
-                <?php if ($phpbb_found) { ?>
-                    <th scope="col" colspan="2"><?php _e('PHPBB Part', 'phpbb') ?></th>
-                    <th scope="col" colspan="2"><?php _e('WP2BB Part', 'phpbb') ?></th>
-                <?php } ?>
-            </tr>
-            <tbody id="the-list">
-            <tr valign="baseline">
-                <th scope="row"><?php _e('Path', 'phpbb') ?></th>
-                <td>
-                    <input type="text" value="<?php echo $connect_phpbb_options['path'] ?>" name="path" />
-                    <div><small><?php _e('To PHPBB from Wordpress', 'phpbb') ?></small></div>
-                </td>
-                <?php if ($phpbb_found) { ?>
-                <th scope="row"><?php _e('Path', 'phpbb'); ?></th>
-                <td>
-                    <input type="text" value="<?php echo wpbb_get_config_value('wpbb_path') ?>" name="wpbb_path" />
-                    <div><small><?php _e('To Wordpress from PHPBB', 'phpbb'); ?></small></div>
-                </td>
-                <th scope="row"><?php _e('Enable', 'phpbb'); ?></th>
-                <td>
-                    <?php
-                        $wp2bb_checked = '';
-                        $wp2bb = get_option('wp2bb_enabled');
-                        if(!empty($wp2bb) OR $wp2bb){ $wp2bb_checked = ' checked="checked"'; }
-                    ?>
-                    <input type="checkbox" value="on" name="wp2bb" <?php echo $wp2bb_checked; ?> />
-                    <div><small><?php _e('Enables you to publish your posts in the forum', 'phpbb'); ?></small></div>
-                </td>
-                <?php } ?>
-            </tr>
-            <?php if ($phpbb_found) { ?>
-                <tr valign="baseline">
-                    <td>&nbsp;</td><td>&nbsp;</td>
-                    <th scope="row"><?php _e('Auth Method', 'phpbb') ?></th>
-                    <td>
-                        <select name="auth_method">
-                            <?php echo wpbb_select_auth_method(wpbb_get_config_value('auth_method')); ?>
-                        </select>
-                        <div><small><?php _e('Auth method to use, you have to use "wpbb" to make this plugin work', 'phpbb') ?></small></div>
-                    </td>
-                    <td>&nbsp;</td><td>&nbsp;</td>
-                </tr>
-                <tr valign="baseline">
-                    <td>&nbsp;</td><td>&nbsp;</td>
-                    <th scope="row"><?php _e('ACP Reauthentication', 'phpbb') ?></th>
-                    <td>
-                        <select name="reauth_option">
-                            <?php echo wpbb_select_reauth(); ?>
-                        </select>
-                        <div><small><?php _e('Sometimes the ACP won\'t let you log in, disable the relog', 'phpbb') ?></small></div>
-                    </td>
-                    <td>&nbsp;</td><td>&nbsp;</td>
-                </tr>
-            <?php } ?>
 
-            </tbody>
+        <h3 class=title><?php _e('Wordpress', 'phpbb') ?></h3>
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row"><?php _e('Path to PHPBB', 'phpbb') ?></th>
+                <td>
+                    <input type="text" class="regular-text" value="<?php echo $connect_phpbb_options['path'] ?>" name="path" />
+                    <p class=description><?php _e('To PHPBB from Wordpress', 'phpbb') ?></p>
+                </td>
+            </tr>
         </table>
+
+        <?php if ($phpbb_found): ?>
+        <h3 class=title><?php _e('PHPBB', 'phpbb') ?></h3>
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row"><?php _e('Path to wordpress', 'phpbb'); ?></th>
+                <td>
+                    <input type="text" class="regular-text" value="<?php echo wpbb_phpBB3::getConfigValue('wpbb_path') ?>" name="wpbb_path" />
+                    <p class=description><?php _e('To Wordpress from PHPBB', 'phpbb'); ?></p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><?php _e('Auth Method', 'phpbb') ?></th>
+                <td>
+                    <select name="auth_method">
+                        <?php echo wpbb_select_auth_method(wpbb_phpBB3::getConfigValue('auth_method')); ?>
+                    </select>
+                    <p class=description><?php _e('Auth method to use, you have to use "wpbb" to make this plugin work', 'phpbb') ?></p>
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row"><?php _e('ACP Reauthentication', 'phpbb') ?></th>
+                <td>
+                    <select name="reauth_option">
+                        <?php echo wpbb_select_reauth(); ?>
+                    </select>
+                    <p class=description><?php _e('Sometimes the ACP won\'t let you log in, disable the relog', 'phpbb') ?></p>
+                </td>
+            </tr>
+        </table>
+
+
+        <?php
+            $wp2bb_checked = '';
+            $wp2bb = get_option('wp2bb_enabled');
+            if(!empty($wp2bb) OR $wp2bb){ $wp2bb_checked = ' checked="checked"'; }
+        ?>
+
+        <h3 class=title><?php _e('WP2BB', 'phpbb'); ?></h3>
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row"><?php _e('Enable WP2BB', 'phpbb'); ?></th>
+                <td>
+                    <fieldset>
+                        <legend class="screen-reader-text"><span>Membership</span></legend>
+                        <label for="wp2bb">
+                            <input type="checkbox" value="on" name="wp2bb" id="wp2bb" <?php echo $wp2bb_checked; ?> />
+                            <?php _e('Enables you to publish your posts in the forum', 'phpbb'); ?>
+                        </label>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <?php endif; ?>
+
         <p class="submit">
-            <input type="submit" name="Submit" value="<?php _e('Save Changes', 'phpbb') ?>" />
+            <input type="submit" name="Submit" class="button button-primary" value="<?php _e('Save Changes', 'phpbb') ?>" />
         </p>
     </form>
 
@@ -190,7 +192,7 @@ if ($phpbb_db_prefix != '') {
 <?php
 $error = wpbb_run_test();
 
-if ($error == true) {
+if ($error == true):
 ?>
     <p>The phpBB Plugin is not activated now.</p>
 
@@ -220,5 +222,5 @@ if ($error == true) {
     <p><strong>auth_method</strong></p>
     <p>This form element only appears when the path_var is correctly set.<br />You have to set it to <strong>wpbb</strong></p>
     <p></p>
-<?php } ?>
+<?php endif; ?>
 </div>
