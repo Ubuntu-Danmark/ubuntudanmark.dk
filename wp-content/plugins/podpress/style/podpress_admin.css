@@ -259,7 +259,7 @@
 .podpress_feeds_text_field {
 	width:100%;
 }
-.podpress_filetypefilter_select, .podpress_categoryfilter_select {
+.podpress_posttypefilter_select, .podpress_filetypefilter_select, .podpress_categoryfilter_select {
 	width:45%;
 	height:8em!important;
 	float:left;

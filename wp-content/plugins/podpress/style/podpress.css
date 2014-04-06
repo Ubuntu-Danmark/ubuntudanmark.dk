@@ -1,4 +1,11 @@
 /* podPress CSS for the frontend */
+
+.podPress_content .fluid-width-video-wrapper {
+	position: static !important;
+}
+.podpress_mp3player .fluid-width-video-wrapper object {
+	height: 24px !important;
+}
 .podPress_imgicon {	
 	border: 0 !important;
 	margin: 0 !important;
