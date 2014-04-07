@@ -1,0 +1,6 @@
+textarea#styled {
+	width: 200px;
+	height: 28px;
+	border: 2px solid #cccccc;
+	padding: 2px;
+}
