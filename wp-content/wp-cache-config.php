@@ -5,6 +5,16 @@ WP-Cache Config Sample File
 See wp-cache.php for author details.
 */
 
+$cache_schedule_interval = 'daily'; //Added by WP-Cache Manager
+$cache_gc_email_me = 0; //Added by WP-Cache Manager
+$wp_cache_make_known_anon = 0; //Added by WP-Cache Manager
+$wp_cache_mfunc_enabled = 0; //Added by WP-Cache Manager
+$wp_cache_no_cache_for_get = 0; //Added by WP-Cache Manager
+$wp_cache_disable_utf8 = 0; //Added by WP-Cache Manager
+$cache_time_interval = '18000'; //Added by WP-Cache Manager
+$cache_scheduled_time = '00:01'; //Added by WP-Cache Manager
+$cache_schedule_type = 'time'; //Added by WP-Cache Manager
+$cache_page_secret = '1e854f9be2f5770b82a526bce7bbb265'; //Added by WP-Cache Manager
 $cache_minify = true; //Added by WP-Cache Manager
 $wp_cache_mobile_groups = ''; //Added by WP-Cache Manager
 $wp_cache_mobile_prefixes = 'w3c , w3c-, acs-, alav, alca, amoi, audi, avan, benq, bird, blac, blaz, brew, cell, cldc, cmd-, dang, doco, eric, hipt, htc_, inno, ipaq, ipod, jigs, kddi, keji, leno, lg-c, lg-d, lg-g, lge-, lg/u, maui, maxo, midp, mits, mmef, mobi, mot-, moto, mwbp, nec-, newt, noki, palm, pana, pant, phil, play, port, prox, qwap, sage, sams, sany, sch-, sec-, send, seri, sgh-, shar, sie-, siem, smal, smar, sony, sph-, symb, t-mo, teli, tim-, tosh, tsm-, upg1, upsi, vk-v, voda, wap-, wapa, wapi, wapp, wapr, webc, winw, winw, xda , xda-'; //Added by WP-Cache Manager
