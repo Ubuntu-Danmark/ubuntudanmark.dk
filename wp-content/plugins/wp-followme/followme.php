@@ -55,7 +55,7 @@ $wp_followme_nett = array( 'twitter', 'icon', 'followmsg');
 function wp_followme_credits ($translation, $text, $domain)
 {
 	global $wp_followme;
-	if ($wp_followme[powered_by] && $text == 'Proudly powered by %s') return $text . '</a> using <a href="http://wpburn.com">FollowMe official extension';
+	if ($wp_followme['powered_by'] && $text == 'Proudly powered by %s') return $text . '</a> using <a href="http://wpburn.com">FollowMe official extension';
 	return $translation;
 }
 add_filter('gettext', 'wp_followme_credits', 100, 3);
@@ -80,17 +80,17 @@ function followme_admin_warnings() {
 
 	function followme_warning() {
 		global $wp_followme;
-		if ( !$wp_followme[twitter] ) {
+		if ( !$wp_followme['twitter'] ) {
 			echo '<div id="followme-warning" class="updated fade"><p><strong>WP FollowMe plugin is not configured yet.</strong>
 			You must <a href="options-general.php?page=followme.php">enter your Twitter URL</a> for it to work.</p>';
-			if (!$wp_followme[powered_by]) echo '<p>“Powered by” info is not displayed by default. <a href="options-general.php?page=followme.php">Enable it</a> to encourage further development.</p>';
+			if (!$wp_followme['powered_by']) echo '<p>“Powered by” info is not displayed by default. <a href="options-general.php?page=followme.php">Enable it</a> to encourage further development.</p>';
 			echo '</div>';
 		}
 	}
 
 	function followme_wrong_settings(){
 		global $wp_followme;
-		if ( substr($wp_followme[twitter], 0, 4) != "http" && $wp_followme['twitter'] != ""){
+		if ( substr($wp_followme['twitter'], 0, 4) != "http" && $wp_followme['twitter'] != ""){
 			echo '<div id="followme-warning" class="updated fade"><p><strong>WP FollowMe plugin is not properly configured.</strong>
 			The <a href="options-general.php?page=followme.php">Twitter URL</a> must begin with http.</p></div>';
 		}
@@ -111,13 +111,13 @@ function wp_followme_css() {
 	.getflash { font-size:8px; }
 	.wp_followme_c2 {
 		position:fixed;
-		background:#<?php global $wp_followme; echo $wp_followme[color]; ?>;
+		background:#<?php global $wp_followme; echo $wp_followme['color']; ?>;
 		top:<?php global $wp_followme; echo $wp_followme['top'];?>px;
 		<?php global $wp_followme; echo $wp_followme['align'];?>:0px;
 		width:32px;
 		height:160px;
 		border:1px solid #<?php global $wp_followme; echo $wp_followme['bordercolor'];?>;
-		color:#<?php global $wp_followme; echo $wp_followme[textcolor]; ?>;
+		color:#<?php global $wp_followme; echo $wp_followme['textcolor']; ?>;
 	}
 </style>
 
@@ -135,18 +135,18 @@ function show_followme() {
 			<param name="movie" value="<?php echo wp_followme_url('flash/wp_followme.swf'); ?>" />
 			<param name="allowfullscreen" value="false" />
 			<param name="allowscriptaccess" value="always" />
-			<param name="flashvars" value="twit_icon=<?php global $wp_followme; echo $wp_followme['icon'];?>&amp;turl=<?php global $wp_followme; echo $wp_followme['twitter'] ?>&amp;twitmsg=<?php global $wp_followme; echo $wp_followme['followmsg'] ?>&amp;twitmsgcolor=<?php global $wp_followme; echo $wp_followme[textcolor]; ?>&amp;iconbgcolor=<?php global $wp_followme; echo $wp_followme[iconbgcolor]; ?>" />
-			<param name="bgcolor" value="#<?php global $wp_followme; echo $wp_followme[color]; ?>" />
+			<param name="flashvars" value="twit_icon=<?php global $wp_followme; echo $wp_followme['icon'];?>&amp;turl=<?php global $wp_followme; echo $wp_followme['twitter'] ?>&amp;twitmsg=<?php global $wp_followme; echo $wp_followme['followmsg'] ?>&amp;twitmsgcolor=<?php global $wp_followme; echo $wp_followme['textcolor']; ?>&amp;iconbgcolor=<?php global $wp_followme; echo $wp_followme['iconbgcolor']; ?>" />
+			<param name="bgcolor" value="#<?php global $wp_followme; echo $wp_followme['color']; ?>" />
 			<!--[if !IE]>-->
 			<object type="application/x-shockwave-flash" data="<?php echo wp_followme_url('flash/wp_followme.swf'); ?>" width="32" height="160">
 				<param name="allowfullscreen" value="false" />
 				<param name="allowscriptaccess" value="always" />
-				<param name="flashvars" value="twit_icon=<?php global $wp_followme; echo $wp_followme['icon'];?>&amp;turl=<?php echo $wp_followme['twitter'] ?>&amp;twitmsg=<?php global $wp_followme; echo $wp_followme['followmsg'] ?>&amp;twitmsgcolor=<?php global $wp_followme; echo $wp_followme[textcolor]; ?>&amp;iconbgcolor=<?php global $wp_followme; echo $wp_followme[iconbgcolor]; ?>" />
-				<param name="bgcolor" value="#<?php global $wp_followme; echo $wp_followme[color]; ?>" />
+				<param name="flashvars" value="twit_icon=<?php global $wp_followme; echo $wp_followme['icon'];?>&amp;turl=<?php echo $wp_followme['twitter'] ?>&amp;twitmsg=<?php global $wp_followme; echo $wp_followme['followmsg'] ?>&amp;twitmsgcolor=<?php global $wp_followme; echo $wp_followme['textcolor']; ?>&amp;iconbgcolor=<?php global $wp_followme; echo $wp_followme['iconbgcolor']; ?>" />
+				<param name="bgcolor" value="#<?php global $wp_followme; echo $wp_followme['color']; ?>" />
 				<!--<![endif]-->
 				<div class="getflash">
 					<a rel="nofollow" href="http://www.adobe.com/go/getflashplayer"><img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-					<?php global $wp_followme; if($wp_followme[powered_by] == '1') { ?>Plugin by wpburn.com <a href="http://wpburn.com">wordpress themes</a><?php } ?>
+					<?php global $wp_followme; if($wp_followme['powered_by'] == '1') { ?>Plugin by wpburn.com <a href="http://wpburn.com">wordpress themes</a><?php } ?>
 				</div><!--[if !IE]>-->
 			</object> <!--<![endif]-->
 		</object>
@@ -237,13 +237,13 @@ function wp_followme_settings_page() {
 							<tr valign="top" class="alternate">
 								<th scope="row" style="width:20%;"><label for="wp_followme_options[twitter]" style="font-weight:bold;">Your Twitter URL</label></th>
 								<td>
-									<input autocomplete="off" type="text" name="wp_followme_options[twitter]" value="<?php echo $wp_followme[twitter]; ?>" class="regular-text code" /> <br />Example: https://twitter.com/wpburn<br />
+									<input autocomplete="off" type="text" name="wp_followme_options[twitter]" value="<?php echo $wp_followme['twitter']; ?>" class="regular-text code" /> <br />Example: https://twitter.com/wpburn<br />
 									<?php
-									if (isset($wp_followme[twitter]))
+									if (isset($wp_followme['twitter']))
 									{
-										if (!$wp_followme[twitter])
+										if (!$wp_followme['twitter'])
 											echo '<span style="color:red;">Error:</span> <strong>Twitter URL cannot be blank</strong>';
-										elseif (substr($wp_followme[twitter], 0, 4) != "http")
+										elseif (substr($wp_followme['twitter'], 0, 4) != "http")
 											echo '<span style="color:red;">Error:</span> <strong>Twitter URL must begin with <em>http</em></strong>';
 									}
 									?>
@@ -257,7 +257,7 @@ function wp_followme_settings_page() {
 								</th>
 								<td>
 									<strong>Help us back by enabling the “Powered by” info on your website!</strong><br />
-									<input id="poweredby" type="checkbox" name="wp_followme_options[powered_by]" value="1" <?php if ($wp_followme[powered_by] == '1' || !isset($wp_followme[twitter])) echo 'checked="checked"'; ?>/> Add the “Powered by” info
+									<input id="poweredby" type="checkbox" name="wp_followme_options[powered_by]" value="1" <?php if ($wp_followme['powered_by'] == '1' || !isset($wp_followme['twitter'])) echo 'checked="checked"'; ?>/> Add the “Powered by” info
 									<br />
 								</td>
 							</tr>
@@ -265,35 +265,35 @@ function wp_followme_settings_page() {
 
 							<tr valign="top" class="alternate">
 								<th scope="row" style="width:20%;"><label for="wp_followme_options[followmsg]">Follow message</label></th>
-								<td><input autocomplete="off" type="text" name="wp_followme_options[followmsg]" value="<?php echo $wp_followme[followmsg]; ?>" class="regular-text code" /></td>
+								<td><input autocomplete="off" type="text" name="wp_followme_options[followmsg]" value="<?php echo $wp_followme['followmsg']; ?>" class="regular-text code" /></td>
 							</tr>
 
 							<tr valign="top">
 								<th scope="row" style="width:20%;"><label for="wp_followme_options[color]">Background color</label></th>
-								<td><input autocomplete="off" type="text" name="wp_followme_options[color]" value="<?php echo $wp_followme[color]; ?>" id="iconbgall" class="color regular-text code" /></td>
+								<td><input autocomplete="off" type="text" name="wp_followme_options[color]" value="<?php echo $wp_followme['color']; ?>" id="iconbgall" class="color regular-text code" /></td>
 							</tr>
 
 							<tr valign="top">
 								<th scope="row" style="width:20%;"><label for="wp_followme_options[iconbgcolor]">Icon background color</label></th>
-								<td><input autocomplete="off" type="text" name="wp_followme_options[iconbgcolor]" value="<?php echo $wp_followme[iconbgcolor]; ?>" id="iconbgi" class="color regular-text code" />
+								<td><input autocomplete="off" type="text" name="wp_followme_options[iconbgcolor]" value="<?php echo $wp_followme['iconbgcolor']; ?>" id="iconbgi" class="color regular-text code" />
 									<br />
-									<input id="iconbgc" type="checkbox" name="iconbgcolor" value="iconbgcolor" <?php if ( $wp_followme[iconbgcolor] == $wp_followme[color] ){ echo 'checked="checked"'; } ?>/> Use same color as the badge background color
+									<input id="iconbgc" type="checkbox" name="iconbgcolor" value="iconbgcolor" <?php if ( $wp_followme['iconbgcolor'] == $wp_followme['color'] ){ echo 'checked="checked"'; } ?>/> Use same color as the badge background color
 								</td>
 							</tr>
 
 							<tr valign="top" class="alternate">
 								<th scope="row" style="width:20%;"><label for="wp_followme_options[textcolor]">Text color</label></th>
-								<td><input autocomplete="off" type="text" name="wp_followme_options[textcolor]" value="<?php echo $wp_followme[textcolor]; ?>" class="color regular-text code" /></td>
+								<td><input autocomplete="off" type="text" name="wp_followme_options[textcolor]" value="<?php echo $wp_followme['textcolor']; ?>" class="color regular-text code" /></td>
 							</tr>
 
 							<tr valign="top" class="alternate">
 								<th scope="row" style="width:20%;"><label for="wp_followme_options[bordercolor]">Badge border color</label></th>
-								<td><input autocomplete="off" type="text" name="wp_followme_options[bordercolor]" value="<?php echo $wp_followme[bordercolor]; ?>" class="color regular-text code" /></td>
+								<td><input autocomplete="off" type="text" name="wp_followme_options[bordercolor]" value="<?php echo $wp_followme['bordercolor']; ?>" class="color regular-text code" /></td>
 							</tr>
 
 							<tr valign="top">
 								<th scope="row" style="width:20%;"><label for="wp_followme_options[icon]">Icon URL</label></th>
-								<td><input autocomplete="off" type="text" name="wp_followme_options[icon]" id="iconurl" value="<?php echo $wp_followme[icon]; ?>" class="regular-text code" /></td>
+								<td><input autocomplete="off" type="text" name="wp_followme_options[icon]" id="iconurl" value="<?php echo $wp_followme['icon']; ?>" class="regular-text code" /></td>
 							</tr>
 
 							<tr valign="top">
