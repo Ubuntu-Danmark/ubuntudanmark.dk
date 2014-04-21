@@ -69,7 +69,7 @@ define("wp_followme_VER", "2.0.7", false);
 function wp_followme_scripts() {
 	global $wp_followme;
 	//wp_enqueue_style( 'wp_followme_css_file', wp_followme_url( 'followme-style.css' ), false, false, false);
-	wp_enqueue_script( 'wp_followme_swfobject', "http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js", false, false, false );
+	wp_enqueue_script( 'wp_followme_swfobject', "//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js", false, false, false );
 }
 
 add_action( 'init', 'wp_followme_scripts' );
@@ -145,7 +145,7 @@ function show_followme() {
 				<param name="bgcolor" value="#<?php global $wp_followme; echo $wp_followme[color]; ?>" />
 				<!--<![endif]-->
 				<div class="getflash">
-					<a rel="nofollow" href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
+					<a rel="nofollow" href="http://www.adobe.com/go/getflashplayer"><img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
 					<?php global $wp_followme; if($wp_followme[powered_by] == '1') { ?>Plugin by wpburn.com <a href="http://wpburn.com">wordpress themes</a><?php } ?>
 				</div><!--[if !IE]>-->
 			</object> <!--<![endif]-->
@@ -177,8 +177,8 @@ function wp_followme_settings_page() {
 
 	?>
 <script src="<?php echo wp_followme_url('js/jscolor.js'); ?>" type="text/javascript"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
-<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/minified/jquery.effects.core.min.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+<script src="//jquery-ui.googlecode.com/svn/tags/latest/ui/minified/jquery.effects.core.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(function(){
 
