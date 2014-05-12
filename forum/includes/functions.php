@@ -3195,14 +3195,8 @@ function login_box($redirect = '', $l_explain = '', $l_success = '', $admin = fa
 	$template->assign_vars(array(
 		'LOGIN_ERROR'		=> $err,
 		'LOGIN_EXPLAIN'		=> $l_explain,
-
-# Due to a unknown error we need to use Wordpress to reset passwords
-# 'U_SEND_PASSWORD' => ($config['email_enable']) ? append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=sendpassword') : '',
-
-		'U_SEND_PASSWORD' => ($config['email_enable']) ? 'https://ubuntudanmark.dk/wp-login.php?action=lostpassword' : '',
-		
-'U_RESEND_ACTIVATION'	=> 
-($config['require_activation'] == USER_ACTIVATION_SELF && $config['email_enable']) ? append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=resend_act') : '',
+		'U_SEND_PASSWORD'	=> ($config['email_enable']) ? 'https://ubuntudanmark.dk/wp-login.php?action=lostpassword' : '',
+		'U_RESEND_ACTIVATION'	=> ($config['require_activation'] == USER_ACTIVATION_SELF && $config['email_enable']) ? append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=resend_act') : '',
 		'U_TERMS_USE'			=> append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=terms'),
 		'U_PRIVACY'				=> append_sid("{$phpbb_root_path}ucp.$phpEx", 'mode=privacy'),
 
