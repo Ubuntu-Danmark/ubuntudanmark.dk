@@ -16,4 +16,3 @@
 
     // action hook for placing content below the 'index-top' widget area
     thematic_belowindextop();
-?>  
