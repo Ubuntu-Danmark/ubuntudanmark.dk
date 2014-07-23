@@ -251,4 +251,4 @@ if ( isset($_REQUEST['approved']) || isset($_REQUEST['deleted']) || isset($_REQU
 <?php
 wp_comment_reply('-1', true, 'detail');
 wp_comment_trashnotice();
-include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+include( ABSPATH . 'wp-admin/admin-footer.php' );

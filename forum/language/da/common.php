@@ -915,5 +915,3 @@ $lang = array_merge($lang, array(
 	'SET_TOPIC_SOLVED'				=> 'Accepter dette svar',
 	'SET_TOPIC_NOT_SOLVED'			=> 'Sæt emnet som uløst',
 ));
-
-?>

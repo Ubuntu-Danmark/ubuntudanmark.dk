@@ -451,5 +451,3 @@ function merge_topics($forum_id, $topic_ids, $to_topic_id)
 		trigger_error($user->lang[$success_msg] . '<br /><br />' . $return_link);
 	}
 }
-
-?>

@@ -519,6 +519,5 @@ function myStats() {
 	</table>
  
  <?
-// End Function 
+// End Function
 };
-?>

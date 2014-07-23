@@ -110,4 +110,3 @@ function dynamic_cache_test_init() {
 }
 add_cacheaction( 'add_cacheaction', 'dynamic_cache_test_init' );
 */
-?>

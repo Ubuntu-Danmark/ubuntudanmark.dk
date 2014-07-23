@@ -119,4 +119,3 @@ if ( isset( $cache_wptouch ) && $cache_wptouch == 1 ) {
 	add_cacheaction( 'wp_super_cache_mobile_prefixes', 'wp_super_cache_wptouch_prefixes' );
 	add_cacheaction( 'wp_cache_check_mobile', 'wp_super_cache_wptouch_cookie_check' );
 }
-?>

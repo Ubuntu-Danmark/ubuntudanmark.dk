@@ -732,4 +732,4 @@ if ( $active_signup == 'none' ) {
  */
 do_action( 'after_signup_form' ); ?>
 
-<?php get_footer(); ?>
+<?php get_footer();

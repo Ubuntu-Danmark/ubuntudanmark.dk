@@ -3188,5 +3188,3 @@ class getid3_id3v2
 	}
 
 }
-
-?>

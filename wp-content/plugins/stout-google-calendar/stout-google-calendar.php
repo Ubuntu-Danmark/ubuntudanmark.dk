@@ -538,5 +538,3 @@ function stout_gc($cal, $showName = 'FALSE'){
 		}
 	}
 }
-
-?>

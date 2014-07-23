@@ -32,5 +32,3 @@ class subscribeToCommentsHelper {
 		return $detected;
 	}
 }
-
-?>

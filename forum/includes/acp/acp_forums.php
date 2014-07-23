@@ -1978,5 +1978,3 @@ class acp_forums
 	}
 
 }
-
-?>

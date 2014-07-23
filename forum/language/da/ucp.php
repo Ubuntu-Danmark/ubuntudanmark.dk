@@ -577,5 +577,3 @@ $lang = array_merge($lang, array(
 	'NO_PENDING'	=> 'Ingen afventende gruppemedlemskaber',
 	'NO_NONMEMBER'	=> 'Ingen ikke-medlemskaber',
 ));
-
-?>

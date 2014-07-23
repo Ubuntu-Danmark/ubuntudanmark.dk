@@ -1759,5 +1759,3 @@ function _sort_last_active($first, $second)
 		return $lesser_than * (int) ($id_cache[$first]['last_visit'] - $id_cache[$second]['last_visit']);
 	}
 }
-
-?>

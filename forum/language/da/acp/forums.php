@@ -183,5 +183,3 @@ $lang = array_merge($lang, array(
 
 	'UNLOCKED'			=> 'Låst op',
 ));
-
-?>

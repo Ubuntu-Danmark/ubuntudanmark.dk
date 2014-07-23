@@ -191,4 +191,4 @@ if ( apply_filters( 'enable_update_services_configuration', true ) ) {
 </form>
 </div>
 
-<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' );

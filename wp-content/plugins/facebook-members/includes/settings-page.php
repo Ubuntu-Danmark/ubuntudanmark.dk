@@ -45,5 +45,3 @@
                     require_once 'setting-page/icrunch-left-column.php';
                     require_once 'setting-page/icrunch-right-column.php';
                     require_once 'setting-page/icrunch-footer.php';
-
-                    ?>

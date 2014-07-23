@@ -34,5 +34,3 @@ if ( defined( 'VHOST' ) || ( defined( 'WP_ALLOW_MULTISITE' ) && constant( 'WP_AL
 		$blogcacheid = str_replace( '/', '', $blogcacheid );
 	}
 }
-
-?>

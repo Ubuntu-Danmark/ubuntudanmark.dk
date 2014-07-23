@@ -294,4 +294,4 @@ if ( isset( $_REQUEST['updated'] ) && $_REQUEST['updated'] == 'true' && ! empty(
 	</form>
 </div>
 
-<?php require_once( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+<?php require_once( ABSPATH . 'wp-admin/admin-footer.php' );

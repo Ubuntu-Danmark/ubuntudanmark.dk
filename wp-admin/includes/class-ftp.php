@@ -904,4 +904,3 @@ if ( ! $mod_sockets && function_exists( 'dl' ) && is_callable( 'dl' ) ) {
 }
 
 require_once "class-ftp-" . ( $mod_sockets ? "sockets" : "pure" ) . ".php";
-?>

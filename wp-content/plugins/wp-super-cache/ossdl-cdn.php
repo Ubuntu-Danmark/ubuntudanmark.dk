@@ -199,4 +199,3 @@ function scossdl_off_options() {
 		<p><?php _e( 'CDN functionality provided by <a href="http://wordpress.org/extend/plugins/ossdl-cdn-off-linker/">OSSDL CDN Off Linker</a> by <a href="http://mark.ossdl.de/">Mark Kubacki</a>', 'wp-super-cache' ); ?></p>
 	<?php
 }
-?>

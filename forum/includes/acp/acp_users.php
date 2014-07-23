@@ -2405,5 +2405,3 @@ class acp_users
 		return phpbb_optionget($user->keyoptions[$key], $var);
 	}
 }
-
-?>

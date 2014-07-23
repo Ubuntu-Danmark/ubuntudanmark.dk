@@ -1482,6 +1482,3 @@ class phpbb_feed_topics_active extends phpbb_feed_topic_base
 		$item_row['title'] = (isset($row['forum_name']) && $row['forum_name'] !== '') ? $row['forum_name'] . ' ' . $this->separator . ' ' . $item_row['title'] : $item_row['title'];
 	}
 }
-
-
-?>

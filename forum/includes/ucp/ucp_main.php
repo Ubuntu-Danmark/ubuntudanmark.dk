@@ -836,5 +836,3 @@ class ucp_main
 		}
 	}
 }
-
-?>

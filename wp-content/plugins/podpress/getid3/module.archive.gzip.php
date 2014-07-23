@@ -271,5 +271,3 @@ class getid3_gzip {
 		return (isset($xflag_type[$key]) ? $xflag_type[$key] : '');
 	}
 }
-
-?>

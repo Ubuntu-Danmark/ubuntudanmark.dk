@@ -3972,5 +3972,3 @@ inherit_from = {INHERIT_FROM}
 	}
 
 }
-
-?>

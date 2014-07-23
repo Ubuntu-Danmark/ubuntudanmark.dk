@@ -57,5 +57,3 @@ delete_option( 'subscribe_reloaded_management_content' );
 
 // Remove scheduled autopurge events
 wp_clear_scheduled_hook( 'subscribe_reloaded_purge' );
-
-?>

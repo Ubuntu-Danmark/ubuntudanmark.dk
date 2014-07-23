@@ -270,4 +270,4 @@ echo apply_filters( 'default_avatar_select', $avatar_list );
 </form>
 </div>
 
-<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+<?php include( ABSPATH . 'wp-admin/admin-footer.php' );

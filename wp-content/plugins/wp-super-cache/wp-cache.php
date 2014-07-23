@@ -3159,5 +3159,3 @@ function supercache_admin_bar_render() {
 				) );
 }
 add_action( 'wp_before_admin_bar_render', 'supercache_admin_bar_render' );
-
-?>

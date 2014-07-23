@@ -956,5 +956,3 @@ class fulltext_mysql extends search_backend
 		);
 	}
 }
-
-?>

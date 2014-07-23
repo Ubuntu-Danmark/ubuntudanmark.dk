@@ -98,4 +98,4 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 <?php endif; // If registration required and not logged in ?>
 </div>
 
-<?php endif; // if you delete this the sky will fall on your head ?>
+<?php endif; // if you delete this the sky will fall on your head

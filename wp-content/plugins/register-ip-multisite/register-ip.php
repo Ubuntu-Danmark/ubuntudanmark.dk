@@ -103,5 +103,3 @@ function ripms_donate_link($links, $file) {
         }
         return $links;
 }
-
-?>

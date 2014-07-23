@@ -319,5 +319,3 @@ function get_user_information($user_id, $user_row)
 
 	return $user_row;
 }
-
-?>

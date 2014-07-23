@@ -1005,5 +1005,3 @@ class acp_board
 	}
 
 }
-
-?>

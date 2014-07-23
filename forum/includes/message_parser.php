@@ -1697,5 +1697,3 @@ class parse_message extends bbcode_firstpass
 		$poll['poll_max_options'] = ($poll['poll_max_options'] < 1) ? 1 : (($poll['poll_max_options'] > $config['max_poll_options']) ? $config['max_poll_options'] : $poll['poll_max_options']);
 	}
 }
-
-?>

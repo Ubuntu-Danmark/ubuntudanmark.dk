@@ -2073,5 +2073,3 @@ class getid3_write_id3v2
 	}
 
 }
-
-?>

@@ -53,5 +53,3 @@ function wp_super_cache_override_on_flag() {
 			add_action( 'admin_notices', 'wp_super_cache_multisite_notice' );
 	}
 }
-
-?>

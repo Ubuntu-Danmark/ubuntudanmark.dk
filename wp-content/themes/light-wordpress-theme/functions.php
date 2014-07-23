@@ -316,4 +316,3 @@ add_filter('thematic_postfooter_posttags', 'ubuntu_loco_post_tags');
 add_filter('thematic_postfooter_postcomments', create_function( '', 'return null;' ) );
 add_filter('thematic_postfooter_postconnect', create_function( '', 'return null;' ) );
 add_filter('thematic_widgetized_areas','ubuntu_loco_asides');
-?>

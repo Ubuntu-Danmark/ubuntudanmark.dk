@@ -21,4 +21,3 @@ if ( ! defined('PODPRESS_ACTIVATE_3RD_PARTY_STATS') ) { define('PODPRESS_ACTIVAT
 
 // You can log some of the procedures of podPress (like the auto detection of the duration of media files) if you define this constant as true. The log file is podpress_log.dat. (default: FALSE)
 if ( ! defined('PODPRESS_DEBUG_LOG') ) { define('PODPRESS_DEBUG_LOG', FALSE); }
-?>

@@ -84,5 +84,3 @@ function wp_supercache_badbehaviour_admin() {
 
 }
 add_cacheaction( 'cache_admin_page', 'wp_supercache_badbehaviour_admin' );
-
-?>

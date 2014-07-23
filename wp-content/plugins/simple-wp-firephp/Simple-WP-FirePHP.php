@@ -65,6 +65,3 @@ include_once( "FirePHPCore/fb.php");
 /* Force Simple-WP-FirePHP to load before other plugins */
 register_activation_hook( __FILE__, 'activation_hook' );
 add_filter( 'pre_update_option_active_plugins', 'pre_update_option_active_plugins' );
-
-
-?>

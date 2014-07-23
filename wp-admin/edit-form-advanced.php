@@ -616,4 +616,4 @@ if ( post_type_supports( $post_type, 'comments' ) )
 <script type="text/javascript">
 try{document.post.title.focus();}catch(e){}
 </script>
-<?php endif; ?>
+<?php endif;

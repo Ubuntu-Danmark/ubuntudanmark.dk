@@ -291,4 +291,4 @@ printf( __('If you like, you may enter custom structures for your category and t
 
 </div>
 
-<?php require( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+<?php require( ABSPATH . 'wp-admin/admin-footer.php' );

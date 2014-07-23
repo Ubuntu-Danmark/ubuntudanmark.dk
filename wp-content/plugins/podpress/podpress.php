@@ -1487,4 +1487,3 @@ if (!function_exists('memory_get_usage')) {
 		}
 	}
 }
-?>

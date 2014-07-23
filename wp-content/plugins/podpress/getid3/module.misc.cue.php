@@ -306,5 +306,3 @@ class getid3_cue
 	}
 
 }
-
-?>

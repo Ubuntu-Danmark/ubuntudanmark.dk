@@ -3617,5 +3617,3 @@ function phpbb_get_banned_user_ids($user_ids = array())
 
 	return $banned_ids_list;
 }
-
-?>

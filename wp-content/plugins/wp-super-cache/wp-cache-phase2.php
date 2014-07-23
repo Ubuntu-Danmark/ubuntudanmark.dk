@@ -1327,5 +1327,3 @@ function wp_cache_gc_watcher() {
 		schedule_wp_gc();
 	}
 }
-
-?>

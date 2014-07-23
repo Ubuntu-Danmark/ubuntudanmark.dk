@@ -109,4 +109,3 @@ function wp_supercache_domain_mapping_exists() {
 if ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] == 'wpsupercache' ) {
 	add_cacheaction( 'add_cacheaction', 'wp_supercache_domain_mapping_exists' );
 }
-?>

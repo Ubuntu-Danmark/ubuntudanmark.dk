@@ -676,5 +676,3 @@ function wp_supercache_cache_for_admins() {
 		}
 	}
 }
-
-?>

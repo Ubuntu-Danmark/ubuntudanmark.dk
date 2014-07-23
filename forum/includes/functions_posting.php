@@ -2747,5 +2747,3 @@ function phpbb_bump_topic($forum_id, $topic_id, $post_data, $bump_time = false)
 
 	return $url;
 }
-
-?>
