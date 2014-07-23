@@ -3,7 +3,7 @@
  * Sidebar Single Bottom Template
  *
  * …
- * 
+ *
  * @package Thematic
  * @subpackage Templates
  */
@@ -16,4 +16,3 @@
 
     // action hook for placing content below the 'single-bottom' widget area
     thematic_belowsinglebottom();
-?>

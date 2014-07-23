@@ -1094,11 +1094,3 @@ function kpg_hook_user_notification() {
 function ipChkk() {
 	return true;
 }
-
-
-
-
-
-
-
-?>
