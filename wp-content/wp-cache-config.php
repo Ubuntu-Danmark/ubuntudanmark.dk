@@ -5,6 +5,13 @@ WP-Cache Config Sample File
 See wp-cache.php for author details.
 */
 
+$wp_cache_home_path = '/'; //Added by WP-Cache Manager
+$wp_cache_preload_on = 0; //Added by WP-Cache Manager
+$wp_cache_preload_taxonomies = 0; //Added by WP-Cache Manager
+$wp_cache_preload_email_volume = 'less'; //Added by WP-Cache Manager
+$wp_cache_preload_email_me = 0; //Added by WP-Cache Manager
+$wp_cache_preload_interval = 0; //Added by WP-Cache Manager
+$wp_cache_preload_posts = 'all'; //Added by WP-Cache Manager
 $cache_schedule_interval = 'daily'; //Added by WP-Cache Manager
 $cache_gc_email_me = 0; //Added by WP-Cache Manager
 $wp_cache_make_known_anon = 0; //Added by WP-Cache Manager
@@ -57,7 +64,7 @@ if( defined( 'VHOST' ) ) {
 	}
 }
 
-// Array of files that have 'wp-' but should still be cached 
+// Array of files that have 'wp-' but should still be cached
 $cache_acceptable_files = array( 'wp-comments-popup.php', 'wp-links-opml.php', 'wp-locations.php' );
 
 $cache_rejected_uri = array ( 0 => 'wp-.*\\.php', 1 => 'index\\.php', 2 => 'forum', ); //Added by WP-Cache Manager
@@ -84,7 +91,7 @@ $wp_cache_mobile_browsers = '2.0 MMP, 240x320, 400X240, AvantGo, BlackBerry, Bla
 // change to relocate the supercache plugins directory
 $wp_cache_plugins_dir = WPCACHEHOME . 'plugins';
 // set to 1 to do garbage collection during normal process shutdown instead of wp-cron
-$wp_cache_shutdown_gc = 0; 
+$wp_cache_shutdown_gc = 0;
 $wp_super_cache_late_init = 0; //Added by WP-Cache Manager
 
 // uncomment the next line to enable advanced debugging features
