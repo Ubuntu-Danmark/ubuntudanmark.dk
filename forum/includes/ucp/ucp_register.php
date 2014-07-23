@@ -157,7 +157,7 @@ class ucp_register
 		}
 
 
-		// The CAPTCHA kicks in here. We can't help that the information gets lost on language change. 
+		// The CAPTCHA kicks in here. We can't help that the information gets lost on language change.
 		if ($config['enable_confirm'])
 		{
 			include($phpbb_root_path . 'includes/captcha/captcha_factory.' . $phpEx);
@@ -253,7 +253,7 @@ class ucp_register
 				$query .= '&username='.rawurlencode(request_var('username', '', true));
 				$query .= '&email='.rawurlencode($data['email']);
 				$query .= '&ip_addr='.rawurlencode($user->ip);
-	            
+
 				if($stopforumspam['ip']) {
 					$error[] = sprintf($user->lang['IP_BLACKLISTED'], $user->ip, 'http://www.stopforumspam.com/');
 					@file_get_contents($query);
@@ -514,5 +514,3 @@ class ucp_register
 		$this->page_title = 'UCP_REGISTRATION';
 	}
 }
-
-?>

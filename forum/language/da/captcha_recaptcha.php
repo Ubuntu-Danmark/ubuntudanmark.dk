@@ -63,5 +63,3 @@ $lang = array_merge($lang, array(
 
 	'RECAPTCHA_EXPLAIN'	=> 'Indtast venligst begge ord i teksfeltet umiddelbart herunder.',
 ));
-
-?>

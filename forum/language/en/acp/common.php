@@ -763,5 +763,3 @@ $lang = array_merge($lang, array(
 	'FAILED_STOPFORUMSPAM_USERNAME'	=> '<strong>StopForumSpam blokerede username</strong><br />» %s',
 ));
 // ----- End mod - StopForumSpam -------- //
-
-?>

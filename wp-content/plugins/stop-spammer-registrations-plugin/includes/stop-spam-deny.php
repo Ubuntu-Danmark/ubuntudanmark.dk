@@ -4,7 +4,7 @@
 if (!defined('ABSPATH')) exit; // just in case
 function kpg_reject_spam_l($rejectmessage,$notify,$chkcaptcha,$whodunnit) {
     // check to see if really simple captcha is loaded.
-	
+
 	if (!extension_loaded('gd') || !function_exists('gd_info')) {
 		$chkcaptcha!='N';
 	}
@@ -28,12 +28,12 @@ function kpg_reject_spam_l($rejectmessage,$notify,$chkcaptcha,$whodunnit) {
 			<input type=\"submit\" value=\"Request to be added to the White List\" />
 			</form>
 		</p>
-		
+
 		";
 		$rejectmessage=$rejectmessage.$r2;
 		wp_die("$rejectmessage","Login Access Denied",array('response' => 403));
 		exit();
-		
+
 	}
 	if ($chkcaptcha=='Y') {
     // first set up the red herring pages for login and comment
@@ -56,7 +56,7 @@ function kpg_reject_spam_l($rejectmessage,$notify,$chkcaptcha,$whodunnit) {
 	</p>
 	<p class=\"forgetmenot\"><label for=\"rememberme\"><input name=\"rememberme\" type=\"checkbox\" checked=\"checked\"  value=\"$rhnonce;\"  />Remember Me</label></p>
 	<p class=\"submit\">
-	<!-- 
+	<!--
 	<input type=\"submit\" name=\"wp-submit\"  value=\"Log In\"  />
 	-->
 	<input type=\"hidden\" name=\"testcookie\" value=\"1\" />
@@ -79,8 +79,8 @@ function kpg_reject_spam_l($rejectmessage,$notify,$chkcaptcha,$whodunnit) {
 	<label for=\"url\"><small>Website</small></label></p>
 	<p><textarea name=\"comment\" id=\"comment\" cols=\"58\" rows=\"10\" ></textarea></p>
 
-	<p><!-- 
-	<input name=\"submit\" id=\"submit\" value=\"Submit Comment\" type=\"submit\"> 
+	<p><!--
+	<input name=\"submit\" id=\"submit\" value=\"Submit Comment\" type=\"submit\">
 	-->
 	<input name=\"comment_post_ID\" value=\"666\" id=\"comment_post_ID\" type=\"hidden\">
 	<input name=\"comment_parent\" id=\"comment_parent\" value=\"0\" type=\"hidden\">
@@ -89,18 +89,18 @@ function kpg_reject_spam_l($rejectmessage,$notify,$chkcaptcha,$whodunnit) {
 	<p style=\"display: none;\"><input id=\"akismet_comment_nonce\" name=\"akismet_comment_nonce\" value=\"$rhnonce\" type=\"hidden\"></p>
 	</form>
 	</div>
-	
-	
+
+
 	";
-	
+
 
 
 	// try to see if captcha works
-		
+
 		$alpha="7F234567BPABCDEFCH4JKNPNXPERSTUVFXYZ"; // some letters removed to prevent confusion
 		$rand="";
-		
-		
+
+
 		for ($j=0;$j<5;$j++) {
 		  $rand.=substr($alpha,rand(0,35),1);
 		}
@@ -136,8 +136,8 @@ function kpg_reject_spam_l($rejectmessage,$notify,$chkcaptcha,$whodunnit) {
 function kpg_chk_whitelist_l() {
 	// this could be a white list request.
 	//sfs_debug_msg("checking white list request");
-	@remove_filter('wp_mail','kpg_sfs_reg_check_send_mail'); 
-	// we have arrived at a whitelist request 
+	@remove_filter('wp_mail','kpg_sfs_reg_check_send_mail');
+	// we have arrived at a whitelist request
 	//sfs_debug_msg("found white list request");
 	//sfs_debug_msg("good nonce on white list request");
 	$kinf=$_POST['kinf'];
@@ -166,7 +166,7 @@ function kpg_chk_whitelist_l() {
 	$knot=remove_accents($knot);
 	$knot=utf8_decode($knot);
 	$knot=really_clean($knot);
-	
+
 	if (empty($kinf)) {
 		wp_die(__("Empty response. Request not recorded"),__("Access Denied"),array('response' => 403));
 		exit();
@@ -190,7 +190,7 @@ function kpg_chk_whitelist_l() {
 			$sturl=admin_url("options-general.php?page=stop-spammer-registrations-plugin/settings/stop-spam-reg-stats.php");
 			if ($muswitch=="Y") $sturl=admin_url("network/settings.php?page=stop-spammer-registrations-plugin/settings/stop-spam-reg-stats.php");
 			$subject='White list request from blog '.get_bloginfo('name');
-			
+
 			$message="
 Sysop,
 A request has been received from someone who has been marked as a spammer by the STOP SPAMMER plugin.
@@ -211,13 +211,13 @@ $sturl
 
 Stop Spammers Plugin";
 			@wp_mail( $to, $subject, $message );
-			
+
 		}
 		wp_die(__("A white list request has been recorded"),__("Access Pending"),array('response' => 403));
-		
+
 		exit();
 	}
-		
+
 
 }
 function sfs_handle_ajax_captcha_l() {
@@ -230,7 +230,7 @@ function sfs_handle_ajax_captcha_l() {
 	// displays the captcha image
 	// if there are errors then copy the url from the img tag and see what is going on.
     $word=get_transient( "KPG_SECRET_WORD".$_SERVER['REMOTE_ADDR'] );
-	// Keith's how to create a captcha image in just a few lines of code	 
+	// Keith's how to create a captcha image in just a few lines of code
 	$im    = imagecreatefrompng(realpath(dirname(__FILE__)).'/base.png');
     imagefilter($im, IMG_FILTER_BRIGHTNESS,rand(0,90));
 	$font=realpath(dirname(__FILE__)).'/headache.ttf';
@@ -242,7 +242,7 @@ function sfs_handle_ajax_captcha_l() {
  	imagepng($im);
 	imagedestroy($im);
 	exit(0);
-	  
+
 }
  	function kpg_cpatcha_printletter($im,$letter,$x,$y,$font) {
 	  $bas=rand(-12,+4);
@@ -255,17 +255,17 @@ function sfs_handle_ajax_captcha_l() {
 		$color = imagecolorallocate($im, $c1, $c2, $c3);
 		$x1=$x+rand(-2,+2);
 		$y1=$y+rand(-1,+1)+$bas;
-		
+
 		imagettftext($im, $sz, $rot, $x1,$y1, $color, $font, $letter);
 	  }
 	  return(0);
 	}
 function kpg_chk_captcha_l() {
-	@remove_action('init','kpg_chk_poison'); 
-	@remove_action('init','kpg_chk_whitelist'); 
-	@remove_action('init','kpg_chk_captcha'); 
-	@remove_action('init','kpg_load_all_checks'); 
-	@remove_action('init','kpg_sf_mu_load'); 	
+	@remove_action('init','kpg_chk_poison');
+	@remove_action('init','kpg_chk_whitelist');
+	@remove_action('init','kpg_chk_captcha');
+	@remove_action('init','kpg_load_all_checks');
+	@remove_action('init','kpg_sf_mu_load');
     $captcha=$_POST['captcha_value'];
     $word=get_transient( "KPG_SECRET_WORD".$_SERVER['REMOTE_ADDR'] );
 	$word=strtoupper($word);
@@ -309,5 +309,3 @@ function kpg_chk_captcha_l() {
 	wp_die("CAPTCHA value does no match<br>Go back, refresh, and try again","Login Access Denied",array('response' => 403));
 	exit();
 }
-
-?>

@@ -555,5 +555,3 @@ $lang = array_merge($lang, array(
 	'LOG_FAILED_LOGINS_EXPLAIN'			=> 'Add failed login attempts for a users account to the User log.',
 ));
 // ----- End mod - Log Failed Login -------- //
-
-?>

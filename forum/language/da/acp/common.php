@@ -83,7 +83,7 @@ $lang = array_merge($lang, array(
 	'ACP_CAT_PERMISSIONS'		=> 'Tilladelser',
 	'ACP_CAT_POSTING'			=> 'Meddelelser',
 	'ACP_CAT_STYLES'			=> 'Typografi',
-	'ACP_CAT_SYSTEM'			=> 'System', 
+	'ACP_CAT_SYSTEM'			=> 'System',
 	'ACP_CAT_USERGROUP'			=> 'Brugere & Grupper',
 	'ACP_CAT_USERS'				=> 'Brugere',
 	'ACP_CLIENT_COMMUNICATION'	=> 'Trafikkonfiguration',
@@ -214,7 +214,7 @@ $lang = array_merge($lang, array(
 	'ACP_VIEW_GLOBAL_MOD_PERMISSIONS'	=> 'Se globale redaktørtilladelser',
 	'ACP_VIEW_USER_PERMISSIONS'			=> 'Se brugertilladelser',
 
-	'ACP_WORDS'					=> 'Ordcensur', 
+	'ACP_WORDS'					=> 'Ordcensur',
 
 	'ACTION'				=> 'Handling',
 	'ACTIONS'				=> 'Handlinger',
@@ -223,7 +223,7 @@ $lang = array_merge($lang, array(
 	'ADMIN'					=> 'Administration',
 	'ADMIN_INDEX'			=> 'Administratorindeks',
 	'ADMIN_PANEL'			=> 'Administratorkontrolpanel',
-	
+
 	'ADM_LOGOUT'			=> 'ACP&nbsp;log ud',
 	'ADM_LOGGED_OUT'		=> 'Du er logget af administratorkontrolpanelet',
 
@@ -260,7 +260,7 @@ $lang = array_merge($lang, array(
 	'LOGIN_ADMIN_CONFIRM'	=> 'Du skal indtaste dit kodeord igen for at få adgang til administratorkontrolpanelet.',
 	'LOGIN_ADMIN_SUCCESS'	=> 'Du har genautentificeret dig og viderestilles nu til administratorkontrolpanelet.',
 	'LOOK_UP_FORUM'			=> 'Vælg et forum',
-	'LOOK_UP_FORUMS_EXPLAIN'=> 'Du kan vælge mere end et forum.', 
+	'LOOK_UP_FORUMS_EXPLAIN'=> 'Du kan vælge mere end et forum.',
 
 	'MANAGE'				=> 'Administrer',
 	'MENU_TOGGLE'			=> 'Skjul eller vis sidemenuen',
@@ -292,7 +292,7 @@ $lang = array_merge($lang, array(
 	'SELECT_OPTION'			=> 'Valg',
 
 	'SETTING_TOO_LOW'	=> 'Den angivne værdi for indstillingen "%1$s" er for lav. Lavest tilladte værdi er %2$d.',
-	'SETTING_TOO_BIG'		=> 'Den angivne værdi for indstillingen "%1$s" er for høj. Højest tilladte værdi er %2$d.',	
+	'SETTING_TOO_BIG'		=> 'Den angivne værdi for indstillingen "%1$s" er for høj. Højest tilladte værdi er %2$d.',
 	'SETTING_TOO_LONG'	=> 'Den angivne værdi for indstillingen "%1$s" er for lang. Højest tilladte værdi er %2$d.',
 	'SETTING_TOO_SHORT'	=> 'Den angivne værdi for indstillingen "%1$s" er for kort. Lavest tilladte værdi er %2$d.',
 
@@ -369,7 +369,7 @@ $lang = array_merge($lang, array(
 	'POSTS_PER_DAY'		=> 'Indlæg pr. dag',
 
 	'PURGE_CACHE'		=> 'Tøm cachen',
-	'PURGE_CACHE_CONFIRM'	=> 'Er du sikker på du vil tømme cachen?', 
+	'PURGE_CACHE_CONFIRM'	=> 'Er du sikker på du vil tømme cachen?',
 	'PURGE_CACHE_EXPLAIN'	=> 'Sletter alt i cachen, dette inkluderer mellemlagrede skabelonfiler og søgninger.',
 
 	'PURGE_SESSIONS'						=> 'Luk alle åbne sessioner',
@@ -444,7 +444,7 @@ $lang = array_merge($lang, array(
 	'SEND_STATISTICS'		=> 'Send konfigurationsdata',
 	'SHOW_STATISTICS'	=> 'Vis detaljer',
 	'THANKS_SEND_STATISTICS'	=> 'Tak for din fremsendte information.',
-	
+
 ));
 
 // Log Entries
@@ -669,7 +669,7 @@ $lang = array_merge($lang, array(
 	'LOG_PRUNE_USER_DEAC'		=> '<strong>Deaktiveret brugere</strong><br />» %s',
 	'LOG_PRUNE_USER_DEL_DEL'	=> '<strong>Beskåret brugere og slettet indlæg</strong><br />» %s',
 	'LOG_PRUNE_USER_DEL_ANON'	=> '<strong>Beskåret brugere og bevaret indlæg</strong><br />» %s',
-	
+
 	'LOG_PURGE_CACHE'			=> '<strong>Cache tømt</strong>',
 	'LOG_PURGE_SESSIONS'	=> '<strong>Åbne sessioner afsluttet</strong>',
 
@@ -758,7 +758,7 @@ $lang = array_merge($lang, array(
 	'LOG_WARNING_DELETED'		=> '<strong>Slettet advarsel til</strong><br />» %s',
 	'LOG_WARNINGS_DELETED'		=> '<strong>Slettet %2$s advarsler til</strong><br />» %1$s', // Example: '<strong>Deleted 2 user warnings</strong><br />» username'
 	'LOG_WARNINGS_DELETED_ALL'	=> '<strong>Slettet samtlige advarsler til</strong><br />» %s',
-	
+
 	'LOG_WORD_ADD'			=> '<strong>Tilføjet ordcensur</strong><br />» %s',
 	'LOG_WORD_DELETE'		=> '<strong>Slettet ordcensur</strong><br />» %s',
 	'LOG_WORD_EDIT'			=> '<strong>Ændret ordcensur</strong><br />» %s',
@@ -778,5 +778,3 @@ $lang = array_merge($lang, array(
 	'FAILED_STOPFORUMSPAM_USERNAME'	=> '<strong>StopForumSpam blokerede brugernavn</strong><br />» %s',
 ));
 // ----- End mod - StopForumSpam -------- //
-
-?>

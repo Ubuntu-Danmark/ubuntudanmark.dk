@@ -265,20 +265,20 @@ $lang = array_merge($lang, array(
 ));
 
 // Feeds
-$lang = array_merge($lang, array(	
-	'ACP_FEED_MANAGEMENT'						=> 'Generelle indstillinger for samtidig offentliggørelse af feeds', 	
+$lang = array_merge($lang, array(
+	'ACP_FEED_MANAGEMENT'						=> 'Generelle indstillinger for samtidig offentliggørelse af feeds',
 	'ACP_FEED_MANAGEMENT_EXPLAIN'		=> 'Modulet giver adgang til ATOM-feeds. BBkoder i indlæg fortolkes korrekt, så de kan læses i eksterne feeds.',
-		
+
 	'ACP_FEED_GENERAL'					=> 'Generelle indstillinger for feeds',
 	'ACP_FEED_POST_BASED' => 'Indlægsbaserede indstillinger',
 	'ACP_FEED_TOPIC_BASED' => 'Emnebaserede indstillinger',
-	'ACP_FEED_SETTINGS_OTHER' => 'Andre feeds og indstillinger',	
- 	
+	'ACP_FEED_SETTINGS_OTHER' => 'Andre feeds og indstillinger',
+
 	'ACP_FEED_ENABLE'							=> 'Feeds er',
-	'ACP_FEED_ENABLE_EXPLAIN'			=> 'Bestemmer om ATOM-feeds er aktiv for hele boardet.<br />En deaktivering gælder alle feeds, uanset indstillingerne valgt nedenfor.',	
+	'ACP_FEED_ENABLE_EXPLAIN'			=> 'Bestemmer om ATOM-feeds er aktiv for hele boardet.<br />En deaktivering gælder alle feeds, uanset indstillingerne valgt nedenfor.',
 	'ACP_FEED_LIMIT'					=> 'Antal elementer',
-	'ACP_FEED_LIMIT_EXPLAIN'	=> 'Der vises maksimalt dette antal feed-elementer.', 	
- 	
+	'ACP_FEED_LIMIT_EXPLAIN'	=> 'Der vises maksimalt dette antal feed-elementer.',
+
 	'ACP_FEED_OVERALL' => 'Feeds for hele boardet',
 	'ACP_FEED_OVERALL_EXPLAIN' => 'Seneste indlæg overalt på boardet vises.',
 	'ACP_FEED_FORUM'					=> 'Feeds for enkeltfora',
@@ -299,7 +299,7 @@ $lang = array_merge($lang, array(
 	'ACP_FEED_HTTP_AUTH' => 'HTTP-autentifikation er',
 	'ACP_FEED_HTTP_AUTH_EXPLAIN' => 'Med HTTP-autentifikation kan brugere modtage feeds med indhold som er skjult for gæster. Parameteret auth=http skal tilføjes i feed-URL\'en. Bemærk venligst at nogle PHP-konfigurationer forudsætter tilføjelser i .htaccess-filen. Instruktioner hertil findes i selve filen.',
 	'ACP_FEED_ITEM_STATISTICS'			=> 'Elementstatistikker er',
-	'ACP_FEED_ITEM_STATISTICS_EXPLAIN'	=> 'Viser individuelle statistikker under feed-elementer<br />(f. eks. indsendt af, svar, visninger, dato og tid)',	
+	'ACP_FEED_ITEM_STATISTICS_EXPLAIN'	=> 'Viser individuelle statistikker under feed-elementer<br />(f. eks. indsendt af, svar, visninger, dato og tid)',
 	'ACP_FEED_EXCLUDE_ID'				=> 'Ekskluder disse fora',
 	'ACP_FEED_EXCLUDE_ID_EXPLAIN'		=> 'Indholdet i disse bliver <strong>ikke medtaget i feeds</strong>. Vælges ingen fora, medtages data fra samtlige fora.<br />Vælg flere fora ved at holde <samp>CTRL</samp> nede og klikke.',
 ));
@@ -337,7 +337,7 @@ $lang = array_merge($lang, array(
 	'CAPTCHA_CONFIGURE_EXPLAIN'	=> 'Ændre indstillingerne for det valgte modul.',
 	'CONFIGURE'									=> 'Konfigurer',
 	'CAPTCHA_NO_OPTIONS'			=> 'Modulet kan ikke konfigureres.',
-	
+
 	'VISUAL_CONFIRM_POST'			=> 'Spambot-beskyttelse ved indlæg fra gæster',
 	'VISUAL_CONFIRM_POST_EXPLAIN'	=> 'For at hindre automatiserede indsendelse af indlæg, udfordres ikke tilmeldte brugere med en CAPTCHA-opgave.',
 	'VISUAL_CONFIRM_REG'			=> 'Spambot-beskyttelse ved tilmelding',
@@ -571,5 +571,3 @@ $lang = array_merge($lang, array(
 	'LOG_FAILED_LOGINS_EXPLAIN'			=> 'Add failed login attempts for a users account to the User log.',
 ));
 // ----- End mod - Log Failed Login -------- //
-
-?>

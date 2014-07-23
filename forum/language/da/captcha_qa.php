@@ -76,5 +76,3 @@ $lang = array_merge($lang, array(
 	'QA_LAST_QUESTION'			=> 'Du kan ikke slette alle spørgsmål når modulet er aktivt.',
 
 ));
-
-?>

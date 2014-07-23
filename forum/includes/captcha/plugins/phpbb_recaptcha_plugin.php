@@ -341,5 +341,3 @@ class phpbb_recaptcha extends phpbb_default_captcha
 		return $req;
 	}
 }
-
-?>

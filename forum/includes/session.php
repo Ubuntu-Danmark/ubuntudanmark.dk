@@ -2495,5 +2495,3 @@ class user extends session
 		return $forum_ids;
 	}
 }
-
-?>

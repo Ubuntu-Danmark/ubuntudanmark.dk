@@ -1,6 +1,6 @@
 <?php
 /*
-	Stop Spammers Plugin 
+	Stop Spammers Plugin
 	Options Setup Page
 	stop-spam-reg-options.php
 */
@@ -32,13 +32,13 @@ if (function_exists('is_multisite') && is_multisite()) {
 }
 
 // see if we are here for the first time
-	$sname=$_SERVER["REQUEST_URI"];	
+	$sname=$_SERVER["REQUEST_URI"];
 	if (empty($sname)) {
 		$sname='';
 	}
 	if (empty($sname)) {
 		// doesn't work on this machine
-	} else if (empty($options_link)) { 
+	} else if (empty($options_link)) {
 		$options_link=$sname;
 		$options['options_link']=$options_link;
 		update_option('kpg_stop_sp_reg_options',$options);
@@ -84,7 +84,7 @@ $wordpress_api_key=get_option('wordpress_api_key');
 if (empty($wordpress_api_key)) $wordpress_api_key='';
 $nonce='';
 if (array_key_exists('kpg_stop_spammers_control',$_POST)) $nonce=$_POST['kpg_stop_spammers_control'];
-if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) { 
+if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 	if (array_key_exists('action',$_POST)) {
 		if (array_key_exists('wordpress_api_key',$_POST)) {
 			$wordpress_api_key=stripslashes($_POST['wordpress_api_key']);
@@ -92,7 +92,7 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 		} else {
 			$wordpress_api_key='na';
 		}
-		
+
 		// check all the yes/no questions - need to take up less room
 		$ynfields=array(
 		'chksession','chkdisp','chksfs','chkubiquity',
@@ -111,8 +111,8 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 			if ($tyn!='Y') $tyn='N';
 			$options[$yn]=$tyn;
 		}
-		
-		
+
+
 		if (array_key_exists('sesstime',$_POST)) {
 			$sesstime=stripslashes($_POST['sesstime']);
 		} else {
@@ -120,8 +120,8 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 		}
 		if (!is_numeric($sesstime)||$sesstime<0||$sesstime>10) $sesstime=4;
 		$options['sesstime']=$sesstime;
-		
-		
+
+
 		if (array_key_exists('logfilesize',$_POST)) {
 			$logfilesize=trim(stripslashes($_POST['logfilesize']));
 		} else {
@@ -131,7 +131,7 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 		if (empty($logfilesize)||$logfilesize<0) $logfilesize=0;
 		if ($logfilesize>500000) $logfilesize=500000;
 		$options['logfilesize']=$logfilesize;
-		
+
 		if (array_key_exists('apikey',$_POST)) {
 			$apikey=stripslashes($_POST['apikey']);
 			$options['apikey']=$apikey;
@@ -149,7 +149,7 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 				$bl=trim($bl);
 				if (!empty($bl)) $tblist[]=$bl;
 			}
-			$options['blist']=$tblist;				
+			$options['blist']=$tblist;
 			$blist=$tblist;
 		}
 		if (array_key_exists('spamwords',$_POST)) {
@@ -160,7 +160,7 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 				$bl=trim($bl);
 				if (!empty($bl)) $tblist[]=$bl;
 			}
-			$options['spamwords']=$tblist;				
+			$options['spamwords']=$tblist;
 			$spamwords=$tblist;
 		}
 		if (array_key_exists('wlist',$_POST)) {
@@ -171,11 +171,11 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 				$bl=trim($bl);
 				if (!empty($bl)) $tblist[]=$bl;
 			}
-			$options['wlist']=$tblist;				
+			$options['wlist']=$tblist;
 			$wlist=$tblist;
 		}
-		
-		
+
+
 
 		if (array_key_exists('badTLDs',$_POST)) {
 			$badTLDs=$_POST['badTLDs'];
@@ -185,7 +185,7 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 				$bl=trim($bl);
 				if (!empty($bl)) $tblist[]=$bl;
 			}
-			$options['badTLDs']=$tblist;				
+			$options['badTLDs']=$tblist;
 			$badTLDs=$tblist;
 		}
 
@@ -197,7 +197,7 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 				$bl=trim($bl);
 				if (!empty($bl)) $tblist[]=$bl;
 			}
-			$options['baddomains']=$tblist;				
+			$options['baddomains']=$tblist;
 			$baddomains=$tblist;
 		}
 		// update the freq and age options
@@ -209,24 +209,24 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 		if (array_key_exists('botage',$_POST)) $botage=trim(stripslashes($_POST['botage']));
 		if (array_key_exists('rejectmessage',$_POST)) $rejectmessage=trim(stripslashes($_POST['rejectmessage']));
 		if (array_key_exists('redirurl',$_POST)) $redirurl=trim(stripslashes($_POST['redirurl']));
-		
+
 		if (array_key_exists('kpg_sp_cache',$_POST)) $kpg_sp_cache=trim(stripslashes($_POST['kpg_sp_cache']));
 		if (array_key_exists('kpg_sp_cache_em',$_POST)) $kpg_sp_cache_em=trim(stripslashes($_POST['kpg_sp_cache_em']));
 		// dividing the cache into an email cache, an ip cache, and good cache with different sizes
-		
+
 		if (array_key_exists('kpg_sp_hist',$_POST)) $kpg_sp_hist=trim(stripslashes($_POST['kpg_sp_hist']));
 		if (array_key_exists('kpg_sp_good',$_POST)) $kpg_sp_good=trim(stripslashes($_POST['kpg_sp_good']));
 		// check for numerics in the fields
-		if (!is_numeric($sfsfreq)) $sfsfreq=0; 
+		if (!is_numeric($sfsfreq)) $sfsfreq=0;
 		if (!is_numeric($hnyage)) $hnyage=0;
-		if (!is_numeric($botfreq)) $botfreq=0; 
+		if (!is_numeric($botfreq)) $botfreq=0;
 		if (!is_numeric($hnylevel)) $hnylevel=5;
-		if (!is_numeric($botage)) $botage=9999; 
-		if (!is_numeric($sfsage)) $sfsage=9999;	
-		if (!is_numeric($kpg_sp_cache)) $kpg_sp_cache=25;	
-		if (!is_numeric($kpg_sp_cache_em)) $kpg_sp_cache_em=10;	
-		if (!is_numeric($kpg_sp_hist)) $kpg_sp_hist=25;	
-		if (!is_numeric($kpg_sp_good)) $kpg_sp_good=2;	
+		if (!is_numeric($botage)) $botage=9999;
+		if (!is_numeric($sfsage)) $sfsage=9999;
+		if (!is_numeric($kpg_sp_cache)) $kpg_sp_cache=25;
+		if (!is_numeric($kpg_sp_cache_em)) $kpg_sp_cache_em=10;
+		if (!is_numeric($kpg_sp_hist)) $kpg_sp_hist=25;
+		if (!is_numeric($kpg_sp_good)) $kpg_sp_good=2;
 		$options['sfsfreq']=$sfsfreq;
 		$options['hnyage']=$hnyage;
 		$options['botfreq']=$botfreq;
@@ -254,7 +254,7 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 		if ($logfilesize>0) kpg_append_file('.history_log.txt',"$now: updated options"."\r\n");
 		echo "<h2>Options Updated</h2>";
 
-	} else if (array_key_exists('kpg_stop_check_me',$_POST)) {		
+	} else if (array_key_exists('kpg_stop_check_me',$_POST)) {
 		// validate the current users's spam
 		//echo "Validating Check Your IP<br/>";
 		//$ip=kpg_get_ip();
@@ -269,7 +269,7 @@ if (!empty($nonce) && wp_verify_nonce($nonce,'kpgstopspam_update')) {
 			echo "<h2>Your IP address passed all plugin spam checks</h2>";
 			if ($logfilesize>0) kpg_append_file('.history_log.txt',"$now: Ip Check Passes"."\r\n");
 		}
-	} else if (array_key_exists('kpg_stop_delete_log',$_POST)) {	
+	} else if (array_key_exists('kpg_stop_delete_log',$_POST)) {
 		// delete the log
 		$f=dirname(__FILE__)."/../sfs_debug_output.txt";
 		if (file_exists($f)) {
@@ -298,7 +298,7 @@ $nonce=wp_create_nonce('kpgstopspam_update');
 
 
   <p><a href="http://www.blogseye.com/checkspam/" target="_blank">Check an IP address to see if it passes spam checks.</a></p>
-  <?PHP	
+  <?PHP
 if ($addtowhitelist=='Y'&&in_array($ip,$wlist)) {
 	?>
   <p><strong>Your current IP is in your white list. This will keep you from being locked out in the future</strong></p>
@@ -354,33 +354,33 @@ if (!empty($sme)) {
       <input class="button-primary" value="Check Your IP" type="submit" />
     </p>
   </form>
-  <?php	
+  <?php
 if (empty($spmcount))  $spmcount=0;
 if ($spmcount>0) {
 	?>
   <h3>Stop Spammers has stopped <?php echo $spmcount; ?> spammers since installation</h3>
-  <?php 
+  <?php
 }
 if (empty($spcount))  $spcount=0;
 if ($spcount>0) {
 	?>
   <h3>Stop Spammers has stopped <?php echo $spcount; ?> spammers since last cleared</h3>
-  <?php 
+  <?php
 
-} 
+}
 $num_comm = wp_count_comments( );
 $num = number_format_i18n($num_comm->spam);
-if ($num_comm->spam>0&&$muswitch!='Y') {	
+if ($num_comm->spam>0&&$muswitch!='Y') {
 	?>
   <p>There are <a href='edit-comments.php?comment_status=spam'><?php echo $num; ?></a> spam comments waiting for you to report them</p>
-  <?php 
+  <?php
 }
 $num_comm = wp_count_comments( );
 $num = number_format_i18n($num_comm->moderated);
-if ($num_comm->moderated>0&&$muswitch!='Y') {	
+if ($num_comm->moderated>0&&$muswitch!='Y') {
 	?>
   <p>There are <a href='edit-comments.php?comment_status=moderated'><?php echo $num; ?></a> spam comments waiting to be moderated</p>
-  <?php 
+  <?php
 }
 ?>
   <p style="font-weight:bold;">The Stop Spammers Plugin is installed and working correctly.</p>
@@ -601,14 +601,14 @@ function kpg_show_hide_how() {
  	<?PHP
 	}
 	?>
-     
+
       <tr bgcolor="white">
         <td valign="top">Check Poison Links:</td>
         <td align="center" valign="top"><input name="poison" type="checkbox" value="Y" <?php if ($poison=='Y') echo  "checked=\"checked\"";?>/></td>
         <td align="left" valign="top">Places a &quot;poison link&quot; on your web pages. It will be invisible to everyone except robots. If a robot follows this link it will immediately be placed in the cache of bad IPs and prevented from commenting or regisering in the future. </td>
       </tr>
       </tr>
-      
+
       <tr bgcolor="white">
         <td valign="top">Send email on White List Request:</td>
         <td align="center" valign="top"><input name="wlreqmail" type="checkbox" value="Y" <?php if ($wlreqmail=='Y') echo  "checked=\"checked\"";?>/></td>
@@ -621,7 +621,7 @@ function kpg_show_hide_how() {
     <table align="center" cellspacing="1" style="background-color:#CCCCCC;font-size:.9em;">
       <tr bgcolor="white">
         <td valign="top">White List:</td>
-        <td align="center" valign="top"><textarea name="wlist" cols="32" rows="8"><?php 
+        <td align="center" valign="top"><textarea name="wlist" cols="32" rows="8"><?php
 for ($k=0;$k<count($wlist);$k++) {
 	echo $wlist[$k]."\r\n";
 }
@@ -693,7 +693,7 @@ for ($k=0;$k<count($wlist);$k++) {
       <tr bgcolor="white">
         <td valign="top">Check IP on wp-login.php:</td>
         <td valign="top"><input name="chklogin" type="checkbox" value="Y" <?php if ($chklogin=='Y') echo  "checked=\"checked\"";?>/></td>
-        <td valign="top">Check IP and email every time the wp-login.php file is loaded. 
+        <td valign="top">Check IP and email every time the wp-login.php file is loaded.
 		If you un-check this, the plugin will still check for action=register, which uses wp-login.php.
 		So you can un-check this to allow logins, but still check registrations.</td>
       </tr>
@@ -836,7 +836,7 @@ $f=dirname(__FILE__)."/../sfs_debug_output.txt";
 if (file_exists($f)) {
 	?>
   <h3>Error Log</h3>
-  <p>If debugging is turned on, the plugin will drop a record each time it encounters a PHP error. 
+  <p>If debugging is turned on, the plugin will drop a record each time it encounters a PHP error.
     Most of these errors are not fatal and do not effect the operation of the plugin. Almost all come from the unexpected data that
     spammers include in their effort to fool us. The author's goal is to eliminate any and
     all errors. </p>
@@ -857,4 +857,3 @@ if (file_exists($f)) {
 <?php
 
 	sfs_errorsonoff('off');
-?>

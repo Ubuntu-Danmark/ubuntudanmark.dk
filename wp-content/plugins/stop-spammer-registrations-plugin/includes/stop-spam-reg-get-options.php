@@ -9,43 +9,43 @@ function kpg_sp_get_stats_l() {
 	'goodips'=>array(),
 	'hist'=>array(),
 	'wlreq'=>array(),
-	
+
 	'spcount'=>0,
 	'spmcount'=>0,
-	
+
 	'cntsfs'=>0,
 	'cntreferer'=>0,
-	
+
 	'cntdisp'=>0,
 	'cntrh'=>0,
 	'cntdnsbl'=>0,
-	
+
 	'cntubiquity'=>0,
-	'cntakismet'=>0,		
+	'cntakismet'=>0,
 	'cntspamwords'=>0,
-	
+
 	'cntsession'=>0,
 	'cntlong'=>0,
 	'cntagent'=>0,
-	
+
 	'cnttld'=>0,
-	'cntemdom'=>0,		
+	'cntemdom'=>0,
 	'cntcacheip'=>0,
 
 	'cntcacheem'=>0,
-	'cnthp'=>0,		
+	'cnthp'=>0,
 	'cntbotscout'=>0,
 
-	'cntblem'=>0,		
+	'cntblem'=>0,
 	'cntlongauth'=>0,
 	'cntblip'=>0,
 
 	'cntaccept'=>0,
-	
-	'cntpassed'=>0,		
-	'cntwhite'=>0,	
-	'cntgood'=>0,	
-	
+
+	'cntpassed'=>0,
+	'cntwhite'=>0,
+	'cntgood'=>0,
+
 	'autoload'=>'N',
 	'spmdate'=>'installation',
 
@@ -56,8 +56,8 @@ function kpg_sp_get_stats_l() {
 	'cnttor'=>0,
 	'cntcap'=>0,
 	'cntncap'=>0
-	
-	
+
+
 	);
 	$ansa=array_merge($options,$stats);
 	if (!is_array($ansa['wlreq'])) $ansa['wlreq']=array();
@@ -139,7 +139,7 @@ function kpg_sp_get_options_l() {
 	'kpg_sp_cache_em'=>10,
 	'kpg_sp_hist'=>25,
 	'kpg_sp_good'=>2,
-	'redirurl'=>'', 
+	'redirurl'=>'',
 	'redir'=>'N',
 	'chkadminlog'=>'N',
 	'logfilesize'=>0,
@@ -162,7 +162,7 @@ This site is protected by the Stop Spammer Registrations Plugin.<br/>",
 	);
 	$ansa=array_merge($options,$opts);
 	// check the yn questions
-	
+
 	$ynfields=array(
 	'chksession','chkdisp','chksfs','chkubiquity',
 	'chkwplogin','chkakismet','chkakismetcomments','noplugins',
@@ -200,4 +200,3 @@ This site is protected by the Stop Spammer Registrations Plugin.<br/>",
 	}
 	return $ansa;
 }
-?>
