@@ -55,7 +55,7 @@ $wp_followme_nett = array( 'twitter', 'icon', 'followmsg');
 function wp_followme_credits ($translation, $text, $domain)
 {
 	global $wp_followme;
-	if ($wp_followme['powered_by'] && $text == 'Proudly powered by %s') return $text . '</a> using <a href="http://wpburn.com">FollowMe official extension';
+	if (!empty($wp_followme['powered_by']) && $text == 'Proudly powered by %s') return $text . '</a> using <a href="http://wpburn.com">FollowMe official extension';
 	return $translation;
 }
 add_filter('gettext', 'wp_followme_credits', 100, 3);
