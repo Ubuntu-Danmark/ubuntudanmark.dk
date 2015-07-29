@@ -11,34 +11,32 @@ function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type =
 	}
 
 	// Prevent XSS/CSRF attacks
-	$_value = esc_attr( $_value );
+	$_value = stripslashes( $_value );
+	$_value = esc_attr( $_value ); // esc_attr Will encode all the text.
 
 	switch ( $_type ) {
-	case 'yesno':
-		if ( $_value == 'yes' || $_value == 'no' ) {
+		case 'yesno':
+			if ( $_value == 'yes' || $_value == 'no' ) {
+				update_option( 'subscribe_reloaded_' . $_option, $_value );
+
+				return true;
+			}
+			break;
+		case 'integer':
+			update_option( 'subscribe_reloaded_' . $_option, abs( intval( $_value ) ) );
+
+			return true;
+			break;
+		case 'text-html-encode':
+			update_option( 'subscribe_reloaded_' . $_option, htmlentities( $_value, ENT_QUOTES, 'UTF-8' ) );
+
+			return true;
+			break;
+		default:
 			update_option( 'subscribe_reloaded_' . $_option, $_value );
 
 			return true;
-		}
-		break;
-
-	case 'integer':
-		update_option( 'subscribe_reloaded_' . $_option, abs( intval( $_value ) ) );
-
-		return true;
-		break;
-
-	case 'text-no-encode':
-		update_option( 'subscribe_reloaded_' . $_option, $_value );
-
-		return true;
-		break;
-
-	default:
-		update_option( 'subscribe_reloaded_' . $_option, htmlentities( $_value, ENT_COMPAT, 'UTF-8' ) );
-
-		return true;
-		break;
+			break;
 	}
 
 	return false;
@@ -46,7 +44,7 @@ function subscribe_reloaded_update_option( $_option = '', $_value = '', $_type =
 
 function subscribe_reloaded_get_option( $_option = '', $_default = '' ) {
 	$value = get_option( 'subscribe_reloaded_' . $_option, $_default );
-	$value = html_entity_decode( stripslashes( $value ), ENT_COMPAT, 'UTF-8' );
+	$value = html_entity_decode( stripslashes( $value ), ENT_QUOTES, 'UTF-8' );
 
 	return stripslashes( $value );
 }
@@ -61,7 +59,8 @@ $array_panels = array(
 	__( 'Management Page', 'subscribe-reloaded' ),
 	__( 'Notifications', 'subscribe-reloaded' ),
 	__( 'Options', 'subscribe-reloaded' ),
-	__( 'You can help', 'subscribe-reloaded' )
+	__( 'You can help', 'subscribe-reloaded' ),
+	__( 'Support', 'subscribe-reloaded' )
 );
 
 // What panel to display
@@ -77,15 +76,15 @@ if ( $wp_locale->text_direction != 'ltr' ) {
 	<div id="subscribe-to-comments-icon" class="icon32 <?php echo $wp_locale->text_direction ?>"></div>
 	<h2 class="medium">
 		<?php
-foreach ( $array_panels as $a_panel_id => $a_panel_details ) {
-	echo '<a class="nav-tab nav-tab';
-	echo ( $current_panel == $a_panel_id + 1 ) ? '-active' : '-inactive';
-	echo '" href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=' . ( $a_panel_id + 1 ) . '">' . $a_panel_details . '</a>';
-}
-?>
+		foreach ( $array_panels as $a_panel_id => $a_panel_details ) {
+			echo '<a class="nav-tab nav-tab';
+			echo ( $current_panel == $a_panel_id + 1 ) ? '-active' : '-inactive';
+			echo '" href="options-general.php?page=subscribe-to-comments-reloaded/options/index.php&subscribepanel=' . ( $a_panel_id + 1 ) . '">' . $a_panel_details . '</a>';
+		}
+		?>
 	</h2>
 
 	<?php if ( is_readable( WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel$current_panel.php" ) ) {
-	require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel$current_panel.php";
-} ?>
+		require_once WP_PLUGIN_DIR . "/subscribe-to-comments-reloaded/options/panel$current_panel.php";
+	} ?>
 </div>
