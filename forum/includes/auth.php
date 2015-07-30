@@ -981,7 +981,7 @@ class auth
 						// the login array is used because the user ids do not differ for re-authentication
 						$sql = 'DELETE FROM ' . SESSIONS_TABLE . "
 							WHERE session_id = '" . $db->sql_escape($old_session_id) . "'
-							AND session_user_id = {$login['user_row']['user_id']}";
+							AND session_user_id = " . (int) $login['user_row']['user_id'];
 						$db->sql_query($sql);
 					}
 
@@ -1060,5 +1060,3 @@ class auth
 		}
 	}
 }
-
-?>
