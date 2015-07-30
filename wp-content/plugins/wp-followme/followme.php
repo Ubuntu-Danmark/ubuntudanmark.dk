@@ -5,7 +5,7 @@ Plugin Name: FollowMe
 Plugin URI: http://wpburn.com/wordpress-plugins/wp-followme-plugin
 Description: WP FollowMe is a wordpress plugin that allow you to add a twitter "Follow Me" badge on your wordpress blog.
 Author: wpBurn.com
-Version: 2.0.8
+Version: 2.0.8-CSS3
 Author URI: http://wpburn.com
 */
 
@@ -66,13 +66,6 @@ global $wp_followme;
 $wp_followme = get_option('wp_followme_options');
 define("wp_followme_VER", "2.0.7", false);
 
-function wp_followme_scripts() {
-	global $wp_followme;
-	//wp_enqueue_style( 'wp_followme_css_file', wp_followme_url( 'followme-style.css' ), false, false, false);
-	wp_enqueue_script( 'wp_followme_swfobject', "//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js", false, false, false );
-}
-
-add_action( 'init', 'wp_followme_scripts' );
 add_action( 'init', 'followme_admin_warnings' );
 
 function followme_admin_warnings() {
@@ -103,21 +96,38 @@ function followme_admin_warnings() {
 
 //inline styles
 function wp_followme_css() {
+	global $wp_followme;
 	?>
-<script type="text/javascript">
-	swfobject.registerObject("wpFollowmeFlash", "9.0.0");
-</script>
 <style type="text/css">
-	.getflash { font-size:8px; }
 	.wp_followme_c2 {
 		position:fixed;
-		background:#<?php global $wp_followme; echo $wp_followme['color']; ?>;
-		top:<?php global $wp_followme; echo $wp_followme['top'];?>px;
-		<?php global $wp_followme; echo $wp_followme['align'];?>:0px;
+		background:#<?php echo $wp_followme['color']; ?>;
+		top:<?php echo $wp_followme['top'];?>px;
+		<?php echo $wp_followme['align'];?>:0px;
 		width:32px;
 		height:160px;
-		border:1px solid #<?php global $wp_followme; echo $wp_followme['bordercolor'];?>;
-		color:#<?php global $wp_followme; echo $wp_followme['textcolor']; ?>;
+		border:1px solid #<?php echo $wp_followme['bordercolor'];?>;
+		color:#<?php echo $wp_followme['textcolor']; ?>;
+		font-family: sans-serif;
+		font-size: 17px;
+		font-weight: bold;
+	}
+	.wp_followme_c2 .rotate180 {
+		width: 130px;
+		height: 32px;
+		position: absolute;
+		bottom: 48px;
+		left: -49px;
+		line-height: 32px;
+		text-align: center;
+	}
+	.rotate180 {
+		-webkit-transform: rotate(-90deg);
+		-moz-transform: rotate(-90deg);
+		-o-transform: rotate(-90deg);
+		-ms-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	}
 </style>
 
@@ -131,25 +141,10 @@ function show_followme() {
 
 <div style="position:relative;">
 	<div class="wp_followme_c2">
-		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="32" height="160" id="wpFollowmeFlash">
-			<param name="movie" value="<?php echo wp_followme_url('flash/wp_followme.swf'); ?>" />
-			<param name="allowfullscreen" value="false" />
-			<param name="allowscriptaccess" value="always" />
-			<param name="flashvars" value="twit_icon=<?php global $wp_followme; echo $wp_followme['icon'];?>&amp;turl=<?php global $wp_followme; echo $wp_followme['twitter'] ?>&amp;twitmsg=<?php global $wp_followme; echo $wp_followme['followmsg'] ?>&amp;twitmsgcolor=<?php global $wp_followme; echo $wp_followme['textcolor']; ?>&amp;iconbgcolor=<?php global $wp_followme; echo $wp_followme['iconbgcolor']; ?>" />
-			<param name="bgcolor" value="#<?php global $wp_followme; echo $wp_followme['color']; ?>" />
-			<!--[if !IE]>-->
-			<object type="application/x-shockwave-flash" data="<?php echo wp_followme_url('flash/wp_followme.swf'); ?>" width="32" height="160">
-				<param name="allowfullscreen" value="false" />
-				<param name="allowscriptaccess" value="always" />
-				<param name="flashvars" value="twit_icon=<?php global $wp_followme; echo $wp_followme['icon'];?>&amp;turl=<?php echo $wp_followme['twitter'] ?>&amp;twitmsg=<?php global $wp_followme; echo $wp_followme['followmsg'] ?>&amp;twitmsgcolor=<?php global $wp_followme; echo $wp_followme['textcolor']; ?>&amp;iconbgcolor=<?php global $wp_followme; echo $wp_followme['iconbgcolor']; ?>" />
-				<param name="bgcolor" value="#<?php global $wp_followme; echo $wp_followme['color']; ?>" />
-				<!--<![endif]-->
-				<div class="getflash">
-					<a rel="nofollow" href="http://www.adobe.com/go/getflashplayer"><img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a>
-					<?php global $wp_followme; if($wp_followme['powered_by'] == '1') { ?>Plugin by wpburn.com <a href="http://wpburn.com">wordpress themes</a><?php } ?>
-				</div><!--[if !IE]>-->
-			</object> <!--<![endif]-->
-		</object>
+		<a href="<?php echo $wp_followme['twitter'] ?>" style="color: rgb(255, 255, 255);">
+			<img style="background: #<?php echo $wp_followme['iconbgcolor']; ?>" src="<?php echo $wp_followme['icon'];?>">
+			<div class="rotate180"><?php echo $wp_followme['followmsg'] ?></div>
+		</a>
 	</div>
 </div>
 
