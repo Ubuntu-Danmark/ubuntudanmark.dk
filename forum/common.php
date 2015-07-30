@@ -1,149 +1,128 @@
 <?php
+/**
+*
+* This file is part of the phpBB Forum Software package.
+*
+* @copyright (c) phpBB Limited <https://www.phpbb.com>
+* @license GNU General Public License, version 2 (GPL-2.0)
+*
+* For full copyright and license information, please see
+* the docs/CREDITS.txt file.
+*
+*/
 
 /**
- * Common.php file Replacement for PHPBB - Wordpress Connector
- *
- * This is for the loading without conflict of the two scripts
- *
- * @package login
- * @version 0.9
- * @license http://opensource.org/licenses/gpl-license.php GNU Public License
- *
- */
+* Minimum Requirement: PHP 5.3.3
+*/
 
-if (!defined('LOADED_WP')) {
-    define('LOADED_PHPBB', true);
-}
-
-
-function include_for_eval($file)
+if (!defined('IN_PHPBB'))
 {
-    $file_contents = file_get_contents($file);
-    $file_contents = preg_replace('/^\s*\<\?php/', '', $file_contents);
-    $file_contents = preg_replace('/\?\>\s*$/', '', $file_contents);
-
-    return $file_contents;
+	exit;
 }
 
-//Affected files :
+require($phpbb_root_path . 'includes/startup.' . $phpEx);
+require($phpbb_root_path . 'phpbb/class_loader.' . $phpEx);
 
-//Common.php
-//config.php
-//includes/session.php
-//includes/functions_content.php
-//includes/constants.php
+$phpbb_class_loader = new \phpbb\class_loader('phpbb\\', "{$phpbb_root_path}phpbb/", $phpEx);
+$phpbb_class_loader->register();
 
-$include_common_contents = include_for_eval($phpbb_root_path . 'common-orig.' . $phpEx);
+$phpbb_config_php_file = new \phpbb\config_php_file($phpbb_root_path, $phpEx);
+extract($phpbb_config_php_file->get_all());
 
-//called on line 127 of common.php //require($phpbb_root_path . 'config.' . $phpEx);
-$include_config_contents = include_for_eval($phpbb_root_path . 'config.' . $phpEx);
+if (!defined('PHPBB_INSTALLED'))
+{
+	// Redirect the user to the installer
+	require($phpbb_root_path . 'includes/functions.' . $phpEx);
 
-//called on line 189 of common.php //require($phpbb_root_path . 'includes/session.' . $phpEx);
-$include_session_contents = include_for_eval($phpbb_root_path . 'includes/session.' . $phpEx);
+	// We have to generate a full HTTP/1.1 header here since we can't guarantee to have any of the information
+	// available as used by the redirect function
+	$server_name = (!empty($_SERVER['HTTP_HOST'])) ? strtolower($_SERVER['HTTP_HOST']) : ((!empty($_SERVER['SERVER_NAME'])) ? $_SERVER['SERVER_NAME'] : getenv('SERVER_NAME'));
+	$server_port = (!empty($_SERVER['SERVER_PORT'])) ? (int) $_SERVER['SERVER_PORT'] : (int) getenv('SERVER_PORT');
+	$secure = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 1 : 0;
 
-//called on line 193 of common.php //require($phpbb_root_path . 'includes/functions_content.' . $phpEx);
-$include_formatting_contents = include_for_eval($phpbb_root_path . 'includes/functions_content.' . $phpEx);
+	$script_name = (!empty($_SERVER['PHP_SELF'])) ? $_SERVER['PHP_SELF'] : getenv('PHP_SELF');
+	if (!$script_name)
+	{
+		$script_name = (!empty($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : getenv('REQUEST_URI');
+	}
 
-//called on line 195 of common.php //require($phpbb_root_path . 'includes/constants.' . $phpEx);
-$include_constants_contents = include_for_eval($phpbb_root_path . 'includes/constants.' . $phpEx);
+	// $phpbb_root_path accounts for redirects from e.g. /adm
+	$script_path = trim(dirname($script_name)) . '/' . $phpbb_root_path . 'install/index.' . $phpEx;
+	// Replace any number of consecutive backslashes and/or slashes with a single slash
+	// (could happen on some proxy setups and/or Windows servers)
+	$script_path = preg_replace('#[\\\\/]{2,}#', '/', $script_path);
 
-//Fusionne
-$include_common_contents = str_replace(
-    'require($phpbb_root_path . \'config.\' . $phpEx);',
-    $include_config_contents,
-    $include_common_contents
-);
-$include_common_contents = str_replace(
-    'require($phpbb_root_path . \'includes/session.\' . $phpEx);',
-    $include_session_contents,
-    $include_common_contents
-);
-$include_common_contents = str_replace(
-    'require($phpbb_root_path . \'includes/functions_content.\' . $phpEx);',
-    $include_formatting_contents,
-    $include_common_contents
-);
-$include_common_contents = str_replace(
-    'require($phpbb_root_path . \'includes/constants.\' . $phpEx);',
-    $include_constants_contents,
-    $include_common_contents
-);
+	// Eliminate . and .. from the path
+	require($phpbb_root_path . 'phpbb/filesystem.' . $phpEx);
+	$phpbb_filesystem = new phpbb\filesystem();
+	$script_path = $phpbb_filesystem->clean_path($script_path);
 
-//Clean memory
-unset($include_config_contents);
-unset($include_session_contents);
-unset($include_formatting_contents);
-unset($include_constants_contents);
+	$url = (($secure) ? 'https://' : 'http://') . $server_name;
 
+	if ($server_port && (($secure && $server_port <> 443) || (!$secure && $server_port <> 80)))
+	{
+		// HTTP HOST can carry a port number...
+		if (strpos($server_name, ':') === false)
+		{
+			$url .= ':' . $server_port;
+		}
+	}
 
-//removes $table_prefix conflict
-$include_common_contents = str_replace('$table_prefix', '$dbname.".".$table_prefix2', $include_common_contents);
+	$url .= $script_path;
+	header('Location: ' . $url);
+	exit;
+}
 
-//removes make_clickable() conflict
-$include_common_contents = str_replace('make_clickable', 'wpbb_make_clickable', $include_common_contents);
+// In case $phpbb_adm_relative_path is not set (in case of an update), use the default.
+$phpbb_adm_relative_path = (isset($phpbb_adm_relative_path)) ? $phpbb_adm_relative_path : 'adm/';
+$phpbb_admin_path = (defined('PHPBB_ADMIN_PATH')) ? PHPBB_ADMIN_PATH : $phpbb_root_path . $phpbb_adm_relative_path;
 
+// Include files
+require($phpbb_root_path . 'includes/functions.' . $phpEx);
+require($phpbb_root_path . 'includes/functions_content.' . $phpEx);
+include($phpbb_root_path . 'includes/functions_compatibility.' . $phpEx);
 
-/*
- * COOKIE
- */
+require($phpbb_root_path . 'includes/constants.' . $phpEx);
+require($phpbb_root_path . 'includes/utf/utf_tools.' . $phpEx);
 
-//corrige le get_cookie
-$original_get_cookie = array(
-    '$this->cookie_data[\'u\'] = request_var($config[\'cookie_name\'] . \'_u\', 0, false, true);',
-    '$this->cookie_data[\'k\'] = request_var($config[\'cookie_name\'] . \'_k\', \'\', false, true);',
-    '$this->session_id 		= request_var($config[\'cookie_name\'] . \'_sid\', \'\', false, true);'
-);
-$new_get_cookie = array(
-    '$this->cookie_data[\'u\'] = $_COOKIE[$config[\'cookie_name\'] . \'_u\'];',
-    '$this->cookie_data[\'k\'] = $_COOKIE[$config[\'cookie_name\'] . \'_k\'];',
-    '$this->session_id = $_COOKIE[$config[\'cookie_name\'] . \'_sid\'];'
-);
-$include_common_contents = str_replace($original_get_cookie, $new_get_cookie, $include_common_contents);
+// Set PHP error handler to ours
+set_error_handler(defined('PHPBB_MSG_HANDLER') ? PHPBB_MSG_HANDLER : 'msg_handler');
 
-//Include de la version modifiée de common.php
-eval($include_common_contents);
+$phpbb_class_loader_ext = new \phpbb\class_loader('\\', "{$phpbb_root_path}ext/", $phpEx);
+$phpbb_class_loader_ext->register();
 
+phpbb_load_extensions_autoloaders($phpbb_root_path);
+
+// Set up container
+$phpbb_container_builder = new \phpbb\di\container_builder($phpbb_config_php_file, $phpbb_root_path, $phpEx);
+$phpbb_container = $phpbb_container_builder->get_container();
+
+$phpbb_class_loader->set_cache($phpbb_container->get('cache.driver'));
+$phpbb_class_loader_ext->set_cache($phpbb_container->get('cache.driver'));
+
+require($phpbb_root_path . 'includes/compatibility_globals.' . $phpEx);
+
+// Add own hook handler
+require($phpbb_root_path . 'includes/hooks/index.' . $phpEx);
+$phpbb_hook = new phpbb_hook(array('exit_handler', 'phpbb_user_session_handler', 'append_sid', array('template', 'display')));
+$phpbb_hook_finder = $phpbb_container->get('hook_finder');
+
+foreach ($phpbb_hook_finder->find() as $hook)
+{
+	@include($phpbb_root_path . 'includes/hooks/' . $hook . '.' . $phpEx);
+}
 
 /**
- * Loads Wordpress
- */
-
-if (!isset($_SESSION)) {
-    $_SESSION = null;
-}
-
-//save all vars before they're escaped by wordpress (but not $_FILE nor $GLOBALS)
-$saved_vars = array(
-    'SERVER' => $_SERVER,
-    'GET' => $_GET,
-    'POST' => $_POST,
-    'COOKIE' => $_COOKIE,
-    'SESSION' => $_SESSION,
-    'REQUEST' => $_REQUEST,
-    'ENV' => $_ENV
-);
-
-$wbh = '/' . (isset($config['wpbb_path'])? $config['wpbb_path'] : '') . 'wp-blog-header.php';
-
-$root_path = dirname(__FILE__);
-
-//tests if the wordpress files exist
-if (file_exists(dirname($root_path) . $wbh)) {
-    include dirname($root_path) . $wbh;
-} else {
-    if (file_exists($root_path . $wbh)) {
-        include $root_path . $wbh;
-    } else {
-        //nothing found
-    }
-}
-
-header("HTTP/1.0 200 OK");
-
-//restore all vars.
-foreach ($saved_vars as $key => $val) {
-    $varname = '_' . $key;
-    global $$varname;
-    $$varname = $val;
-}
-
+* Main event which is triggered on every page
+*
+* You can use this event to load function files and initiate objects
+*
+* NOTE:	At this point the global session ($user) and permissions ($auth)
+*		do NOT exist yet. If you need to use the user object
+*		(f.e. to include language files) or need to check permissions,
+*		please use the core.user_setup event instead!
+*
+* @event core.common
+* @since 3.1.0-a1
+*/
+$phpbb_dispatcher->dispatch('core.common');
