@@ -186,3 +186,5 @@ class ftp extends ftp_base {
 		}
 	}
 }
+
+?>

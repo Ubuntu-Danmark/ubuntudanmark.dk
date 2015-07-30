@@ -1253,3 +1253,4 @@ class Snoopy
 	}
 }
 endif;
+?>
