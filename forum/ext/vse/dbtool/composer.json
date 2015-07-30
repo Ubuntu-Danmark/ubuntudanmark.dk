@@ -1,0 +1,42 @@
+{
+    "name": "vse/dbtool",
+    "type": "phpbb-extension",
+    "description": "A phpBB 3.1 extension that allows you to check, optimize and repair phpBB's MySQL database tables from a phpMyAdmin-like interface in the Administration Control Panel.",
+    "homepage": "https://github.com/VSEphpbb/dbtool",
+    "version": "1.1.0",
+    "keywords": [
+        "phpbb",
+        "extension",
+        "database",
+        "mysql",
+        "optimize",
+        "repair",
+        "phpmyadmin"
+    ],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Matt Friedman (VSE)",
+            "homepage": "http://mattfriedman.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "composer/installers": "~1.0"
+    },
+    "require-dev": {
+        "phpbb/epv": "dev-master"
+    },
+    "extra": {
+        "display-name": "Database Optimize & Repair Tool",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
+        },
+        "version-check": {
+            "host": "www.phpbb.com",
+            "directory": "/customise/db/extension/database_optimize_and_repair_tool",
+            "filename": "version_check"
+        }
+    }
+}

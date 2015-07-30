@@ -1,0 +1,30 @@
+/* Post Buttons */
+
+.imageset.icon_solved_set {
+	background-image: url("images/icon_topic_solved_set.png");
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_solved_unset {
+	background-image: url("images/icon_topic_solved_unset.png");
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+/* Topic Solved Image Indicators */
+
+.imageset.icon_solved_head {
+	background-image: url("./images/icon_topic_solved_head.png");
+	padding-left: 20px;
+	padding-top: 20px;
+}
+.imageset.icon_solved_list {
+	background-image: url("./images/icon_topic_solved_list.png");
+	padding-left: 12px;
+	padding-top: 12px;
+}
+.imageset.icon_solved_post {
+	background-image: url("./images/icon_topic_solved_post.png");
+	padding-left: 12px;
+	padding-top: 12px;
+}

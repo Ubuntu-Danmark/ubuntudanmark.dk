@@ -1,0 +1,55 @@
+{
+	"name": "phpbb/googleanalytics",
+	"type": "phpbb-extension",
+	"description": "An extension that allows administrators to easily add their Google Analytics tracking code to their phpBB forum.",
+	"homepage": "https://phpbb.com",
+	"version": "1.0.1",
+	"keywords": ["phpbb", "extension", "google", "analytics"],
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "Marc Alexander",
+			"email": "admin@m-a-styles.de",
+			"homepage": "http://www.m-a-styles.de",
+			"role": "Extensions Team Consultant"
+		},
+		{
+			"name": "Michael Cullum",
+			"homepage": "http://michaelcullum.com",
+			"email": "michael@phpbb.com",
+			"role": "Extensions Team Consultant"
+		},
+		{
+			"name": "Matt Friedman",
+			"homepage": "http://mattfriedman.me",
+			"role": "Extensions Development Team Lead"
+		},
+		{
+			"name": "Nathan Guse",
+			"email": "nathaniel.guse@gmail.com",
+			"role": "Former Extensions Development Team Lead"
+		},
+		{
+			"name": "Lukasz Kaczynski",
+			"role": "Extensions Development Team"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3",
+		"composer/installers": "~1.0"
+	},
+	"require-dev": {
+		"phpbb/epv": "dev-master"
+	},
+	"extra": {
+		"display-name": "Google Analytics",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.0-RC3,<3.2.*@dev"
+		},
+		"version-check": {
+			"host": "version.phpbb.com",
+			"directory": "/phpbb-extensions",
+			"filename": "googleanalytics_versions.json"
+		}
+	}
+}

@@ -1,0 +1,17 @@
+services:
+    rmcgirr83.elonw.listener:
+        class: rmcgirr83\elonw\event\listener
+        arguments:
+            - @template
+            - @user
+        tags:
+            - { name: event.listener }
+    rmcgirr83.elonw.ucp_listener:
+        class: rmcgirr83\elonw\event\ucp_listener
+        arguments:
+            - @config
+            - @request
+            - @template
+            - @user
+        tags:
+            - { name: event.listener }

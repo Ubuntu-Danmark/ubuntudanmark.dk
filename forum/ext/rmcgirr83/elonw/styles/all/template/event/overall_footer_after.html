@@ -1,0 +1,9 @@
+<!-- IF S_ELONW -->
+<script type="text/javascript">
+jQuery(function() {
+	source=removeSubdomain(location.hostname);
+	$('a[href^="http://"], a[href^="https://"]').filter(function(){return this.hostname&&removeSubdomain(this.hostname)!==source}).attr("onclick","window.open(this.href);return false;").attr("rel", "nofollow");
+});
+function removeSubdomain(a,b){return a.split(".").slice(-(b||2)).join(".")};
+</script>
+<!-- ENDIF -->

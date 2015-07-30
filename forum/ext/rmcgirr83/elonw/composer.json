@@ -1,0 +1,36 @@
+{
+	"name": "rmcgirr83/elonw",
+	"type": "phpbb-extension",
+	"description": "Uses jQuery to force external links to open in a new window",
+	"homepage": "https://github.com/RMcGirr83/elonw",
+	"version": "1.0.0",
+	"time": "2014-10-28",
+	"keywords": ["phpbb", "extension", "external links open in new window"],
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "Rich McGirr",
+			"homepage": "http://rmcgirr83.org",
+			"email": "rmcgirr83@rmcgirr83.org",
+			"role": "Lead Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3",
+		"composer/installers": "~1.0"
+	},
+	"require-dev": {
+		"phpbb/epv": "dev-master"
+	},
+	"extra": {
+		"display-name": "External Links Open in New Window",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
+		},
+		"version-check": {
+			"host": "www.phpbb.com",
+			"directory": "/customise/db/extension/elonw",
+			"filename": "version_check"
+		}
+	}
+}

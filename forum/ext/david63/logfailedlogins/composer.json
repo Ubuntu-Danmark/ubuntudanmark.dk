@@ -1,0 +1,33 @@
+{
+    "name": "david63/logfailedlogins",
+    "type": "phpbb-extension",
+    "description": "Adds an entry in the User or Admin logs when there is a failed user login attempt",
+    "homepage": "",
+    "version": "1.0.1",
+    "time": "2015-05-16",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "David Wood",
+            "username": "david63",
+            "email": "david@webworld.xyz",
+            "homepage": "http://webworld.xyz",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "display-name": "Log failed logins",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.1.4,<3.2.*@dev"
+        },
+        "version-check": {
+            "host": "www.phpbb.com",
+            "directory": "/customise/db/extension/log_failed_logins",
+            "filename": "version_check"
+        }
+    }
+}
