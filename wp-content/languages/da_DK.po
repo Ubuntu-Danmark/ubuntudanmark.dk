@@ -635,16 +635,16 @@ msgstr "(WordPress kunne ikke etablere en sikker forbindelse til WordPress.org. 
 msgid "An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href=\"https://wordpress.org/support/\">support forums</a>."
 msgstr "Der opstod en uventet fejl. Der er måske noget galt med WordPress.org eller denne servers konfiguration. Hvis fejlen fortsætter, så prøv <a href=\"https://wordpress.org/support/\">support forummet</a>."
 
-#: wp-includes/theme.php:1969
+#: wp-includes/theme.php:1948
 msgid "Customizer"
 msgstr "Tilpasser"
 
 #. translators: 1: Theme support 2: hook name
-#: wp-includes/theme.php:1635
+#: wp-includes/theme.php:1614
 msgid "Theme support for %1$s should be registered before the %2$s hook."
 msgstr "Tema support til %1$s bør være registreret før %2$s hook."
 
-#: wp-includes/theme.php:1504
+#: wp-includes/theme.php:1483
 msgid "You need to pass an array of types."
 msgstr "Du skal sende en række af typer."
 
@@ -1567,33 +1567,33 @@ msgstr "I <code>%1$s</code>, brug metoden <code>%2$s</code>, ikke funktionen <co
 msgid "Conditional query tags do not work before the query is run. Before then, they always return false."
 msgstr "'Conditional query tags' virker ikke før en 'query' sættes i gang. Før det vil de tolkes som falske."
 
-#: wp-includes/post.php:3891 wp-includes/script-loader.php:449
+#: wp-includes/post.php:3892 wp-includes/script-loader.php:449
 #: wp-includes/script-loader.php:510
 msgctxt "tag delimiter"
 msgid ","
 msgstr ","
 
-#: wp-includes/post.php:3459
+#: wp-includes/post.php:3460
 msgid "The page template is invalid."
 msgstr "Sideskabelonen er ugyldig."
 
-#: wp-includes/post.php:3395
+#: wp-includes/post.php:3396
 msgid "Could not insert post into the database"
 msgstr "Kunne ikke inds&#230;tte indl&#230;gget i databasen"
 
-#: wp-includes/post.php:3380
+#: wp-includes/post.php:3381
 msgid "Could not update post in the database"
 msgstr "Kunne ikke opdatere indl&#230;gget i databasen"
 
-#: wp-includes/post.php:3236
+#: wp-includes/post.php:3237
 msgid "Whoops, the provided date is invalid."
 msgstr "Hovsa, den angivne dato er ugyldig."
 
-#: wp-includes/post.php:3168
+#: wp-includes/post.php:3169
 msgid "Content, title, and excerpt are empty."
 msgstr "Indhold, titel og uddrag er tomme."
 
-#: wp-includes/post.php:3011
+#: wp-includes/post.php:3012
 msgid "Passing an integer number of posts is deprecated. Pass an array of arguments instead."
 msgstr "Angivelse af antallet af indlæg er udfaset. Angiv et sæt af parametre i stedet."
 
@@ -4128,33 +4128,33 @@ msgid "ERROR: This is not a valid feed template."
 msgstr "FEJL: Dette er ikke en gyldig feed-skabelon."
 
 #. translators: used to join items in a list with only 2 items
-#: wp-includes/formatting.php:3798
+#: wp-includes/formatting.php:3830
 msgid "%s and %s"
 msgstr "%s og %s"
 
 #. translators: used to join last two items in a list with more than 2 times
-#: wp-includes/formatting.php:3796
+#: wp-includes/formatting.php:3828
 msgid "%s, and %s"
 msgstr "%s og %s"
 
 #. translators: used to join items in a list with more than 2 items
-#: wp-includes/formatting.php:3794
+#: wp-includes/formatting.php:3826
 msgid "%s, %s"
 msgstr "%s, %s"
 
-#: wp-includes/formatting.php:3580
+#: wp-includes/formatting.php:3612
 msgid "The timezone you have entered is not valid. Please select a valid timezone."
 msgstr "Den tidszone, du har indtastet, er ikke gyldig. Vælg venligst en gyldig tidszone."
 
-#: wp-includes/formatting.php:3525
+#: wp-includes/formatting.php:3557
 msgid "The Site address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr "Den webstedsadresse, du indtastede, er ikke en gyldig URL. Indtast venligst en gyldig URL."
 
-#: wp-includes/formatting.php:3512
+#: wp-includes/formatting.php:3544
 msgid "The WordPress address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr "Den WordPress-adresse du anførte, er ikke en gyldig URL. Anfør venligst en gyldig URL."
 
-#: wp-includes/formatting.php:3412
+#: wp-includes/formatting.php:3444
 msgid "The email address entered did not appear to be a valid email address. Please enter a valid email address."
 msgstr ""
 "E-mail-adressen du har indtastet ser ikke ud til at være gyldig.\n"
@@ -4166,47 +4166,47 @@ msgstr ""
 #. translators: If your word count is based on single characters (East Asian
 #. characters), 		   enter 'characters'. Otherwise, enter 'words'. Do not
 #. translate into your own language.
-#: wp-includes/formatting.php:2738 wp-includes/script-loader.php:379
+#: wp-includes/formatting.php:2770 wp-includes/script-loader.php:379
 msgctxt "word count: words or characters?"
 msgid "words"
 msgstr "words"
 
-#: wp-includes/formatting.php:2733 wp-includes/general-template.php:2721
+#: wp-includes/formatting.php:2765 wp-includes/general-template.php:2721
 msgid "&hellip;"
 msgstr "&hellip;"
 
-#: wp-includes/formatting.php:2646
+#: wp-includes/formatting.php:2678
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] "%s år"
 msgstr[1] "%s år"
 
-#: wp-includes/formatting.php:2641
+#: wp-includes/formatting.php:2673
 msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] "%s måned"
 msgstr[1] "%s måneder"
 
-#: wp-includes/formatting.php:2636
+#: wp-includes/formatting.php:2668
 msgid "%s week"
 msgid_plural "%s weeks"
 msgstr[0] "%s uge"
 msgstr[1] "%s uger"
 
-#: wp-includes/formatting.php:2631
+#: wp-includes/formatting.php:2663
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] "%s dag"
 msgstr[1] "%s dage"
 
-#: wp-includes/formatting.php:2626
+#: wp-includes/formatting.php:2658
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s time"
 msgstr[1] "%s timer"
 
 #. translators: min=minute
-#: wp-includes/formatting.php:2621
+#: wp-includes/formatting.php:2653
 msgid "%s min"
 msgid_plural "%s mins"
 msgstr[0] "%s minut"
@@ -4261,7 +4261,7 @@ msgid "&#8221;"
 msgstr "&#8221;"
 
 #. translators: opening curly double quote
-#: wp-includes/formatting.php:62 wp-includes/formatting.php:4035
+#: wp-includes/formatting.php:62 wp-includes/formatting.php:4067
 msgctxt "opening curly double quote"
 msgid "&#8220;"
 msgstr "&#8220;"
@@ -5356,8 +5356,8 @@ msgstr "Beklager, du har ikke tilladelse til at redigere dette indlæg."
 #: wp-includes/class-wp-xmlrpc-server.php:4986
 #: wp-includes/class-wp-xmlrpc-server.php:5476
 #: wp-includes/class-wp-xmlrpc-server.php:5524
-#: wp-includes/class-wp-xmlrpc-server.php:5648 wp-includes/post.php:3124
-#: wp-includes/post.php:3582
+#: wp-includes/class-wp-xmlrpc-server.php:5648 wp-includes/post.php:3125
+#: wp-includes/post.php:3583
 msgid "Invalid post ID."
 msgstr "Ugyldigt indlægs-ID."
 
@@ -5749,7 +5749,7 @@ msgstr "Din browser understøtter ikke direkte adgang til udklipsholderen. Benyt
 
 #: wp-includes/class-wp-editor.php:974 wp-includes/script-loader.php:395
 #: wp-includes/script-loader.php:474 wp-includes/script-loader.php:482
-#: wp-includes/script-loader.php:586 wp-includes/theme.php:1968
+#: wp-includes/script-loader.php:586 wp-includes/theme.php:1947
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr "Dine ændringer vil gå tabt, hvis du går væk fra denne side."
 
