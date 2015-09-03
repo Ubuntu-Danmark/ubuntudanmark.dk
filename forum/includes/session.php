@@ -1170,6 +1170,8 @@ class session
 
 		if ($banned && !$return)
 		{
+			send_status_line(403, 'Forbidden');
+
 			global $template;
 
 			// If the session is empty we need to create a valid one...
