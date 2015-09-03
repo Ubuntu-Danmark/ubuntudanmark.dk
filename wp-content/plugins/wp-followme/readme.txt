@@ -2,8 +2,8 @@
 Contributors: wpburn
 Tags: twitter, follow, subscribe, subscription, badge, follow me, follow us, wp followme, tweet
 Requires at least: 2.8
-Tested up to: 3.4
-Stable tag: 2.0.8
+Tested up to: 4.2.3
+Stable tag: 2.0.8-CSS3
 
 WP FollowMe plugin allows you to add a twitter "Follow me" badge on your wordpress blog.
 

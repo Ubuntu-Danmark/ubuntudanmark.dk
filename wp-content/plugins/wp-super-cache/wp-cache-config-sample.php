@@ -17,7 +17,7 @@ $cache_path = WP_CONTENT_DIR . '/cache/';
 $file_prefix = 'wp-cache-';
 $ossdlcdn = 0;
 
-// Array of files that have 'wp-' but should still be cached 
+// Array of files that have 'wp-' but should still be cached
 $cache_acceptable_files = array( 'wp-comments-popup.php', 'wp-links-opml.php', 'wp-locations.php' );
 
 $cache_rejected_uri = array('wp-.*\\.php', 'index\\.php');
@@ -44,7 +44,7 @@ $wp_cache_mobile_browsers = 'Android, 2.0 MMP, 240x320, AvantGo, BlackBerry, Bla
 // change to relocate the supercache plugins directory
 $wp_cache_plugins_dir = WPCACHEHOME . 'plugins';
 // set to 1 to do garbage collection during normal process shutdown instead of wp-cron
-$wp_cache_shutdown_gc = 0; 
+$wp_cache_shutdown_gc = 0;
 $wp_super_cache_late_init = 0;
 
 // uncomment the next line to enable advanced debugging features
@@ -79,3 +79,4 @@ $wp_cache_clear_on_post_edit = 0;
 $wp_cache_hello_world = 0;
 $wp_cache_mobile_enabled = 0;
 $wp_cache_cron_check = 0;
+?>
