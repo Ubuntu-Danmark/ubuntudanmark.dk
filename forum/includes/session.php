@@ -1171,6 +1171,10 @@ class session
 		if ($banned && !$return)
 		{
 			send_status_line(403, 'Forbidden');
+			global $wp_query;
+			if (isset($wp_query)) {
+				$wp_query->is_404 = true; //Prevent WP from caching error page
+			}
 
 			global $template;
 
