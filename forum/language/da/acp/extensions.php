@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * @modified and translated by Olympus DK Team
-* @version $Id: extensions.php 444 2014-08-08 19:24:22Z jan_skovsgaard $
+* @version $Id: extensions.php 495 2015-06-28 07:29:36Z jan_skovsgaard $
 *
 * For full copyright and license information, please see
 * the docs/CREDITS.txt file.
@@ -73,6 +73,12 @@ $lang = array_merge($lang, array(
 	'EXTENSION_NAME'		=> 'Udvidelsens navn',
 	'EXTENSION_ACTIONS'		=> 'Handlinger',
 	'EXTENSION_OPTIONS'		=> 'Vis',
+	'EXTENSION_INSTALL_HEADLINE'=> 'Installation af udvidelse',
+	'EXTENSION_INSTALL_EXPLAIN'	=> '<ol>
+			<li>Download udvidelse fra phpBB’s udvidelsedatabase</li>
+			<li>Udpak udvidelsen og upload den til mappen <samp>ext/</samp> i din phpBB-installation</li>
+			<li>Aktiver udvidelsen her på siden</li>
+		</ol>',
 	'EXTENSION_UPDATE_HEADLINE'	=> 'Opdater udvidelse',
 	'EXTENSION_UPDATE_EXPLAIN'	=> '<ol>
 			<li>Deaktiver udvidelsen</li>
@@ -123,6 +129,8 @@ $lang = array_merge($lang, array(
 	'VERSIONCHECK_FORCE_UPDATE_ALL'		=> 'Genkontroller alle versioner',
 	'FORCE_UNSTABLE'					=> 'Kontroller altid efter ustabile versioner',
 	'EXTENSIONS_VERSION_CHECK_SETTINGS'	=> 'Indstillinger for versionkontrol',
+
+	'BROWSE_EXTENSIONS_DATABASE'		=> 'Browse udvidelsedatabase',
 
 	'META_FIELD_NOT_SET'	=> 'Obligatorisk metafelt %s er ikke udfyldt.',
 	'META_FIELD_INVALID'	=> 'Metafeltet %s er ugyldigt.',

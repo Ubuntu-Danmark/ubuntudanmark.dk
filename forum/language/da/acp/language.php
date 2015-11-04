@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * @modified and translated by Olympus DK Team
-* @version $Id: language.php 462 2014-10-25 10:48:26Z jan_skovsgaard $
+* @version $Id: language.php 495 2015-06-28 07:29:36Z jan_skovsgaard $
 *
 * For full copyright and license information, please see
 * the docs/CREDITS.txt file.
@@ -76,4 +76,6 @@ $lang = array_merge($lang, array(
 	'THOSE_MISSING_LANG_VARIABLES'		=> 'Følgende sprogvariabler mangler i "%s"-sprogpakken',
 
 	'UNINSTALLED_LANGUAGE_PACKS'	=> 'Afinstallerede sprogpakker',
+
+	'BROWSE_LANGUAGE_PACKS_DATABASE'	=> 'Browse sprogpakkedatabase',
 ));

@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * @modified and translated by Olympus DK Team
-* @version $Id: styles.php 472 2014-11-22 07:21:27Z jan_skovsgaard $
+* @version $Id: styles.php 495 2015-06-28 07:29:36Z jan_skovsgaard $
 *
 * For full copyright and license information, please see
 * the docs/CREDITS.txt file.
@@ -86,4 +86,6 @@ $lang = array_merge($lang, array(
 	'STYLE_USED_BY'				=> 'Bruges af (inklusive botter)',
 
 	'UNINSTALL_DEFAULT'		=> 'Du kan ikke afinstallere standardtypografien.',
+
+	'BROWSE_STYLES_DATABASE'	=> 'Browse typografidatabase',
 ));
