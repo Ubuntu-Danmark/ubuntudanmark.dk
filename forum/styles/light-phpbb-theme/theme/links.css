@@ -8,8 +8,6 @@ a {
 	text-decoration: none;
 }
 
-a:hover	{ text-decoration: underline; }
-
 /* Coloured usernames */
 .username-coloured {
 	font-weight: bold;

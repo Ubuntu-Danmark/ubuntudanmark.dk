@@ -198,7 +198,7 @@ h4 { font-size: 110%; margin-bottom: 0px; }
 h5 { font-size: 110%; font-weight: bold; margin-bottom: 10px; }
 h6 { font-size: 110%; font-weight: bold; }
 a, a:active { color: #772953; }
-a:hover { color: #DD4814; text-decoration: underline; }
+a:hover { color: #DD4814; }
 #top-bar { text-align: right; line-height: 20px; font-size: 90%; }
 #top-bar .top-bar-title { display: none; }
 #top-bar li { display: inline; padding-left: 10px; }
