@@ -45,6 +45,9 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+abbr {
+	text-decoration: none;
+}
 
 /* General Markup Styles
 ---------------------------------------- */
@@ -317,10 +320,10 @@ ul.linklist li.responsive-menu {
 ul.linklist li.responsive-menu a.responsive-menu-link {
 	display: inline-block;
 	margin: 0 5px;
-	font-size: 16px;
+	font-size: 1.455em;
 	position: relative;
 	width: 16px;
-	line-height: 20px;
+	line-height: 1.2em;
 	text-decoration: none;
 }
 
@@ -800,7 +803,7 @@ fieldset.fields1 dl.pmlist dd.recipients {
 /* Action-bars (container for post/reply buttons, pagination, etc.)
 ---------------------------------------- */
 .action-bar {
-	font-size: 11px;
+	font-size: 1.1em;
 	margin: 4px 0;
 }
 
@@ -812,7 +815,6 @@ fieldset.fields1 dl.pmlist dd.recipients {
 ---------------------------------------- */
 .pagination {
 	float: right;
-	font-size: 11px;
 	margin-top: 3px;
 	text-align: right;
 	width: auto;
@@ -1119,6 +1121,7 @@ ul.linklist:after,
 }
 
 .dropdown-extended ul {
+	padding-top: 12px !important;
 	max-height: 350px;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -1157,12 +1160,12 @@ ul.linklist:after,
 
 .dropdown-extended .header {
 	padding: 0 10px;
-	font-size: 11px;
+	font-size: 10px;
 	font-weight: bold;
 	text-align: left;
 	text-shadow: 1px 1px 1px white;
 	text-transform: uppercase;
-	line-height: 30px;
+	line-height: 3em;
 	border-bottom: 1px solid;
 	border-radius: 5px 5px 0 0;
 }
@@ -1214,7 +1217,7 @@ ul.linklist:after,
 }
 
 .notification_list p.notification-time {
-	font-size: 10px;
+	font-size: 0.9em;
 	margin: 0;
 	text-align: right;
 }
@@ -1229,7 +1232,7 @@ ul.linklist:after,
 }
 
 .notification_list p.notifications_title {
-	font-size: 13px !important;
+	font-size: 1.2em !important;
 }
 
 .notification_list p.notifications_title strong {
@@ -1237,7 +1240,7 @@ ul.linklist:after,
 }
 
 .notification_list p.notifications_time {
-	font-size: 10px !important;
+	font-size: 0.9em !important;
 }
 
 .notification_text {
@@ -1260,12 +1263,14 @@ ul.linklist:after,
 }
 
 #quick-links a.responsive-menu-link:before {
-	font-size: 16px;
+	font-size: 1.455em;
 	line-height: 16.5px;
 }
 
 .compact #quick-links a.responsive-menu-link {
-	font-size: 0;
+	width: 0;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .dropdown-page-jump .dropdown {

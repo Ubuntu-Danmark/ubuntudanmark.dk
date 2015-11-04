@@ -203,7 +203,8 @@ dd.lastpost, dd.redirect, dd.moderation, dd.time, dd.info {
 	width: 145px;
 }
 
-.forums .row dd.lastpost>span {
+.forums .row dd.lastpost>span,
+.topics .row dd.lastpost>span {
     display: block;
     height: 33px;
     padding: 7px 0;
