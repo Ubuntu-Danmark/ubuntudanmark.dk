@@ -352,7 +352,7 @@ abstract class driver implements driver_interface
 			}
 
 			$row = $this->sql_fetchrow($query_id);
-			return isset($row[$field]) ? $row[$field] : false;
+			return (isset($row[$field])) ? $row[$field] : false;
 		}
 
 		return false;
@@ -962,7 +962,7 @@ abstract class driver implements driver_interface
 				{
 					if (preg_match('/^(UPDATE|DELETE|REPLACE)/', $query))
 					{
-						$this->sql_report .= 'Affected rows: <b>' . $this->sql_affectedrows($this->query_result) . '</b> | ';
+						$this->sql_report .= 'Affected rows: <b>' . $this->sql_affectedrows() . '</b> | ';
 					}
 					$this->sql_report .= 'Before: ' . sprintf('%.5f', $this->curtime - $starttime) . 's | After: ' . sprintf('%.5f', $endtime - $starttime) . 's | Elapsed: <b>' . sprintf('%.5f', $endtime - $this->curtime) . 's</b>';
 				}
