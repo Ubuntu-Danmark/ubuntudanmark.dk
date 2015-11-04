@@ -29,14 +29,10 @@ function ubuntu_loco_content($content) {
 }
 
 /**
- * Add rounded corners script for handling border-radius
  * Load inits
  */
 function ubuntu_loco_js_scripts() {
-    wp_enqueue_script( 'jquery-corner', get_bloginfo('stylesheet_directory').'/js/jquery.corner.js', array('jquery'), '2.08' );
-    wp_enqueue_script( 'nivo-slider', get_bloginfo('stylesheet_directory').'/js/slider/jquery.nivo.slider.pack.js', array('jquery'), '2' );
-    wp_enqueue_style( 'nivo-slider', get_bloginfo('stylesheet_directory').'/js/slider/nivo-slider.css', null, '2' );
-    wp_enqueue_script( 'ubuntu-loco', get_bloginfo('stylesheet_directory').'/js/ubuntu-loco.js', array('jquery-corner', 'nivo-slider'), '0.2-light', true );
+    wp_enqueue_script( 'ubuntu-loco', get_bloginfo('stylesheet_directory').'/js/ubuntu-loco.js', null, '0.2-light', true );
 }
 
 /**

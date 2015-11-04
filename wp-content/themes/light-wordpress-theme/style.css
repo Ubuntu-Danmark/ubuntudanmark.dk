@@ -199,7 +199,6 @@ h5 { font-size: 110%; font-weight: bold; margin-bottom: 10px; }
 h6 { font-size: 110%; font-weight: bold; }
 a, a:active { color: #772953; }
 a:hover { color: #DD4814; text-decoration: underline; }
-a:visited { color: #777777; }
 #top-bar { text-align: right; line-height: 20px; font-size: 90%; }
 #top-bar .top-bar-title { display: none; }
 #top-bar li { display: inline; padding-left: 10px; }
@@ -327,20 +326,6 @@ Fancyness
 #comments-list a.comment-reply-link { background-color: #F7F7F7; color: #444; }
 
 /*
-Slider customization
-    Arrows
-    Captipon
-*/
-.slider { width: 100%; }
-.nivo-directionNav a { display:block; width:32px; height:34px; background:url("images/slider-arrows.png") no-repeat; text-indent:-9999px; border:0; }
-a.nivo-nextNav { background-position:-32px 0; right:10px; }
-a.nivo-prevNav { left:10px; }
-a.nivo-nextNav:hover { background-position:-32px -34px; right:10px; }
-a.nivo-prevNav:hover { background-position:0px -34px; left:10px; }
-.nivo-caption { opacity:0.8 !important; }
-.nivo-caption, .nivo-caption p { background: #FFF !important; color: #772953; font-weight: bold; }
-
-/*
 Special blocks
 */
 .loco-columns { clear: both; background-color: #F7F7F7; padding: 5px; margin-bottom: -3px; }
@@ -394,3 +379,35 @@ dd code { border:0; padding:0; }
 h2, h3 { color: #dd4814; }
 .guide_info { border-top: 2px solid #b5d4fe; border-bottom: 2px solid #b5d4fe; padding: 5px 20px 5px 45px; background: #f8fafc url('/wp-content/uploads/2012/01/info.gif') no-repeat scroll 15px 50%; text-align: left; color: #5e6273; }
 .guide_alert { border-top: 2px solid #ffd324; border-bottom: 2px solid #ffd324; padding: 5px 20px 5px 45px; background: #fff6bf url('/wp-content/uploads/2012/01/alert.gif') no-repeat scroll 15px 50%; text-align: left; color: #5e6273; }
+
+/* Make borders rounded */
+.awesome,
+.more-link,
+#primary,
+#secondary,
+#page-bottom,
+#respond,
+#comments-list,
+#respond #form-allowed-tags,
+#trackbacks-list,
+#comments-list ol li,
+#trackbacks-list ol li,
+#comments-list .comment-author img,
+#content .post,
+#content .page,
+#content .entry-utility div.cat-links li {
+    border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;
+}
+#secondary-access {
+    border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
+}
+#content .entry-meta,
+.loco-columns {
+    border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;
+}
+#content .entry-content .page-link {
+    border-top-left-radius: 5px; border-top-right-radius: 5px;
+}
+#content .entry-utility div ul li {
+    border-top-left-radius: 5px; border-bottom-left-radius: 5px;
+}
