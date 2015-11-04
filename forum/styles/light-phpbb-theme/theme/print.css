@@ -35,7 +35,6 @@ p { font-size: 85%; }
 .page-number { float:right; width: auto; text-align: right; font-size: 75%; }
 
 h1, h2, h3, h1 a, h2 a, h3 a {
-	font-family: "Trebuchet MS",georgia,Verdana,Sans-serif;
 	color: #000000;
 	background: none;
 	text-decoration: none;
@@ -50,7 +49,6 @@ h3 { font-size: 14pt; margin-top: 1em; }
 	font-size: 11pt;
 	line-height: 14pt;
 	margin-bottom: 1em;
-	font-family: "Lucida Grande", "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 	overflow: hidden;
 }
 
@@ -77,13 +75,11 @@ hr {
 }
 
 .author {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 75%;
 	margin-bottom: 0.6em;
 }
 
 .date {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
 	float: right;
 	position: relative;
 	text-align: right;

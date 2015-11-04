@@ -33,7 +33,7 @@
 			<!-- EVENT forumlist_body_forum_row_prepend -->
 			<dl class="icon {forumrow.FORUM_IMG_STYLE}">
 				<dt title="{forumrow.FORUM_FOLDER_IMG_ALT}">
-					<!-- IF forumrow.S_UNREAD_FORUM --><a href="{forumrow.U_VIEWFORUM}" class="icon-link"></a><!-- ENDIF -->
+					<a href="{forumrow.U_VIEWFORUM}" class="icon-link"></a>
 					<div class="list-inner">
 						<!-- IF S_ENABLE_FEEDS and forumrow.S_FEED_ENABLED --><!-- <a class="feed-icon-forum" title="{L_FEED} - {forumrow.FORUM_NAME}" href="{U_FEED}?f={forumrow.FORUM_ID}"><img src="{T_THEME_PATH}/images/feed.gif" alt="{L_FEED} - {forumrow.FORUM_NAME}" /></a> --><!-- ENDIF -->
 
@@ -69,6 +69,8 @@
 					<dd class="topics">{forumrow.TOPICS} <dfn>{L_TOPICS}</dfn></dd>
 					<dd class="posts">{forumrow.POSTS} <dfn>{L_POSTS}</dfn></dd>
 					<dd class="lastpost"><span>
+						{forumrow.LAST_POST_TIME}
+						<br />
 						<!-- IF forumrow.U_UNAPPROVED_TOPICS -->
 							<a href="{forumrow.U_UNAPPROVED_TOPICS}">{UNAPPROVED_IMG}</a>
 						<!-- ELSEIF forumrow.U_UNAPPROVED_POSTS -->
@@ -80,7 +82,7 @@
 							<a href="{forumrow.U_LAST_POST}" title="{forumrow.LAST_POST_SUBJECT}" class="lastsubject">{forumrow.LAST_POST_SUBJECT_TRUNCATED}</a> <br />
 						<!-- ENDIF --> 
 						{L_POST_BY_AUTHOR} {forumrow.LAST_POSTER_FULL}
-						<!-- IF not S_IS_BOT --><a href="{forumrow.U_LAST_POST}">{LAST_POST_IMG}</a> <!-- ENDIF --><br />{forumrow.LAST_POST_TIME}<!-- ELSE -->{L_NO_POSTS}<br />&nbsp;<!-- ENDIF --></span>
+						<!-- IF not S_IS_BOT --><a href="{forumrow.U_LAST_POST}">{LAST_POST_IMG}</a> <!-- ENDIF --> <!-- ELSE -->{L_NO_POSTS}<br />&nbsp;<!-- ENDIF --></span>
 					</dd>
 				<!-- ELSE -->
 					<dd>&nbsp;</dd>

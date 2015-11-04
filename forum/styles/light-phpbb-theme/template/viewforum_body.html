@@ -1,6 +1,5 @@
 <!-- INCLUDE overall_header.html -->
 <!-- EVENT viewforum_forum_title_before -->
-<h2 class="forum-title"><!-- EVENT viewforum_forum_name_prepend --><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a><!-- EVENT viewforum_forum_name_append --></h2>
 <!-- EVENT viewforum_forum_title_after -->
 <!-- IF FORUM_DESC or MODERATORS or U_MCP -->
 <div>
@@ -49,7 +48,7 @@
 		</div>
 	<!-- ENDIF -->
 
-	<!-- IF S_DISPLAY_SEARCHBOX -->
+	<!-- IF false and S_DISPLAY_SEARCHBOX -->
 		<div class="search-box" role="search">
 			<form method="get" id="forum-search" action="{S_SEARCHBOX_ACTION}">
 			<fieldset>
@@ -182,7 +181,7 @@
 						<div class="responsive-hide">
 							<!-- IF topicrow.S_HAS_POLL -->{POLL_IMG} <!-- ENDIF -->
 							<!-- IF topicrow.ATTACH_ICON_IMG -->{topicrow.ATTACH_ICON_IMG} <!-- ENDIF -->
-							{L_POST_BY_AUTHOR} {topicrow.TOPIC_AUTHOR_FULL} &raquo; {topicrow.FIRST_POST_TIME}
+							{L_POST_BY_AUTHOR} {topicrow.TOPIC_AUTHOR_FULL}
 							<!-- IF topicrow.S_POST_GLOBAL and FORUM_ID != topicrow.FORUM_ID --> &raquo; {L_IN} <a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a><!-- ENDIF -->
 						</div>
 
@@ -213,7 +212,7 @@
 	<!-- ENDIF -->
 <!-- END topicrow -->
 
-<!-- IF S_SELECT_SORT_DAYS and not S_DISPLAY_ACTIVE -->
+<!-- IF false and S_SELECT_SORT_DAYS and not S_DISPLAY_ACTIVE -->
 	<form method="post" action="{S_FORUM_ACTION}">
 		<fieldset class="display-options">
 	<!-- IF not S_IS_BOT -->
@@ -227,7 +226,7 @@
 	<hr />
 <!-- ENDIF -->
 
-<!-- IF .topicrow and not S_DISPLAY_ACTIVE -->
+<!-- IF false and .topicrow and not S_DISPLAY_ACTIVE -->
 	<div class="action-bar bottom">
 		<!-- IF not S_IS_BOT and S_DISPLAY_POST_INFO -->
 			<div class="buttons">
@@ -253,9 +252,7 @@
 	</div>
 <!-- ENDIF -->
 
-<!-- INCLUDE jumpbox.html -->
-
-<!-- IF S_DISPLAY_ONLINE_LIST -->
+<!-- IF false and S_DISPLAY_ONLINE_LIST -->
 	<div class="stat-block online-list">
 		<h3><!-- IF U_VIEWONLINE --><a href="{U_VIEWONLINE}">{L_WHO_IS_ONLINE}</a><!-- ELSE -->{L_WHO_IS_ONLINE}<!-- ENDIF --></h3>
 		<p>{LOGGED_IN_USER_LIST}</p>

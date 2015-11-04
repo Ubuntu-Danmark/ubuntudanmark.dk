@@ -32,8 +32,7 @@ ul.topiclist dt, ul.topiclist dd {
 
 ul.topiclist dt {
 	width: 100%;
-	margin-right: -440px;
-	font-size: 1.1em;
+	margin-right: -293px;
 }
 
 ul.topiclist.missing-column dt {
@@ -48,8 +47,13 @@ ul.topiclist.two-columns dt {
 	margin-right: -80px;
 }
 
+ul.topics dt .list-inner {
+	padding-top: 5px;
+	line-height: 1.5;
+}
+
 ul.topiclist dt .list-inner {
-	margin-right: 440px;
+	margin-right: 293px;
 	padding-left: 5px;
 	padding-right: 5px;
 }
@@ -106,24 +110,23 @@ li.row strong {
 }
 
 li.header dt, li.header dd {
-	line-height: 1em;
+	line-height: 0.9em;
 	border-left-width: 0;
 	margin: 2px 0 4px 0;
 	padding-top: 2px;
 	padding-bottom: 2px;
-	font-size: 1em;
-	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
 	text-transform: uppercase;
 }
 
 li.header dt {
 	font-weight: bold;
 	width: 100%;
-	margin-right: -440px;
+	margin-right: -293px;
 }
 
 li.header dt .list-inner {
-	margin-right: 440px;
+	margin-right: 293px;
 }
 
 li.header dd {
@@ -177,12 +180,11 @@ dl a.icon-link {						/* topic row icon links */
 dd.posts, dd.topics, dd.views, dd.extra, dd.mark {
 	width: 80px;
 	text-align: center;
-	line-height: 2.2em;
-	font-size: 1.2em;
+	line-height: 47px;
 }
 
 dd.posts, dd.topics, dd.views {
-	width: 95px;
+	width: 74px;
 }
 
 /* List in forum description */
@@ -198,8 +200,15 @@ dl.icon dt li {
 }
 
 dd.lastpost, dd.redirect, dd.moderation, dd.time, dd.info {
-	width: 250px;
-	font-size: 1.1em;
+	width: 145px;
+}
+
+.forums .row dd.lastpost>span {
+    display: block;
+    height: 33px;
+    padding: 7px 0;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 dd.redirect {
@@ -212,7 +221,7 @@ dd.time {
 
 dd.lastpost > span, ul.topiclist dd.info > span, ul.topiclist dd.time > span, dd.redirect > span, dd.moderation > span {
 	display: block;
-	padding-left: 5px;
+	text-align: center;
 }
 
 dd.extra, dd.mark {
@@ -229,11 +238,12 @@ dd.option {
 /* Post body styles
 ----------------------------------------*/
 .postbody {
-	padding: 0;
+	padding: 0 0 0 8px;
 	line-height: 1.48em;
-	width: 76%;
-	float: left;
+	width: 81%;
+	float: right;
 	position: relative;
+	border-left: 1px solid #cccccc;
 }
 
 .postbody .ignore {
@@ -254,7 +264,6 @@ dd.option {
 	margin-bottom: 0.3em !important;
 	text-transform: none;
 	border: none;
-	font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
 	line-height: 125%;
 }
 
@@ -330,7 +339,6 @@ dd.option {
 	min-height: 3em;
 	overflow: hidden;
 	line-height: 1.4em;
-	font-family: "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
 	font-size: 1em;
 	padding-bottom: 1px;
 }
@@ -355,14 +363,12 @@ dd.option {
 }
 
 .content p {
-	font-family: "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
 	font-size: 1.2em;
 	margin-bottom: 1em;
 	line-height: 1.4em;
 }
 
 dl.faq {
-	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
 	font-size: 1.1em;
 	margin-top: 1em;
 	margin-bottom: 2em;
@@ -395,7 +401,6 @@ dl.faq dt {
 p.author {
 	margin-bottom: 0.6em;
 	padding: 0 0 5px 0;
-	font-family: Verdana, Helvetica, Arial, sans-serif;
 	font-size: 1em;
 	line-height: 1.2em;
 	clear: both;
@@ -436,7 +441,6 @@ dd .signature {
 
 /* Post noticies */
 .notice {
-	font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
 	width: auto;
 	margin-top: 1.5em;
 	padding-top: 0.2em;
@@ -536,7 +540,6 @@ blockquote .codebox {
 }
 
 .attachbox dt {
-	font-family: Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 }
 
@@ -587,7 +590,6 @@ div.inline-attachment p {
 }
 
 dl.file {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
 	display: block;
 }
 
@@ -596,7 +598,6 @@ dl.file dt {
 	margin: 0;
 	padding: 0;
 	font-weight: bold;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 dl.file dd {
@@ -612,7 +613,6 @@ dl.thumbnail img {
 
 dl.thumbnail dd {
 	font-style: italic;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 .attachbox dl.thumbnail dd {
@@ -625,10 +625,6 @@ dl.thumbnail dt a:hover img {
 
 /* Post poll styles
 ----------------------------------------*/
-fieldset.polls {
-	font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
-}
-
 fieldset.polls dl {
 	margin-top: 5px;
 	border-top: 1px solid transparent;
@@ -670,7 +666,6 @@ fieldset.polls dd input {
 
 fieldset.polls dd div {
 	text-align: right;
-	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	padding: 0 2px;
 	overflow: visible;
@@ -694,10 +689,11 @@ fieldset.polls dd div {
 	margin: 5px 0 10px 0;
 	min-height: 80px;
 	border: 1px solid transparent;
-	border-width: 0 0 0 1px;
-	width: 22%;
-	float: right;
+	border-width: 0;
+	width: 17%;
+	float: left;
 	display: inline;
+	text-align: center;
 }
 
 .postprofile dd, .postprofile dt {
@@ -712,6 +708,7 @@ fieldset.polls dd div {
 
 .postprofile strong {
 	font-weight: normal;
+	display: block;
 }
 
 .postprofile dt.no-profile-rank, .postprofile dd.profile-rank, .postprofile .search-result-date {
@@ -726,7 +723,6 @@ fieldset.polls dd div {
 
 .postprofile .avatar {
 	display: block;
-	float: left;
 	max-width: 100%;
 }
 
@@ -734,6 +730,7 @@ fieldset.polls dd div {
 	display: block;
 	height: auto !important;
 	max-width: 100%;
+	margin: auto;
 }
 
 .postprofile .profile-posts a {
@@ -762,8 +759,12 @@ dd.profile-contact {
 
 .online {
 	background-image: none;
-	background-position: 100% 0;
+	background-position: 0 0;
 	background-repeat: no-repeat;
+}
+
+.avatar-container {
+    padding-top: 4px;
 }
 
 /* Poster profile used by search*/

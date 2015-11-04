@@ -1,11 +1,42 @@
-<!DOCTYPE html>
-<html dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-{META}
-<title><!-- IF UNREAD_NOTIFICATIONS_COUNT -->({UNREAD_NOTIFICATIONS_COUNT}) <!-- ENDIF --><!-- IF not S_VIEWTOPIC and not S_VIEWFORUM -->{SITENAME} - <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} - <!-- ELSEIF S_IN_UCP -->{L_UCP} - <!-- ENDIF -->{PAGE_TITLE}<!-- IF S_VIEWTOPIC or S_VIEWFORUM --> - {SITENAME}<!-- ENDIF --></title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" lang="{S_USER_LANG}">
+<head profile="http://gmpg.org/xfn/11">
+	{META}
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><!-- IF UNREAD_NOTIFICATIONS_COUNT -->({UNREAD_NOTIFICATIONS_COUNT}) <!-- ENDIF --><!-- IF not S_VIEWTOPIC and not S_VIEWFORUM -->{SITENAME} - <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} - <!-- ELSEIF S_IN_UCP -->{L_UCP} - <!-- ENDIF -->{PAGE_TITLE}<!-- IF S_VIEWTOPIC or S_VIEWFORUM --> - {SITENAME}<!-- ENDIF --></title>
+	<meta name="robots" content="index,follow" />
+	<!-- IF S_ALLOW_CDN -->
+	<script>
+		WebFontConfig = {
+			google: {
+				families: ['Ubuntu:n6']
+			}
+		};
 
+		(function(d) {
+			var wf = d.createElement('script'), s = d.scripts[0];
+			wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+			wf.async = true;
+			s.parentNode.insertBefore(wf, s);
+		})(document);
+	</script>
+	<!-- ENDIF -->
+	<link rel='stylesheet' id='thematic_style-css' href='/wp-content/themes/light-wordpress-theme/style.css?ver=4.2.3' type='text/css' media='all' />
+	<link href="{T_STYLESHEET_LINK}" rel="stylesheet">
+	<link href="{T_STYLESHEET_LANG_LINK}" rel="stylesheet">
+	<link href="{T_THEME_PATH}/responsive.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet" media="all and (max-width: 700px), all and (max-device-width: 700px)">
+
+	<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
+		<link href="{T_THEME_PATH}/bidi.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+	<!-- ENDIF -->
+
+	<!-- IF S_PLUPLOAD -->
+		<link href="{T_THEME_PATH}/plupload.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+	<!-- ENDIF -->
+
+	<!--[if lte IE 9]>
+		<link href="{T_THEME_PATH}/tweaks.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
+	<![endif]-->
 <!-- IF S_ENABLE_FEEDS -->
 	<!-- IF S_ENABLE_FEEDS_OVERALL --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {SITENAME}" href="{U_FEED}"><!-- ENDIF -->
 	<!-- IF S_ENABLE_FEEDS_NEWS --><link rel="alternate" type="application/atom+xml" title="{L_FEED} - {L_FEED_NEWS}" href="{U_FEED}?mode=news"><!-- ENDIF -->
@@ -19,100 +50,166 @@
 <!-- IF U_CANONICAL -->
 	<link rel="canonical" href="{U_CANONICAL}">
 <!-- ENDIF -->
-
-<!--
-	phpBB style name: prosilver
-	Based on style:   prosilver (this is the default phpBB3 style)
-	Original author:  Tom Beddard ( http://www.subBlue.com/ )
-	Modified by:
--->
-
-<!-- IF S_ALLOW_CDN -->
-<script>
-	WebFontConfig = {
-		google: {
-			families: ['Open Sans:n6']
-		}
-	};
-
-	(function(d) {
-		var wf = d.createElement('script'), s = d.scripts[0];
-		wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
-		wf.async = true;
-		s.parentNode.insertBefore(wf, s);
-	})(document);
-</script>
-<!-- ENDIF -->
-<link href="{T_STYLESHEET_LINK}" rel="stylesheet">
-<link href="{T_STYLESHEET_LANG_LINK}" rel="stylesheet">
-<link href="{T_THEME_PATH}/responsive.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet" media="all and (max-width: 700px), all and (max-device-width: 700px)">
-
-<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
-	<link href="{T_THEME_PATH}/bidi.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
-<!-- ENDIF -->
-
-<!-- IF S_PLUPLOAD -->
-	<link href="{T_THEME_PATH}/plupload.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
-<!-- ENDIF -->
-
-<!--[if lte IE 9]>
-	<link href="{T_THEME_PATH}/tweaks.css?assets_version={T_ASSETS_VERSION}" rel="stylesheet">
-<![endif]-->
+	<link rel="shortcut icon" href="/wp-content/themes/light-wordpress-theme/images/favicon.ico" type="image/x-icon" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<link rel="stylesheet" type="text/css" media="print" href="/wp-content/themes/light-wordpress-theme/print.css" />
 
 <!-- EVENT overall_header_head_append -->
 
 {$STYLESHEETS}
 
 <!-- EVENT overall_header_stylesheets_after -->
-
 </head>
-<body id="phpbb" class="nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS}">
-
+<body id="phpbb" class="page page-parent page-template-default nojs notouch section-{SCRIPT_NAME} {S_CONTENT_DIRECTION} {BODY_CLASS}">
 <!-- EVENT overall_header_body_before -->
-
-<div id="wrap">
-	<a id="top" class="anchor" accesskey="t"></a>
-	<div id="page-header">
-		<div class="headerbar" role="banner">
-			<div class="inner">
-
-			<div id="site-description">
-				<a id="logo" class="logo" href="<!-- IF U_SITE_HOME -->{U_SITE_HOME}<!-- ELSE -->{U_INDEX}<!-- ENDIF -->" title="<!-- IF U_SITE_HOME -->{L_SITE_HOME}<!-- ELSE -->{L_INDEX}<!-- ENDIF -->">{SITE_LOGO_IMG}</a>
-				<h1>{SITENAME}</h1>
-				<p>{SITE_DESCRIPTION}</p>
-				<p class="skiplink"><a href="#start_here">{L_SKIP}</a></p>
-			</div>
-
-			<!-- EVENT overall_header_searchbox_before -->
-			<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
-			<div id="search-box" class="search-box search-header" role="search">
-				<form action="{U_SEARCH}" method="get" id="search">
-				<fieldset>
-					<input name="keywords" id="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}" class="inputbox search tiny" size="20" value="{SEARCH_WORDS}" placeholder="{L_SEARCH_MINI}" />
-					<button class="button icon-button search-icon" type="submit" title="{L_SEARCH}">{L_SEARCH}</button>
-					<a href="{U_SEARCH}" class="button icon-button search-adv-icon" title="{L_SEARCH_ADV}">{L_SEARCH_ADV}</a>
-					{S_SEARCH_HIDDEN_FIELDS}
-				</fieldset>
-				</form>
-			</div>
-			<!-- ENDIF -->
-
-			</div>
+	<div id="wrapper" class="hfeed"><div id="top-bar">
 		</div>
-		<!-- EVENT overall_header_navbar_before -->
-		<!-- INCLUDE navbar_header.html -->
-	</div>
+		<a id="top" class="anchor" accesskey="t"></a>
+		<div id="header">
+<!-- PHP -->
+if (empty($_SERVER['HTTPS']) || mb_strtolower($_SERVER['HTTPS']) === 'off') {
+	$protocol = 'http';
+} else {
+	$protocol = 'https';
+}
 
-	<!-- EVENT overall_header_page_body_before -->
+$primary_header_menu = file_get_contents($protocol . '://' . request_var('HTTP_HOST', 'localhost') . '/forum/styles/light-phpbb-theme/wp_menu.php');
 
-	<a id="start_here" class="anchor"></a>
-	<div id="page-body" role="main">
-		<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
-		<div id="information" class="rules">
-			<div class="inner">
-				<strong>{L_INFORMATION}{L_COLON}</strong> {L_BOARD_DISABLED}
-			</div>
+$primary_header_menu = preg_replace(
+	'#(.+)class="menu-item (.+?)href="/forum/"#s',
+	'\1class="menu-item current-menu-item \2href="/forum/"',
+	$primary_header_menu
+);
+preg_match('#.+href="/forum/".+?/a>#s', $primary_header_menu, $match);
+$menu_part1 = $match[0];
+$menu_part2 = mb_substr($primary_header_menu, mb_strlen($match[0]));
+
+echo $menu_part1;
+<!-- ENDPHP -->
+
+<!-- EVENT overall_header_navbar_before -->
+<ul class="sub-menu" role="menubar">
+
+	<li id="quick-links" class="small-icon responsive-menu dropdown-container<!-- IF not S_DISPLAY_QUICK_LINKS and not S_DISPLAY_SEARCH --> hidden<!-- ENDIF -->" data-skip-responsive="true">
+		<a href="#" class="dropdown-trigger">{L_QUICK_LINKS}</a>
+		<div class="dropdown hidden">
+			<div class="pointer"><div class="pointer-inner"></div></div>
+			<ul class="dropdown-contents" role="menu">
+				<!-- EVENT navbar_header_quick_links_before -->
+
+				<!-- IF S_DISPLAY_SEARCH -->
+					<!-- IF S_REGISTERED_USER -->
+						<li class="small-icon icon-search-self"><a href="{U_SEARCH_SELF}" role="menuitem">{L_SEARCH_SELF}</a></li>
+					<!-- ENDIF -->
+					<!-- IF S_USER_LOGGED_IN -->
+						<li class="small-icon icon-search-new"><a href="{U_SEARCH_NEW}" role="menuitem">{L_SEARCH_NEW}</a></li>
+					<!-- ENDIF -->
+					<!-- IF S_LOAD_UNREADS -->
+						<li class="small-icon icon-search-unread"><a href="{U_SEARCH_UNREAD}" role="menuitem">{L_SEARCH_UNREAD}</a></li>
+					<!-- ENDIF -->
+					<li class="small-icon icon-search-unanswered"><a href="{U_SEARCH_UNANSWERED}" role="menuitem">{L_SEARCH_UNANSWERED}</a></li>
+					<li class="small-icon icon-search-active"><a href="{U_SEARCH_ACTIVE_TOPICS}" role="menuitem">{L_SEARCH_ACTIVE_TOPICS}</a></li>
+				<!-- ENDIF -->
+
+				<!-- IF not S_IS_BOT and (S_DISPLAY_MEMBERLIST or U_TEAM) -->
+					<!-- IF U_TEAM --><li class="small-icon icon-team"><a href="{U_TEAM}" role="menuitem">{L_THE_TEAM}</a></li><!-- ENDIF -->
+				<!-- ENDIF -->
+
+				<!-- IF U_CONTACT_US --><li class="small-icon icon-contact"><a href="{U_CONTACT_US}" role="menuitem">{L_CONTACT_US}</a></li><!-- ENDIF -->
+
+				<!-- EVENT navbar_header_quick_links_after -->
+			</ul>
 		</div>
+	</li>
+
+	<!-- IF S_REGISTERED_USER -->
+		<li id="username_logged_in" class="rightside <!-- IF CURRENT_USER_AVATAR --> no-bulletin<!-- ENDIF -->" data-skip-responsive="true">
+			<!-- EVENT navbar_header_username_prepend -->
+			<div class="header-profile dropdown-container">
+				<a href="{U_PROFILE}" class="header-avatar dropdown-trigger"><!-- IF CURRENT_USER_AVATAR -->{CURRENT_USER_AVATAR} <!-- ENDIF -->{CURRENT_USERNAME_SIMPLE}</a>
+				<div class="dropdown hidden">
+					<div class="pointer"><div class="pointer-inner"></div></div>
+					<ul class="dropdown-contents" role="menu">
+						<!-- IF U_RESTORE_PERMISSIONS --><li class="small-icon icon-restore-permissions"><a href="{U_RESTORE_PERMISSIONS}">{L_RESTORE_PERMISSIONS}</a></li><!-- ENDIF -->
+
+						<!-- EVENT navbar_header_profile_list_before -->
+
+						<li class="small-icon icon-ucp"><a href="{U_PROFILE}" title="{L_PROFILE}" role="menuitem">{L_PROFILE}</a></li>
+						<li class="small-icon icon-profile"><a href="{U_USER_PROFILE}" title="{L_READ_PROFILE}" role="menuitem">{L_READ_PROFILE}</a></li>
+
+						<!-- EVENT navbar_header_profile_list_after -->
+
+						<li class="small-icon icon-logout"><a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x" role="menuitem">{L_LOGIN_LOGOUT}</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- EVENT navbar_header_username_append -->
+		</li>
+		<!-- IF S_DISPLAY_PM -->
+			<li class="small-icon icon-pm rightside" data-skip-responsive="true">
+				<a href="{U_PRIVATEMSGS}" role="menuitem"><span>{L_PRIVATE_MESSAGES} [</span><strong>{PRIVATE_MESSAGE_COUNT}</strong><span>]</span></a>
+			</li>
 		<!-- ENDIF -->
+		<!-- IF S_NOTIFICATIONS_DISPLAY -->
+			<li class="small-icon icon-notification dropdown-container dropdown-{S_CONTENT_FLOW_END} rightside" data-skip-responsive="true">
+				<a href="{U_VIEW_ALL_NOTIFICATIONS}" id="notification_list_button" class="dropdown-trigger"><span>{L_NOTIFICATIONS} [</span><strong>{NOTIFICATIONS_COUNT}</strong><span>]</span></a>
+				<!-- INCLUDE notification_dropdown.html -->
+			</li>
+		<!-- ENDIF -->
+	<!-- ELSE -->
+		<li class="small-icon icon-logout rightside"  data-skip-responsive="true"><a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x" role="menuitem">{L_LOGIN_LOGOUT}</a></li>
+		<!-- IF S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
+			<li class="small-icon icon-register rightside" data-skip-responsive="true"><a href="{U_REGISTER}" role="menuitem">{L_REGISTER}</a></li>
+		<!-- ENDIF -->
+		<!-- EVENT navbar_header_logged_out_content -->
+	<!-- ENDIF -->
 
-		<!-- EVENT overall_header_content_before -->
+	<!-- IF U_ACP --><li class="small-icon icon-acp" data-last-responsive="true"><a href="{U_ACP}" title="{L_ACP}" role="menuitem">{L_ACP_SHORT}</a></li><!-- ENDIF -->
+	<!-- IF U_MCP --><li class="small-icon icon-mcp" data-last-responsive="true"><a href="{U_MCP}" title="{L_MCP}" role="menuitem">{L_MCP_SHORT}</a></li><!-- ENDIF -->
+
+	<!-- EVENT overall_header_navigation_prepend -->
+	<li class="menu-item menu-item-type-custom">
+		<a href="{U_FAQ}" rel="help" title="{L_FAQ_EXPLAIN}" role="menuitem">{L_FAQ}</a>
+	</li>
+	<!-- EVENT overall_header_navigation_append -->
+
+</ul>
+
+<!-- PHP -->
+echo $menu_part2;
+<!-- ENDPHP -->
+		</div><!-- #header-->
+		<div id="secondary-header">
+			<div id="secondary-access">
+				<!-- EVENT overall_header_searchbox_before -->
+				<!-- IF S_DISPLAY_SEARCH and not S_IN_SEARCH -->
+				<div id="loco-search-form">
+					<form action="{U_SEARCH}" method="get" id="searchform" role="search">
+						<fieldset>
+							<input type="text" name="keywords" id="keywords" type="search" maxlength="128" title="{L_SEARCH_KEYWORDS}" size="32" value="{SEARCH_WORDS}" />
+							<input type="submit" value="{L_SEARCH}">
+							<a href="{U_SEARCH}" title="{L_SEARCH_ADV}"><button class="icon-button search-adv-icon" type="button" value="{L_SEARCH_ADV}"></button></a>
+							{S_SEARCH_HIDDEN_FIELDS}
+						</fieldset>
+					</form>
+				</div>
+				<!-- ENDIF -->
+			</div>
+		</div>
+		<!-- EVENT overall_header_page_body_before -->
+		<a id="start_here" class="anchor"></a>
+		<div id="main" role="main">
+			<div id="container">
+				<div id="content">
+					<div style="border-radius: 5px;" class="page type-page status-publish hentry">
+						<!-- INCLUDE navbar_header.html -->
+
+						<!-- IF S_BOARD_DISABLED and S_USER_LOGGED_IN and (U_MCP or U_ACP) -->
+						<div id="information" class="rules">
+							<div class="inner">
+								<strong>{L_INFORMATION}{L_COLON}</strong> {L_BOARD_DISABLED}
+							</div>
+						</div>
+						<!-- ENDIF -->
+
+						<!-- EVENT overall_header_content_before -->
