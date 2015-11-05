@@ -229,11 +229,11 @@ fieldset.submit-buttons input {
 }
 
 #message-box textarea {
+	font-family: 'Ubuntubeta', 'Ubuntu','Bitstream Vera Sans','DejaVu Sans', Tahoma, sans-serif;
 	width: 450px;
 	height: 270px;
 	min-width: 100%;
 	max-width: 100%;
-	font-size: 1.2em;
 	resize: vertical;
 	outline: 3px dashed transparent;
 	outline-offset: -4px;
