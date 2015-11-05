@@ -58,7 +58,6 @@ RewriteCond %{HTTPS} !on
 RewriteCond %{DOCUMENT_ROOT}/wp-content/cache/supercache/%{SERVER_NAME}/$1/index.html -f
 RewriteRule ^(.*) "/wp-content/cache/supercache/%{SERVER_NAME}/$1/index.html" [L]
 </IfModule>
-
 # END WPSuperCache
 
 
