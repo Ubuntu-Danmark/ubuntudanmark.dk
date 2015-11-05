@@ -1,5 +1,5 @@
-# Translation of Development in Danish
-# This file is distributed under the same license as the Development package.
+# Translation of Development (trunk) in Danish
+# This file is distributed under the same license as the Development (trunk) package.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2015-06-23 21:06:43+0000\n"
@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/1.0-alpha-1100\n"
-"Project-Id-Version: Development\n"
+"Project-Id-Version: Development (trunk)\n"
 
 #: views/notice.php:94
 msgid "Your API key is no longer valid. Please enter a new key or contact support@akismet.com."
@@ -414,7 +414,7 @@ msgstr "Ved et automatisk ekstra tjek af denne kommentar, blev den godkendt af A
 msgid "View comment history"
 msgstr "Se kommentarhistorie"
 
-#. #-#-#-#-#  akismet.pot (Akismet 3.1.4a1)  #-#-#-#-#
+#. #-#-#-#-#  tmp-akismet.pot (Akismet 3.1.4a1)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: class.akismet-admin.php:76 class.akismet-admin.php:78
 #: class.akismet-admin.php:842 views/config.php:3
