@@ -315,6 +315,7 @@ dd.option {
 	float: none;
 	margin: 0;
 	height: auto;
+	border-left: 0;
 }
 
 #topicreview .post {
@@ -415,7 +416,6 @@ p.author {
 .signature {
 	margin-top: 1.5em;
 	padding-top: 0.2em;
-	font-size: 1.1em;
 	border-top: 1px solid transparent;
 	clear: left;
 	line-height: 140%;
