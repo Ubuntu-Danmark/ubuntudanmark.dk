@@ -9,6 +9,15 @@ You can install this on the latest release of phpBB 3.1 by following the steps b
 4. Look for 'Delete my registration' under the Disabled Extensions list, and click its 'Enable' link.
 5. Set up and configure 'Delete my registration' by navigating in the ACP to 'Extensions' -> 'Delete my registration'.
 
+## Update
+
+1. Unzip the downloaded release.
+2. Copy the 'jv' directory in the  (your forum root)/ext/) directory.
+3. Navigate in the ACP to 'Customise -> Manage extensions'.
+4. Look for 'Delete my registration' under the Enabled Extensions list, and click its 'Disable' link.
+4. Look for 'Delete my registration' under the Disabled Extensions list, and click its 'Enable' link.
+5. Set up and configure 'Delete my registration' by navigating in the ACP to 'Extensions' -> 'Delete my registration'.
+
 ## Uninstall
 
 1. Navigate in the ACP to 'Customise -> Extension Management -> Extensions'.

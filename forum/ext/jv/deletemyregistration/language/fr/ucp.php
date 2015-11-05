@@ -6,6 +6,7 @@
 * @author KillBill - killbill@jatek-vilag.com
 * @copyright 2010-2014 (c) http://jatek-vilag.com/ - info@jatek-vilag.com
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* @French translation by Scoufy & Galixte (http://www.galixte.com)
 *
 */
 
@@ -36,11 +37,11 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste: ‚ ‘ ’ « » „ “ ” …
 
 $lang = array_merge($lang, array(
-	'MY_ACC_DELETE_CONFIRM'			=> 'Regisztráció törlésének megerősítése',
-	'MY_ACC_DELETE_CONFIRM_ERROR'	=> 'A regisztráció törlése nem lett megerősítve!',
-	'MY_ACC_DELETE_EXPLAIN'			=> 'Saját regisztráció törlése.<br /><em>Vedd figyelembe, ha megteszed akkor nincs mód az adataid visszaállítására a későbbiekben!</em>',
-	'MY_ACC_DELETE_FOUNDER_ERROR'	=> 'Fórum alapító nem törölheti a regisztrációját!',
-	'MY_ACC_DELETE_SUCCESS'			=> 'A regisztráció törlése sikeres',
-	'MY_ACC_POST_DELETE'			=> 'Hozzászólásaim törlése',
-	'MY_ACC_POST_DELETE_EXPLAIN'	=> 'A fórumból törlésre kerülnek a hozzászólásaid.',
+	'MY_ACC_DELETE_CONFIRM'			=> 'Confirmer la suppression de votre compte',
+	'MY_ACC_DELETE_CONFIRM_ERROR'	=> 'La suppression de votre compte n’a pas été confirmée.',
+	'MY_ACC_DELETE_EXPLAIN'			=> 'Avant de supprimer votre compte :<br /><em>Veuillez noter que, si vous le faites vos données ne pourront pas être restaurées !</em>',
+	'MY_ACC_DELETE_FOUNDER_ERROR'	=> 'Les fondateurs du forum ne peuvent pas supprimer leur compte.',
+	'MY_ACC_DELETE_SUCCESS'			=> 'Votre compte a été supprimé avec succès',
+	'MY_ACC_POST_DELETE'			=> 'Supprimer vos messages',
+	'MY_ACC_POST_DELETE_EXPLAIN'	=> 'Vos messages seront supprimés du forum.',
 ));

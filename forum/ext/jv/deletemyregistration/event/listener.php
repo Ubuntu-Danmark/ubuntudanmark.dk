@@ -2,7 +2,7 @@
 /**
 *
 * @package Delete my registration
-* @version $Id$
+* @version $Id: listener.php 7 2015-09-03 00:33:59Z killbill $
 * @author KillBill - killbill@jatek-vilag.com
 * @copyright 2010-2014 (c) http://jatek-vilag.com/ - info@jatek-vilag.com
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2

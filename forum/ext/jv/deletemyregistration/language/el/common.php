@@ -2,10 +2,12 @@
 /**
 *
 * @package Delete my registration
-* @version $Id: ucp.php 7 2015-09-03 00:33:59Z killbill $
+* @version $Id: common.php 7 2015-09-03 00:33:59Z killbill $
 * @author KillBill - killbill@jatek-vilag.com
 * @copyright 2010-2014 (c) http://jatek-vilag.com/ - info@jatek-vilag.com
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+*
+* Ελληνική μετάφραση [el]
 *
 */
 
@@ -36,11 +38,10 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste: ‚ ‘ ’ « » „ “ ” …
 
 $lang = array_merge($lang, array(
-	'MY_ACC_DELETE_CONFIRM'			=> 'Regisztráció törlésének megerősítése',
-	'MY_ACC_DELETE_CONFIRM_ERROR'	=> 'A regisztráció törlése nem lett megerősítve!',
-	'MY_ACC_DELETE_EXPLAIN'			=> 'Saját regisztráció törlése.<br /><em>Vedd figyelembe, ha megteszed akkor nincs mód az adataid visszaállítására a későbbiekben!</em>',
-	'MY_ACC_DELETE_FOUNDER_ERROR'	=> 'Fórum alapító nem törölheti a regisztrációját!',
-	'MY_ACC_DELETE_SUCCESS'			=> 'A regisztráció törlése sikeres',
-	'MY_ACC_POST_DELETE'			=> 'Hozzászólásaim törlése',
-	'MY_ACC_POST_DELETE_EXPLAIN'	=> 'A fórumból törlésre kerülnek a hozzászólásaid.',
+	'ACL_U_MY_ACC_POST_DELETE'	=> 'Μπορεί να διαγράψει τις δημοσιεύσεις όταν διαγράφει το λογαριασμό',
+
+	'UCP_PROFILE_MY_ACC_DELETE'	=> 'Διαγραφή λογαριασμού',
+
+	'LOG_MY_ACC_DELETE'			=> '<strong>Διαγραφή του λογαριασμού μου</strong><br />» %s',
+	'LOG_MY_ACC_POST_DELETE'	=> '<strong>Διαγραφή του λογαριασμού μου, μαζί με τις δημοσιεύσεις.</strong><br />» %s',
 ));

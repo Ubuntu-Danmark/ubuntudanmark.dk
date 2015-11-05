@@ -2,10 +2,11 @@
 /**
 *
 * @package Delete my registration
-* @version $Id: ucp.php 7 2015-09-03 00:33:59Z killbill $
+* @version $Id: common.php 7 2015-09-03 00:33:59Z killbill $
 * @author KillBill - killbill@jatek-vilag.com
 * @copyright 2010-2014 (c) http://jatek-vilag.com/ - info@jatek-vilag.com
 * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* @French translation by Scoufy & Galixte (http://www.galixte.com)
 *
 */
 
@@ -36,11 +37,10 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste: ‚ ‘ ’ « » „ “ ” …
 
 $lang = array_merge($lang, array(
-	'MY_ACC_DELETE_CONFIRM'			=> 'Regisztráció törlésének megerősítése',
-	'MY_ACC_DELETE_CONFIRM_ERROR'	=> 'A regisztráció törlése nem lett megerősítve!',
-	'MY_ACC_DELETE_EXPLAIN'			=> 'Saját regisztráció törlése.<br /><em>Vedd figyelembe, ha megteszed akkor nincs mód az adataid visszaállítására a későbbiekben!</em>',
-	'MY_ACC_DELETE_FOUNDER_ERROR'	=> 'Fórum alapító nem törölheti a regisztrációját!',
-	'MY_ACC_DELETE_SUCCESS'			=> 'A regisztráció törlése sikeres',
-	'MY_ACC_POST_DELETE'			=> 'Hozzászólásaim törlése',
-	'MY_ACC_POST_DELETE_EXPLAIN'	=> 'A fórumból törlésre kerülnek a hozzászólásaid.',
+	'ACL_U_MY_ACC_POST_DELETE'	=> 'Peut supprimer ses messages lors de la suppression de son compte.',
+
+	'UCP_PROFILE_MY_ACC_DELETE'	=> 'Supprimer votre compte',
+
+	'LOG_MY_ACC_DELETE'			=> '<strong>Suppression du compte de l’utilisateur</strong><br />» %s',
+	'LOG_MY_ACC_POST_DELETE'	=> '<strong>Suppression du compte de l’utilisateur et de ses messages</strong><br />» %s',
 ));

@@ -36,11 +36,11 @@ if (empty($lang) || !is_array($lang))
 // Some characters you may want to copy&paste: ‚ ‘ ’ « » „ “ ” …
 
 $lang = array_merge($lang, array(
-	'MY_ACC_DELETE_CONFIRM'			=> 'Regisztráció törlésének megerősítése',
-	'MY_ACC_DELETE_CONFIRM_ERROR'	=> 'A regisztráció törlése nem lett megerősítve!',
-	'MY_ACC_DELETE_EXPLAIN'			=> 'Saját regisztráció törlése.<br /><em>Vedd figyelembe, ha megteszed akkor nincs mód az adataid visszaállítására a későbbiekben!</em>',
-	'MY_ACC_DELETE_FOUNDER_ERROR'	=> 'Fórum alapító nem törölheti a regisztrációját!',
-	'MY_ACC_DELETE_SUCCESS'			=> 'A regisztráció törlése sikeres',
-	'MY_ACC_POST_DELETE'			=> 'Hozzászólásaim törlése',
-	'MY_ACC_POST_DELETE_EXPLAIN'	=> 'A fórumból törlésre kerülnek a hozzászólásaid.',
+	'MY_ACC_DELETE_CONFIRM'			=> 'Kayıt silme onaylaması',
+	'MY_ACC_DELETE_CONFIRM_ERROR'	=> 'Kayıt silme işlemi onaylanmadı!',
+	'MY_ACC_DELETE_EXPLAIN'			=> 'Kaydımı sil<br /><em>Bu işlemi yaparsanız verilerinizi getirmenin hiç bir yolu olmadığını UNUTMAYIN!</em>',
+	'MY_ACC_DELETE_FOUNDER_ERROR'	=> 'Site kurucuları kendi hesaplarını silemezler!',
+	'MY_ACC_DELETE_SUCCESS'			=> 'Kaydınız başarıyla silindi',
+	'MY_ACC_POST_DELETE'			=> 'Mesajları sil',
+	'MY_ACC_POST_DELETE_EXPLAIN'	=> 'Mesajlarınız siteden silindi',
 ));

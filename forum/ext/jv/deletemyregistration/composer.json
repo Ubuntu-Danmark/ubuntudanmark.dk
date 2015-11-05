@@ -1,32 +1,56 @@
 {
-	"name": "jv/deletemyregistration",
-	"type": "phpbb-extension",
-	"description": "An extension which allows users to delete their own account.",
-	"homepage": "http://jatek-vilag.com/viewtopic.php?p=146133#p146133",
-	"version": "1.0.1",
-	"time": "2014-12-08",
-	"keywords": ["phpbb", "extension", "delete", "my", "registration"],
-	"license": "GPL-2.0",
-	"authors": [
-		{
-			"name": "Péter Komlódi",
-			"email": "killbill@jatek-vilag.com",
-			"homepage": "http://jatek-vilag.com/",
-			"role": "Extensions Development Team Lead"
-		}
-	],
-	"require": {
-		"php": ">=5.3.3"
-	},
-	"extra": {
-		"display-name": "Delete my registration",
-		"soft-require": {
-			"phpbb/phpbb": ">=3.1.0"
-		},
-		"version-check": {
-			"host": "www.phpbb.com",
-			"directory": "/customise/db/extension/delete_my_registration",
-			"filename": "version_check"
-		}
-	}
+    "name": "jv/deletemyregistration",
+    "type": "phpbb-extension",
+    "description": "An extension which allows users to delete their own account.",
+    "homepage": "https://www.phpbb.com/customise/db/extension/delete_my_registration/",
+    "version": "1.0.3",
+    "time": "2015-09-11",
+    "keywords": [
+        "phpbb",
+        "extension",
+        "delete",
+        "my",
+        "registration"
+    ],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Péter Komlódi",
+            "email": "killbill@jatek-vilag.com",
+            "homepage": "http://jatek-vilag.com/",
+            "role": "Extensions Development Team Lead, Translator Hungarian"
+        },
+        {
+            "name": "Annette Klatte",
+            "email": "ladyscommunity@gmx.net",
+            "homepage": "http://www.ladyscommunity.de/",
+            "role": "Extensions Translator English, German, German — Sie"
+        },
+        {
+            "name": "Pierre Kister",
+            "email": "pierrekister@gmail.com",
+            "homepage": "http://www.jeuxgamesfun.com/",
+            "role": "Extensions Translator French"
+        },
+        {
+            "name": "Nico van den Hoogen",
+            "email": "nvdhoogen@home.nl",
+            "homepage": "http://arcadepunt.nl/",
+            "role": "Extensions Translator Dutch"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "extra": {
+        "display-name": "Delete my registration",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.1.0,<3.2.*@dev"
+        },
+        "version-check": {
+            "host": "www.phpbb.com",
+            "directory": "/customise/db/extension/delete_my_registration",
+            "filename": "version_check"
+        }
+    }
 }
