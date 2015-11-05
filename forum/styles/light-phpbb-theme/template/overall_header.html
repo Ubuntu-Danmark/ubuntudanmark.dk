@@ -68,13 +68,8 @@
 		<a id="top" class="anchor" accesskey="t"></a>
 		<div id="header">
 <!-- PHP -->
-if (empty($_SERVER['HTTPS']) || mb_strtolower($_SERVER['HTTPS']) === 'off') {
-	$protocol = 'http';
-} else {
-	$protocol = 'https';
-}
-
-$primary_header_menu = file_get_contents($protocol . '://' . request_var('HTTP_HOST', 'localhost') . '/forum/styles/light-phpbb-theme/wp_menu.php');
+// TODO figure out a way to access $_SERVER and get the external URL
+$primary_header_menu = file_get_contents('http://localhost/forum/styles/light-phpbb-theme/wp_menu.php');
 
 $primary_header_menu = preg_replace(
 	'#(.+)class="menu-item (.+?)href="/forum/"#s',
