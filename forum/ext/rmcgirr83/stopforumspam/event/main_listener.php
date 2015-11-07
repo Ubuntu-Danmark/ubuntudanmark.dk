@@ -24,6 +24,9 @@ class main_listener implements EventSubscriberInterface
 	/** @var \phpbb\user */
 	protected $user;
 
+	/** @var phpbb\db\driver\driver_interface */
+	protected $db;
+
 	/** @var \phpbb\log\log */
 	protected $log;
 
@@ -39,10 +42,19 @@ class main_listener implements EventSubscriberInterface
 	/** @var string phpEx */
 	protected $php_ext;
 
-	public function __construct(\phpbb\config\config $config, \phpbb\user $user, \phpbb\log\log $log, \phpbb\request\request $request, \phpbb\template\template $template, $phpbb_root_path, $php_ext)
+	public function __construct(
+		\phpbb\config\config $config,
+		\phpbb\user $user,
+		\phpbb\db\driver\driver_interface $db,
+		\phpbb\log\log $log,
+		\phpbb\request\request $request,
+		\phpbb\template\template $template,
+		$phpbb_root_path,
+		$php_ext)
 	{
 		$this->config = $config;
 		$this->user = $user;
+		$this->db = $db;
 		$this->log = $log;
 		$this->request = $request;
 		$this->template = $template;
@@ -62,18 +74,18 @@ class main_listener implements EventSubscriberInterface
 
 	public function user_sfs_validate_registration($event)
 	{
-		if (!$this->config['allow_sfs'])
+		if ($this->config['allow_sfs'] == false)
 		{
 			return;
 		}
 		$this->user->add_lang_ext('rmcgirr83/stopforumspam', 'stopforumspam');
 
-		$array = $event['error'];
+		$error_array = $event['error'];
 
 		/* On registration and only when all errors have cleared
 		 * do not want the admin message area to fill up
 		*/
-		if (!sizeof($array))
+		if (!sizeof($error_array))
 		{
 
 			$check = $this->stopforumspam_check($event['data']['username'], $this->user->ip, $event['data']['email']);
@@ -84,7 +96,7 @@ class main_listener implements EventSubscriberInterface
 				{
 					return;
 				}
-				$array[] = $this->show_message($check);
+				$error_array[] = $this->show_message($check);
 				// now ban the spammer by IP
 				if ($this->config['sfs_ban_ip'])
 				{
@@ -92,7 +104,7 @@ class main_listener implements EventSubscriberInterface
 				}
 			}
 		}
-		$event['error'] = $array;
+		$event['error'] = $error_array;
 	}
 
 	/*
@@ -120,7 +132,7 @@ class main_listener implements EventSubscriberInterface
 
 	public function user_sfs_validate_posting($event)
 	{
-		$array = $event['error'];
+		$error_array = $event['error'];
 
 		if ($this->user->data['user_id'] == ANONYMOUS && $this->config['allow_sfs'])
 		{
@@ -131,16 +143,19 @@ class main_listener implements EventSubscriberInterface
 			$error = $this->validate_email($event['post_data']['email']);
 			if ($error)
 			{
-				$array[] = $this->user->lang[$error . '_EMAIL'];
+				$error_array[] = $this->user->lang[$error . '_EMAIL'];
 			}
 			// I just hate empty usernames for guest posting
-			$error = $this->validate_username($event['post_data']['username']);
-			if (sizeof($error))
+			if (empty($event['post_data']['username']))
 			{
-				$array = $error;
+				$username_error = $this->validate_username($event['post_data']['username']);
+				if ($username_error)
+				{
+					$error_array = array_merge($username_error, $error_array);
+				}
 			}
 
-			if (!sizeof($array))
+			if (!sizeof($error_array))
 			{
 				$check = $this->stopforumspam_check($event['post_data']['username'], $this->user->ip, $event['post_data']['email']);
 
@@ -150,7 +165,7 @@ class main_listener implements EventSubscriberInterface
 					{
 						return;
 					}
-					$array[] = $this->show_message($check);
+					$error_array[] = $this->show_message($check);
 
 					// now ban the spammer by IP
 					if ($this->config['sfs_ban_ip'])
@@ -160,7 +175,7 @@ class main_listener implements EventSubscriberInterface
 				}
 			}
 		}
-		$event['error'] = $array;
+		$event['error'] = $error_array;
 	}
 
 	/*
@@ -223,16 +238,20 @@ class main_listener implements EventSubscriberInterface
 			$ck_email = $xmlObj->email->frequency;
 			$ck_ip = $xmlObj->ip->frequency;
 
-			// Let's not ban a registrant/poster with a common IP address, who is otherwise clean
-			// not sure of keeping this or not...we'll see
-			if ($ck_username + $ck_email == 0)
-			{
-				$ck_ip = 0;
-			}
-			// Let's not score the username if ip and email are clear
-			if ($ck_ip + $ck_email == 0)
+			// ACP settings in effect
+			if ($this->config['sfs_by_name'] == false)
 			{
 				$ck_username = 0;
+			}
+
+			if ($this->config['sfs_by_email'] == false)
+			{
+				$ck_email = 0;
+			}
+
+			if ($this->config['sfs_by_ip'] == false)
+			{
+				$ck_ip = 0;
 			}
 			// Return the total score
 			$spam_score = ($ck_username + $ck_email + $ck_ip);
@@ -272,9 +291,9 @@ class main_listener implements EventSubscriberInterface
 	// log messages
 	private function log_message($mode, $username, $ip, $message, $email)
 	{
-		$sfs_ip_check = sprintf($this->user->lang['SFS_IP_STOPPED'], $ip);
-		$sfs_username_check = sprintf($this->user->lang['SFS_USERNAME_STOPPED'], $username);
-		$sfs_email_check = sprintf($this->user->lang['SFS_EMAIL_STOPPED'], $email);
+		$sfs_ip_check = $this->user->lang('SFS_IP_STOPPED', $ip);
+		$sfs_username_check = $this->user->lang('SFS_USERNAME_STOPPED', $username);
+		$sfs_email_check = $this->user->lang('SFS_EMAIL_STOPPED', $email);
 
 		if ($mode === 'admin')
 		{
@@ -357,8 +376,10 @@ class main_listener implements EventSubscriberInterface
 		{
 			include($this->root_path . 'includes/functions_user.' . $this->php_ext);
 		}
+
+		$ban_reason = (!empty($this->config['sfs_ban_reason'])) ? $this->user->lang['SFS_BANNED'] : '';
 		// ban the nub for one hour
-		user_ban('ip', $ip, 60, 0, false, $this->user->lang['SFS_BANNED'], $this->user->lang['SFS_BANNED']);
+		user_ban('ip', $ip, 60, 0, false, $this->user->lang['SFS_BANNED'], $ban_reason);
 
 		return;
 	}
