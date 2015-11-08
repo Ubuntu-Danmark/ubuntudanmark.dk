@@ -1120,7 +1120,6 @@ ul.linklist:after,
 }
 
 .dropdown-extended ul {
-	padding-top: 12px !important;
 	max-height: 350px;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -1203,7 +1202,7 @@ ul.linklist:after,
 }
 
 .notification_list ul li p {
-	margin-bottom: 4px;
+	margin-bottom: 0;
 	font-size: 1em;
 }
 
@@ -1217,6 +1216,7 @@ ul.linklist:after,
 
 .notification_list p.notification-time {
 	font-size: 0.9em;
+	line-height: 1em;
 	margin: 0;
 	text-align: right;
 }
@@ -1240,6 +1240,10 @@ ul.linklist:after,
 
 .notification_list p.notifications_time {
 	font-size: 0.9em !important;
+}
+
+.notification-block {
+    line-height: 18px !important;
 }
 
 .notification_text {
