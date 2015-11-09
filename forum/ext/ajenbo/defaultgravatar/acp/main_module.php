@@ -19,7 +19,6 @@ class main_module
 		global $config, $phpbb_root_path, $phpbb_admin_path, $phpEx;
 
 		$user->add_lang('acp/common');
-		$user->add_lang_ext('ajenbo/defaultgravatar', 'common');
 		$this->tpl_name = 'defaultgravatar_body';
 		$this->page_title = $user->lang('ACP_DEFAULT_GRAVATAR_TITLE');
 		add_form_key('ajenbo/defaultgravatar');
