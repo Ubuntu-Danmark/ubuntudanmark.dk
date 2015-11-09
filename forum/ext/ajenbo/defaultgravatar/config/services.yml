@@ -8,3 +8,9 @@ services:
             - %core.root_path%
         tags:
             - { name: event.listener }
+    ajenbo.defaultgravatar.acplistener:
+        class: ajenbo\defaultgravatar\event\acplistener
+        arguments:
+            - @user
+        tags:
+            - { name: event.listener }

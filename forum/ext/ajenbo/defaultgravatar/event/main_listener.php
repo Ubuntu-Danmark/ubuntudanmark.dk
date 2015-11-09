@@ -22,7 +22,6 @@ class main_listener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.user_setup'					=> 'load_language_on_setup',
 			'core.page_header'					=> 'navbar_replace_avatar',
 			'core.viewtopic_post_rowset_data'	=> 'viewtopic_replace_avatar',
 			'core.ucp_pm_view_messsage'			=> 'ucp_message_replace_avatar',
@@ -47,16 +46,6 @@ class main_listener implements EventSubscriberInterface
 		$this->user = $user;
 		$this->size = (int) $config['default_gravatar_size'] ?: 80;
 		$this->default_avatar = $root_path . 'styles/' . $template_path . '/theme/images/no_avatar.gif';
-	}
-
-	public function load_language_on_setup($event)
-	{
-		$lang_set_ext = $event['lang_set_ext'];
-		$lang_set_ext[] = array(
-			'ext_name' => 'ajenbo/defaultgravatar',
-			'lang_set' => 'common',
-		);
-		$event['lang_set_ext'] = $lang_set_ext;
 	}
 
 	/**
