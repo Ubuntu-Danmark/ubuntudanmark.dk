@@ -1,0 +1,20 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_ACP_DEFAULT_GRAVATAR_TITLE}</h1>
+
+<form id="acp_board" method="post" action="{U_ACTION}">
+	<fieldset>
+		<dl>
+			<dt><label for="default_gravatar_size">{L_ACP_DEFAULT_GRAVATAR_SIZE}</label></dt>
+			<dd><input type="number" name="default_gravatar_size" value="{DEFAULT_GRAVATAR_SIZE}" /> {L_PIXEL}</dd>
+		</dl>
+
+		<p class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{L_RESET}" />
+		</p>
+
+		{S_FORM_TOKEN}
+	</fieldset>
+</form>
+<!-- INCLUDE overall_footer.html -->
