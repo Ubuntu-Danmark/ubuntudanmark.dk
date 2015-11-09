@@ -41,7 +41,8 @@ class main_listener implements EventSubscriberInterface
 	*/
 	public function __construct(\phpbb\config\config $config,\phpbb\template\template $template, \phpbb\user $user, $root_path)
 	{
-		$template_path = $template->get_user_style()[0];
+		$template_path = $template->get_user_style();
+		$template_path = $template_path[0];
 
 		$this->user = $user;
 		$this->size = (int) $config['default_gravatar_size'] ?: 80;
