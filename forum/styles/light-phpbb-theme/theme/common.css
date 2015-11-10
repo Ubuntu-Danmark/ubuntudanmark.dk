@@ -1192,6 +1192,10 @@ ul.linklist:after,
 	text-decoration: none;
 }
 
+#primary-header-menu .notification_list li {
+	height: 50px;
+}
+
 .notification_list ul li img {
 	float: left;
 	max-height: 50px;
