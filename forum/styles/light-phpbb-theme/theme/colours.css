@@ -1009,12 +1009,9 @@ input.disabled {
 	border-color: #B9B9B9 transparent;
 }
 
+.dropdown-extended .pointer-inner,
 .dropdown .pointer-inner {
 	border-color: #F7F7F7 transparent;
-}
-
-.dropdown-extended .pointer-inner {
-	border-color: #F1F8FF transparent;
 }
 
 ul.linklist li.responsive-menu a.responsive-menu-link:before {
