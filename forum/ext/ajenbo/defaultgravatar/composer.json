@@ -1,0 +1,24 @@
+{
+   "name": "ajenbo/defaultgravatar",
+   "type": "phpbb-extension",
+   "description": "Display users Gravatar by default",
+   "homepage": "https://ubuntudanmark.dk/forum/",
+   "version": "1.0.0",
+   "time": "2015-11-08",
+   "license": "GPL-2.0",
+   "authors": [{
+      "name": "Anders Jenbo",
+      "email": "anders@jenbo.dk",
+      "role": "Lead Developer"
+   }],
+   "require": {
+      "php": ">=5.3.3",
+      "composer/installers": "~1.0"
+   },
+   "extra": {
+      "display-name": "Default Gravatar",
+      "soft-require": {
+         "phpbb/phpbb": ">=3.1.2,<3.2.*@dev"
+      }
+   }
+}

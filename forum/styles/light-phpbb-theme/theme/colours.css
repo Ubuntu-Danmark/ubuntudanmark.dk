@@ -536,12 +536,12 @@ Colours and backgrounds for buttons.css
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#FFFFFF', EndColorStr='#E9E9E9')";
 	box-shadow: 0 0 0 1px #FFFFFF inset;
 	-webkit-box-shadow: 0 0 0 1px #FFFFFF inset;
-	color: #787878;
+	color: #545454;
 }
 
 .button1, .button2,
 a.button {
-	color: #787878;
+	color: #545454;
 }
 
 .button1:hover, .button2:hover,
@@ -552,14 +552,14 @@ a.button {
 	background-image: linear-gradient(to bottom, #FFFFFF, #f3f3f3);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#FFFFFF', EndColorStr='#f3f3f3')";
 	text-shadow: 1px 1px 0 #FFFFFF, -1px -1px 0 #FFFFFF, -1px -1px 0 rgba(188, 42, 77, 0.2);
-	color: #787878;
+	color: #545454;
 }
 
 .button1:active, .button2:active,
 .button:active, .dropdown-visible .dropdown-select, .nojs .dropdown-container:active .dropdown-select {
 	border-color: #dd4814;
 	box-shadow: 0px 0px 1px 0px #dd4814;
-	color: #787878;
+	color: #545454;
 }
 
 .dropdown-select:after	{ border-color: #DADADA; }
@@ -920,7 +920,7 @@ fieldset.quick-login input.inputbox {
 /* Form button styles
 ---------------------------------------- */
 select {
-	color: #787878;
+	color: #545454;
 }
 
 input.button3 {
@@ -1009,12 +1009,9 @@ input.disabled {
 	border-color: #B9B9B9 transparent;
 }
 
+.dropdown-extended .pointer-inner,
 .dropdown .pointer-inner {
 	border-color: #F7F7F7 transparent;
-}
-
-.dropdown-extended .pointer-inner {
-	border-color: #F1F8FF transparent;
 }
 
 ul.linklist li.responsive-menu a.responsive-menu-link:before {
