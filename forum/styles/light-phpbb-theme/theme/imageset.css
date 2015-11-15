@@ -91,7 +91,7 @@ span.imageset {
 	padding-top: 27px;
 }
 .imageset.topic_unread_hot {
-	background-image: url("./images/topic_unread_hot.png");
+	background-image: url("./images/topic_unread.png");
 	padding-left: 27px;
 	padding-top: 27px;
 }

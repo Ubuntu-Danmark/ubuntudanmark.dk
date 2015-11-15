@@ -641,7 +641,7 @@ a.button {
 .topic_read_locked_mine											{ background-image: url("./images/topic_read_locked_mine.png"); }
 .topic_unread													{ background-image: url("./images/topic_unread.png"); }
 .topic_unread_mine												{ background-image: url("./images/topic_unread_mine.png"); }
-.topic_unread_hot												{ background-image: url("./images/topic_unread_hot.png"); }
+.topic_unread_hot												{ background-image: url("./images/topic_unread.png"); }
 .topic_unread_hot_mine											{ background-image: url("./images/topic_unread_mine.png"); }
 .topic_unread_locked											{ background-image: url("./images/topic_unread_locked.png"); }
 .topic_unread_locked_mine										{ background-image: url("./images/topic_unread_locked_mine.png"); }
