@@ -1,11 +1,12 @@
 *~
 .DS_Store
-forum/cache/*
-forum/config.php
+filer/
 wp-config.php
-forum/files/*
 wp-content/advanced-cache.php
-wp-content/cache/blogs/
-wp-content/cache/supercache/
+wp-content/cache/
 wp-content/uploads/
+forum/cache/
+forum/config.php
+forum/files/
+forum/images/avatars/upload/
 
