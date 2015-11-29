@@ -98,14 +98,25 @@ function phpbb_login( $user, $username, $password ) {
 	$phpBB_sid = $_COOKIE[$cookie_name . '_sid'];
 
 	$phpBB_user_id = $wpdb->get_var( $wpdb->prepare( "SELECT session_user_id FROM " . $table_prefix . "sessions WHERE `session_id` = %s LIMIT 1", $phpBB_sid ) );
-	$phpBB_user = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM " . $table_prefix . "users WHERE `user_id` = %d LIMIT 1", $phpBB_user_id ) );
+	$phpBB_user = $wpdb->get_results( $wpdb->prepare( "SELECT user_email, username, user_rank FROM " . $table_prefix . "users WHERE `user_type` IN(0, 3) `user_id` = %d LIMIT 1", $phpBB_user_id ) );
 	if ( ! $phpBB_user ) {
 		return;
 	}
 	$phpBB_user = $phpBB_user[0];
 
+	$role = get_option('default_role');
+	switch ( $phpBB_user->user_rank ) {
+		case 2:
+			$role = 'administrator';
+			break;
+		case 3:
+			$role = 'editor';
+			break;
+	}
+
 	$user = get_user_by( 'email', $phpBB_user->user_email );
 	if ($user) {
+		$user->set_role($role);
 		return $user;
 	}
 
@@ -120,15 +131,6 @@ function phpbb_login( $user, $username, $password ) {
 
 	$user_id = wp_insert_user( $user );
 	$user = get_user_by( 'id', $user_id );
-
-	switch ( $phpBB_user->user_rank ) {
-		case 2:
-			$role = 'administrator';
-		case 3:
-			$role = 'editor';
-		default:
-			$role = get_option('default_role');
-	}
 	$user->set_role($role);
 
 	return $user;
