@@ -140,6 +140,10 @@ class PHPBBDBAuth {
 		return $user;
 	}
 
+	function allow_password_reset( $allow, $user_id ) {
+		return (bool) get_option( 'phpbb_only' ) ? false : $allow;
+	}
+
 	function lost_password() {
 		if ( ! get_option( 'phpbb_only' ) ) {
 			return;
@@ -155,6 +159,29 @@ class PHPBBDBAuth {
 		$script_path = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'script_path'" );
 
 		wp_redirect( $site_home_url . $script_path . '/ucp.php?mode=sendpassword' );
+		exit();
+	}
+
+	function logout( $redirect_to, $requested_redirect_to, $user ) {
+		$table_prefix = self::get_table_prefix();
+		if ( ! $table_prefix ) {
+			return $redirect_to;
+		}
+
+		global $wpdb;
+
+		$cookie_name = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'cookie_name'" );
+
+		if ( empty( $_COOKIE[$cookie_name . '_sid'] ) ) {
+			return $redirect_to;
+		}
+		$phpBB_sid = $_COOKIE[$cookie_name . '_sid'];
+
+		$site_home_url = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'site_home_url'" );
+		$script_path = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'script_path'" );
+
+		wp_redirect( $site_home_url . $script_path . '/ucp.php?mode=logout&sid=' . $phpBB_sid );
+		exit();
 	}
 }
 
@@ -182,5 +209,8 @@ if ( is_admin() ){
 	add_action( 'admin_notices', array( 'PHPBBDBAuth', 'admin_notices' ) );
 }
 
-add_filter( 'authenticate', array( 'PHPBBDBAuth', 'phpbb_login' ), 5, 3 );
+add_filter( 'authenticate', array( 'PHPBBDBAuth', 'phpbb_login' ), 10, 3 );
+add_filter( 'logout_redirect', array( 'PHPBBDBAuth', 'logout' ), 1, 3 );
+add_filter( 'allow_password_reset', array( 'PHPBBDBAuth', 'allow_password_reset' ), 1, 2 );
 add_action( 'lost_password', array( 'PHPBBDBAuth', 'lost_password' ) );
+
