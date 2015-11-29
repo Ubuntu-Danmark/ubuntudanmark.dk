@@ -159,14 +159,6 @@ function wp_followme_settings() {
 	add_options_page('WP FollowMe', 'WP FollowMe', 9, basename(__FILE__), 'wp_followme_settings_page');
 }
 
-function wp_followme_admin_head() {
-	?>
-
-<?php
-}
-
-add_action('admin_head', 'wp_followme_admin_head');
-
 function wp_followme_settings_page() {
 	require_once(ABSPATH.'/wp-admin/includes/plugin-install.php');
 
