@@ -109,13 +109,14 @@ function phpbb_login( $user, $username, $password ) {
 		return $user;
 	}
 
-	if ( ! $user->user_rank && ! get_option( 'phpbb_registre_no_rank' ) ) {
+	if ( ! $phpBB_user->user_rank && ! get_option( 'phpbb_registre_no_rank' ) ) {
 		return;
 	}
 
 	$user = new stdClass;
 	$user->user_email = $phpBB_user->user_email;
 	$user->nickname = $phpBB_user->username;
+	$user->user_login = $phpBB_user->username;
 
 	$user_id = wp_insert_user( $user );
 	$user = get_user_by( 'id', $user_id );
