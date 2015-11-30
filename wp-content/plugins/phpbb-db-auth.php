@@ -115,13 +115,26 @@ class PHPBBDBAuth {
 		}
 
 		if ( ! $phpBB_user->user_rank && ! get_option( 'phpbb_registre_no_rank' ) ) {
+			if ( get_option( 'phpbb_only' ) ) {
+				$site_home_url = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'site_home_url'" );
+				$script_path = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'script_path'" );
+				wp_redirect( $site_home_url . $script_path . '/ucp.php?mode=login' );
+				exit;
+			}
+
 			return;
 		}
 
 		$user = new stdClass;
 		$user->user_email = $phpBB_user->user_email;
 		$user->nickname = $phpBB_user->username;
-		$user->user_login = $phpBB_user->username;
+
+		$username = sanitize_user( $phpBB_user->username );
+		$username_postfix = '';
+		while ( username_exists( $username . $username_postfix ) ) {
+			$username_postfix++;
+		}
+		$user->user_login = $username . $username_postfix;
 
 		$user_id = wp_insert_user( $user );
 		$user = get_user_by( 'id', $user_id );
@@ -173,6 +186,32 @@ class PHPBBDBAuth {
 		wp_redirect( $site_home_url . $script_path . '/ucp.php?mode=logout&sid=' . $phpBB_sid );
 		exit();
 	}
+
+	function register_url( $registration_url ) {
+		if ( ! get_option( 'phpbb_only' ) ) {
+			return;
+		}
+
+		$table_prefix = self::get_table_prefix();
+		if ( ! $table_prefix ) {
+			return $redirect_to;
+		}
+
+		global $wpdb;
+		$site_home_url = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'site_home_url'" );
+		$script_path = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'script_path'" );
+
+		$registration_url = $site_home_url . $script_path . '/ucp.php?mode=register';
+		return sprintf( '<a href="%s">%s</a>', esc_url( $registration_url ), __( 'Register' ) );
+	}
+
+	function foil_bot_registration( $user_email ) {
+		if ( ! get_option( 'phpbb_only' ) ) {
+			return $user_email;
+		}
+
+		return '';
+	}
 }
 
 if ( is_admin() ){
@@ -199,7 +238,9 @@ if ( is_admin() ){
 	add_action( 'admin_notices', array( 'PHPBBDBAuth', 'admin_notices' ) );
 }
 
-add_filter( 'authenticate', array( 'PHPBBDBAuth', 'phpbb_login' ), 10, 3 );
+add_filter( 'authenticate', array( 'PHPBBDBAuth', 'phpbb_login' ), 1, 3 );
+add_filter( 'register', array( 'PHPBBDBAuth', 'register_url' ), 10, 1 );
+add_filter( 'user_registration_email', array( 'PHPBBDBAuth', 'foil_bot_registration' ), 1, 1 );
 add_filter( 'logout_redirect', array( 'PHPBBDBAuth', 'logout' ), 1, 3 );
 add_filter( 'allow_password_reset', array( 'PHPBBDBAuth', 'allow_password_reset' ), 1, 2 );
 add_action( 'lost_password', array( 'PHPBBDBAuth', 'lost_password' ) );
