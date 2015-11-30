@@ -12,7 +12,7 @@ Version: 1.0
 */
 
 class PHPBBDBAuth {
-	static function get_table_prefix() {
+	private static function get_table_prefix() {
 		$phpbb_path = get_option( 'phpbb_path' );
 		$phpbb_config_path = $phpbb_path . '/config.php';
 		if ( ! $phpbb_path || ! file_exists( $phpbb_config_path ) ) {
@@ -28,7 +28,7 @@ class PHPBBDBAuth {
 		return $dbname . '.' . $table_prefix;
 	}
 
-	function admin_notices() {
+	static function admin_notices() {
 		$message = '';
 		$table_prefix = self::get_table_prefix();
 		if ( $table_prefix ) {
@@ -38,7 +38,7 @@ class PHPBBDBAuth {
 		echo '<div class="admin_notices"> <p>phpBB configuration not set or failed to load.</p></div>';
 	}
 
-	function admin_page() {
+	static function admin_page() {
 		?><div class="wrap"><h2>phpBB DB Auth Settings</h2><form method="post" action="options.php"> <?php
 		settings_fields( 'phpbb-db-auth' );
 		do_settings_sections( 'phpbb-db-auth' );
@@ -72,7 +72,7 @@ class PHPBBDBAuth {
 	 * @param string                $password Password. If not empty, cancels the authentication.
 	 * @return WP_User              WP_User on success.
 	 */
-	function phpbb_login( $user, $username, $password ) {
+	static function phpbb_login( $user, $username, $password ) {
 		if ( $user instanceof WP_User || $username || $password) {
 			return $user;
 		}
@@ -87,14 +87,14 @@ class PHPBBDBAuth {
 		$cookie_name = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'cookie_name'" );
 
 		if ( empty( $_COOKIE[$cookie_name . '_sid'] ) ) {
-			return;
+			return self::login_fail_return();
 		}
 		$phpBB_sid = $_COOKIE[$cookie_name . '_sid'];
 
 		$phpBB_user_id = $wpdb->get_var( $wpdb->prepare( "SELECT session_user_id FROM " . $table_prefix . "sessions WHERE `session_id` = %s LIMIT 1", $phpBB_sid ) );
 		$phpBB_user = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM " . $table_prefix . "users WHERE `user_id` = %d LIMIT 1", $phpBB_user_id ) );
 		if ( ! $phpBB_user ) {
-			return;
+			return self::login_fail_return();
 		}
 		$phpBB_user = $phpBB_user[0];
 
@@ -115,14 +115,7 @@ class PHPBBDBAuth {
 		}
 
 		if ( ! $phpBB_user->user_rank && ! get_option( 'phpbb_registre_no_rank' ) ) {
-			if ( get_option( 'phpbb_only' ) ) {
-				$site_home_url = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'site_home_url'" );
-				$script_path = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'script_path'" );
-				wp_redirect( $site_home_url . $script_path . '/ucp.php?mode=login' );
-				exit;
-			}
-
-			return;
+			return self::login_fail_return();
 		}
 
 		$user = new stdClass;
@@ -143,11 +136,28 @@ class PHPBBDBAuth {
 		return $user;
 	}
 
-	function allow_password_reset( $allow, $user_id ) {
+	private static function login_fail_return() {
+		$table_prefix = self::get_table_prefix();
+		if ( ! $table_prefix ) {
+			return;
+		}
+
+		if ( get_option( 'phpbb_only' ) ) {
+			global $wpdb;
+			$site_home_url = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'site_home_url'" );
+			$script_path = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'script_path'" );
+			wp_redirect( $site_home_url . $script_path . '/ucp.php?mode=login' );
+			exit;
+		}
+
+		return;
+	}
+
+	static function allow_password_reset( $allow, $user_id ) {
 		return (bool) get_option( 'phpbb_only' ) ? false : $allow;
 	}
 
-	function lost_password() {
+	static function lost_password() {
 		if ( ! get_option( 'phpbb_only' ) ) {
 			return;
 		}
@@ -165,7 +175,7 @@ class PHPBBDBAuth {
 		exit();
 	}
 
-	function logout( $redirect_to, $requested_redirect_to, $user ) {
+	static function logout( $redirect_to, $requested_redirect_to, $user ) {
 		$table_prefix = self::get_table_prefix();
 		if ( ! $table_prefix ) {
 			return $redirect_to;
@@ -187,7 +197,7 @@ class PHPBBDBAuth {
 		exit();
 	}
 
-	function register_url( $registration_url ) {
+	static function register_url( $registration_url ) {
 		if ( ! get_option( 'phpbb_only' ) ) {
 			return;
 		}
@@ -205,7 +215,7 @@ class PHPBBDBAuth {
 		return sprintf( '<a href="%s">%s</a>', esc_url( $registration_url ), __( 'Register' ) );
 	}
 
-	function foil_bot_registration( $user_email ) {
+	static function foil_bot_registration( $user_email ) {
 		if ( ! get_option( 'phpbb_only' ) ) {
 			return $user_email;
 		}
@@ -244,4 +254,3 @@ add_filter( 'user_registration_email', array( 'PHPBBDBAuth', 'foil_bot_registrat
 add_filter( 'logout_redirect', array( 'PHPBBDBAuth', 'logout' ), 1, 3 );
 add_filter( 'allow_password_reset', array( 'PHPBBDBAuth', 'allow_password_reset' ), 1, 2 );
 add_action( 'lost_password', array( 'PHPBBDBAuth', 'lost_password' ) );
-
