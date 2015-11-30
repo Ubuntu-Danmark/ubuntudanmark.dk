@@ -32,20 +32,10 @@ class PHPBBDBAuth {
 		$message = '';
 		$table_prefix = self::get_table_prefix();
 		if ( $table_prefix ) {
-			global $wpdb;
-			$auth_method = $wpdb->get_var( "SELECT config_value FROM " . $table_prefix . "config WHERE `config_name` = 'auth_method'" );
-			if ( 'db' !== $auth_method ) {
-				$message = 'Auth methode in phpBB is "' . $auth_method . '", only "db" is supported.';
-			}
-		} else {
-			$message = 'phpBB configuration not set or failed to load.';
-		}
-
-		if ( ! $message ) {
 			return;
 		}
 
-		echo '<div class="error"> <p>' . $message . '</p></div>';
+		echo '<div class="admin_notices"> <p>phpBB configuration not set or failed to load.</p></div>';
 	}
 
 	function admin_page() {
