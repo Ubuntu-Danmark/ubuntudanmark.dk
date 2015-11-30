@@ -2,12 +2,17 @@ This is the code used to build http://ubuntudanmark.dk/
 
 HOW TO INSTALL
 Place files in web root.
+
+In WordPress:
 Open site in browser and compleate WordPress installation.
-Activate Ubuntu thme in WordPress.
-Download phpBB 3.0.10 and extract config.php and the install folder to the forum folder.
-Browse to /forum/ and compleate the phpBB installation.
-Activate PHP SSO in WordPress.
-In phpBB admin go to Server Configuration->Security and set Allow php in templates to yes.
-Activate Ubuntu theme in phpBB.
+Activate Ubuntu theme in WordPress.
 Go to Appearance->Menus and create a new menu with a custome link for /forum/.
 Go to widgits and add the menu.
+Enable the plugins.
+
+In phpBB:
+Download phpBB 3.1.6 and extract the install folder to the forum folder.
+Browse to /forum/ and compleate the phpBB installation.
+In phpBB admin go to Server Configuration->Security and set "Allow php in templates" to yes.
+Activate Ubuntu theme in phpBB.
+
