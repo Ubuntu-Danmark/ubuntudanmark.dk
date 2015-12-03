@@ -69,18 +69,8 @@
 		<div id="header">
 <!-- PHP -->
 // TODO figure out a way to access $_SERVER and get the external URL
-$primary_header_menu = file_get_contents('http://localhost/forum/styles/light-phpbb-theme/wp_menu.php');
-
-$primary_header_menu = preg_replace(
-	'#(.+)class="menu-item (.+?)href="/forum/"#s',
-	'\1class="menu-item current-menu-item \2href="/forum/"',
-	$primary_header_menu
-);
-preg_match('#.+href="/forum/".+?/a>#s', $primary_header_menu, $match);
-$menu_part1 = $match[0];
-$menu_part2 = mb_substr($primary_header_menu, mb_strlen($match[0]));
-
-echo $menu_part1;
+$menu_parts = json_decode(file_get_contents('http://localhost/forum/styles/light-phpbb-theme/wp_menu.php'));
+echo $menu_parts[0];
 <!-- ENDPHP -->
 
 <!-- EVENT overall_header_navbar_before -->
@@ -172,7 +162,7 @@ echo $menu_part1;
 </ul>
 
 <!-- PHP -->
-echo $menu_part2;
+echo $menu_parts[1];
 <!-- ENDPHP -->
 		</div><!-- #header-->
 		<div id="secondary-header">
