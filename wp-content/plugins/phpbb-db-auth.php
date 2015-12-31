@@ -106,6 +106,12 @@ class PHPBBDBAuth {
 			case 3:
 				$role = 'editor';
 				break;
+			case 4:
+				$role = 'author';
+				break;
+			case 5:
+				$role = 'contributor';
+				break;
 		}
 
 		$user = get_user_by( 'email', $phpBB_user->user_email );
