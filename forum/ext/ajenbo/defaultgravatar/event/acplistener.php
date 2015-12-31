@@ -19,7 +19,7 @@ class acplistener implements EventSubscriberInterface
 	static public function getSubscribedEvents()
 	{
 		return array(
-			'core.user_setup'					=> 'load_language_on_setup',
+			'core.user_setup'	=> 'load_language_on_setup',
 		);
 	}
 
