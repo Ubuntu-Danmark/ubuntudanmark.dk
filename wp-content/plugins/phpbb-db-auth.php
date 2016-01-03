@@ -104,13 +104,11 @@ class PHPBBDBAuth {
 				$role = 'administrator';
 				break;
 			case 3:
+			case 4:
 				$role = 'editor';
 				break;
-			case 4:
-				$role = 'author';
-				break;
 			case 5:
-				$role = 'contributor';
+				$role = 'author';
 				break;
 		}
 
