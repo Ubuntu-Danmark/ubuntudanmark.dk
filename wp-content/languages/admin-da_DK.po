@@ -16,79 +16,79 @@ msgstr "Tak, fordi du opdaterer! Med WordPress %s får dit websted flere forbind
 
 #. translators: 1: WP_Term class name, WP_Comment class name, WP_Network class
 #. name
-#: wp-admin/about.php:177
+#: wp-admin/about.php:185
 msgid "New %1$s, %2$s, and %3$s objects make interacting with terms, comments, and networks more predictable and intuitive in code."
 msgstr "Nye %1$s-, %2$s- og %3$s-objekter gør det mere forudsigeligt og intuitivt at interagere med termer, kommentarer og netværk i koden."
 
 #. translators: WP_Comment_Query class name
-#: wp-admin/about.php:170
+#: wp-admin/about.php:178
 msgid "Comment queries now have cache handling to improve performance. New arguments in %s make crafting robust comment queries simpler."
 msgstr "Kommentarforespørgsler benytter nu cache, så hastigheden forbedres. Nye argumenter i %s gør det simplere at skrive robuste kommentarforespørgsler."
 
-#: wp-admin/about.php:174
+#: wp-admin/about.php:182
 msgid "Term, comment, and network objects"
 msgstr "Term-, kommentar- og netværksobjekter"
 
-#: wp-admin/about.php:167
+#: wp-admin/about.php:175
 msgid "Comment query improvements"
 msgstr "Forbedringer i kommentarforespørgsler"
 
 #. translators: WordPress REST API plugin link
-#: wp-admin/about.php:148
+#: wp-admin/about.php:156
 msgid "Infrastructure is the first part of a multi-stage rollout for the REST API. Inclusion of core endpoints is targeted for an upcoming release. To get a sneak peek of the core endpoints, and for more information on extending the REST API, check out the official %s plugin."
 msgstr "Infrastruktur er første del af en udrulning i flere omgange af REST API. Inklusionen af grænsepunkter i kernen forsøges opnået inden næste udgivelse. For at få et smugkik på grænsepunkterne i kernen og for yderligere information om at udvide REST API, så kik på det det officielle %s plugin."
 
-#: wp-admin/about.php:156
+#: wp-admin/about.php:164
 msgid "Term meta"
 msgstr "Meta term"
 
 #. translators: 1: add_term_meta() docs link, 2: get_term_meta() docs link, 3:
 #. update_term_meta() docs link
-#: wp-admin/about.php:159
+#: wp-admin/about.php:167
 msgid "Terms now support metadata, just like posts. See %1$s, %2$s, and %3$s for more information."
 msgstr "Termer understøtter nu metadata, lige som indlæg. Se %1$s, %2$s, og %3$s for yderligere information."
 
-#: wp-admin/about.php:131
+#: wp-admin/about.php:139
 msgid "Infrastructure for the REST API has been integrated into core, marking a new era in developing with WordPress. The REST API serves to provide developers with a path forward for building and extending RESTful APIs on top of WordPress."
 msgstr "Infrastrukturen for REST API er blevet integreret med kernen, hvilket indleder en ny æra for udvikling af WordPress. REST API har til formål at tilbyde udviklere i vej mod at bygge og udvide RESTful APIs oven på WordPress."
 
-#: wp-admin/about.php:118
+#: wp-admin/about.php:126
 msgid "In addition to post embeds, WordPress 4.4 also adds support for five new oEmbed providers: Cloudup, Reddit&nbsp;Comments, ReverbNation, Speaker&nbsp;Deck, and VideoPress."
 msgstr "Foruden indlejring af indlæg understøtter WordPress 4.4 også fem nye oEmbed tjenester: Cloudup, Reddit&nbsp;kommentarer, ReverbNation, Speaker&nbsp;Deck og VideoPress."
 
-#: wp-admin/about.php:129
+#: wp-admin/about.php:137
 msgid "REST API infrastructure"
 msgstr "REST API infrastruktur"
 
-#: wp-admin/about.php:104
+#: wp-admin/about.php:112
 msgid "Now you can embed your posts on other sites, even other WordPress sites. Simply drop a post URL into the editor and see an instant embed preview, complete with the title, excerpt, and featured image if you&#8217;ve set one. We&#8217;ll even include your site icon and links for comments and sharing."
 msgstr "Nu kan du indlejre dine indlæg på andre websteder, endog på andre WordPress-websteder. Slip ganske enkelt en indlægs-URL i editoren og få en forhåndsvisning af det indlejrede komplet med titlen, uddrag og fremhævet billede, hvis du har valgt et. Vi inkluderer endog dit webstedsikon og links, så man kan kommentere og dele."
 
-#: wp-admin/about.php:117
+#: wp-admin/about.php:125
 msgid "Even more embed providers"
 msgstr "Endnu flere indlejringstjenester"
 
-#: wp-admin/about.php:90
+#: wp-admin/about.php:98
 msgid "WordPress now takes a smarter approach to displaying appropriate image sizes on any device, ensuring a perfect fit every time. You don&#8217;t need to do anything to your theme, it just works."
 msgstr "WordPress har nu en smartere måde at vise de rigtige billedstørrelser på på enhver enhed, så det passer perfekt hver gang. Du behøver ikke at ændre ved dit tema. Det virker bare."
 
-#: wp-admin/about.php:103
+#: wp-admin/about.php:111
 msgid "Embed your WordPress content"
 msgstr "Indlejr dit WordPress-indhold"
 
-#: wp-admin/about.php:67
+#: wp-admin/about.php:75
 msgid "Twenty Sixteen was built to look great on any device. A fluid grid design, flexible header, fun color schemes, and more, will make your content shine."
 msgstr "Twenty Sixteen blev skabt for at se godt ud på alle enheder. Et flydende gitter-design, fleksible headers, sjove farveskemaer m.m. vil få dit indhold til at tage sig godt ud."
 
-#: wp-admin/about.php:89
+#: wp-admin/about.php:97
 msgid "Responsive images"
 msgstr "Responsive billeder"
 
-#: wp-admin/about.php:66
+#: wp-admin/about.php:74
 msgid "Our newest default theme, Twenty Sixteen, is a modern take on a classic blog design."
 msgstr "Vores nyeste standardtema, Twenty Sixteen, er en moderne udgave af et klassisk blogdesign."
 
-#: wp-admin/about.php:59
+#: wp-admin/about.php:67
 msgid "Twenty Sixteen"
 msgstr "Twenty Sixteen"
 
@@ -112,7 +112,7 @@ msgid "Welcome to %s. This is your first post. Edit or delete it, then start blo
 msgstr "Velkommen til %s. Dette er dit første indlæg. Redigér eller slet det, og begynd så at blogge!"
 
 #. translators: %s: WordPress version number
-#: wp-admin/about.php:214
+#: wp-admin/about.php:222
 msgid "<strong>Version %s</strong> addressed one security issue."
 msgstr "<strong>Version %s</strong> tog hånd om ét sikkerhedsproblem."
 
@@ -129,15 +129,15 @@ msgstr "Du kan ændre dit profilbillede på <a href=\"%s\">Gravatar</a>."
 msgid "Profile Picture"
 msgstr "Profilbillede"
 
-#: wp-admin/about.php:208
+#: wp-admin/about.php:216
 msgid "Security Releases"
 msgstr "Sikkerhedsudgivelser"
 
-#: wp-admin/about.php:205
+#: wp-admin/about.php:213
 msgid "Maintenance Releases"
 msgstr "Vedligeholdelsesudgivelser"
 
-#: wp-admin/about.php:211
+#: wp-admin/about.php:219
 msgid "Maintenance and Security Releases"
 msgstr "Vedligeholdelses- og sikkerhedsudgivelser"
 
@@ -975,7 +975,7 @@ msgstr "Svar på %s."
 msgid "You&rsquo;re using the auto-generated password for your account. Would you like to change it?"
 msgstr "Du benytter en automatisk genereret adgangskode for din konto. Vil du ændre den?"
 
-#: wp-admin/users.php:360
+#: wp-admin/users.php:361
 msgid "You have specified this user for removal:"
 msgstr "Du har markeret denne bruger til sletning:"
 
@@ -1553,11 +1553,11 @@ msgid_plural "%d media attachments moved to the trash."
 msgstr[0] "%d medievedhæftning flyttet til papirkurven."
 msgstr[1] "%d medievedhæftninger flyttet til papirkurven."
 
-#: wp-admin/users.php:266
+#: wp-admin/users.php:267
 msgid "What should be done with content owned by these users?"
 msgstr "Hvad skal der gøres med indhold, der tilhører disse brugere?"
 
-#: wp-admin/users.php:241
+#: wp-admin/users.php:242
 msgid "You have specified these users for deletion:"
 msgstr "Du har valgt, at disse brugere skal slettes:"
 
@@ -1573,7 +1573,7 @@ msgid_plural "%d media attachments permanently deleted."
 msgstr[0] "%d medievedhæftning slettet permanent."
 msgstr[1] "%d medievedhæftninger slettet permanent."
 
-#: wp-admin/users.php:419
+#: wp-admin/users.php:420
 msgid "%s user deleted."
 msgid_plural "%s users deleted."
 msgstr[0] "%s bruger slettet."
@@ -1973,7 +1973,7 @@ msgstr "Du kan aktivere distraktionfri skrivetilstand ved hjælp af ikonet til h
 msgid "Log Out Everywhere"
 msgstr "Log ud alle steder"
 
-#: wp-admin/about.php:65
+#: wp-admin/about.php:73
 msgid "Introducing Twenty Sixteen"
 msgstr "Vi præsenterer Twenty Sixteen"
 
@@ -2448,15 +2448,15 @@ msgstr "Detaljer &amp; forhåndsvisning"
 msgid "Delete brings you to the Delete Users screen for confirmation, where you can permanently remove a user from your site and delete their content. You can also delete multiple users at once by using Bulk Actions."
 msgstr "Slet sender dig til Slet bruger-siden for bekræftelse, hvor du kan slette en bruger fra dit websted permanent og fjerne deres indhold. Du kan også slette flere brugere på en gang ved at bruge massehandling."
 
-#: wp-admin/users.php:264
+#: wp-admin/users.php:265
 msgid "What should be done with content owned by this user?"
 msgstr "Hvad skal der ske med indhold denne bruger ejer?"
 
-#: wp-admin/includes/ms.php:1055 wp-admin/users.php:270
+#: wp-admin/includes/ms.php:1055 wp-admin/users.php:271
 msgid "Delete all content."
 msgstr "Slet alt indhold."
 
-#: wp-admin/includes/ms.php:1057 wp-admin/users.php:272
+#: wp-admin/includes/ms.php:1057 wp-admin/users.php:273
 msgid "Attribute all content to:"
 msgstr "Tildel alt indhold til:"
 
@@ -3782,7 +3782,7 @@ msgstr "Fil URL:"
 msgid "In the <strong>In Response To</strong> column, there are three elements. The text is the name of the post that inspired the comment, and links to the post editor for that entry. The View Post link leads to that post on your live site. The small bubble with the number in it shows the number of approved comments that post has received. If there are pending comments, a red notification circle with the number of pending comments is displayed. Clicking the notification circle will filter the comments screen to show only pending comments on that post."
 msgstr "I <strong>Som svar til</strong>-kolonnen er der tre elementer. Teksten er navnet på det indlæg, som inspirerede til kommentaren, og linker til indlægseditoren for dette indlæg. Vis indlæg-linket fører til indlægget på dit websted. Den lille boble med antallet i viser hvor mange godkendte kommentarer indlægget har fået. Hvis der er afventende kommentarer, vil en rød bobbel blive vist med antallet af afventende kommentarer.  Hvis du klikker på boblen, vil den filtrere kommentarerne og kun vise afventende kommentarer til dette indlæg."
 
-#: wp-admin/users.php:250
+#: wp-admin/users.php:251
 msgid "ID #%1$s: %2$s <strong>The current user will not be deleted.</strong>"
 msgstr "ID #%1$s: %2$s <strong>Denne bruger vil IKKE blive slettet.</strong>"
 
@@ -3790,19 +3790,19 @@ msgstr "ID #%1$s: %2$s <strong>Denne bruger vil IKKE blive slettet.</strong>"
 msgid "Used: %1$s%% of %2$s"
 msgstr "Brugt: %1$s%% af %2$s"
 
-#: wp-admin/users.php:252 wp-admin/users.php:376
+#: wp-admin/users.php:253 wp-admin/users.php:377
 msgid "ID #%1$s: %2$s"
 msgstr "ID #%1$s: %2$s"
 
-#: wp-admin/users.php:372
+#: wp-admin/users.php:373
 msgid "ID #%1$s: %2$s <strong>The current user will not be removed.</strong>"
 msgstr "ID #%1$s: %2$s <strong>Denne bruger vil IKKE blive fjernet.</strong>"
 
-#: wp-admin/users.php:374
+#: wp-admin/users.php:375
 msgid "ID #%1$s: %2$s <strong>You don't have permission to remove this user.</strong>"
 msgstr "ID #%1$s: %2$s <strong>Du har ikke tilladelse til at fjerne denne bruger.</strong>"
 
-#: wp-admin/users.php:234
+#: wp-admin/users.php:235
 msgid "Please select an option."
 msgstr "Vælg venligst en mulighed."
 
@@ -4184,11 +4184,11 @@ msgstr "Din <code>wp-config.php</code>-fil har et blankt tabelpræfiks i databas
 msgid "Revert to the <strong>Browser Uploader</strong> by clicking the link below the drag and drop box."
 msgstr "Skift til <strong>Browser uploaderen</strong> ved at klikke på linket under træk-og-slip boksen."
 
-#: wp-admin/users.php:417
+#: wp-admin/users.php:418
 msgid "User deleted."
 msgstr "Bruger slettet"
 
-#: wp-admin/users.php:425
+#: wp-admin/users.php:426
 msgid "New user created. <a href=\"%s\">Edit user</a>"
 msgstr "Bruger oprettet. <a href=\"%s\">Rediger bruger</a>"
 
@@ -4950,12 +4950,12 @@ msgid "Show Toolbar when viewing site"
 msgstr "Vis værktøjslinje på webstedet"
 
 #. translators: %s: Codex URL
-#: wp-admin/about.php:231
+#: wp-admin/about.php:55 wp-admin/about.php:239
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr "Hvis du vil vide mere, så læs <a href=\"%s\">udgivelsesnoterne</a>."
 
 #. translators: 1: WordPress version number, 2: plural number of bugs.
-#: wp-admin/about.php:219
+#: wp-admin/about.php:227
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
 msgstr[0] "<strong>Version %1$s</strong> rettede %2$s fejl."
@@ -4963,7 +4963,7 @@ msgstr[1] "<strong>Version %1$s</strong> rettede %2$s fejl."
 
 #. translators: 1: WordPress version number, 2: plural number of bugs. More
 #. than one security issue.
-#: wp-admin/about.php:227
+#: wp-admin/about.php:53 wp-admin/about.php:235
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
 msgstr[0] "<strong>Version %1$s</strong> lukkede nogle sikkerhedshuller og rettede %2$s fejl."
@@ -4971,7 +4971,7 @@ msgstr[1] "<strong>Version %1$s</strong> lukkede nogle sikkerhedshuller og rette
 
 #. translators: 1: WordPress version number, 2: plural number of bugs. Singular
 #. security issue.
-#: wp-admin/about.php:223
+#: wp-admin/about.php:231
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
 msgstr[0] "<strong>Version %1$s</strong> lukkede et sikkerhedshul og rettede %2$s fejl."
@@ -4981,24 +4981,26 @@ msgstr[1] "<strong>Version %1$s</strong> lukkede et sikkerhedshul og rettede %2$
 msgid "Welcome to your WordPress Dashboard! This is the screen you will see when you log in to your site, and gives you access to all the site management features of WordPress. You can get help for any screen by clicking the Help tab in the upper corner."
 msgstr "Velkommen til dit WordPress kontrolpanel. Dette er det skærmbillede, du møder, når du logger ind på dit websted, og det giver dig adgang til administationsmulighederne i WordPress. Der er en hjælpetekst til hvert skærmbillede gemt under Hjælp-fanen i øverste højre hjørne."
 
-#: wp-admin/about.php:210
+#: wp-admin/about.php:52 wp-admin/about.php:218
 msgid "Maintenance and Security Release"
-msgstr "Vedligeholdelse- og sikkerhedsudgivelse"
+msgid_plural "Maintenance and Security Releases"
+msgstr[0] "Vedligeholdelse- og sikkerhedsudgivelse"
+msgstr[1] "Vedligeholdelses- og sikkerhedsudgivelser"
 
 #: wp-admin/about.php:46 wp-admin/credits.php:28 wp-admin/freedoms.php:27
 msgid "What&#8217;s New"
 msgstr "Hvad er nyt"
 
-#: wp-admin/about.php:207
+#: wp-admin/about.php:215
 msgid "Security Release"
 msgstr "Sikkerhedsudgivelse"
 
-#: wp-admin/about.php:204
+#: wp-admin/about.php:212
 msgid "Maintenance Release"
 msgstr "Vedligeholdelsesudgivelse"
 
 #. translators: %s: WordPress version number
-#: wp-admin/about.php:216
+#: wp-admin/about.php:224
 msgid "<strong>Version %s</strong> addressed some security issues."
 msgstr "<strong>Version %s</strong> tog sig af nogle sikkerhedsproblemer."
 
@@ -5006,7 +5008,7 @@ msgstr "<strong>Version %s</strong> tog sig af nogle sikkerhedsproblemer."
 msgid "This screen allows you to choose your permalink structure. You can choose from common settings or create custom URL structures."
 msgstr "På dette skærmbillede kan du vælge din permalinkstruktur. Du kan vælge mellem gængse indstillinger eller oprette en brugerdefineret URL-struktur."
 
-#: wp-admin/about.php:189
+#: wp-admin/about.php:197
 msgid "Return to Updates"
 msgstr "Tilbage til opdateringer"
 
@@ -5301,11 +5303,11 @@ msgstr "Den sandsynlige direkte indkludering af wp-admin/includes/template.php f
 msgid "Welcome to WordPress %s"
 msgstr "Velkommen til WordPress %s"
 
-#: wp-admin/about.php:189
+#: wp-admin/about.php:197
 msgid "Return to Dashboard &rarr; Updates"
 msgstr "Tilbage til Kontrolpanel &rarr; Opdateringer"
 
-#: wp-admin/about.php:192
+#: wp-admin/about.php:200
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Gå til Kontrolpanel &rarr; Forside"
 
@@ -5317,7 +5319,7 @@ msgstr "WordPress er skabt af et verdensomspændende team af passionerede person
 msgid "Core Developers"
 msgstr "Kerneudviklere"
 
-#: wp-admin/about.php:125
+#: wp-admin/about.php:133
 msgid "Under the Hood"
 msgstr "Under motorhjelmen"
 
@@ -5497,7 +5499,7 @@ msgstr "<strong>Træk og slip</strong> ‒ Benyt træk og slip for at omarranger
 #. translators: %s: search keywords
 #: wp-admin/edit-comments.php:197 wp-admin/edit-tags.php:311
 #: wp-admin/edit.php:307 wp-admin/link-manager.php:78 wp-admin/plugins.php:515
-#: wp-admin/upload.php:224 wp-admin/users.php:480
+#: wp-admin/upload.php:224 wp-admin/users.php:481
 msgid "Search results for &#8220;%s&#8221;"
 msgstr "Søgeresultat for &#8220;%s&#8221;"
 
@@ -5521,7 +5523,7 @@ msgstr "Klik for at se liste over filer der vil blive slettet."
 msgid "<strong>%1$s</strong> by <em>%2$s</em>"
 msgstr "<strong>%1$s</strong> af <em>%2$s</em>"
 
-#: wp-admin/includes/ms.php:1085 wp-admin/users.php:286
+#: wp-admin/includes/ms.php:1085 wp-admin/users.php:287
 msgid "Confirm Deletion"
 msgstr "Bekræft sletning"
 
@@ -5557,8 +5559,8 @@ msgstr "Vis"
 msgid "Super Admin"
 msgstr "Super Admin"
 
-#: wp-admin/users.php:300 wp-admin/users.php:308 wp-admin/users.php:335
-#: wp-admin/users.php:343
+#: wp-admin/users.php:301 wp-admin/users.php:309 wp-admin/users.php:336
+#: wp-admin/users.php:344
 msgid "You can&#8217;t remove users."
 msgstr "Du kan ikke fjerne brugere."
 
@@ -5610,12 +5612,12 @@ msgid "Install"
 msgstr "Installer"
 
 #: wp-admin/includes/dashboard.php:406 wp-admin/includes/dashboard.php:408
-#: wp-admin/users.php:487
+#: wp-admin/users.php:488
 msgid "Search Users"
 msgstr "Søg brugere"
 
 #: wp-admin/menu.php:220 wp-admin/menu.php:222 wp-admin/user-edit.php:194
-#: wp-admin/users.php:474
+#: wp-admin/users.php:475
 msgctxt "user"
 msgid "Add New"
 msgstr "Tilføj ny"
@@ -5653,7 +5655,7 @@ msgstr "Tilføj eksisterende bruger"
 msgid "For more information:"
 msgstr "For mere information:"
 
-#: wp-admin/users.php:433
+#: wp-admin/users.php:434
 msgid "Changed roles."
 msgstr "Ændrede roller."
 
@@ -5666,7 +5668,7 @@ msgctxt "plugin editor"
 msgid "Editor"
 msgstr "Editor"
 
-#: wp-admin/users.php:444
+#: wp-admin/users.php:445
 msgid "User removed from this site."
 msgstr "Bruger er slettet fra webstedet."
 
@@ -5992,7 +5994,7 @@ msgstr "Uploadede billeder"
 msgid "Layout"
 msgstr "Layout"
 
-#: wp-admin/users.php:239
+#: wp-admin/users.php:240
 msgid "You have specified this user for deletion:"
 msgstr "Du har sat denne bruger til sletning:"
 
@@ -6027,7 +6029,7 @@ msgstr "Standard indlægsformat"
 msgid "You do not have sufficient permissions to update this site."
 msgstr "Du har ikke de rettigheder, der kræves til at opdatere dette websted."
 
-#: wp-admin/user-edit.php:196 wp-admin/users.php:476
+#: wp-admin/user-edit.php:196 wp-admin/users.php:477
 msgctxt "user"
 msgid "Add Existing"
 msgstr "Tilføj eksisterende"
@@ -6626,7 +6628,7 @@ msgid "Home: %s"
 msgstr "Forside: %s"
 
 #: wp-admin/import.php:57 wp-admin/includes/network.php:105
-#: wp-admin/includes/network.php:122 wp-admin/users.php:234
+#: wp-admin/includes/network.php:122 wp-admin/users.php:235
 msgid "ERROR:"
 msgstr "FEJL:"
 
@@ -6995,7 +6997,7 @@ msgstr "Dette vil gendanne det originale baggrundsbillede. Det vil ikke være mu
 msgid "WordPress Blog"
 msgstr "WordPress Blog"
 
-#: wp-admin/users.php:357
+#: wp-admin/users.php:358
 msgid "Remove Users from Site"
 msgstr "Fjern brugere fra websted"
 
@@ -7135,15 +7137,15 @@ msgstr "Fjern billede"
 msgid "Display Options"
 msgstr "Baggrundsindstillinger"
 
-#: wp-admin/users.php:362
+#: wp-admin/users.php:363
 msgid "You have specified these users for removal:"
 msgstr "Du har angivet, at følgende brugere skal slettes:"
 
-#: wp-admin/users.php:384
+#: wp-admin/users.php:385
 msgid "Confirm Removal"
 msgstr "Bekræft sletning"
 
-#: wp-admin/users.php:447
+#: wp-admin/users.php:448
 msgid "You can't remove the current user."
 msgstr "Du kan ikke slette den aktuelle bruger."
 
@@ -7155,11 +7157,11 @@ msgstr "Sletning af brugere er ikke tilladt fra dette skærmbillede."
 msgid "You can&#8217;t delete that user."
 msgstr "Du kan ikke slette den bruger."
 
-#: wp-admin/users.php:448
+#: wp-admin/users.php:449
 msgid "Other users have been removed."
 msgstr "Andre brugere blev slettet."
 
-#: wp-admin/users.php:386
+#: wp-admin/users.php:387
 msgid "There are no valid users selected for removal."
 msgstr "Der er ikke valgt en gyldig bruger til sletning."
 
@@ -7489,7 +7491,7 @@ msgid_plural "Must-Use <span class=\"count\">(%s)</span>"
 msgstr[0] "Skal bruge <span class=\"count\">(%s)</span>"
 msgstr[1] "Skal bruge <span class=\"count\">(%s)</span>"
 
-#: wp-admin/about.php:192
+#: wp-admin/about.php:200
 msgid "Go to Dashboard"
 msgstr "G&#229; til kontrolpanelet"
 
@@ -8587,27 +8589,27 @@ msgstr "Du kan ikke redigere den bruger."
 msgid "You can&#8217;t delete users."
 msgstr "Du kan ikke slette brugere."
 
-#: wp-admin/users.php:288
+#: wp-admin/users.php:289
 msgid "There are no valid users selected for deletion."
 msgstr "Der er ikke valgt nogen gyldig bruger til at blive slettet."
 
-#: wp-admin/users.php:429
+#: wp-admin/users.php:430
 msgid "New user created."
 msgstr "Ny bruger oprettet."
 
-#: wp-admin/users.php:436
+#: wp-admin/users.php:437
 msgid "The current user&#8217;s role must have user editing capabilities."
 msgstr "Den nuv&#230;rende brugers rolle skal have rettigheder til at redigere."
 
-#: wp-admin/users.php:437
+#: wp-admin/users.php:438
 msgid "Other user roles have been changed."
 msgstr "Anden brugers rolle er &#230;ndret."
 
-#: wp-admin/users.php:440
+#: wp-admin/users.php:441
 msgid "You can&#8217;t delete the current user."
 msgstr "Du kan ikke slette den nuv&#230;rende bruger."
 
-#: wp-admin/users.php:441
+#: wp-admin/users.php:442
 msgid "Other users have been deleted."
 msgstr "Anden bruger er slettet."
 
@@ -8826,7 +8828,7 @@ msgstr "Wavatar (Generisk)"
 msgid "User Name"
 msgstr "Brugernavn"
 
-#: wp-admin/users.php:231
+#: wp-admin/users.php:232
 msgid "Delete Users"
 msgstr "Slet bruger"
 

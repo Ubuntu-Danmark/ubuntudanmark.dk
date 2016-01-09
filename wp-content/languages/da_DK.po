@@ -1,5 +1,5 @@
-# Translation of Development in Danish
-# This file is distributed under the same license as the Development package.
+# Translation of Development (4.4.x) in Danish
+# This file is distributed under the same license as the Development (4.4.x) package.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2015-12-07 12:29:46+0000\n"
@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/1.0-alpha-1100\n"
-"Project-Id-Version: Development\n"
+"Project-Id-Version: Development (4.4.x)\n"
 
 #. translators: 'rtl' or 'ltr'. This sets the text direction for WordPress.
 #: wp-includes/locale.php:201
@@ -46,11 +46,11 @@ msgid "https://codex.wordpress.org/Debugging_a_WordPress_Network"
 msgstr "https://codex.wordpress.org/Debugging_a_WordPress_Network"
 
 #. translators: %s: Codex URL
-#: wp-includes/functions.php:3784
+#: wp-includes/functions.php:3789
 msgid "Please see <a href=\"%s\">Debugging in WordPress</a> for more information."
 msgstr "Se venligst <a href=\"%s\">Fejlfinding i WordPress</a> for mere information."
 
-#: wp-includes/functions.php:3785
+#: wp-includes/functions.php:3790
 msgid "https://codex.wordpress.org/Debugging_in_WordPress"
 msgstr "https://codex.wordpress.org/Debugging_in_WordPress"
 
@@ -135,7 +135,7 @@ msgctxt "genitive"
 msgid "December"
 msgstr "decembers"
 
-#: wp-includes/taxonomy.php:1578 wp-includes/taxonomy.php:1660
+#: wp-includes/taxonomy.php:1584 wp-includes/taxonomy.php:1666
 msgid "Term meta cannot be added to terms that are shared between taxonomies."
 msgstr "Term-meta kan ikke tilføjes til termer, som deles mellem taksonomier."
 
@@ -171,7 +171,7 @@ msgstr "majs"
 
 #. translators: If months in your language require a genitive case, translate
 #. this to 'on'. Do not translate into your own language.
-#: wp-includes/functions.php:178
+#: wp-includes/functions.php:183
 msgctxt "decline months names: on or off"
 msgid "off"
 msgstr "off"
@@ -339,19 +339,19 @@ msgstr "Kunne ikke gemme nulstillingsnøgle for adgangskode i databasen."
 msgid "Nicename may not be longer than 50 characters."
 msgstr "Kaldenavn må ikke være længere end 50 tegn."
 
-#: wp-includes/taxonomy.php:538
+#: wp-includes/taxonomy.php:541
 msgid "Tags list navigation"
 msgstr "Navigation for tags-liste"
 
-#: wp-includes/taxonomy.php:538
+#: wp-includes/taxonomy.php:541
 msgid "Categories list navigation"
 msgstr "Navigation for kategorilister"
 
-#: wp-includes/taxonomy.php:539
+#: wp-includes/taxonomy.php:542
 msgid "Tags list"
 msgstr "Tags-liste"
 
-#: wp-includes/taxonomy.php:539
+#: wp-includes/taxonomy.php:542
 msgid "Categories list"
 msgstr "Kategoriliste"
 
@@ -482,7 +482,7 @@ msgid "Post Type Archive"
 msgstr "Arkiv for indholdstype"
 
 #. translators: playlist item title
-#: wp-includes/media.php:1749 wp-includes/media.php:1764
+#: wp-includes/media.php:1777 wp-includes/media.php:1792
 msgctxt "playlist item title"
 msgid "&#8220;%s&#8221;"
 msgstr "&#8220;%s&#8221;"
@@ -613,7 +613,7 @@ msgstr "Nyere kommentarer"
 msgid "Older comments"
 msgstr "Ældre kommentarer"
 
-#: wp-includes/general-template.php:1950
+#: wp-includes/general-template.php:1946
 msgid "Posts published on %s"
 msgstr "Indlæg udgivet den %s"
 
@@ -666,7 +666,7 @@ msgctxt "adjective"
 msgid "Trash"
 msgstr "Papirkurv"
 
-#: wp-includes/comment-template.php:2110
+#: wp-includes/comment-template.php:2143
 msgid "<a href=\"%1$s\" aria-label=\"Logged in as %2$s. Edit your profile.\">Logged in as %2$s</a>. <a href=\"%3$s\">Log out?</a>"
 msgstr "<a href=\"%1$s\" aria-label=\"Logget ind som %2$s. Redigér din profil.\">Logget ind som %2$s</a>. <a href=\"%3$s\">Log ud?</a>"
 
@@ -752,7 +752,7 @@ msgstr "Skift sektion: %s"
 #. Asian characters), enter 'characters_excluding_spaces' or
 #. 'characters_including_spaces'. Otherwise, enter 'words'. Do not translate
 #. into your own language.
-#: wp-includes/formatting.php:2960 wp-includes/script-loader.php:419
+#: wp-includes/formatting.php:2964 wp-includes/script-loader.php:419
 msgctxt "Word count type. Do not translate!"
 msgid "words"
 msgstr "words"
@@ -811,7 +811,7 @@ msgstr "Ingen elementer"
 msgid "Menu options"
 msgstr "Menu-indstillinger"
 
-#: wp-login.php:732
+#: wp-login.php:731
 msgid "Registration confirmation will be emailed to you."
 msgstr "En registreringsbekræftelse vil blive sendt til din e-mail."
 
@@ -962,7 +962,7 @@ msgstr "Præformateret"
 msgid "Menus can be displayed in locations defined by your theme."
 msgstr "Menuer kan blive vist ved placeringer defineret af dit tema."
 
-#: wp-includes/functions.php:3619
+#: wp-includes/functions.php:3624
 msgid "The called constructor method for %1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
 msgstr "Den benyttede constructor-metode for %1$s er <strong>forældet</strong> siden version %2$s! Benyt %3$s i stedet."
 
@@ -1060,7 +1060,7 @@ msgstr "Indsat tekst"
 msgid "Close inserted text tag"
 msgstr "Luk indsatte tekst-tag"
 
-#: wp-includes/taxonomy.php:537
+#: wp-includes/taxonomy.php:540
 msgid "No tags"
 msgstr "Ingen tags"
 
@@ -1440,7 +1440,7 @@ msgstr "Kontrolpanel: %s"
 msgid "<span>Active:</span> %s"
 msgstr "<span>Aktiv:</span> %s"
 
-#: wp-login.php:781 wp-login.php:785
+#: wp-login.php:780 wp-login.php:784
 msgid "https://codex.wordpress.org/Cookies"
 msgstr "https://codex.wordpress.org/Cookies"
 
@@ -1534,7 +1534,7 @@ msgstr "Foreslået indlejring #%d"
 msgid "Taxonomy names must be between 1 and 32 characters in length."
 msgstr "Navne til taksonomier skal være på mellem 1 og 32 tegn."
 
-#: wp-includes/taxonomy.php:3965
+#: wp-includes/taxonomy.php:3971
 msgid "Could not split shared term."
 msgstr "Kunne ikke opdele den delte term."
 
@@ -1570,7 +1570,7 @@ msgstr "Forfatter: %1$s (IP: %2$s, %3$s)"
 msgid "Website: %1$s (IP: %2$s, %3$s)"
 msgstr "Websted: %1$s (IP: %2$s, %3$s)"
 
-#: wp-includes/media.php:3315
+#: wp-includes/media.php:3343
 msgid "Drag and drop to reorder media files."
 msgstr "Træk og slip for at sortere mediefiler."
 
@@ -1679,24 +1679,24 @@ msgid "Link Text"
 msgstr "Link-tekst"
 
 #. translators: %s: post title
-#: wp-includes/comment-template.php:1456
+#: wp-includes/comment-template.php:1468
 msgid "1 Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "1 kommentar<span class=\"screen-reader-text\"> til %s</span>"
 
 #. translators: 1: Number of comments 2: post title
-#: wp-includes/comment-template.php:1461
+#: wp-includes/comment-template.php:1473
 msgid "%1$s Comment<span class=\"screen-reader-text\"> on %2$s</span>"
 msgid_plural "%1$s Comments<span class=\"screen-reader-text\"> on %2$s</span>"
 msgstr[0] "%1$s kommentar<span class=\"screen-reader-text\"> til %2$s</span>"
 msgstr[1] "%1$s kommentarer<span class=\"screen-reader-text\"> til %2$s</span>"
 
 #. translators: %s: post title
-#: wp-includes/comment-template.php:1467
+#: wp-includes/comment-template.php:1479
 msgid "Comments Off<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Kommentarer lukket<span class=\"screen-reader-text\"> til %s</span>"
 
 #. translators: %s: post title
-#: wp-includes/comment-template.php:1451
+#: wp-includes/comment-template.php:1463
 msgid "No Comments<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Ingen kommentarer<span class=\"screen-reader-text\"> til %s</span>"
 
@@ -1739,7 +1739,7 @@ msgctxt "previous post"
 msgid "Previous"
 msgstr "Forrige"
 
-#: wp-includes/taxonomy.php:536
+#: wp-includes/taxonomy.php:539
 msgid "No categories found."
 msgstr "Ingen kategorier fundet."
 
@@ -1793,7 +1793,7 @@ msgstr "Disse værdier beskriver ikke en tilladt dato: month %1$s, day %2$s."
 msgid "You need to pass an array of types."
 msgstr "Du skal sende en række af typer."
 
-#: wp-includes/taxonomy.php:2646
+#: wp-includes/taxonomy.php:2652
 msgid "A term with the name provided already exists in this taxonomy."
 msgstr "En term med navnet og korttitlen findes allerede i denne taksonomi."
 
@@ -1809,7 +1809,7 @@ msgstr "%s skal opsætte en databaseforbindelse for at bruge escaping."
 msgid "URL: %s"
 msgstr "URL: %s"
 
-#: wp-includes/media.php:3333
+#: wp-includes/media.php:3361
 msgctxt "noun"
 msgid "Trash"
 msgstr "Papirkurv"
@@ -1863,75 +1863,75 @@ msgstr "Du kan se alle trackbacks til indlægget her:"
 msgid "Edit Selection"
 msgstr "Rediger valg"
 
-#: wp-includes/general-template.php:1383
+#: wp-includes/general-template.php:1379
 msgid "Archives: %s"
 msgstr "Arkiver: %s"
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
-#: wp-includes/general-template.php:1387
+#: wp-includes/general-template.php:1383
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: wp-includes/general-template.php:1378
+#: wp-includes/general-template.php:1374
 msgctxt "post format archive title"
 msgid "Audio"
 msgstr "Lyd"
 
-#: wp-includes/general-template.php:1380
+#: wp-includes/general-template.php:1376
 msgctxt "post format archive title"
 msgid "Chats"
 msgstr "Chats"
 
-#: wp-includes/general-template.php:1374
+#: wp-includes/general-template.php:1370
 msgctxt "post format archive title"
 msgid "Links"
 msgstr "Links"
 
-#: wp-includes/general-template.php:1370
+#: wp-includes/general-template.php:1366
 msgctxt "post format archive title"
 msgid "Videos"
 msgstr "Videoer"
 
-#: wp-includes/general-template.php:1372
+#: wp-includes/general-template.php:1368
 msgctxt "post format archive title"
 msgid "Quotes"
 msgstr "Citater"
 
-#: wp-includes/general-template.php:1366
+#: wp-includes/general-template.php:1362
 msgctxt "post format archive title"
 msgid "Galleries"
 msgstr "Gallerier"
 
-#: wp-includes/general-template.php:1368
+#: wp-includes/general-template.php:1364
 msgctxt "post format archive title"
 msgid "Images"
 msgstr "Billeder"
 
-#: wp-includes/general-template.php:1359
+#: wp-includes/general-template.php:1355
 msgid "Month: %s"
 msgstr "Måned: %s"
 
-#: wp-includes/general-template.php:1361
+#: wp-includes/general-template.php:1357
 msgid "Day: %s"
 msgstr "Dag: %s"
 
-#: wp-includes/general-template.php:1357
+#: wp-includes/general-template.php:1353
 msgid "Year: %s"
 msgstr "År: %s"
 
-#: wp-includes/general-template.php:1355
+#: wp-includes/general-template.php:1351
 msgid "Author: %s"
 msgstr "Forfatter: %s"
 
-#: wp-includes/general-template.php:1353
+#: wp-includes/general-template.php:1349
 msgid "Tag: %s"
 msgstr "Tag: %s"
 
-#: wp-includes/general-template.php:1351
+#: wp-includes/general-template.php:1347
 msgid "Category: %s"
 msgstr "Kategori: %s"
 
-#: wp-includes/comment-template.php:1558
+#: wp-includes/comment-template.php:1570
 msgid "Reply to %s"
 msgstr "Besvar %s"
 
@@ -1939,7 +1939,7 @@ msgstr "Besvar %s"
 msgid "Add to Dictionary"
 msgstr "Tilføj til ordbog"
 
-#: wp-includes/general-template.php:1376
+#: wp-includes/general-template.php:1372
 msgctxt "post format archive title"
 msgid "Statuses"
 msgstr "Statusser"
@@ -1977,12 +1977,12 @@ msgstr "Ingen justering"
 msgid "Do not pass style tags to wp_add_inline_style()."
 msgstr "Brug ikke style-tags i wp_add_inline_style()."
 
-#: wp-includes/general-template.php:1361 wp-includes/general-template.php:1949
+#: wp-includes/general-template.php:1357 wp-includes/general-template.php:1945
 msgctxt "daily archives date format"
 msgid "F j, Y"
 msgstr "j. F Y"
 
-#: wp-includes/general-template.php:1364
+#: wp-includes/general-template.php:1360
 msgctxt "post format archive title"
 msgid "Asides"
 msgstr "Sidebemærkninger"
@@ -2060,15 +2060,15 @@ msgctxt "list style"
 msgid "Default"
 msgstr "Standard"
 
-#: wp-login.php:851
+#: wp-login.php:850
 msgid "<strong>You have successfully updated WordPress!</strong> Please log back in to see what&#8217;s new."
 msgstr "<strong>Du har nu opdateret WordPress!</strong> Log venligst ind igen for at se hvad der er nyt."
 
-#: wp-includes/media.php:3340
+#: wp-includes/media.php:3368
 msgid "Trash Selected"
 msgstr "Slet valgte"
 
-#: wp-includes/media.php:3341
+#: wp-includes/media.php:3369
 msgid "Untrash Selected"
 msgstr "Fortryd slet af valgte"
 
@@ -2076,7 +2076,7 @@ msgstr "Fortryd slet af valgte"
 msgid "Untrash"
 msgstr "Fortryd sletning"
 
-#: wp-includes/media.php:3337
+#: wp-includes/media.php:3365
 msgid ""
 "You are about to trash these items.\n"
 "  'Cancel' to stop, 'OK' to delete."
@@ -2088,21 +2088,21 @@ msgstr ""
 msgid "Press return or enter to open this panel"
 msgstr "Tryk på Return eller Enter for at åbne dette panel"
 
-#: wp-includes/media.php:3342
+#: wp-includes/media.php:3370
 msgid "Delete Selected"
 msgstr "Slet valgte"
 
-#: wp-includes/media.php:3339
+#: wp-includes/media.php:3367
 msgid "Cancel Selection"
 msgstr "Annuller valg"
 
-#: wp-includes/media.php:3338
+#: wp-includes/media.php:3366
 msgid "Bulk Select"
 msgstr "Vælg flere"
 
 #. translators: %s: taxonomy label, %l: list of terms formatted as per
 #. $term_template
-#: wp-includes/taxonomy.php:4451
+#: wp-includes/taxonomy.php:4457
 msgid "%s: %l."
 msgstr "%s: %l."
 
@@ -2148,7 +2148,7 @@ msgstr "Listevisning"
 msgid "This site is no longer available."
 msgstr "Dette websted er ikke længere tilgængeligt."
 
-#: wp-includes/media.php:2104
+#: wp-includes/media.php:2132
 msgid "Bitrate"
 msgstr "Bitrate"
 
@@ -2196,23 +2196,23 @@ msgstr "Bitrate:"
 msgid "Edit more details"
 msgstr "Rediger flere detaljer"
 
-#: wp-includes/media.php:3329
+#: wp-includes/media.php:3357
 msgid "All dates"
 msgstr "Alle datoer"
 
-#: wp-includes/media.php:3332
+#: wp-includes/media.php:3360
 msgid "Unattached"
 msgstr "Uhæftede"
 
-#: wp-includes/media.php:3345
+#: wp-includes/media.php:3373
 msgid "Filter by date"
 msgstr "Filtrer efter dato"
 
-#: wp-includes/media.php:3346
+#: wp-includes/media.php:3374
 msgid "Filter by type"
 msgstr "Filtrer efter type"
 
-#: wp-includes/media.php:3347
+#: wp-includes/media.php:3375
 msgid "Search Media"
 msgstr "Søg medier"
 
@@ -2220,11 +2220,11 @@ msgstr "Søg medier"
 msgid "Your browser does not support direct access to the clipboard. Please use keyboard shortcuts or your browser&#8217;s edit menu instead."
 msgstr "Din browser understøtter ikke direkte adgang til udklipsholderen. Benyt venligst tastaturgenveje eller din browsers redigeringsmenu i stedet."
 
-#: wp-includes/media.php:2105
+#: wp-includes/media.php:2133
 msgid "Bitrate Mode"
 msgstr "Bitrate-tilstand"
 
-#: wp-includes/media.php:3336 wp-includes/script-loader.php:82
+#: wp-includes/media.php:3364 wp-includes/script-loader.php:82
 msgid ""
 "You are about to permanently delete these items.\n"
 "  'Cancel' to stop, 'OK' to delete."
@@ -2281,11 +2281,11 @@ msgstr "Hvis du vil indsætte indhold fra Microsoft Word, kan du slå denne muli
 msgid "Keyboard Shortcuts"
 msgstr "Tastaturgenveje"
 
-#: wp-login.php:784
+#: wp-login.php:783
 msgid "<strong>ERROR</strong>: Cookies are blocked or not supported by your browser. You must <a href=\"%s\">enable cookies</a> to use WordPress."
 msgstr "<strong>FEJL</strong>: Cookies er blokeret eller understøttes ikke af din browser. Du skal <a href=\"%s\">aktivere cookies</a> for at bruge WordPress."
 
-#: wp-login.php:780
+#: wp-login.php:779
 msgid "<strong>ERROR</strong>: Cookies are blocked due to unexpected output. For help, please see <a href=\"%1$s\">this documentation</a> or try the <a href=\"%2$s\">support forums</a>."
 msgstr "<strong>FEJL</strong>: Cookies er blokeret på grund af uventet output. For hjælp, se venligst <a href=\"%1$s\">denne dokumentation</a> eller prøv <a href=\"%2$s\">support-forummet</a>."
 
@@ -2322,7 +2322,7 @@ msgstr "Skriftstørrelser"
 msgid "Split table cell"
 msgstr "Opdel tabelcelle"
 
-#: wp-includes/media-template.php:238 wp-includes/media.php:3383
+#: wp-includes/media-template.php:238 wp-includes/media.php:3411
 msgid "Suggested image dimensions:"
 msgstr "Foreslåede billeddimensioner:"
 
@@ -2331,33 +2331,33 @@ msgid "Custom Size"
 msgstr "Tilpasset størrelse"
 
 #: wp-includes/media-template.php:383 wp-includes/media-template.php:562
-#: wp-includes/media.php:2095
+#: wp-includes/media.php:2123
 msgid "Artist"
 msgstr "Kunstner"
 
 #: wp-includes/media-template.php:384 wp-includes/media-template.php:563
-#: wp-includes/media.php:2096
+#: wp-includes/media.php:2124
 msgid "Album"
 msgstr "Album"
 
-#: wp-includes/media.php:2100
+#: wp-includes/media.php:2128
 msgid "Genre"
 msgstr "Genre"
 
-#: wp-includes/media.php:2101
+#: wp-includes/media.php:2129
 msgid "Year"
 msgstr "År"
 
-#: wp-includes/media.php:2102
+#: wp-includes/media.php:2130
 msgctxt "video or audio"
 msgid "Length"
 msgstr "Længde"
 
-#: wp-includes/media.php:3384
+#: wp-includes/media.php:3412
 msgid "There has been an error cropping your image."
 msgstr "Der opstod en fejl under beskæringen af dit billede."
 
-#: wp-includes/media.php:3407
+#: wp-includes/media.php:3435
 msgid "Add to audio playlist"
 msgstr "Tilføj til afspillingsliste"
 
@@ -2369,7 +2369,7 @@ msgstr "Avancerede indstillinger"
 msgid "Image Title Attribute"
 msgstr "Billede titel attribut"
 
-#: wp-includes/media.php:3408
+#: wp-includes/media.php:3436
 msgid "Add to Audio Playlist"
 msgstr "Tilføj til lydafspillingsliste"
 
@@ -2377,19 +2377,19 @@ msgstr "Tilføj til lydafspillingsliste"
 msgid "Image CSS Class"
 msgstr "Billede CSS klasse"
 
-#: wp-includes/media.php:3405
+#: wp-includes/media.php:3433
 msgid "Insert audio playlist"
 msgstr "Indsæt lydafspillingsliste"
 
-#: wp-includes/media.php:3403
+#: wp-includes/media.php:3431
 msgid "Edit Audio Playlist"
 msgstr "Rediger lydafspillingsliste"
 
-#: wp-includes/media.php:3404
+#: wp-includes/media.php:3432
 msgid "&#8592; Cancel Audio Playlist"
 msgstr "&#8592;  Annuler lydafspillingsliste"
 
-#: wp-includes/media.php:3406
+#: wp-includes/media.php:3434
 msgid "Update audio playlist"
 msgstr "Opdater lydafspillingsliste"
 
@@ -2442,7 +2442,7 @@ msgstr "Automatisk"
 msgid "Move to another area&hellip;"
 msgstr "Flyt til et andet område&hellip;"
 
-#: wp-includes/media.php:3382
+#: wp-includes/media.php:3410
 msgid "Cropping&hellip;"
 msgstr "Beskærer&hellip;"
 
@@ -2690,7 +2690,7 @@ msgstr "Værktøjer"
 msgid "Add alternate sources for maximum HTML5 playback:"
 msgstr "Tilføj alternative kilder for maksimal HTML5 afspillingskompatabilitet:"
 
-#: wp-includes/media.php:3371
+#: wp-includes/media.php:3399
 msgid "Image Details"
 msgstr "Billededetaljer"
 
@@ -2699,7 +2699,7 @@ msgid "Metadata"
 msgstr "Metadata"
 
 #. translators: used to join items in a list with only 2 items
-#: wp-includes/formatting.php:4068
+#: wp-includes/formatting.php:4078
 msgid "%s and %s"
 msgstr "%s og %s"
 
@@ -2707,39 +2707,39 @@ msgstr "%s og %s"
 msgid "Show Artist Name in Tracklist"
 msgstr "Vis kunstnernavn i afspilningslisten"
 
-#: wp-includes/media.php:3326
+#: wp-includes/media.php:3354
 msgid "Create a new video playlist"
 msgstr "Opret en ny videoafspilningsliste"
 
-#: wp-includes/media.php:3325
+#: wp-includes/media.php:3353
 msgid "Create a new playlist"
 msgstr "Opret en ny afspilningsliste"
 
-#: wp-includes/media.php:3402
+#: wp-includes/media.php:3430
 msgid "Create Audio Playlist"
 msgstr "Opret en lydafspilningsliste"
 
-#: wp-includes/media.php:3413
+#: wp-includes/media.php:3441
 msgid "Edit Video Playlist"
 msgstr "Rediger videoafspilningsliste"
 
-#: wp-includes/media.php:3414
+#: wp-includes/media.php:3442
 msgid "&#8592; Cancel Video Playlist"
 msgstr "&#8592; Annuller videoafspilningsliste"
 
-#: wp-includes/media.php:3415
+#: wp-includes/media.php:3443
 msgid "Insert video playlist"
 msgstr "Indsæt videoafspilningsliste"
 
-#: wp-includes/media.php:3416
+#: wp-includes/media.php:3444
 msgid "Update video playlist"
 msgstr "Opdater videoafspilningsliste"
 
-#: wp-includes/media.php:3417
+#: wp-includes/media.php:3445
 msgid "Add to video playlist"
 msgstr "Tilføj til videoafspilningsliste"
 
-#: wp-includes/media.php:3412
+#: wp-includes/media.php:3440
 msgid "Create Video Playlist"
 msgstr "Opret videoafspilningsliste"
 
@@ -2747,7 +2747,7 @@ msgstr "Opret videoafspilningsliste"
 msgid "There are no associated subtitles."
 msgstr "Der er ingen tilknyttede undertekster"
 
-#: wp-includes/media.php:3398
+#: wp-includes/media.php:3426
 msgid "Add Subtitles"
 msgstr "Tilføj undertekst"
 
@@ -2760,11 +2760,11 @@ msgctxt "Search widget"
 msgid "Search"
 msgstr "Søg"
 
-#: wp-includes/media.php:3401
+#: wp-includes/media.php:3429
 msgid "Drag and drop to reorder tracks."
 msgstr "Træk og slip for at sortere numre."
 
-#: wp-includes/media.php:3411
+#: wp-includes/media.php:3439
 msgid "Drag and drop to reorder videos."
 msgstr "Træk og slip for at sortere videoer."
 
@@ -2772,57 +2772,57 @@ msgstr "Træk og slip for at sortere videoer."
 msgid "The query argument of %s must have a placeholder."
 msgstr "Forespørgslen %s skal have en pladsholder."
 
-#: wp-includes/media.php:3418
+#: wp-includes/media.php:3446
 msgid "Add to Video Playlist"
 msgstr "Tilføj til videoafspillingsliste"
 
-#: wp-includes/media.php:3372
+#: wp-includes/media.php:3400
 msgid "Replace Image"
 msgstr "Erstat billede"
 
-#: wp-includes/media.php:3373 wp-includes/media.php:3390
-#: wp-includes/media.php:3396
+#: wp-includes/media.php:3401 wp-includes/media.php:3418
+#: wp-includes/media.php:3424
 msgid "Cancel Edit"
 msgstr "Fortryd redigering"
 
 #: wp-includes/customize/class-wp-customize-image-control.php:41
-#: wp-includes/media.php:3377
+#: wp-includes/media.php:3405
 msgid "Choose Image"
 msgstr "Vælg billede"
 
-#: wp-includes/media.php:3378
+#: wp-includes/media.php:3406
 msgid "Select and Crop"
 msgstr "Vælg og beskær"
 
-#: wp-includes/media.php:3379
+#: wp-includes/media.php:3407
 msgid "Skip Cropping"
 msgstr "Drop beskæring"
 
-#: wp-includes/media.php:3380
+#: wp-includes/media.php:3408
 msgid "Crop Image"
 msgstr "Beskær billede"
 
-#: wp-includes/media.php:3381
+#: wp-includes/media.php:3409
 msgid "Crop your image"
 msgstr "Beskær dit billede"
 
-#: wp-includes/media.php:3387
+#: wp-includes/media.php:3415
 msgid "Audio Details"
 msgstr "Lyddetaljer"
 
-#: wp-includes/media.php:3388
+#: wp-includes/media.php:3416
 msgid "Replace Audio"
 msgstr "Erstat lyd"
 
-#: wp-includes/media.php:3389
+#: wp-includes/media.php:3417
 msgid "Add Audio Source"
 msgstr "Tilføj lydkilde"
 
-#: wp-includes/media.php:3394
+#: wp-includes/media.php:3422
 msgid "Replace Video"
 msgstr "Erstat video"
 
-#: wp-includes/media.php:3395
+#: wp-includes/media.php:3423
 msgid "Add Video Source"
 msgstr "Tilføj videokilde"
 
@@ -2831,12 +2831,12 @@ msgstr "Tilføj videokilde"
 msgid "An unexpected error occurred. Something may be wrong with WordPress.org or this server&#8217;s configuration. If you continue to have problems, please try the <a href=\"https://wordpress.org/support/\">support forums</a>."
 msgstr "Der opstod en uventet fejl. Der er måske noget galt med WordPress.org eller denne servers konfiguration. Hvis fejlen fortsætter, så prøv <a href=\"https://wordpress.org/support/\">support forummet</a>."
 
-#: wp-includes/media.php:3393
+#: wp-includes/media.php:3421
 msgid "Video Details"
 msgstr "Videodetaljer"
 
 #. translators: used to join last two items in a list with more than 2 times
-#: wp-includes/formatting.php:4066
+#: wp-includes/formatting.php:4076
 msgid "%s, and %s"
 msgstr "%s og %s"
 
@@ -2845,7 +2845,7 @@ msgid "Show Tracklist"
 msgstr "Vis afspilningsliste"
 
 #. translators: used to join items in a list with more than 2 items
-#: wp-includes/formatting.php:4064
+#: wp-includes/formatting.php:4074
 msgid "%s, %s"
 msgstr "%s, %s"
 
@@ -2854,7 +2854,7 @@ msgstr "%s, %s"
 #: wp-includes/class-wp-customize-section.php:356
 #: wp-includes/class-wp-customize-widgets.php:711
 #: wp-includes/customize/class-wp-customize-nav-menus-panel.php:82
-#: wp-includes/media.php:3309
+#: wp-includes/media.php:3337
 msgid "Back"
 msgstr "Tilbage"
 
@@ -2874,7 +2874,7 @@ msgstr "Afspil automatisk"
 msgid "Poster Image"
 msgstr "Plakat"
 
-#: wp-includes/media.php:3397
+#: wp-includes/media.php:3425
 msgid "Select Poster Image"
 msgstr "Vælg plakat"
 
@@ -2918,7 +2918,7 @@ msgstr "Header celle"
 msgid "Cell type"
 msgstr "Celletype"
 
-#: wp-includes/media-template.php:885 wp-includes/media.php:3307
+#: wp-includes/media-template.php:885 wp-includes/media.php:3335
 msgid "Replace"
 msgstr "Erstat"
 
@@ -2997,7 +2997,7 @@ msgid "Insert date/time"
 msgstr "Indsæt dato/tid"
 
 #: wp-includes/admin-bar.php:145 wp-includes/wp-db.php:1085
-#: wp-includes/wp-db.php:1551 wp-includes/wp-db.php:1655 wp-login.php:781
+#: wp-includes/wp-db.php:1551 wp-includes/wp-db.php:1655 wp-login.php:780
 msgid "https://wordpress.org/support/"
 msgstr "https://wordpress.org/support/"
 
@@ -3146,22 +3146,22 @@ msgstr "Flyt ned"
 msgid "Encoding"
 msgstr "Kodning"
 
-#: wp-includes/general-template.php:3146
+#: wp-includes/general-template.php:3142
 msgctxt "admin color scheme"
 msgid "Sunrise"
 msgstr "Solopgang"
 
-#: wp-includes/general-template.php:3152
+#: wp-includes/general-template.php:3148
 msgctxt "admin color scheme"
 msgid "Ectoplasm"
 msgstr "Ektoplasma"
 
-#: wp-includes/general-template.php:3158
+#: wp-includes/general-template.php:3154
 msgctxt "admin color scheme"
 msgid "Ocean"
 msgstr "Hav"
 
-#: wp-includes/general-template.php:3164
+#: wp-includes/general-template.php:3160
 msgctxt "admin color scheme"
 msgid "Coffee"
 msgstr "Kaffe"
@@ -3226,17 +3226,17 @@ msgctxt "Open Sans font: on or off"
 msgid "on"
 msgstr "on"
 
-#: wp-includes/general-template.php:3118
+#: wp-includes/general-template.php:3114
 msgctxt "admin color scheme"
 msgid "Default"
 msgstr "Standard"
 
-#: wp-includes/general-template.php:3128
+#: wp-includes/general-template.php:3124
 msgctxt "admin color scheme"
 msgid "Light"
 msgstr "Lys"
 
-#: wp-includes/general-template.php:3140
+#: wp-includes/general-template.php:3136
 msgctxt "admin color scheme"
 msgid "Midnight"
 msgstr "Midnat"
@@ -3265,7 +3265,7 @@ msgstr "Opdateringer til oversættelse"
 msgid "The theme directory \"%s\" does not exist."
 msgstr "Tema-mappen \"%s\" eksisterer ikke."
 
-#: wp-includes/functions.php:1216
+#: wp-includes/functions.php:1221
 msgid "ERROR: This is not a valid feed template."
 msgstr "FEJL: Dette er ikke en gyldig feed-skabelon."
 
@@ -3345,19 +3345,19 @@ msgstr "Billedtekster/Undertekster"
 msgid "Unmute"
 msgstr "Annuller dæmper"
 
-#: wp-includes/formatting.php:2852
+#: wp-includes/formatting.php:2856
 msgid "%s week"
 msgid_plural "%s weeks"
 msgstr[0] "%s uge"
 msgstr[1] "%s uger"
 
-#: wp-includes/formatting.php:2857
+#: wp-includes/formatting.php:2861
 msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] "%s måned"
 msgstr[1] "%s måneder"
 
-#: wp-includes/formatting.php:2862
+#: wp-includes/formatting.php:2866
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] "%s år"
@@ -3431,7 +3431,7 @@ msgstr "%1$s [Auto-gemt]"
 msgid "Your session has expired. You can log in again from this page or go to the login page."
 msgstr "Din session er udløbet. Du kan logge ind igen fra denne side eller gå til log-ind-siden."
 
-#: wp-login.php:837
+#: wp-login.php:836
 msgid "Session expired. Please log in again. You will not move away from this page."
 msgstr "Din session er udløbet. Log venligst ind igen. Du vil ikke blive sendt væk fra denne side."
 
@@ -3449,7 +3449,7 @@ msgstr "%1$s %2$s, %3$s @ %4$s:%5$s"
 msgid "The site you were looking for, %s, does not exist, but you can create it now!"
 msgstr "Webstedet, du ledte efter, %s, eksisterer ikke, men du kan oprette det nu!"
 
-#: wp-includes/functions.php:4945
+#: wp-includes/functions.php:4950
 msgid "The login page will open in a new window. After logging in you can close it and return to this page."
 msgstr "Log-ind-siden vil åbne i et nyt vindue. Når du er logget ind, kan du lukke det og gå tilbage til denne side."
 
@@ -3480,11 +3480,11 @@ msgctxt "placeholder"
 msgid "Search &hellip;"
 msgstr "Søg &hellip;"
 
-#: wp-includes/functions.php:4943 wp-includes/script-loader.php:443
+#: wp-includes/functions.php:4948 wp-includes/script-loader.php:443
 msgid "Session expired"
 msgstr "Session udløbet"
 
-#: wp-includes/taxonomy.php:536
+#: wp-includes/taxonomy.php:539
 msgid "No tags found."
 msgstr "Ingen tags fundet."
 
@@ -3522,11 +3522,11 @@ msgstr "Billedtekst til dette billede&hellip;"
 #. If there is not a word you can use in your language to avoid issues with
 #. the 		   lack of plural support here, turn it into "selected: %d" then
 #. translate it.
-#: wp-includes/media.php:3314
+#: wp-includes/media.php:3342
 msgid "%d selected"
 msgstr "%d valgt"
 
-#: wp-includes/media.php:3354
+#: wp-includes/media.php:3382
 msgid "Insert from URL"
 msgstr "Indsæt fra URL"
 
@@ -3535,15 +3535,15 @@ msgctxt "Links widget"
 msgid "Random"
 msgstr "Tilfældig"
 
-#: wp-includes/media.php:3367
+#: wp-includes/media.php:3395
 msgid "Add to Gallery"
 msgstr "Tilføj til Galleri"
 
-#: wp-includes/media-template.php:1229 wp-includes/media.php:3330
+#: wp-includes/media-template.php:1229 wp-includes/media.php:3358
 msgid "No items found."
 msgstr "Ingen emner fundet."
 
-#: wp-includes/media.php:3368
+#: wp-includes/media.php:3396
 msgid "Reverse order"
 msgstr "Omvendt rækkefølge"
 
@@ -3561,11 +3561,11 @@ msgid "Sorry, that file cannot be edited."
 msgstr "Filen kan desværre ikke redigeres."
 
 #: wp-includes/media-template.php:436 wp-includes/media-template.php:537
-#: wp-includes/media.php:3343
+#: wp-includes/media.php:3371
 msgid "Delete Permanently"
 msgstr "Slet permanent"
 
-#: wp-includes/media.php:3335
+#: wp-includes/media.php:3363
 msgid ""
 "You are about to permanently delete this item.\n"
 "  'Cancel' to stop, 'OK' to delete."
@@ -3585,7 +3585,7 @@ msgstr "Afvis fejl"
 msgid "Uploading"
 msgstr "Uploader"
 
-#: wp-includes/media.php:2823
+#: wp-includes/media.php:2851
 msgid "No editor could be selected."
 msgstr "Editor kunne ikke vælges."
 
@@ -3631,7 +3631,7 @@ msgstr "Indsæt på siden"
 msgid "Uploaded to this page"
 msgstr "Uploaded til denne side"
 
-#: wp-includes/media.php:3328
+#: wp-includes/media.php:3356
 msgid "All media items"
 msgstr "Alle medier"
 
@@ -3643,7 +3643,7 @@ msgstr "Uploadet til dette indlæg"
 msgid "Audio"
 msgstr "Lyd"
 
-#: wp-includes/media.php:3327
+#: wp-includes/media.php:3355
 msgid "&#8592; Return to library"
 msgstr "&#8592; Tilbage til biblioteket"
 
@@ -3656,7 +3656,7 @@ msgstr "Tilpasset URL"
 msgid "Columns"
 msgstr "Kolonner"
 
-#: wp-includes/media-template.php:494 wp-includes/media.php:3351
+#: wp-includes/media-template.php:494 wp-includes/media.php:3379
 msgid "Attachment Details"
 msgstr "Detaljer for vedhæftning"
 
@@ -3666,7 +3666,7 @@ msgid "Alt Text"
 msgstr "Alt Tekst"
 
 #: wp-includes/media-template.php:689 wp-includes/media-template.php:764
-#: wp-includes/media-template.php:938 wp-includes/media.php:3062
+#: wp-includes/media-template.php:938 wp-includes/media.php:3090
 msgid "Large"
 msgstr "Stor"
 
@@ -3678,11 +3678,11 @@ msgstr "Indstillinger for visning af vedhæftning"
 msgid "Gallery Settings"
 msgstr "Indstillinger for galleri"
 
-#: wp-includes/media.php:3319
+#: wp-includes/media.php:3347
 msgid "Upload Images"
 msgstr "Upload billeder"
 
-#: wp-includes/media.php:3363
+#: wp-includes/media.php:3391
 msgid "&#8592; Cancel Gallery"
 msgstr "&#8592; Fortryd galleri"
 
@@ -3694,11 +3694,11 @@ msgstr "WordPress &rsaquo; Succes"
 msgid "Drop files anywhere to upload"
 msgstr "Træk filer hertil for at uploade"
 
-#: wp-includes/media.php:3318
+#: wp-includes/media.php:3346
 msgid "Upload Files"
 msgstr "Upload filer"
 
-#: wp-includes/media.php:3364
+#: wp-includes/media.php:3392
 msgid "Insert gallery"
 msgstr "Indsæt galleri"
 
@@ -3706,11 +3706,11 @@ msgstr "Indsæt galleri"
 msgid "Drop files to upload"
 msgstr "Træk filer for at uploade"
 
-#: wp-includes/media.php:3361
+#: wp-includes/media.php:3389
 msgid "Create Gallery"
 msgstr "Opret galleri"
 
-#: wp-includes/media.php:3322
+#: wp-includes/media.php:3350
 msgid "Media Library"
 msgstr "Mediebibliotek"
 
@@ -3789,7 +3789,7 @@ msgstr "Beskriv denne lydfil&hellip;"
 msgid "Describe this media file&hellip;"
 msgstr "Beskriv denne mediefil&hellip;"
 
-#: wp-includes/media.php:3365
+#: wp-includes/media.php:3393
 msgid "Update gallery"
 msgstr "Opdater galleri"
 
@@ -3852,11 +3852,11 @@ msgstr "Vælg farve"
 msgid "Current Color"
 msgstr "Aktuel farve"
 
-#: wp-includes/media.php:3366
+#: wp-includes/media.php:3394
 msgid "Add to gallery"
 msgstr "Tilføj til galleri"
 
-#: wp-includes/media.php:3324
+#: wp-includes/media.php:3352
 msgid "Create a new gallery"
 msgstr "Opret nyt galleri"
 
@@ -3864,7 +3864,7 @@ msgstr "Opret nyt galleri"
 msgid "Insert into post"
 msgstr "Indsæt i indlæg"
 
-#: wp-includes/media.php:3323
+#: wp-includes/media.php:3351
 msgid "Insert Media"
 msgstr "Indsæt medier"
 
@@ -3886,7 +3886,7 @@ msgctxt "Display name based on first name and last name"
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
 
-#: wp-includes/taxonomy.php:2872
+#: wp-includes/taxonomy.php:2878
 msgid "Could not insert term relationship into the database"
 msgstr "Kunne ikke indsætte termforhold i databasen"
 
@@ -3917,7 +3917,7 @@ msgid "Sorry, you cannot edit users."
 msgstr "Beklager, du kan ikke redigere brugere."
 
 #. translators: 1: blog name, 2: separator(raquo), 3: post type name
-#: wp-includes/general-template.php:2522
+#: wp-includes/general-template.php:2518
 msgid "%1$s %2$s %3$s Feed"
 msgstr "%1$s %2$s %3$s Feed"
 
@@ -4125,7 +4125,7 @@ msgstr "Indlægsside"
 #: wp-includes/customize/class-wp-customize-image-control.php:37
 #: wp-includes/customize/class-wp-customize-media-control.php:62
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:141
-#: wp-includes/media-template.php:467 wp-includes/media.php:3308
+#: wp-includes/media-template.php:467 wp-includes/media.php:3336
 msgid "Remove"
 msgstr "Fjern"
 
@@ -4146,8 +4146,8 @@ msgid "This taxonomy is not hierarchical."
 msgstr "Denne taksonomi er ikke hierarkisk."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1878
-#: wp-includes/class-wp-xmlrpc-server.php:1976 wp-includes/taxonomy.php:2569
-#: wp-includes/taxonomy.php:3161
+#: wp-includes/class-wp-xmlrpc-server.php:1976 wp-includes/taxonomy.php:2575
+#: wp-includes/taxonomy.php:3167
 msgid "Parent term does not exist."
 msgstr "Forældretermen eksisterer ikke."
 
@@ -4358,18 +4358,18 @@ msgstr "Beklager, du har ikke tilladelse til at oprette private indlæg af denne
 msgid "You are not allowed to edit posts in this post type."
 msgstr "Du har ikke tilladelse til at redigere indlæg af denne indholdstype."
 
-#: wp-includes/general-template.php:892 wp-includes/general-template.php:1357
+#: wp-includes/general-template.php:888 wp-includes/general-template.php:1353
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr "Y"
 
-#: wp-includes/general-template.php:895 wp-includes/general-template.php:1359
+#: wp-includes/general-template.php:891 wp-includes/general-template.php:1355
 msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr "F Y"
 
 #. translators: opening curly double quote
-#: wp-includes/formatting.php:88 wp-includes/formatting.php:4315
+#: wp-includes/formatting.php:88 wp-includes/formatting.php:4325
 msgctxt "opening curly double quote"
 msgid "&#8220;"
 msgstr "&#8220;"
@@ -4435,7 +4435,7 @@ msgstr "Din konto er nu aktiveret. Du kan <a href=\"%1$s\">logge ind</a> på web
 msgid "<a href=\"%1$s\">%2$s</a> is your new site. <a href=\"%3$s\">Log in</a> as &#8220;%4$s&#8221; using your existing password."
 msgstr "<a href=\"%1$s\">%2$s</a> er dit nye websted. <a href=\"%3$s\">Log ind</a> som &#8220;%4$s&#8221; med din valgte adgangskode."
 
-#: wp-includes/functions.php:1397
+#: wp-includes/functions.php:1402
 msgid "One or more database tables are unavailable. The database may need to be <a href=\"%s\">repaired</a>."
 msgstr "En eller flere databasetabeller er ikke tilgængelige. Databasen kan have brug for at blive <a href=\"%s\">repareret</a>."
 
@@ -4531,15 +4531,15 @@ msgstr "Dokumentation"
 msgid "Support Forums"
 msgstr "Supportfora"
 
-#: wp-includes/formatting.php:2949 wp-includes/general-template.php:3040
+#: wp-includes/formatting.php:2953 wp-includes/general-template.php:3036
 msgid "&hellip;"
 msgstr "&hellip;"
 
-#: wp-includes/functions.php:3504
+#: wp-includes/functions.php:3509
 msgid "Database Error"
 msgstr "Databasefejl"
 
-#: wp-includes/functions.php:3508 wp-includes/ms-load.php:286
+#: wp-includes/functions.php:3513 wp-includes/ms-load.php:286
 #: wp-includes/wp-db.php:1533
 msgid "Error establishing a database connection"
 msgstr "Fejl ved etablering af databaseforbindelse"
@@ -4559,12 +4559,12 @@ msgstr "WordPress.org"
 msgid "Network Admin: %s"
 msgstr "Netværksadministrator: %s"
 
-#: wp-includes/taxonomy.php:521
+#: wp-includes/taxonomy.php:524
 msgctxt "taxonomy general name"
 msgid "Tags"
 msgstr "Tags"
 
-#: wp-includes/taxonomy.php:522
+#: wp-includes/taxonomy.php:525
 msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Tag"
@@ -4589,12 +4589,12 @@ msgstr "Dette er større end den maksimale størrelse. Prøv venligst en anden."
 msgid "This file is not an image. Please try another."
 msgstr "Denne fil er ikke et billede. Prøv venligst en anden."
 
-#: wp-includes/general-template.php:3134
+#: wp-includes/general-template.php:3130
 msgctxt "admin color scheme"
 msgid "Blue"
 msgstr "Blå"
 
-#: wp-includes/formatting.php:3828
+#: wp-includes/formatting.php:3832
 msgid "The timezone you have entered is not valid. Please select a valid timezone."
 msgstr "Den tidszone, du har indtastet, er ikke gyldig. Vælg venligst en gyldig tidszone."
 
@@ -4612,11 +4612,11 @@ msgstr "Bruger"
 msgid "You should specify a nonce action to be verified by using the first parameter."
 msgstr "Du skal angive en nonce handling, der skal verificeres gennem den første parameter."
 
-#: wp-includes/taxonomy.php:529
+#: wp-includes/taxonomy.php:532
 msgid "View Tag"
 msgstr "Vis tag"
 
-#: wp-includes/taxonomy.php:529
+#: wp-includes/taxonomy.php:532
 msgid "View Category"
 msgstr "Vis kategori"
 
@@ -4710,11 +4710,11 @@ msgstr "'Conditional query tags' virker ikke før en 'query' sættes i gang. Fø
 msgid "The user is already active."
 msgstr "Brugeren er allerede aktiv."
 
-#: wp-includes/functions.php:3782
+#: wp-includes/functions.php:3787
 msgid "(This message was added in version %s.)"
 msgstr "(Denne meddelelse blev tilføjet i version %s)."
 
-#: wp-includes/functions.php:3787
+#: wp-includes/functions.php:3792
 msgid "%1$s was called <strong>incorrectly</strong>. %2$s %3$s"
 msgstr "%1$s er kaldt <strong>forkert</strong>. %2$s %3$s"
 
@@ -5052,57 +5052,57 @@ msgstr "Dette indlæg er adgangskodebeskyttet. Indtast adgangskoden for at læse
 msgid "You have searched the %1$s blog archives for <strong>&#8216;%2$s&#8217;</strong>. If you are unable to find anything in these search results, you can try one of these links."
 msgstr "Du har søgt i %1$s-blogarkiverne for <strong>&#8216;%2$s&#8217;</strong>. Hvis din søgning ikke gav noget resultat, kan du prøve et af disse links."
 
-#: wp-includes/taxonomy.php:535
+#: wp-includes/taxonomy.php:538
 msgid "Choose from the most used tags"
 msgstr "Vælg mellem de mest anvendte tags"
 
-#: wp-includes/taxonomy.php:522
+#: wp-includes/taxonomy.php:525
 msgctxt "taxonomy singular name"
 msgid "Category"
 msgstr "Kategori"
 
-#: wp-includes/taxonomy.php:531
+#: wp-includes/taxonomy.php:534
 msgid "Add New Category"
 msgstr "Tilføj ny kategori"
 
-#: wp-includes/taxonomy.php:530
+#: wp-includes/taxonomy.php:533
 msgid "Update Tag"
 msgstr "Opdater Tag"
 
-#: wp-includes/taxonomy.php:525
+#: wp-includes/taxonomy.php:528
 msgid "All Tags"
 msgstr "Alle Tags"
 
-#: wp-includes/taxonomy.php:521
+#: wp-includes/taxonomy.php:524
 msgctxt "taxonomy general name"
 msgid "Categories"
 msgstr "Kategorier"
 
-#: wp-includes/taxonomy.php:531
+#: wp-includes/taxonomy.php:534
 msgid "Add New Tag"
 msgstr "Tilføj nyt tag"
 
-#: wp-includes/taxonomy.php:526
+#: wp-includes/taxonomy.php:529
 msgid "Parent Category"
 msgstr "Forælderkategori"
 
-#: wp-includes/taxonomy.php:527
+#: wp-includes/taxonomy.php:530
 msgid "Parent Category:"
 msgstr "Forælderkategori:"
 
-#: wp-includes/taxonomy.php:532
+#: wp-includes/taxonomy.php:535
 msgid "New Category Name"
 msgstr "Nyt kategorinavn"
 
-#: wp-includes/taxonomy.php:532
+#: wp-includes/taxonomy.php:535
 msgid "New Tag Name"
 msgstr "Nyt tagnavn"
 
-#: wp-includes/taxonomy.php:524
+#: wp-includes/taxonomy.php:527
 msgid "Popular Tags"
 msgstr "Populære tags"
 
-#: wp-includes/taxonomy.php:523
+#: wp-includes/taxonomy.php:526
 msgid "Search Tags"
 msgstr "Søg tags"
 
@@ -5182,7 +5182,7 @@ msgstr "Konstanten <code>VHOST</code> <strong>er under udfasning</strong>. Brug 
 msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
 msgstr "<strong>FEJL</strong>: Dette brugernavn er ugyldigt, da der bruges tegn, der ikke er tilladte. Indtast venligst et gyldigt brugernavn."
 
-#: wp-includes/comment-template.php:2094
+#: wp-includes/comment-template.php:2127
 msgid "Required fields are marked %s"
 msgstr "Krævede felter er markeret med %s"
 
@@ -5325,21 +5325,21 @@ msgstr "Dette websted er blevet arkiveret eller suspenderet."
 msgid "The given object ID is not that of a menu item."
 msgstr "Det angivne objekt-ID hører ikke til et menuelement."
 
-#: wp-includes/formatting.php:3657
+#: wp-includes/formatting.php:3661
 msgid "The email address entered did not appear to be a valid email address. Please enter a valid email address."
 msgstr ""
 "E-mail-adressen du har indtastet ser ikke ud til at være gyldig.\n"
 "Indtast venligst en gyldig e-mail-adresse."
 
-#: wp-includes/formatting.php:3760
+#: wp-includes/formatting.php:3764
 msgid "The WordPress address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr "Den WordPress-adresse du anførte, er ikke en gyldig URL. Anfør venligst en gyldig URL."
 
-#: wp-includes/formatting.php:3773
+#: wp-includes/formatting.php:3777
 msgid "The Site address you entered did not appear to be a valid URL. Please enter a valid URL."
 msgstr "Den webstedsadresse, du indtastede, er ikke en gyldig URL. Indtast venligst en gyldig URL."
 
-#: wp-includes/taxonomy.php:2643
+#: wp-includes/taxonomy.php:2649
 msgid "A term with the name provided already exists with this parent."
 msgstr "En term med det angivne navn findes allerede med denne forælder."
 
@@ -5351,7 +5351,7 @@ msgstr "En fejl skete i forsøg på at tilføje dig til dette websted. Gå tilba
 msgid "This file is too big. Files must be less than %d KB in size."
 msgstr "Denne fil er for stor. Filer skal have en størrelse på mindre end %d KB."
 
-#: wp-includes/comment-template.php:2111
+#: wp-includes/comment-template.php:2144
 msgid "Your email address will not be published."
 msgstr "Din e-mailadresse vil ikke blive offentliggjort."
 
@@ -5400,7 +5400,7 @@ msgstr "Er du sikker på, at du vil installere dette plugin?"
 msgid "Use as featured image"
 msgstr "Brug som indlæggets thumbnail"
 
-#: wp-includes/general-template.php:903
+#: wp-includes/general-template.php:899
 msgid "Page %s"
 msgstr "Side %s"
 
@@ -5440,7 +5440,7 @@ msgstr ""
 "Du er ved at slette denne menu permanent. \n"
 " 'Annuller' for at stoppe, 'OK' for at slette."
 
-#: wp-includes/link-template.php:3643
+#: wp-includes/link-template.php:3647
 msgid "This is the short link."
 msgstr "Dette er det korte link."
 
@@ -5994,19 +5994,19 @@ msgid "By: %s"
 msgstr "Af: %s"
 
 #. translators: min=minute
-#: wp-includes/formatting.php:2837
+#: wp-includes/formatting.php:2841
 msgid "%s min"
 msgid_plural "%s mins"
 msgstr[0] "%s minut"
 msgstr[1] "%s minutter"
 
-#: wp-includes/formatting.php:2842
+#: wp-includes/formatting.php:2846
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s time"
 msgstr[1] "%s timer"
 
-#: wp-includes/formatting.php:2847
+#: wp-includes/formatting.php:2851
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] "%s dag"
@@ -6021,52 +6021,52 @@ msgstr ", "
 msgid "%s is a protected WP option and may not be modified"
 msgstr "%s er en beskyttet WP-indstilling, som ikke m&#229; &#230;ndres"
 
-#: wp-includes/functions.php:2022
+#: wp-includes/functions.php:2027
 msgid "Empty filename"
 msgstr "Intet filnavn"
 
-#: wp-includes/functions.php:2064
+#: wp-includes/functions.php:2069
 msgid "Could not write file %s"
 msgstr "Kunne ikke gemme filen %s"
 
-#: wp-includes/functions.php:2405
+#: wp-includes/functions.php:2410
 msgid "You are attempting to log out of %s"
 msgstr "Du pr&#248;ver at logge ud af %s"
 
-#: wp-includes/functions.php:2414
+#: wp-includes/functions.php:2419
 msgid "WordPress Failure Notice"
 msgstr "WordPress fejlbesked"
 
-#: wp-includes/functions.php:2407
+#: wp-includes/functions.php:2412
 msgid "Do you really want to <a href='%s'>log out</a>?"
 msgstr "Vil du virkelig <a href='%s'>logge ud</a>?"
 
-#: wp-includes/functions.php:2533
+#: wp-includes/functions.php:2538
 msgid "&laquo; Back"
 msgstr "&laquo; Tilbage"
 
-#: wp-includes/functions.php:2545 wp-load.php:92
+#: wp-includes/functions.php:2550 wp-load.php:92
 msgid "WordPress &rsaquo; Error"
 msgstr "WordPress &rsaquo; Fejl"
 
-#: wp-includes/functions.php:3568 wp-includes/functions.php:3672
+#: wp-includes/functions.php:3573 wp-includes/functions.php:3677
 msgid "%1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
 msgstr "%1$s har v&#230;ret <strong>for&#230;ldet</strong> siden version %2$s! Brug %3$s i stedet."
 
-#: wp-includes/functions.php:3570 wp-includes/functions.php:3674
+#: wp-includes/functions.php:3575 wp-includes/functions.php:3679
 msgid "%1$s is <strong>deprecated</strong> since version %2$s with no alternative available."
 msgstr "%1$s har v&#230;ret <strong>for&#230;ldet</strong> siden version %2$s, og der er ingen alternativer."
 
-#: wp-includes/functions.php:4339 wp-includes/functions.php:4343
+#: wp-includes/functions.php:4344 wp-includes/functions.php:4348
 msgid "UTC"
 msgstr "UTC"
 
-#: wp-includes/functions.php:4347
+#: wp-includes/functions.php:4352
 msgid "Manual Offsets"
 msgstr "Manuelle offsets"
 
 #: wp-includes/general-template.php:276 wp-login.php:544 wp-login.php:607
-#: wp-login.php:657 wp-login.php:739
+#: wp-login.php:657 wp-login.php:738
 msgid "Log in"
 msgstr "Log ind"
 
@@ -6075,72 +6075,72 @@ msgid "Log out"
 msgstr "Log ud"
 
 #: wp-includes/general-template.php:542 wp-login.php:547 wp-login.php:660
-#: wp-login.php:735 wp-login.php:917
+#: wp-login.php:734 wp-login.php:916
 msgid "Register"
 msgstr "Registrer"
 
 #. translators: 1: separator, 2: search phrase
-#: wp-includes/general-template.php:1066
+#: wp-includes/general-template.php:1062
 msgid "Search Results %1$s %2$s"
 msgstr "S&#248;geresultater %1$s %2$s"
 
-#: wp-includes/general-template.php:852 wp-includes/general-template.php:1071
+#: wp-includes/general-template.php:852 wp-includes/general-template.php:1067
 msgid "Page not found"
 msgstr "Side ikke fundet"
 
 #. translators: 1: month name, 2: 4-digit year
-#: wp-includes/general-template.php:1632 wp-includes/media.php:3243
+#: wp-includes/general-template.php:1628 wp-includes/media.php:3271
 msgid "%1$s %2$d"
 msgstr "%1$s %2$d"
 
 #. translators: Calendar caption: 1: month name, 2: 4-digit year
-#: wp-includes/general-template.php:1857
+#: wp-includes/general-template.php:1853
 msgctxt "calendar caption"
 msgid "%1$s %2$s"
 msgstr "%1$s %2$s"
 
 #. translators: Separator between blog name and feed type in feed links
-#: wp-includes/general-template.php:2468 wp-includes/general-template.php:2510
+#: wp-includes/general-template.php:2464 wp-includes/general-template.php:2506
 msgctxt "feed link"
 msgid "&raquo;"
 msgstr "&raquo;"
 
 #. translators: 1: blog title, 2: separator (raquo)
-#: wp-includes/general-template.php:2470
+#: wp-includes/general-template.php:2466
 msgid "%1$s %2$s Feed"
 msgstr "%1$s %2$s Feed"
 
 #. translators: 1: blog title, 2: separator (raquo)
-#: wp-includes/general-template.php:2472
+#: wp-includes/general-template.php:2468
 msgid "%1$s %2$s Comments Feed"
 msgstr "%1$s %2$s Kommentarfeed"
 
 #. translators: 1: blog name, 2: separator(raquo), 3: post title
-#: wp-includes/general-template.php:2512
+#: wp-includes/general-template.php:2508
 msgid "%1$s %2$s %3$s Comments Feed"
 msgstr "%1$s %2$s %3$s Kommentarfeed"
 
 #. translators: 1: blog name, 2: separator(raquo), 3: category name
-#: wp-includes/general-template.php:2514
+#: wp-includes/general-template.php:2510
 msgid "%1$s %2$s %3$s Category Feed"
 msgstr "%1$s %2$s %3$s-kategorifeed"
 
 #. translators: 1: blog name, 2: separator(raquo), 3: tag name
-#: wp-includes/general-template.php:2516
+#: wp-includes/general-template.php:2512
 msgid "%1$s %2$s %3$s Tag Feed"
 msgstr "%1$s %2$s %3$s-tagfeed"
 
 #. translators: 1: blog name, 2: separator(raquo), 3: author name
-#: wp-includes/general-template.php:2518
+#: wp-includes/general-template.php:2514
 msgid "%1$s %2$s Posts by %3$s Feed"
 msgstr "%1$s %2$s feed for indl&#230;g af %3$s"
 
 #. translators: 1: blog name, 2: separator(raquo), 3: search phrase
-#: wp-includes/general-template.php:2520
+#: wp-includes/general-template.php:2516
 msgid "%1$s %2$s Search Results for &#8220;%3$s&#8221; Feed"
 msgstr "%1$s %2$s S&#248;geresultater for &#8220;%3$s&#8221;-feed"
 
-#: wp-includes/general-template.php:2954
+#: wp-includes/general-template.php:2950
 msgid "&laquo; Previous"
 msgstr "&laquo; Tidligere"
 
@@ -6488,7 +6488,7 @@ msgstr "Baggrund"
 msgid "Mute"
 msgstr "Mute"
 
-#: wp-includes/media.php:3362
+#: wp-includes/media.php:3390
 msgid "Edit Gallery"
 msgstr "Rediger galleri"
 
@@ -6807,20 +6807,20 @@ msgstr "Kunne ikke sættes som thumbnail. Prøv en anden vedhæftning."
 msgid "Saving Draft&#8230;"
 msgstr "Gemmer kladde&#8230;"
 
-#: wp-includes/taxonomy.php:750 wp-includes/taxonomy.php:3134
-#: wp-includes/taxonomy.php:4319
+#: wp-includes/taxonomy.php:753 wp-includes/taxonomy.php:3140
+#: wp-includes/taxonomy.php:4325
 msgid "Empty Term"
 msgstr "Tom term"
 
-#: wp-includes/taxonomy.php:2563 wp-includes/taxonomy.php:3158
+#: wp-includes/taxonomy.php:2569 wp-includes/taxonomy.php:3164
 msgid "A name is required for this term"
 msgstr "Et navn er p&#229;kr&#230;vet for denne term"
 
-#: wp-includes/taxonomy.php:2654
+#: wp-includes/taxonomy.php:2660
 msgid "Could not insert term into the database"
 msgstr "Kunne ikke inds&#230;tte termen i databasen"
 
-#: wp-includes/taxonomy.php:4522
+#: wp-includes/taxonomy.php:4528
 msgid "Invalid object ID"
 msgstr "Ugyldigt objekt-ID"
 
@@ -6836,7 +6836,7 @@ msgstr "Stylesheet mangler."
 msgid "<strong>ERROR</strong>: The username field is empty."
 msgstr "<strong>FEJL</strong>: Brugernavnsfeltet  er tomt."
 
-#: wp-includes/functions.php:4944 wp-includes/user.php:206
+#: wp-includes/functions.php:4949 wp-includes/user.php:206
 msgid "Please log in again."
 msgstr "Log venligst ind igen"
 
@@ -6862,19 +6862,19 @@ msgstr "&larr; Tilbage til %s"
 msgid "Registration Form"
 msgstr "Registreringsformular"
 
-#: wp-login.php:803
+#: wp-login.php:802
 msgid "You have logged in successfully."
 msgstr "Du er logget ind."
 
-#: wp-login.php:841
+#: wp-login.php:840
 msgid "You are now logged out."
 msgstr "Du er nu logget ud."
 
-#: wp-login.php:843
+#: wp-login.php:842
 msgid "User registration is currently not allowed."
 msgstr "Registrering af brugere er i &#248;jeblikket ikke tilladt."
 
-#: wp-includes/general-template.php:413 wp-login.php:898
+#: wp-includes/general-template.php:413 wp-login.php:897
 msgid "Remember Me"
 msgstr "Husk mig"
 
@@ -6895,7 +6895,7 @@ msgstr "Forfatter er %s"
 msgid "Oops: %s"
 msgstr "Ups: %s"
 
-#: wp-includes/comment-template.php:2125
+#: wp-includes/comment-template.php:2158
 msgid "Post Comment"
 msgstr "Skriv kommentar"
 
@@ -6926,7 +6926,7 @@ msgstr "Kan ikke oprette en bruger med tomt brugernavn."
 msgid "This argument has changed to an array to match the behavior of the other cron functions."
 msgstr "Dette argument er ændret til et array for at matche opførslen på den anden cron-funktion."
 
-#: wp-includes/functions.php:3734
+#: wp-includes/functions.php:3739
 msgid "%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s with no alternative available."
 msgstr "%1$s blev kaldt med en parameter der er blevet <strong>udfaset</strong> siden version %2$s uden noget alternativ."
 
@@ -6938,7 +6938,7 @@ msgstr "Denne mulighed kræver inline frames. Enten har du deaktiveret iframes e
 msgid "The parent theme is missing. Please install the \"%s\" parent theme."
 msgstr "Forældertemaet mangler. Installer venligst \"%s\" forældertemaet."
 
-#: wp-includes/functions.php:3732
+#: wp-includes/functions.php:3737
 msgid "%1$s was called with an argument that is <strong>deprecated</strong> since version %2$s! %3$s"
 msgstr "%1$s blev kaldt med et argument der har været <strong>udfaset</strong> siden version %2$s! %3$s"
 
@@ -7036,7 +7036,7 @@ msgstr "Privatliv:"
 msgid "Insert/edit link"
 msgstr "Indsæt/rediger link"
 
-#: wp-includes/comment-template.php:2124
+#: wp-includes/comment-template.php:2157
 msgid "Cancel reply"
 msgstr "Annuller svar"
 
@@ -7056,7 +7056,7 @@ msgstr "Forside"
 msgid "Fullscreen"
 msgstr "Fuldskærm"
 
-#: wp-includes/functions.php:1921 wp-includes/functions.php:2058
+#: wp-includes/functions.php:1926 wp-includes/functions.php:2063
 msgid "Unable to create directory %s. Is its parent directory writable by the server?"
 msgstr "Kan ikke oprette mappen %s. Er modermappen skrivbar for serveren?"
 
@@ -7096,12 +7096,12 @@ msgstr "Mistet adgangskode"
 msgid "Get New Password"
 msgstr "F&#229; ny adgangskode"
 
-#: wp-login.php:740 wp-login.php:923
+#: wp-login.php:739 wp-login.php:922
 msgid "Password Lost and Found"
 msgstr "Hittegodskontor for adgangskoder"
 
-#: wp-includes/user.php:142 wp-includes/user.php:168 wp-login.php:740
-#: wp-login.php:923
+#: wp-includes/user.php:142 wp-includes/user.php:168 wp-login.php:739
+#: wp-login.php:922
 msgid "Lost your password?"
 msgstr "Mistet din adgangskode?"
 
@@ -7109,7 +7109,7 @@ msgstr "Mistet din adgangskode?"
 msgid "Protected Comments: Please enter your password to view comments."
 msgstr "Beskyttede kommentarer: Indtast din adgangskode for at læse kommentarer."
 
-#: wp-login.php:847
+#: wp-login.php:846
 msgid "Check your email for your new password."
 msgstr "Tjek din e-mail for din nye adgangskode."
 
@@ -7121,7 +7121,7 @@ msgstr "Udgave"
 msgid "Cannot create a revision of a revision"
 msgstr "Kan ikke oprette en ændring af en ændring"
 
-#: wp-includes/taxonomy.php:3218
+#: wp-includes/taxonomy.php:3224
 msgid "The slug &#8220;%s&#8221; is already in use by another term"
 msgstr "&#8220;%s&#8221; bruges allerede af en anden term"
 
@@ -7143,15 +7143,15 @@ msgstr "Denne filtype er ikke tilladt. Prøv venligst en anden."
 msgid "An error occurred in the upload. Please try again later."
 msgstr "Der opstod en fejl under overførslen. Prøv venligst igen senere."
 
-#: wp-includes/functions.php:2411 wp-includes/ms-functions.php:1910
+#: wp-includes/functions.php:2416 wp-includes/ms-functions.php:1910
 msgid "Please try again."
 msgstr "Prøv venligst igen."
 
-#: wp-login.php:849
+#: wp-login.php:848
 msgid "Registration complete. Please check your email."
 msgstr "Registrering færdig. Tjek venligst din e-mail."
 
-#: wp-login.php:845
+#: wp-login.php:844
 msgid "Check your email for the confirmation link."
 msgstr "Tjek din e-mail for bekræftelseslinket."
 
@@ -7175,7 +7175,7 @@ msgstr "Næste &gt;"
 msgid "Schedule for:"
 msgstr "Planlæg til:"
 
-#: wp-includes/functions.php:4294
+#: wp-includes/functions.php:4299
 msgid "Select a city"
 msgstr "Vælg en by"
 
@@ -7187,7 +7187,7 @@ msgstr "Forrige indlæg"
 msgid "Select all"
 msgstr "Vælg alle"
 
-#: wp-includes/general-template.php:2955
+#: wp-includes/general-template.php:2951
 msgid "Next &raquo;"
 msgstr "Næste &raquo;"
 
@@ -7238,7 +7238,7 @@ msgstr "Nye indlæg"
 msgid "Too many redirects."
 msgstr "For mange viderestillinger."
 
-#: wp-includes/taxonomy.php:2925
+#: wp-includes/taxonomy.php:2931
 msgid "Invalid Taxonomy"
 msgstr "Ugyldig taksonomi"
 
@@ -7289,7 +7289,7 @@ msgstr "E-mailadresse:"
 #: wp-includes/class-wp-xmlrpc-server.php:1404
 #: wp-includes/class-wp-xmlrpc-server.php:1956
 #: wp-includes/class-wp-xmlrpc-server.php:2047
-#: wp-includes/class-wp-xmlrpc-server.php:2118 wp-includes/taxonomy.php:2560
+#: wp-includes/class-wp-xmlrpc-server.php:2118 wp-includes/taxonomy.php:2566
 msgid "Invalid term ID"
 msgstr "Ugyldigt term-ID"
 
@@ -7317,7 +7317,7 @@ msgstr "E-mailen kunne ikke sendes."
 msgid "<strong>ERROR</strong>: Invalid username or email."
 msgstr "<strong>FEJL</strong>: Ugyldigt brugernavn eller e-mail."
 
-#: wp-includes/taxonomy.php:528
+#: wp-includes/taxonomy.php:531
 msgid "Edit Category"
 msgstr "Rediger kategori"
 
@@ -7395,7 +7395,7 @@ msgstr "Visuel"
 msgid "Title:"
 msgstr "Titel:"
 
-#: wp-includes/taxonomy.php:533
+#: wp-includes/taxonomy.php:536
 msgid "Separate tags with commas"
 msgstr "Adskil flere tags med kommaer"
 
@@ -7404,7 +7404,7 @@ msgid "Strength indicator"
 msgstr "Styrkeindikator"
 
 #: wp-includes/admin-bar.php:735 wp-includes/class-wp-customize-widgets.php:359
-#: wp-includes/functions.php:3445
+#: wp-includes/functions.php:3450
 msgid "Widgets"
 msgstr "Widgets"
 
@@ -7495,7 +7495,7 @@ msgstr "1 kommentar"
 msgid "Edit This"
 msgstr "Rediger"
 
-#: wp-includes/comment-template.php:2108
+#: wp-includes/comment-template.php:2141
 #: wp-includes/theme-compat/comments.php:82
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr "Du skal v&#230;re <a href=\"%s\">logget ind</a> for at skrive en kommentar."
@@ -7532,7 +7532,7 @@ msgstr "Gyldig <abbr title=\"eXtensible HyperText Markup Language\">XHTML</abbr>
 msgid "Last updated: %s"
 msgstr "Sidst opdateret: %s"
 
-#: wp-includes/category-template.php:528 wp-includes/taxonomy.php:537
+#: wp-includes/category-template.php:528 wp-includes/taxonomy.php:540
 msgid "No categories"
 msgstr "Ingen kategorier"
 
@@ -7542,11 +7542,11 @@ msgid_plural "%s topics"
 msgstr[0] "%s emne"
 msgstr[1] "%s emner"
 
-#: wp-includes/comment-template.php:1670
+#: wp-includes/comment-template.php:1682
 msgid "Leave a Comment"
 msgstr "Skriv en kommentar"
 
-#: wp-includes/comment-template.php:1671
+#: wp-includes/comment-template.php:1683
 msgid "Log in to leave a Comment"
 msgstr "Log ind for at skrive en kommentar"
 
@@ -7583,26 +7583,26 @@ msgstr "Websteder"
 msgid "My Sites"
 msgstr "Mine websteder"
 
-#: wp-includes/comment-template.php:1559
+#: wp-includes/comment-template.php:1571
 msgid "Log in to Reply"
 msgstr "Log ind for at svare"
 
-#: wp-includes/comment-template.php:1826 wp-includes/comment-template.php:2118
+#: wp-includes/comment-template.php:1838 wp-includes/comment-template.php:2151
 #: wp-includes/theme-compat/comments.php:75
 msgid "Leave a Reply"
 msgstr "Skriv et svar"
 
-#: wp-includes/comment-template.php:1827 wp-includes/comment-template.php:2119
+#: wp-includes/comment-template.php:1839 wp-includes/comment-template.php:2152
 #: wp-includes/theme-compat/comments.php:75
 msgid "Leave a Reply to %s"
 msgstr "Skriv et svar til %s"
 
-#: wp-includes/comment-template.php:1739
+#: wp-includes/comment-template.php:1751
 msgid "Click here to cancel reply."
 msgstr "Klik her for at annullere svar."
 
-#: wp-includes/comment-template.php:2088
-#: wp-includes/theme-compat/comments-popup.php:81 wp-login.php:721
+#: wp-includes/comment-template.php:2121
+#: wp-includes/theme-compat/comments-popup.php:81 wp-login.php:720
 msgid "Email"
 msgstr "E-mail"
 
@@ -7619,7 +7619,7 @@ msgstr "Besøg %s&#8217;s websted"
 msgid "Your comment is awaiting moderation."
 msgstr "Din kommentar afventer godkendelse."
 
-#: wp-includes/comment-template.php:1476
+#: wp-includes/comment-template.php:1488
 msgid "Enter your password to view comments."
 msgstr "Indtast din adgangskode for at læse kommentarer."
 
@@ -7673,11 +7673,11 @@ msgstr "(påkrævet)"
 msgid "Log out of this account"
 msgstr "Log ud fra denne konto"
 
-#: wp-includes/general-template.php:414 wp-login.php:868 wp-login.php:900
+#: wp-includes/general-template.php:414 wp-login.php:867 wp-login.php:899
 msgid "Log In"
 msgstr "Log ind"
 
-#: wp-includes/comment-template.php:2090
+#: wp-includes/comment-template.php:2123
 #: wp-includes/theme-compat/comments.php:102
 msgid "Website"
 msgstr "Websted"
@@ -7702,7 +7702,7 @@ msgstr "Kommentarer (%s)"
 msgid "Categories"
 msgstr "Kategorier"
 
-#: wp-includes/class-wp-customize-widgets.php:669 wp-includes/media.php:3344
+#: wp-includes/class-wp-customize-widgets.php:669 wp-includes/media.php:3372
 msgid "Apply"
 msgstr "Anvend"
 
@@ -7730,11 +7730,11 @@ msgstr "Forfatter"
 #: wp-includes/class-wp-editor.php:1408
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:91
 #: wp-includes/media-template.php:371 wp-includes/media-template.php:550
-#: wp-includes/media.php:3301
+#: wp-includes/media.php:3329
 msgid "URL"
 msgstr "URL"
 
-#: wp-includes/comment-template.php:1041 wp-includes/comment-template.php:2106
+#: wp-includes/comment-template.php:1041 wp-includes/comment-template.php:2139
 msgctxt "noun"
 msgid "Comment"
 msgstr "Kommentar"
@@ -7749,7 +7749,7 @@ msgstr "Nej"
 msgid "Edit"
 msgstr "Rediger"
 
-#: wp-includes/taxonomy.php:530
+#: wp-includes/taxonomy.php:533
 msgid "Update Category"
 msgstr "Opdater kategori"
 
@@ -7794,7 +7794,7 @@ msgstr "Gem"
 msgid "Advanced"
 msgstr "Avanceret"
 
-#: wp-includes/comment-template.php:2086
+#: wp-includes/comment-template.php:2119
 #: wp-includes/theme-compat/comments-popup.php:76
 #: wp-includes/theme-compat/comments.php:96
 msgid "Name"
@@ -7806,7 +7806,7 @@ msgstr "Navn"
 msgid "Pages"
 msgstr "Sider"
 
-#: wp-includes/taxonomy.php:528
+#: wp-includes/taxonomy.php:531
 msgid "Edit Tag"
 msgstr "Rediger tag"
 
@@ -7830,7 +7830,7 @@ msgstr "Send"
 msgid "RSS"
 msgstr "RSS"
 
-#: wp-includes/functions.php:2026
+#: wp-includes/functions.php:2031
 msgid "Invalid file type"
 msgstr "Ugyldig filtype"
 
@@ -7844,7 +7844,7 @@ msgid "Plugins"
 msgstr "Plugins"
 
 #: wp-includes/class-wp-editor.php:861 wp-includes/class-wp-editor.php:1446
-#: wp-includes/media.php:3305 wp-includes/script-loader.php:390
+#: wp-includes/media.php:3333 wp-includes/script-loader.php:390
 #: wp-includes/script-loader.php:438 wp-includes/script-loader.php:507
 msgid "Cancel"
 msgstr "Annuller"
@@ -7861,7 +7861,7 @@ msgstr "Gem kladde"
 msgid "No comments yet."
 msgstr "Endnu ingen kommentarer."
 
-#: wp-includes/comment-template.php:1557 wp-includes/script-loader.php:488
+#: wp-includes/comment-template.php:1569 wp-includes/script-loader.php:488
 msgid "Reply"
 msgstr "Svar"
 
@@ -7885,14 +7885,14 @@ msgstr "Ukendt feed"
 msgid "Sidebar"
 msgstr "Sidebar"
 
-#: wp-includes/general-template.php:1389
+#: wp-includes/general-template.php:1385
 #: wp-includes/theme-compat/sidebar.php:92
 #: wp-includes/widgets/class-wp-widget-archives.php:27
 #: wp-includes/widgets/class-wp-widget-archives.php:45
 msgid "Archives"
 msgstr "Arkiver"
 
-#: wp-includes/general-template.php:411 wp-login.php:717 wp-login.php:883
+#: wp-includes/general-template.php:411 wp-login.php:716 wp-login.php:882
 msgid "Username"
 msgstr "Brugernavn"
 
@@ -7901,7 +7901,7 @@ msgid "Redo"
 msgstr "Annuller fortryd"
 
 #: wp-includes/media-template.php:687 wp-includes/media-template.php:762
-#: wp-includes/media-template.php:936 wp-includes/media.php:3060
+#: wp-includes/media-template.php:936 wp-includes/media.php:3088
 msgid "Thumbnail"
 msgstr "Thumbnail"
 
@@ -7934,7 +7934,7 @@ msgid "Center"
 msgstr "Center"
 
 #: wp-includes/media-template.php:688 wp-includes/media-template.php:763
-#: wp-includes/media-template.php:937 wp-includes/media.php:3061
+#: wp-includes/media-template.php:937 wp-includes/media.php:3089
 msgid "Medium"
 msgstr "Medium"
 
@@ -7973,12 +7973,12 @@ msgstr "Privat"
 msgid "Public"
 msgstr "Offentlig"
 
-#: wp-includes/media.php:3306 wp-includes/script-loader.php:404
+#: wp-includes/media.php:3334 wp-includes/script-loader.php:404
 #: wp-includes/script-loader.php:517
 msgid "Update"
 msgstr "Opdater"
 
-#: wp-includes/taxonomy.php:525
+#: wp-includes/taxonomy.php:528
 msgid "All Categories"
 msgstr "Alle kategorier"
 
@@ -8003,7 +8003,7 @@ msgid "Uncategorized"
 msgstr "Ikke kategoriseret"
 
 #: wp-includes/class-wp-editor.php:862 wp-includes/class-wp-editor.php:1402
-#: wp-includes/functions.php:4932 wp-includes/script-loader.php:256
+#: wp-includes/functions.php:4937 wp-includes/script-loader.php:256
 #: wp-includes/script-loader.php:337 wp-includes/script-loader.php:439
 msgid "Close"
 msgstr "Luk"
@@ -8012,7 +8012,7 @@ msgstr "Luk"
 msgid "New Page"
 msgstr "Ny side"
 
-#: wp-includes/media.php:3028 wp-includes/script-loader.php:406
+#: wp-includes/media.php:3056 wp-includes/script-loader.php:406
 #: wp-includes/script-loader.php:564
 msgid "(no title)"
 msgstr "(ingen titel)"
@@ -8022,12 +8022,12 @@ msgid "Number of comments to show:"
 msgstr "Antal kommentarer der skal vises:"
 
 #: wp-includes/media-template.php:327 wp-includes/media-template.php:521
-#: wp-includes/media.php:3374
+#: wp-includes/media.php:3402
 msgid "Edit Image"
 msgstr "Rediger billede"
 
 #: wp-includes/media-template.php:690 wp-includes/media-template.php:765
-#: wp-includes/media-template.php:939 wp-includes/media.php:3063
+#: wp-includes/media-template.php:939 wp-includes/media.php:3091
 msgid "Full Size"
 msgstr "Fuld størrelse"
 
@@ -8040,7 +8040,7 @@ msgstr "E-mail: %s"
 msgid "Dismiss"
 msgstr "Afvis"
 
-#: wp-includes/deprecated.php:3082 wp-includes/functions.php:2409
+#: wp-includes/deprecated.php:3082 wp-includes/functions.php:2414
 msgid "Are you sure you want to do this?"
 msgstr "Er du sikker p&#229;, at du vil g&#248;re dette?"
 
@@ -8064,20 +8064,20 @@ msgstr "Header"
 msgid "Edit Link Category"
 msgstr "Rediger linkkategori"
 
-#: wp-includes/general-template.php:412 wp-login.php:887
+#: wp-includes/general-template.php:412 wp-login.php:886
 msgid "Password"
 msgstr "Adgangskode"
 
 #: wp-includes/admin-bar.php:809 wp-includes/admin-bar.php:810
-#: wp-includes/class-wp-editor.php:1421 wp-includes/media.php:3303
+#: wp-includes/class-wp-editor.php:1421 wp-includes/media.php:3331
 msgid "Search"
 msgstr "Søg"
 
-#: wp-includes/taxonomy.php:534
+#: wp-includes/taxonomy.php:537
 msgid "Add or remove tags"
 msgstr "Tilføj eller fjern tags"
 
-#: wp-includes/taxonomy.php:523
+#: wp-includes/taxonomy.php:526
 msgid "Search Categories"
 msgstr "Søg kategorier"
 
@@ -8092,7 +8092,7 @@ msgstr "Størrelse"
 msgid "Right"
 msgstr "Højre"
 
-#: wp-includes/media.php:3302
+#: wp-includes/media.php:3330
 msgid "Add Media"
 msgstr "Tilføj medier"
 
@@ -8113,7 +8113,7 @@ msgstr "Rediger indlæg"
 msgid "View Post"
 msgstr "Vis indlæg"
 
-#: wp-includes/media.php:3304
+#: wp-includes/media.php:3332
 msgid "Select"
 msgstr "Vælg"
 
@@ -8135,11 +8135,11 @@ msgstr "Nyt indlæg"
 #: wp-includes/class-wp-xmlrpc-server.php:2034
 #: wp-includes/class-wp-xmlrpc-server.php:2105
 #: wp-includes/class-wp-xmlrpc-server.php:2163
-#: wp-includes/class-wp-xmlrpc-server.php:2258 wp-includes/taxonomy.php:665
-#: wp-includes/taxonomy.php:754 wp-includes/taxonomy.php:905
-#: wp-includes/taxonomy.php:1078 wp-includes/taxonomy.php:2294
-#: wp-includes/taxonomy.php:2545 wp-includes/taxonomy.php:2788
-#: wp-includes/taxonomy.php:3121
+#: wp-includes/class-wp-xmlrpc-server.php:2258 wp-includes/taxonomy.php:668
+#: wp-includes/taxonomy.php:757 wp-includes/taxonomy.php:908
+#: wp-includes/taxonomy.php:1081 wp-includes/taxonomy.php:2300
+#: wp-includes/taxonomy.php:2551 wp-includes/taxonomy.php:2794
+#: wp-includes/taxonomy.php:3127
 msgid "Invalid taxonomy"
 msgstr "Ugyldig taksonomi"
 
@@ -8147,7 +8147,7 @@ msgstr "Ugyldig taksonomi"
 msgid "Preview"
 msgstr "Forhåndsvis"
 
-#: wp-includes/media.php:3348
+#: wp-includes/media.php:3376
 msgid "No media attachments found."
 msgstr "Ingen medievedhæftninger fundet."
 
