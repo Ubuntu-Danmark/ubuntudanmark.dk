@@ -17,11 +17,6 @@ namespace rmcgirr83\stopforumspam\migrations;
 
 class version_103 extends \phpbb\db\migration\migration
 {
-	public function effectively_installed()
-	{
-		return isset($this->config['sfs_version']) && version_compare($this->config['sfs_version'], '1.0.3', '>=');
-	}
-
 	static public function depends_on()
 	{
 		return array('\rmcgirr83\stopforumspam\migrations\version_102');
@@ -33,7 +28,7 @@ class version_103 extends \phpbb\db\migration\migration
 
 		$settings = $this->config_text->get('sfs_settings');
 		$settings = unserialize($settings);
-
+		$this->config_text->delete('sfs_settings');
 		return(array(
 			array('config.add', array('allow_sfs', $settings['allow_sfs'])),
 			array('config.add', array('sfs_threshold', $settings['sfs_threshold'])),
@@ -44,8 +39,7 @@ class version_103 extends \phpbb\db\migration\migration
 			array('config.add', array('sfs_by_email', $settings['sfs_by_email'])),
 			array('config.add', array('sfs_by_ip', $settings['sfs_by_ip'])),
 			array('config.add', array('sfs_ban_reason', $settings['sfs_ban_reason'])),
-			array('config.update', array('sfs_version', '1.0.3')),
+			array('config.remove', array('sfs_version')),
 		));
-		$this->config_text->remove(array('sfs_settings'));
 	}
 }
