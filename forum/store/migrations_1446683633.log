@@ -1,0 +1,22 @@
+[DEBUG] Migrering er allerede installeret: \phpbb\db\migration\data\v31x\v313rc2
+[DEBUG] Migrering er allerede installeret: \phpbb\db\migration\data\v31x\v312
+[DEBUG] Tilføj afhængigheder af \phpbb\db\migration\data\v31x\v316.
+[DEBUG] Tilføj afhængigheder af \phpbb\db\migration\data\v31x\v316rc1.
+[DEBUG] Installerer skema: \phpbb\db\migration\data\v31x\v316rc1.
+[INFO] Installeret skema: \phpbb\db\migration\data\v31x\v316rc1; tid: 0.00 sekunder
+[DEBUG] Migrering er allerede installeret: \phpbb\db\migration\data\v31x\v313rc2
+[DEBUG] Migrering er allerede installeret: \phpbb\db\migration\data\v31x\v312
+[DEBUG] Tilføj afhængigheder af \phpbb\db\migration\data\v31x\v316.
+[DEBUG] Tilføj afhængigheder af \phpbb\db\migration\data\v31x\v316rc1.
+[DEBUG] Installerer data: \phpbb\db\migration\data\v31x\v316rc1.
+[INFO] Installeret data: \phpbb\db\migration\data\v31x\v316rc1; tid: 0.00 sekunder
+[DEBUG] Migrering er allerede installeret: \phpbb\db\migration\data\v31x\v313rc2
+[DEBUG] Migrering er allerede installeret: \phpbb\db\migration\data\v31x\v312
+[DEBUG] Tilføj afhængigheder af \phpbb\db\migration\data\v31x\v316.
+[DEBUG] Installerer skema: \phpbb\db\migration\data\v31x\v316.
+[INFO] Installeret skema: \phpbb\db\migration\data\v31x\v316; tid: 0.00 sekunder
+[DEBUG] Migrering er allerede installeret: \phpbb\db\migration\data\v31x\v313rc2
+[DEBUG] Migrering er allerede installeret: \phpbb\db\migration\data\v31x\v312
+[DEBUG] Tilføj afhængigheder af \phpbb\db\migration\data\v31x\v316.
+[DEBUG] Installerer data: \phpbb\db\migration\data\v31x\v316.
+[INFO] Installeret data: \phpbb\db\migration\data\v31x\v316; tid: 0.00 sekunder
