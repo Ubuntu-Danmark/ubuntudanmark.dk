@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * @modified and translated by Olympus DK Team
-* @version $Id: cli.php 462 2014-10-25 10:48:26Z jan_skovsgaard $
+* @version $Id: cli.php 498 2015-12-24 06:49:52Z jan_skovsgaard $
 *
 * For full copyright and license information, please see
 * the docs/CREDITS.txt file.
@@ -59,10 +59,10 @@ $lang = array_merge($lang, array(
 	'CLI_DESCRIPTION_ENABLE_EXTENSION'			=> 'Aktiverer anførte udvidelser.',
 	'CLI_DESCRIPTION_FIND_MIGRATIONS'			=> 'Finder migrationer som ikke er afhængig af.',
 	'CLI_DESCRIPTION_GET_CONFIG'				=> 'Finder en konfigurationmuligheds værdi',
-	'CLI_DESCRIPTION_INCREMENT_CONFIG'			=> 'Foretag optælling af en konfigurationmuligheds værdi',
+	'CLI_DESCRIPTION_INCREMENT_CONFIG'			=> 'Foretag optælling af en konfigurationmuligheds heltalsværdi',
 	'CLI_DESCRIPTION_LIST_EXTENSIONS'			=> 'Viser alle udvidelser i databasen og filsystemet.',
-	'CLI_DESCRIPTION_OPTION_SAFE_MODE'		=> 'Afvikler i Safe Mode (uden udvidelser).',
-	'CLI_DESCRIPTION_OPTION_SHELL'			=> 'Start kommandofortolker.',
+	'CLI_DESCRIPTION_OPTION_SAFE_MODE'			=> 'Afvikler i Safe Mode (uden udvidelser).',
+	'CLI_DESCRIPTION_OPTION_SHELL'				=> 'Start kommandofortolker.',
 	'CLI_DESCRIPTION_PURGE_EXTENSION'			=> 'Tømmer den angivne udvidelse.',
 	'CLI_DESCRIPTION_RECALCULATE_EMAIL_HASH'	=> 'Genberegner kolonnen user_email_hash i tabellen users.',
 	'CLI_DESCRIPTION_SET_ATOMIC_CONFIG'			=> 'Indstiller kun værdien på en konfigurationmulighed hvis den tidligere værdi svarer til den nuværende',
@@ -81,4 +81,8 @@ $lang = array_merge($lang, array(
 	'CLI_EXTENSIONS_ENABLED'			=> 'Aktiveret',
 
 	'CLI_FIXUP_RECALCULATE_EMAIL_HASH_SUCCESS'	=> 'Genberegning af alle email-hashes gennemført.',
+));
+// Additional help for commands.
+$lang = array_merge($lang, array(
+	'CLI_HELP_CRON_RUN'			=> $lang['CLI_DESCRIPTION_CRON_RUN'] . 'Alternativt kan du angive et cron task navn, som kun skal afvikle den specifikke cron task.',
 ));

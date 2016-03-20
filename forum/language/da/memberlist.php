@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * @modified and translated by Olympus DK Team
-* @version $Id: memberlist.php 473 2014-11-25 20:11:05Z jan_skovsgaard $
+* @version $Id: memberlist.php 498 2015-12-24 06:49:52Z jan_skovsgaard $
 *
 * For full copyright and license information, please see
 * the docs/CREDITS.txt file.
@@ -104,6 +104,7 @@ $lang = array_merge($lang, array(
 	'LOGIN_EXPLAIN_SEARCHUSER'	=> 'Du skal være tilmeldt som bruger og logget ind for at søge brugere.',
 	'LOGIN_EXPLAIN_VIEWPROFILE'	=> 'Du skal være tilmeldt som bruger og logget ind for at se profiler.',
 
+	'MANAGE_GROUP'			=> 'Gruppeadministration',
 	'MORE_THAN'				=> 'Mere end',
 
 	'NO_CONTACT_FORM'		=> 'Formularen til at kontakte boardadministrator, er blevet deaktiveret.',

@@ -57,7 +57,7 @@ $help = array(
 	),
 	array(
 		0 => 'Hvorfor kan jeg ikke logge ind?',
-		1 => 'Der kan være flere grunde til, at du ikke kan logge ind. Først bør du sikre dig, at du taster brugernavn og kodeord korrekt. Husk, at der skelnes mellem store og små bogstaver i kodeordet - kontroller tasten "Caps Lock". Hvis oplysningerne er korrekte, bør du kontakte en boardadministrator for at få hjælp.'
+		1 => 'Der kan være flere grunde til, at du ikke kan logge ind. Først bør du sikre dig, at du taster brugernavn og kodeord korrekt. Husk, at der skelnes mellem store og små bogstaver i kodeordet - kontroller tasten "Caps Lock". Hvis oplysningerne er korrekte, bør du kontakte en boardadministrator for at få hjælp.',
 	),
 	array(
 		0 => 'Jeg har tilmeldt mig for et stykke tid siden, og kan nu ikke logge ind længere?!',
@@ -65,11 +65,11 @@ $help = array(
 	),
 	array(
 		0 => 'Jeg har glemt mit kodeord!',
-		1 => 'Gå ikke i panik! Det er ikke muligt at finde dit gamle kodeord, men der kan dannes et nyt. Gå til loginsiden ved at klikke på linket <em>Log ind</em> øverst på siden. På denne side kan du klikke på <em>Jeg har glemt mit kodeord</em>. Her kan du indtaste dit brugernavn og din emailadresse. Der fremsendes en email til dig, som udover et nyt kodeord, indeholder et aktiveringslink som skal besøges før det nye kodeord kan benyttes.'
+		1 => 'Gå ikke i panik! Det er ikke muligt at finde dit gamle kodeord, men der kan dannes et nyt. Gå til loginsiden ved at klikke på linket <em>Log ind</em> øverst på siden. På denne side kan du klikke på <em>Jeg har glemt mit kodeord</em>. Her kan du indtaste dit brugernavn og din emailadresse. Der fremsendes en email til dig, som udover et nyt kodeord, indeholder et aktiveringslink som skal besøges før det nye kodeord kan benyttes.',
 	),
 	array(
 		0 => 'Hvorfor bliver jeg logget ud hele tiden?',
-		1 => 'Når du logger ind, vil du automatisk blive logget af efter et stykke tid. Tidsbegrænsningen er sat for at mindske risikoen for misbrug af din konto. Du kan vælge at blive logget automatisk ind ved at vælge boksen <em>Husk mig</em>, når du logger ind. Du bør <strong>IKKE</strong> anvende denne indstilling på en offentlig computer, som også bruges af andre personer, f.eks. på biblioteker, skoler osv. Hvis du ikke kan se boksen ved log ind, har administratoren slået muligheden for automatisk indlogning fra.'
+		1 => 'Når du logger ind, vil du automatisk blive logget af efter et stykke tid. Tidsbegrænsningen er sat for at mindske risikoen for misbrug af din konto. Du kan vælge at blive logget automatisk ind ved at vælge boksen <em>Husk mig</em>, når du logger ind. Du bør <strong>IKKE</strong> anvende denne indstilling på en offentlig computer, som også bruges af andre personer, f.eks. på biblioteker, skoler osv. Hvis du ikke kan se boksen ved log ind, har administratoren slået muligheden for automatisk indlogning fra.',
 	),
 	array(
 		0 => 'Hvilken funktion har "Slet alle boardcookies"?',
@@ -81,7 +81,7 @@ $help = array(
 	),
 	array(
 		0 => 'Hvordan ændrer jeg mine boardindstillinger?',
-		1 => 'Som tilmeldt bruger kan du ændre på, hvordan boardet fungerer for dig. For at se eller ændre indstillingerne skal du finde <em>Brugerkontrolpanelet</em>. Du finder normalt linket ved at klikke på dit brugernavn i toppen af siden. Boardets administrator kan dog have placeret linket til brugerkontrolpanelet et andet sted. Alle dine indstillinger bliver gemt til dine næste besøg.'
+		1 => 'Som tilmeldt bruger kan du ændre på, hvordan boardet fungerer for dig. For at se eller ændre indstillingerne skal du finde <em>Brugerkontrolpanelet</em>. Du finder normalt linket ved at klikke på dit brugernavn i toppen af siden. Boardets administrator kan dog have placeret linket til brugerkontrolpanelet et andet sted. Alle dine indstillinger bliver gemt til dine næste besøg.',
 	),
 	array(
 		0 => 'Hvordan forhindrer jeg at mit navn fremgår af listen "Hvem er online nu"?',
@@ -97,11 +97,11 @@ $help = array(
 	),
 	array(
 		0 => 'Mit sprog er ikke i listen!',
-		1 => 'Det er enten fordi boardadministratorerne ikke har installeret dit sprog, eller fordi det ikke er oversat endnu. Prøv at spørge en boardadministrator om det er muligt at installere den sprogpakke som du har brug for. Hvis den ikke eksisterer er du velkommen til selv at foretage oversættelsen, mere information om hvordan dette gøres findes på phpBB Group\'s hjemmeside (se link nederst på siden).'
+		1 => 'Det er enten fordi boardadministratorerne ikke har installeret dit sprog, eller fordi det ikke er oversat endnu. Prøv at spørge en boardadministrator om det er muligt at installere den sprogpakke som du har brug for. Hvis den ikke eksisterer er du velkommen til selv at foretage oversættelsen, mere information om hvordan dette gøres findes på phpBB Group\'s hjemmeside (se link nederst på siden).',
 	),
 	array(
 		0 => 'Hvordan får jeg vist et billede sammen med mit brugernavn?',
-		1 => 'Der kan vises to billeder sammen med et brugernavn når indlæg læses. Det ene er et billede tilknyttet din rang som tilmeldt bruger på boardet, normalt udformet som stjerner,  kasser eller prikker, som indikerer hvor mange indlæg du har skrevet eller din status på boardet. Det andet, normalt et større billede, er kendt som en avatar og er sædvanligvis unikt og personligt for hver bruger. '
+		1 => 'Der kan vises to billeder sammen med et brugernavn når indlæg læses. Det ene er et billede tilknyttet din rang som tilmeldt bruger på boardet, normalt udformet som stjerner,  kasser eller prikker, som indikerer hvor mange indlæg du har skrevet eller din status på boardet. Det andet, normalt et større billede, er kendt som en avatar og er sædvanligvis unikt og personligt for hver bruger.',
 	),
 	array(
 		0 => 'Hvordan vælger jeg en avatar?',
@@ -121,7 +121,7 @@ $help = array(
 	),
 	array(
 		0 => 'Hvordan opretter jeg et nyt emne eller besvarer et indlæg?',
-		1 => 'For at skrive et nyt emne i et forum, klikker du på knappen "Nyt emne". For at skrive et indlæg i et eksisterende emne, klikker du på "Besvar". Det kan være det er nødvendigt at tilmelde sig som bruger før du kan skrive et nyt indlæg. Dine tilladelser i hvert forum vises altid i bunden af forum- og emnesiden (<em>Du kan skrive nye emner, Du kan stemme på afstemninger i dette forum osv.</em>)'
+		1 => 'For at skrive et nyt emne i et forum, klikker du på knappen "Nyt emne". For at skrive et indlæg i et eksisterende emne, klikker du på "Besvar". Det kan være det er nødvendigt at tilmelde sig som bruger før du kan skrive et nyt indlæg. Dine tilladelser i hvert forum vises altid i bunden af forum- og emnesiden (<em>Du kan skrive nye emner, Du kan stemme på afstemninger i dette forum osv.</em>)',
 	),
 	array(
 		0 => 'Hvordan redigerer eller sletter jeg et indlæg?',
@@ -238,7 +238,7 @@ $help = array(
 	),
 	array(
 		0 => 'Hvordan bliver jeg leder af en gruppe?',
-		1 => 'Lederen af en brugergruppe udpeges normalt ved oprettelsen af gruppen af en boardadministrator. Hvis du er interesseret i at få oprettet en brugergruppe, skal du som det første kontakte en administrator; forsøg at sende en privat besked.'
+		1 => 'Lederen af en brugergruppe udpeges normalt ved oprettelsen af gruppen af en boardadministrator. Hvis du er interesseret i at få oprettet en brugergruppe, skal du som det første kontakte en administrator; forsøg at sende en privat besked.',
 	),
 	array(
 		0 => 'Hvorfor vises nogle brugergrupper med en anden farve?',
@@ -290,7 +290,7 @@ $help = array(
 	),
 	array(
 		0 => 'Hvorfor giver min søgning ingen resultater?',
-		1 => 'Din søgning var formentlig for bred og indeholdt sikkert mange almindelige ord, som ikke indekseres af phpBB. Prøv at søge mere specifikt og at bruge mulighederne i den avancerede søgning.'
+		1 => 'Din søgning var formentlig for bred og indeholdt sikkert mange almindelige ord, som ikke indekseres af phpBB. Prøv at søge mere specifikt og at bruge mulighederne i den avancerede søgning.',
 	),
 	array(
 		0 => 'Hvorfor returnerer min søgning en blank side!?',
@@ -302,7 +302,7 @@ $help = array(
 	),
 	array(
 		0 => 'Hvor kan jeg finde alle mine indlæg og emner?',
-		1 => 'Dine egne indlæg kan listes enten ved at klikke på "Dine indlæg" forrest i brugerkontrolpanelet, ved at klikke på "Brugers indlæg" forrest på din profilside eller "Dine indlæg" øverst på boardindekset under hurtige links. For at søge i dine emner bruges den avancerede søgning og udfyld de relevante søgekriterier i overenstemmelse hermed.'
+		1 => 'Dine egne indlæg kan listes enten ved at klikke på "Dine indlæg" forrest i brugerkontrolpanelet, ved at klikke på "Brugers indlæg" forrest på din profilside eller "Dine indlæg" øverst på boardindekset under hurtige links. For at søge i dine emner bruges den avancerede søgning og udfyld de relevante søgekriterier i overenstemmelse hermed.',
 	),
 	array(
 		0 => '--',
@@ -318,7 +318,7 @@ $help = array(
 	),
 	array(
 		0 => 'Hvordan overvåger jeg specifikke fora?',
-		1 => 'For at overvåge et bestemt forum, kan du, når du er i forummet, nederst på siden, se et link "Overvåg forum". Ved klikke på linket aktiverer du overvågning af hele forummet.'
+		1 => 'For at overvåge et bestemt forum, kan du, når du er i forummet, nederst på siden, se et link "Overvåg forum". Ved klikke på linket aktiverer du overvågning af hele forummet.',
 	),
 	array(
 		0 => 'Hvordan fjerner jeg mine overvågninger?',
@@ -342,7 +342,7 @@ $help = array(
 	),
 	array(
 		0 => 'Hvem har skrevet koden til dette board?',
-		1 => 'Denne software (i sin umodificerede udgave) er udviklet, frigivet og copyright <a href="https://www.phpbb.com/">phpBB Limited</a>. Den er offentligt tilgængelig under GNU General Public License, version 2 (GPL-2.0) og kan frit distribueres. Læs <a href="https://www.phpbb.com/about/">About phpBB</a> for yderligere information.'
+		1 => 'Denne software (i sin umodificerede udgave) er udviklet, frigivet og copyright <a href="https://www.phpbb.com/">phpBB Limited</a>. Den er offentligt tilgængelig under GNU General Public License, version 2 (GPL-2.0) og kan frit distribueres. Læs <a href="https://www.phpbb.com/about/">About phpBB</a> for yderligere information.',
 	),
 	array(
 		0 => 'Hvorfor er X funktioner ikke til stede?',
@@ -354,6 +354,6 @@ $help = array(
 	),	
 	array(
 		0 => 'Hvordan kommer jeg i kontakt med en boardadministrator?',
-		1 => 'Alle boardet brugere kan benytte formulare "Kontakt os", hvis boardadministrator har aktiveret denne.<br />Tilmeldte brugere kan også anvende linket til "Holdet".',
+		1 => 'Alle boardet brugere kan benytte formularen "Kontakt os", hvis boardadministrator har aktiveret denne.<br />Tilmeldte brugere kan også anvende linket til "Holdet".',
 	),
 );

@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * @modified and translated by Olympus DK Team
-* @version $Id: common.php 489 2015-05-25 08:30:40Z jan_skovsgaard $
+* @version $Id: common.php 498 2015-12-24 06:49:52Z jan_skovsgaard $
 *
 * For full copyright and license information, please see
 * the docs/CREDITS.txt file.
@@ -335,9 +335,10 @@ $lang = array_merge($lang, array(
 	'IMAGE'	=> 'Billede',
 	'IMAGE_FILETYPE_INVALID'	=> 'Billedfiltype %d for mimetype %s ikke understøttet.',
 	'IMAGE_FILETYPE_MISMATCH'	=> 'Billedfiltype passer ikke: Forventet filtype %1$s med filtype %2$s givet.',
-	'IN'	=> 'i',
-	'INDEX'	=> 'Boardindeks',
-	'INFORMATION'	=> 'Information',
+	'IN'						=> 'i',
+	'INACTIVE'					=> 'Inaktiv',
+	'INDEX'						=> 'Boardindeks',
+	'INFORMATION'				=> 'Information',
 	'INSECURE_REDIRECT'      => 'Forsøgte at viderestille til potentiel usikker url.',
 	'INTERESTS'	=> 'Interesser',
 	'INVALID_DIGEST_CHALLENGE'	=> 'Ugyldig overvågningsbestilling.',
@@ -464,17 +465,17 @@ $lang = array_merge($lang, array(
 	'NOTIFICATION_QUOTE'				=> array(
 		1	=> '<strong>Citeret</strong> af %1$s i:',
 	),
-	'NOTIFICATION_REFERENCE'	=> '"%1$s"',
-	'NOTIFICATION_REASON'		=> '<em>Begrundelse:</em> %1$s.',
-	'NOTIFICATION_REPORT_PM'	=> '<strong>Privat besked rapporteret</strong> af %1$s:',
-	'NOTIFICATION_REPORT_POST'	=> '<strong>Indlæg rapporteret</strong> af %1$s:',
-	'NOTIFICATION_REPORT_CLOSED' => '<strong>Rapport lukket</strong> af %1$s:',
-	'NOTIFICATION_TOPIC'	=> '<strong>Nyt emne</strong> af %1$s:',
+	'NOTIFICATION_REFERENCE'		=> '"%1$s"',
+	'NOTIFICATION_REASON'			=> '<em>Begrundelse:</em> %1$s.',
+	'NOTIFICATION_REPORT_PM'		=> '<strong>Privat besked rapporteret</strong> af %1$s:',
+	'NOTIFICATION_REPORT_POST'		=> '<strong>Indlæg rapporteret</strong> af %1$s:',
+	'NOTIFICATION_REPORT_CLOSED'	=> '<strong>Rapport lukket</strong> af %1$s:',
+	'NOTIFICATION_TOPIC'			=> '<strong>Nyt emne</strong> af %1$s:',
 	'NOTIFICATION_TOPIC_APPROVED'	=> '<strong>Emne godkendt</strong>:',
 	'NOTIFICATION_TOPIC_DISAPPROVED'	=> '<strong>Emne afvist</strong>:',
 	'NOTIFICATION_TOPIC_IN_QUEUE'	=> '<strong>Emnegodkendelse</strong> afventes af %1$s:',
 	'NOTIFICATION_TYPE_NOT_EXIST'		=> 'Beskedtypen "%s" mangler i filsystemet.',
-	'NOTIFICATION_ADMIN_ACTIVATE_USER'  => '<strong>Aktivering afventes</strong> af ny tilmeldt bruger: "%1$s"',
+	'NOTIFICATION_ADMIN_ACTIVATE_USER'  => '<strong>Aktivering afventes</strong> af ny tilmeldt og deaktiveret bruger: "%1$s"',
 	// Used in conjuction with NOTIFICATION_BOOKMARK and NOTIFICATION_POST.
 	'NOTIFICATION_MANY_OTHERS'			=> 'andre',
 	'NOTIFICATION_X_OTHERS'				=> array(

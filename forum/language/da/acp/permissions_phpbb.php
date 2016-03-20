@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * @modified and translated by Olympus DK Team
-* @version $Id: permissions_phpbb.php 462 2014-10-25 10:48:26Z jan_skovsgaard $
+* @version $Id: permissions_phpbb.php 498 2015-12-24 06:49:52Z jan_skovsgaard $
 *
 * For full copyright and license information, please see
 * the docs/CREDITS.txt file.
@@ -158,9 +158,10 @@ $lang = array_merge($lang, array(
 	'ACL_M_SPLIT'	=> 'Kan opdele emner',
 	'ACL_M_MERGE'	=> 'Kan sammenlægge emner',
 
-	'ACL_M_INFO'	=> 'Kan læse indlægsinformation',
-	'ACL_M_WARN'	=> 'Kan udstede advarsler<br /><em>Tilladelsen er tildelt globalt og kan ikke defineres pr. forum.</em>', // This moderator setting is only global (and not local)
-	'ACL_M_BAN'		=> 'Kan administrere udelukkelser<br /><em>Tilladelsen er tildelt globalt og kan ikke defineres pr. forum.</em>', // This moderator setting is only global (and not local)
+	'ACL_M_INFO'		=> 'Kan læse indlægsinformation',
+	'ACL_M_WARN'		=> 'Kan udstede advarsler<br /><em>Tilladelsen er tildelt globalt og kan ikke defineres pr. forum.</em>', // This moderator setting is only global (and not local)
+	'ACL_M_PM_REPORT'	=> 'Kan lukke og slette rapportering af private beskeder<br /><em>Tilladelsen er tildelt globalt og kan ikke defineres pr. forum.</em>', // This moderator setting is only global (and not local)
+	'ACL_M_BAN'			=> 'Kan administrere udelukkelser<br /><em>Tilladelsen er tildelt globalt og kan ikke defineres pr. forum.</em>', // This moderator setting is only global (and not local)
 ));
 
 // Admin Permissions

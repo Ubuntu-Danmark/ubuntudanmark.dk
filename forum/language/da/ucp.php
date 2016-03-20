@@ -7,7 +7,7 @@
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 * @modified and translated by Olympus DK Team
-* @version $Id: ucp.php 489 2015-05-25 08:30:40Z jan_skovsgaard $
+* @version $Id: ucp.php 498 2015-12-24 06:49:52Z jan_skovsgaard $
 * @source file is copyright (c) 2005 phpBB Group
 *
 * For full copyright and license information, please see
@@ -344,7 +344,7 @@ $lang = array_merge($lang, array(
 	'NOTIFICATION_TYPE_QUOTE'							=> 'Når du citeres i et indlæg',
 	'NOTIFICATION_TYPE_REPORT'							=> 'Ved rapportering af et indlæg',
 	'NOTIFICATION_TYPE_TOPIC'				   			=> 'Ved nyt emne i et forum du overvåger',
-	'NOTIFICATION_TYPE_ADMIN_ACTIVATE_USER'				=> 'Nye tilmeldte brugere som afventer aktivering',
+	'NOTIFICATION_TYPE_ADMIN_ACTIVATE_USER'				=> 'Bruger afventer aktivering',
 
 	'NOTIFY_METHOD'				=> 'Jeg ønsker at modtage information med',
 	'NOTIFY_METHOD_BOTH'		=> 'Begge',
