@@ -666,7 +666,7 @@ msgctxt "adjective"
 msgid "Trash"
 msgstr "Papirkurv"
 
-#: wp-includes/comment-template.php:2143
+#: wp-includes/comment-template.php:2171
 msgid "<a href=\"%1$s\" aria-label=\"Logged in as %2$s. Edit your profile.\">Logged in as %2$s</a>. <a href=\"%3$s\">Log out?</a>"
 msgstr "<a href=\"%1$s\" aria-label=\"Logget ind som %2$s. Redigér din profil.\">Logget ind som %2$s</a>. <a href=\"%3$s\">Log ud?</a>"
 
@@ -863,15 +863,15 @@ msgstr "Tilføj nyt Header-billede"
 msgid "Expand Sidebar"
 msgstr "Udvid sidebar"
 
-#: wp-includes/class-wp-customize-manager.php:1828
+#: wp-includes/class-wp-customize-manager.php:1830
 msgid "Site Icon"
 msgstr "Webstedsikon"
 
-#: wp-includes/class-wp-customize-manager.php:1829
+#: wp-includes/class-wp-customize-manager.php:1831
 msgid "The Site Icon is used as a browser and app icon for your site. Icons must be square, and at least 512px wide and tall."
 msgstr "Webstedsikonet bruges som browser- og app-ikon for dit websted. Ikonet skal være kvardratisk og mindst 512px bredt og højt."
 
-#: wp-includes/class-wp-customize-manager.php:1795
+#: wp-includes/class-wp-customize-manager.php:1797
 msgid "Site Identity"
 msgstr "Webstedsidentitet"
 
@@ -900,7 +900,7 @@ msgstr "Dit link til at gendanne dit kodeord er udløbet. Bed venligst om et nyt
 msgid "Username may not be longer than 60 characters."
 msgstr "Brugernavn kan ikke indeholde mere end 60 tegn."
 
-#: wp-includes/pluggable.php:1780
+#: wp-includes/pluggable.php:1789
 msgid "To set your password, visit the following address:"
 msgstr "For at indstille dit kodeord, så besøg følgende adresse."
 
@@ -1560,13 +1560,13 @@ msgid "Suggested image #%d"
 msgstr "Foreslået billede #%d"
 
 #. translators: 1: comment author, 2: author IP, 3: author domain
-#: wp-includes/pluggable.php:1486 wp-includes/pluggable.php:1634
+#: wp-includes/pluggable.php:1495 wp-includes/pluggable.php:1643
 msgid "Author: %1$s (IP: %2$s, %3$s)"
 msgstr "Forfatter: %1$s (IP: %2$s, %3$s)"
 
 #. translators: 1: website name, 2: website IP, 3: website hostname
-#: wp-includes/pluggable.php:1466 wp-includes/pluggable.php:1476
-#: wp-includes/pluggable.php:1619 wp-includes/pluggable.php:1627
+#: wp-includes/pluggable.php:1475 wp-includes/pluggable.php:1485
+#: wp-includes/pluggable.php:1628 wp-includes/pluggable.php:1636
 msgid "Website: %1$s (IP: %2$s, %3$s)"
 msgstr "Websted: %1$s (IP: %2$s, %3$s)"
 
@@ -1679,24 +1679,24 @@ msgid "Link Text"
 msgstr "Link-tekst"
 
 #. translators: %s: post title
-#: wp-includes/comment-template.php:1468
+#: wp-includes/comment-template.php:1480
 msgid "1 Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "1 kommentar<span class=\"screen-reader-text\"> til %s</span>"
 
 #. translators: 1: Number of comments 2: post title
-#: wp-includes/comment-template.php:1473
+#: wp-includes/comment-template.php:1485
 msgid "%1$s Comment<span class=\"screen-reader-text\"> on %2$s</span>"
 msgid_plural "%1$s Comments<span class=\"screen-reader-text\"> on %2$s</span>"
 msgstr[0] "%1$s kommentar<span class=\"screen-reader-text\"> til %2$s</span>"
 msgstr[1] "%1$s kommentarer<span class=\"screen-reader-text\"> til %2$s</span>"
 
 #. translators: %s: post title
-#: wp-includes/comment-template.php:1479
+#: wp-includes/comment-template.php:1491
 msgid "Comments Off<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Kommentarer lukket<span class=\"screen-reader-text\"> til %s</span>"
 
 #. translators: %s: post title
-#: wp-includes/comment-template.php:1463
+#: wp-includes/comment-template.php:1475
 msgid "No Comments<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Ingen kommentarer<span class=\"screen-reader-text\"> til %s</span>"
 
@@ -1803,9 +1803,9 @@ msgstr "En term med navnet og korttitlen findes allerede i denne taksonomi."
 msgid "%s must set a database connection for use with escaping."
 msgstr "%s skal opsætte en databaseforbindelse for at bruge escaping."
 
-#: wp-includes/pluggable.php:1467 wp-includes/pluggable.php:1477
-#: wp-includes/pluggable.php:1488 wp-includes/pluggable.php:1620
-#: wp-includes/pluggable.php:1628 wp-includes/pluggable.php:1636
+#: wp-includes/pluggable.php:1476 wp-includes/pluggable.php:1486
+#: wp-includes/pluggable.php:1497 wp-includes/pluggable.php:1629
+#: wp-includes/pluggable.php:1637 wp-includes/pluggable.php:1645
 msgid "URL: %s"
 msgstr "URL: %s"
 
@@ -1832,8 +1832,8 @@ msgctxt "translations"
 msgid "Available"
 msgstr "Tilgængelig"
 
-#: wp-includes/pluggable.php:1468 wp-includes/pluggable.php:1478
-#: wp-includes/pluggable.php:1489 wp-includes/pluggable.php:1637
+#: wp-includes/pluggable.php:1477 wp-includes/pluggable.php:1487
+#: wp-includes/pluggable.php:1498 wp-includes/pluggable.php:1646
 msgid "Comment: %s"
 msgstr "Kommentar: %s"
 
@@ -1847,15 +1847,15 @@ msgctxt "verb"
 msgid "Trash"
 msgstr "Slet"
 
-#: wp-includes/pluggable.php:1490
+#: wp-includes/pluggable.php:1499
 msgid "You can see all comments on this post here:"
 msgstr "Du kan se alle kommentarer til indlægget her:"
 
-#: wp-includes/pluggable.php:1479
+#: wp-includes/pluggable.php:1488
 msgid "You can see all pingbacks on this post here:"
 msgstr "Du kan se alle pingbacks til indlægget her:"
 
-#: wp-includes/pluggable.php:1469
+#: wp-includes/pluggable.php:1478
 msgid "You can see all trackbacks on this post here:"
 msgstr "Du kan se alle trackbacks til indlægget her:"
 
@@ -1931,7 +1931,7 @@ msgstr "Tag: %s"
 msgid "Category: %s"
 msgstr "Kategori: %s"
 
-#: wp-includes/comment-template.php:1570
+#: wp-includes/comment-template.php:1582
 msgid "Reply to %s"
 msgstr "Besvar %s"
 
@@ -3967,11 +3967,11 @@ msgstr "Tekst"
 msgid "Hex Value"
 msgstr "Hex værdi"
 
-#: wp-includes/class-wp-customize-manager.php:1862
+#: wp-includes/class-wp-customize-manager.php:1864
 msgid "Header Text Color"
 msgstr "Header tekstfarve"
 
-#: wp-includes/class-wp-customize-manager.php:1839
+#: wp-includes/class-wp-customize-manager.php:1841
 msgid "Colors"
 msgstr "Farver"
 
@@ -4006,7 +4006,7 @@ msgstr "Utilstrækkelige argumenter gennemført ved denne XML-RPC metode."
 msgid "Sorry, you cannot stick a private post."
 msgstr "Beklager, du kan ikke fastgøre et privat indlæg."
 
-#: wp-includes/class-wp-customize-manager.php:1885
+#: wp-includes/class-wp-customize-manager.php:1887
 #: wp-includes/customize/class-wp-customize-header-image-control.php:31
 msgid "Header Image"
 msgstr "Header billede"
@@ -4047,32 +4047,32 @@ msgstr "Indtast venligst webstedsnavn."
 msgid "Please enter a site title."
 msgstr "Indtast venligst webstedstitel."
 
-#: wp-includes/class-wp-customize-manager.php:2002
+#: wp-includes/class-wp-customize-manager.php:2004
 msgid "A static page"
 msgstr "En statisk side"
 
-#: wp-includes/class-wp-customize-manager.php:1877
+#: wp-includes/class-wp-customize-manager.php:1879
 msgid "Background Color"
 msgstr "Baggrundsfarve"
 
-#: wp-includes/class-wp-customize-manager.php:1905
+#: wp-includes/class-wp-customize-manager.php:1907
 #: wp-includes/customize/class-wp-customize-background-image-control.php:30
 msgid "Background Image"
 msgstr "Baggrundsbillede"
 
-#: wp-includes/class-wp-customize-manager.php:1927
+#: wp-includes/class-wp-customize-manager.php:1929
 msgid "Background Repeat"
 msgstr "Gentag baggrund"
 
-#: wp-includes/class-wp-customize-manager.php:1944
+#: wp-includes/class-wp-customize-manager.php:1946
 msgid "Background Position"
 msgstr "Baggrundsplacering"
 
-#: wp-includes/class-wp-customize-manager.php:1960
+#: wp-includes/class-wp-customize-manager.php:1962
 msgid "Background Attachment"
 msgstr "Baggrundsvedhæftning"
 
-#: wp-includes/class-wp-customize-manager.php:1855
+#: wp-includes/class-wp-customize-manager.php:1857
 msgid "Display Header Text"
 msgstr "Vis tekst i header"
 
@@ -4088,35 +4088,35 @@ msgstr "Fjern billede"
 msgid "Sorry, you are not allowed to edit this post type."
 msgstr "Beklager, du har ikke tilladelse til at redigere denne indholdstype."
 
-#: wp-includes/class-wp-customize-manager.php:1965
+#: wp-includes/class-wp-customize-manager.php:1967
 msgid "Fixed"
 msgstr "Låst"
 
-#: wp-includes/class-wp-customize-manager.php:1932
+#: wp-includes/class-wp-customize-manager.php:1934
 msgid "Tile"
 msgstr "Side om side"
 
-#: wp-includes/class-wp-customize-manager.php:1933
+#: wp-includes/class-wp-customize-manager.php:1935
 msgid "Tile Horizontally"
 msgstr "Side om side vandret"
 
-#: wp-includes/class-wp-customize-manager.php:1934
+#: wp-includes/class-wp-customize-manager.php:1936
 msgid "Tile Vertically"
 msgstr "Side om side lodret"
 
-#: wp-includes/class-wp-customize-manager.php:1964
+#: wp-includes/class-wp-customize-manager.php:1966
 msgid "Scroll"
 msgstr "Rul"
 
-#: wp-includes/class-wp-customize-manager.php:1931
+#: wp-includes/class-wp-customize-manager.php:1933
 msgid "No Repeat"
 msgstr "Ingen gentagelse"
 
-#: wp-includes/class-wp-customize-manager.php:2013
+#: wp-includes/class-wp-customize-manager.php:2015
 msgid "Front page"
 msgstr "Forside"
 
-#: wp-includes/class-wp-customize-manager.php:2025
+#: wp-includes/class-wp-customize-manager.php:2027
 msgid "Posts page"
 msgstr "Indlægsside"
 
@@ -4230,23 +4230,23 @@ msgstr "Stylesheet'et kan ikke læses."
 msgid "Collapse Sidebar"
 msgstr "Minimer sidebar"
 
-#: wp-includes/class-wp-customize-manager.php:1983
+#: wp-includes/class-wp-customize-manager.php:1985
 msgid "Static Front Page"
 msgstr "Statisk forside"
 
-#: wp-includes/class-wp-customize-manager.php:1986
+#: wp-includes/class-wp-customize-manager.php:1988
 msgid "Your theme supports a static front page."
 msgstr "Dit tema understøtter en statisk forside"
 
-#: wp-includes/class-wp-customize-manager.php:2001
+#: wp-includes/class-wp-customize-manager.php:2003
 msgid "Your latest posts"
 msgstr "Dine seneste indlæg"
 
-#: wp-includes/class-wp-customize-manager.php:1997
+#: wp-includes/class-wp-customize-manager.php:1999
 msgid "Front page displays"
 msgstr "Forside viser"
 
-#: wp-includes/class-wp-customize-manager.php:1817
+#: wp-includes/class-wp-customize-manager.php:1819
 msgid "Tagline"
 msgstr "Tagline"
 
@@ -4722,7 +4722,7 @@ msgstr "%1$s er kaldt <strong>forkert</strong>. %2$s %3$s"
 msgid "Sorry, you cannot publish this post."
 msgstr "Beklager, du kan ikke udgive dette indlæg."
 
-#: wp-includes/pluggable.php:1496
+#: wp-includes/pluggable.php:1505
 msgid "Permalink: %s"
 msgstr "Permalink: %s"
 
@@ -4922,7 +4922,7 @@ msgstr "Ugyldigt indlæg."
 msgid "Invalid taxonomy: %s."
 msgstr "Ugyldig taksonomi: %s."
 
-#: wp-includes/query.php:2549
+#: wp-includes/query.php:2552
 msgid "\"caller_get_posts\" is deprecated. Use \"ignore_sticky_posts\" instead."
 msgstr "\"caller_get_posts\" er forældet. Brug \"ignore_sticky_posts\" i stedet."
 
@@ -5182,7 +5182,7 @@ msgstr "Konstanten <code>VHOST</code> <strong>er under udfasning</strong>. Brug 
 msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
 msgstr "<strong>FEJL</strong>: Dette brugernavn er ugyldigt, da der bruges tegn, der ikke er tilladte. Indtast venligst et gyldigt brugernavn."
 
-#: wp-includes/comment-template.php:2127
+#: wp-includes/comment-template.php:2155
 msgid "Required fields are marked %s"
 msgstr "Krævede felter er markeret med %s"
 
@@ -5277,7 +5277,7 @@ msgstr "Webstedet er allerede aktiveret."
 msgid "Sorry, that site is reserved!"
 msgstr "Beklager, men det websted er optaget!"
 
-#: wp-includes/pluggable.php:1754
+#: wp-includes/pluggable.php:1763
 msgid "New user registration on your site %s:"
 msgstr "Ny brugerregistrering på dit websted %s:"
 
@@ -5351,7 +5351,7 @@ msgstr "En fejl skete i forsøg på at tilføje dig til dette websted. Gå tilba
 msgid "This file is too big. Files must be less than %d KB in size."
 msgstr "Denne fil er for stor. Filer skal have en størrelse på mindre end %d KB."
 
-#: wp-includes/comment-template.php:2144
+#: wp-includes/comment-template.php:2172
 msgid "Your email address will not be published."
 msgstr "Din e-mailadresse vil ikke blive offentliggjort."
 
@@ -5460,27 +5460,27 @@ msgid_plural "%d Theme Updates"
 msgstr[0] "%d Temaopdatering"
 msgstr[1] "%d Temaopdateringer"
 
-#: wp-includes/pluggable.php:1464
+#: wp-includes/pluggable.php:1473
 msgid "New trackback on your post \"%s\""
 msgstr "Nyt trackback til dit indlæg \"%s\""
 
-#: wp-includes/pluggable.php:1484
+#: wp-includes/pluggable.php:1493
 msgid "New comment on your post \"%s\""
 msgstr "Ny kommentar til dit indlæg \"%s\""
 
-#: wp-includes/pluggable.php:1474
+#: wp-includes/pluggable.php:1483
 msgid "New pingback on your post \"%s\""
 msgstr "Nyt pingback til dit indlæg \"%s\""
 
-#: wp-includes/pluggable.php:1616
+#: wp-includes/pluggable.php:1625
 msgid "A new trackback on the post \"%s\" is waiting for your approval"
 msgstr "Et nyt trackback til dit indlæg \"%s\" afventer din godkendelse"
 
-#: wp-includes/pluggable.php:1624
+#: wp-includes/pluggable.php:1633
 msgid "A new pingback on the post \"%s\" is waiting for your approval"
 msgstr "Et nyt pingback til dit indlæg \"%s\" afventer din godkendelse"
 
-#: wp-includes/pluggable.php:1632
+#: wp-includes/pluggable.php:1641
 msgid "A new comment on the post \"%s\" is waiting for your approval"
 msgstr "En ny kommentar til dit indlæg \"%s\" afventer din godkendelse"
 
@@ -6565,60 +6565,60 @@ msgid "<strong>ERROR</strong>: Invalid username or incorrect password."
 msgstr "<strong>FEJL</strong>: Ugyldigt brugernavn eller forkert adgangskode"
 
 #. translators: 1: blog name, 2: post title
-#: wp-includes/pluggable.php:1492
+#: wp-includes/pluggable.php:1501
 msgid "[%1$s] Comment: \"%2$s\""
 msgstr "[%1$s] Kommentar: \"%2$s\""
 
 #. translators: 1: blog name, 2: post title
-#: wp-includes/pluggable.php:1471
+#: wp-includes/pluggable.php:1480
 msgid "[%1$s] Trackback: \"%2$s\""
 msgstr "[%1$s] Trackback: \"%2$s\""
 
 #. translators: 1: blog name, 2: post title
-#: wp-includes/pluggable.php:1481
+#: wp-includes/pluggable.php:1490
 msgid "[%1$s] Pingback: \"%2$s\""
 msgstr "[%1$s] Pingback: \"%2$s\""
 
-#: wp-includes/pluggable.php:1500 wp-includes/pluggable.php:1643
+#: wp-includes/pluggable.php:1509 wp-includes/pluggable.php:1652
 msgid "Trash it: %s"
 msgstr "Smid i papirkurv: %s"
 
-#: wp-includes/pluggable.php:1502 wp-includes/pluggable.php:1645
+#: wp-includes/pluggable.php:1511 wp-includes/pluggable.php:1654
 msgid "Delete it: %s"
 msgstr "Slet den: %s"
 
-#: wp-includes/pluggable.php:1504 wp-includes/pluggable.php:1646
+#: wp-includes/pluggable.php:1513 wp-includes/pluggable.php:1655
 msgid "Spam it: %s"
 msgstr "Spam den: %s"
 
-#: wp-includes/pluggable.php:1621
+#: wp-includes/pluggable.php:1630
 msgid "Trackback excerpt: "
 msgstr "Trackback uddrag:"
 
-#: wp-includes/pluggable.php:1629
+#: wp-includes/pluggable.php:1638
 msgid "Pingback excerpt: "
 msgstr "Pingback uddrag:"
 
-#: wp-includes/pluggable.php:1641
+#: wp-includes/pluggable.php:1650
 msgid "Approve it: %s"
 msgstr "Godkend den: %s"
 
-#: wp-includes/pluggable.php:1648
+#: wp-includes/pluggable.php:1657
 msgid "Currently %s comment is waiting for approval. Please visit the moderation panel:"
 msgid_plural "Currently %s comments are waiting for approval. Please visit the moderation panel:"
 msgstr[0] "Der er i øjeblikket %s kommentar, der venter på godkendelse. Gå til bedømmelsessiden:"
 msgstr[1] "Der er i øjeblikket %s kommentarer, der venter på godkendelse. Gå til bedømmelsessiden:"
 
-#: wp-includes/pluggable.php:1652
+#: wp-includes/pluggable.php:1661
 msgid "[%1$s] Please moderate: \"%2$s\""
 msgstr "[%1$s] Bedøm venligst: \"%2$s\""
 
-#: wp-includes/pluggable.php:1755 wp-includes/pluggable.php:1779
+#: wp-includes/pluggable.php:1764 wp-includes/pluggable.php:1788
 #: wp-login.php:324
 msgid "Username: %s"
 msgstr "Brugernavn: %s"
 
-#: wp-includes/pluggable.php:1758
+#: wp-includes/pluggable.php:1767
 msgid "[%s] New User Registration"
 msgstr "[%s] Ny brugerregistrering"
 
@@ -6895,7 +6895,7 @@ msgstr "Forfatter er %s"
 msgid "Oops: %s"
 msgstr "Ups: %s"
 
-#: wp-includes/comment-template.php:2158
+#: wp-includes/comment-template.php:2186
 msgid "Post Comment"
 msgstr "Skriv kommentar"
 
@@ -7036,7 +7036,7 @@ msgstr "Privatliv:"
 msgid "Insert/edit link"
 msgstr "Indsæt/rediger link"
 
-#: wp-includes/comment-template.php:2157
+#: wp-includes/comment-template.php:2185
 msgid "Cancel reply"
 msgstr "Annuller svar"
 
@@ -7060,7 +7060,7 @@ msgstr "Fuldskærm"
 msgid "Unable to create directory %s. Is its parent directory writable by the server?"
 msgstr "Kan ikke oprette mappen %s. Er modermappen skrivbar for serveren?"
 
-#: wp-includes/pluggable.php:1785
+#: wp-includes/pluggable.php:1794
 msgid "[%s] Your username and password info"
 msgstr "[%s] Dit brugernavn og din adgangskode"
 
@@ -7080,11 +7080,11 @@ msgstr "Adgangskoden kan ikke nulstilles for denne bruger"
 msgid "[%s] Password Reset"
 msgstr "[%s] Adgangskodenulstilling"
 
-#: wp-includes/pluggable.php:1719
+#: wp-includes/pluggable.php:1728
 msgid "[%s] Password Lost/Changed"
 msgstr "[%s] Adgangskode tabt/ændret"
 
-#: wp-includes/pluggable.php:1715
+#: wp-includes/pluggable.php:1724
 msgid "Password Lost and Changed for user: %s"
 msgstr "Adgangskode mistet og ændret for brugeren: %s"
 
@@ -7495,7 +7495,7 @@ msgstr "1 kommentar"
 msgid "Edit This"
 msgstr "Rediger"
 
-#: wp-includes/comment-template.php:2141
+#: wp-includes/comment-template.php:2169
 #: wp-includes/theme-compat/comments.php:82
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr "Du skal v&#230;re <a href=\"%s\">logget ind</a> for at skrive en kommentar."
@@ -7542,11 +7542,11 @@ msgid_plural "%s topics"
 msgstr[0] "%s emne"
 msgstr[1] "%s emner"
 
-#: wp-includes/comment-template.php:1682
+#: wp-includes/comment-template.php:1694
 msgid "Leave a Comment"
 msgstr "Skriv en kommentar"
 
-#: wp-includes/comment-template.php:1683
+#: wp-includes/comment-template.php:1695
 msgid "Log in to leave a Comment"
 msgstr "Log ind for at skrive en kommentar"
 
@@ -7570,7 +7570,7 @@ msgstr "(Rediger)"
 msgid "Meta"
 msgstr "Meta"
 
-#: wp-includes/class-wp-customize-manager.php:1806
+#: wp-includes/class-wp-customize-manager.php:1808
 #: wp-includes/class-wp-xmlrpc-server.php:467
 msgid "Site Title"
 msgstr "Sidetitel"
@@ -7583,25 +7583,25 @@ msgstr "Websteder"
 msgid "My Sites"
 msgstr "Mine websteder"
 
-#: wp-includes/comment-template.php:1571
+#: wp-includes/comment-template.php:1583
 msgid "Log in to Reply"
 msgstr "Log ind for at svare"
 
-#: wp-includes/comment-template.php:1838 wp-includes/comment-template.php:2151
+#: wp-includes/comment-template.php:1850 wp-includes/comment-template.php:2179
 #: wp-includes/theme-compat/comments.php:75
 msgid "Leave a Reply"
 msgstr "Skriv et svar"
 
-#: wp-includes/comment-template.php:1839 wp-includes/comment-template.php:2152
+#: wp-includes/comment-template.php:1851 wp-includes/comment-template.php:2180
 #: wp-includes/theme-compat/comments.php:75
 msgid "Leave a Reply to %s"
 msgstr "Skriv et svar til %s"
 
-#: wp-includes/comment-template.php:1751
+#: wp-includes/comment-template.php:1763
 msgid "Click here to cancel reply."
 msgstr "Klik her for at annullere svar."
 
-#: wp-includes/comment-template.php:2121
+#: wp-includes/comment-template.php:2149
 #: wp-includes/theme-compat/comments-popup.php:81 wp-login.php:720
 msgid "Email"
 msgstr "E-mail"
@@ -7619,7 +7619,7 @@ msgstr "Besøg %s&#8217;s websted"
 msgid "Your comment is awaiting moderation."
 msgstr "Din kommentar afventer godkendelse."
 
-#: wp-includes/comment-template.php:1488
+#: wp-includes/comment-template.php:1500
 msgid "Enter your password to view comments."
 msgstr "Indtast din adgangskode for at læse kommentarer."
 
@@ -7677,7 +7677,7 @@ msgstr "Log ud fra denne konto"
 msgid "Log In"
 msgstr "Log ind"
 
-#: wp-includes/comment-template.php:2123
+#: wp-includes/comment-template.php:2151
 #: wp-includes/theme-compat/comments.php:102
 msgid "Website"
 msgstr "Websted"
@@ -7734,7 +7734,7 @@ msgstr "Forfatter"
 msgid "URL"
 msgstr "URL"
 
-#: wp-includes/comment-template.php:1041 wp-includes/comment-template.php:2139
+#: wp-includes/comment-template.php:1041 wp-includes/comment-template.php:2167
 msgctxt "noun"
 msgid "Comment"
 msgstr "Kommentar"
@@ -7794,7 +7794,7 @@ msgstr "Gem"
 msgid "Advanced"
 msgstr "Avanceret"
 
-#: wp-includes/comment-template.php:2119
+#: wp-includes/comment-template.php:2147
 #: wp-includes/theme-compat/comments-popup.php:76
 #: wp-includes/theme-compat/comments.php:96
 msgid "Name"
@@ -7861,7 +7861,7 @@ msgstr "Gem kladde"
 msgid "No comments yet."
 msgstr "Endnu ingen kommentarer."
 
-#: wp-includes/comment-template.php:1569 wp-includes/script-loader.php:488
+#: wp-includes/comment-template.php:1581 wp-includes/script-loader.php:488
 msgid "Reply"
 msgstr "Svar"
 
@@ -7921,13 +7921,13 @@ msgstr "Filen &#8220;%s&#8221; er ikke et billede."
 msgid "Saved."
 msgstr "Gemt."
 
-#: wp-includes/class-wp-customize-manager.php:1948
+#: wp-includes/class-wp-customize-manager.php:1950
 #: wp-includes/class-wp-editor.php:988 wp-includes/media-template.php:613
 #: wp-includes/media-template.php:844 wp-includes/media-template.php:910
 msgid "Left"
 msgstr "Venstre"
 
-#: wp-includes/class-wp-customize-manager.php:1949
+#: wp-includes/class-wp-customize-manager.php:1951
 #: wp-includes/class-wp-editor.php:989 wp-includes/media-template.php:616
 #: wp-includes/media-template.php:847 wp-includes/media-template.php:913
 msgid "Center"
@@ -8031,8 +8031,8 @@ msgstr "Rediger billede"
 msgid "Full Size"
 msgstr "Fuld størrelse"
 
-#: wp-includes/pluggable.php:1487 wp-includes/pluggable.php:1635
-#: wp-includes/pluggable.php:1756
+#: wp-includes/pluggable.php:1496 wp-includes/pluggable.php:1644
+#: wp-includes/pluggable.php:1765
 msgid "Email: %s"
 msgstr "E-mail: %s"
 
@@ -8086,7 +8086,7 @@ msgstr "Søg kategorier"
 msgid "Size"
 msgstr "Størrelse"
 
-#: wp-includes/class-wp-customize-manager.php:1950
+#: wp-includes/class-wp-customize-manager.php:1952
 #: wp-includes/class-wp-editor.php:990 wp-includes/media-template.php:619
 #: wp-includes/media-template.php:850 wp-includes/media-template.php:916
 msgid "Right"
