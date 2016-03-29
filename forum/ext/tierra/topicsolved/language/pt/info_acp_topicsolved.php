@@ -19,10 +19,10 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'ALLOW_SOLVE'                => 'Habilita tópicos a serem marcados como resolvidos.',
-	'ALLOW_SOLVE_EXPLAIN'        => 'Deixa o dono do tópico (quem o iniciou) ou os moderadores marcarem o tópico como resolvido. Moderadores podem resolver tópicos em ambas as opções positivas.',
-	'ALLOW_UNSOLVE'              => 'Habilita os tópicos a serem reabertos',
-	'ALLOW_UNSOLVE_EXPLAIN'      => 'Permite aos usuários ou moderadores retornar um tópico para não resolvido. Moderadores podem desfazer a resolução dos tópicos em ambas as opções positivas.',
+	'ALLOW_SOLVE'                => 'Permitir que  tópicos podem ser marcados como resolvidos.',
+	'ALLOW_SOLVE_EXPLAIN'        => 'Deixa o dono do tópico (quem o iniciou) ou os moderadores marcarem o tópico como resolvido. Moderadores podem resolver tópicos em ambas as opções possitiva.',
+	'ALLOW_UNSOLVE'              => 'Permitir que os tópicos possam ser reabertos',
+	'ALLOW_UNSOLVE_EXPLAIN'      => 'Permite aos usuários ou moderadores retornar um tópico para não resolvido. Moderadores podem desfazer a resolução dos tópicos em ambas as opções possitiva.',
 	'LOCK_SOLVED'                => 'Tranca tópicos resolvidos',
 	'LOCK_SOLVED_EXPLAIN'        => 'Apenas os moderadores podem reabrir tópicos trancados.',
 	'TOPIC_SOLVED_SETTINGS'      => 'Configurações dos tópicos resolvidos',

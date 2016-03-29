@@ -31,19 +31,28 @@ This is an update of the phpBB 3.0.x Topic Solved MOD, written by Jari Kanerva.
 
 This extension comes bundled with support for the following languages:
 
+*    Arabic (ar)
 *    Czech (cs)
+*    Danish (da)
 *    Dutch (nl)
 *    English (en)
 *    Estonian (et)
+*    Finnish (fi)
 *    French (fr)
 *    German (de)
 *    German (Formal Honorifics) (de_x_sie)
 *    Japanese (ja)
+*    Polish (pl)
+*    Portuguese (pt)
 *    Portuguese (Brazilian) (pt_br)
 *    Russian (ru)
 *    Spanish (es)
 *    Swedish (sv)
 *    Turkish (tr)
+
+Additional translations can be [requested and submitted here][transifex].
+
+[transifex]: https://www.transifex.com/tierra/phpbb-topic-solved/
 
 ## Supported Styles
 
@@ -60,7 +69,7 @@ style does not work correctly, you can request support for your style from the
 
 ## Requirements
 
-*   PHP 5.3.3+
+*   PHP 5.3.10+
 *   phpBB 3.1.3+
 
 ## Install

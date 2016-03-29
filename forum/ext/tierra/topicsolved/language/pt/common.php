@@ -26,7 +26,7 @@ $lang = array_merge($lang, array(
 	'SET_TOPIC_SOLVED' => 'Aceitar esta resposta',
 	'SET_TOPIC_NOT_SOLVED' => 'Marcar tópico como resolvido',
 	'BAD_METHOD_CALL' => 'Argumento inválido passado para o método `%1$s`.',
-	'FORBIDDEN_MARK_SOLVED' => 'Você não tem permissões para marcar este tépico como resolvido ou não resolvido.',
+	'FORBIDDEN_MARK_SOLVED' => 'Você não tem permissões para marcar este tópico como resolvido ou não resolvido.',
 	'TOPIC_ALREADY_SOLVED' => 'Tópico já foi marcado como resolvido.',
 	'TOPIC_ALREADY_UNSOLVED' => 'Tópico já está marcado como não resolvido.',
 ));

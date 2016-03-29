@@ -3,7 +3,7 @@
 	"type": "phpbb-extension",
 	"description": "Allows posting questions, and accepting answers as solved.",
 	"homepage": "https://github.com/tierra/topicsolved",
-	"version": "2.1.0",
+	"version": "2.2.0",
 	"keywords": ["phpbb", "extension", "question", "answer", "solved"],
 	"license": "GPL-2.0",
 	"authors": [
@@ -16,8 +16,13 @@
 			"email": "tumba25@gmail.com"
 		}
 	],
+	"config": {
+		"platform": {
+			"php": "5.3.10"
+		}
+	},
 	"require": {
-		"php": ">=5.3.3",
+		"php": ">=5.3.10",
 		"composer/installers": "~1.0"
 	},
 	"require-dev": {
