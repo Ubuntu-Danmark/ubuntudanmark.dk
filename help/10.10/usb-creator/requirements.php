@@ -87,7 +87,7 @@ if($wp_blog_header_path != '') {
       <div id="secondary-header">
         <div id="secondary-access">
           <div id="loco-search-form">
-            <form action="https://ubuntudanmark.dk/" method="get" id="searchform">
+            <form action="/" method="get" id="searchform">
               <div>
                 <input type="text" tabindex="1" size="32" onblur="if (this.value == '') {this.value = '';}" onfocus="if (this.value == '') {this.value = '';}" value="" name="s" id="s">
                 <input type="submit" tabindex="2" value="Søg" name="searchsubmit" id="searchsubmit">
