@@ -19,31 +19,32 @@ if($wp_blog_header_path != '') {
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="da-DK" xml:lang="da-DK">
   <head>
-    <title xmlns="">Indstillinger for netværk</title>
-    <meta xmlns="" http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta xmlns="" name="robots" content="index,follow" />
-    <link xmlns="" rel="canonical" href="/support/" />
-    <link xmlns="" rel="stylesheet" type="text/css" href="/wp-content/themes/light-wordpress-theme/style.css" />
-    <link xmlns="" rel="pingback" href="/xmlrpc.php" />
-    <link xmlns="" rel="alternate" type="application/rss+xml" title="Ubuntu Danmark » Feed" href="/feed/" />
-    <link xmlns="" rel="alternate" type="application/rss+xml" title="Ubuntu Danmark » Kommentarfeed" href="/comments/feed/" />
+    <title>Indstillinger for netværk</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="theme-color" content="#dd4814" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="/support/" />
+    <link rel="stylesheet" type="text/css" href="/wp-content/themes/light-wordpress-theme/style.css" />
+    <link rel="pingback" href="/xmlrpc.php" />
+    <link rel="alternate" type="application/rss+xml" title="Ubuntu Danmark » Feed" href="/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="Ubuntu Danmark » Kommentarfeed" href="/comments/feed/" />
     <link rel="stylesheet" type="text/css" media="print" href="/wp-content/themes/light-wordpress-theme/print.css" />
-    <script async="true" xmlns="" type="text/javascript" src="/wp-includes/js/jquery/jquery.js?ver=1.4.2"></script>
-    <script async="true" xmlns="" type="text/javascript" src="/wp-includes/js/comment-reply.js?ver=20090102"></script>
-    <script async="true" xmlns="" type="text/javascript" src="/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.1.1"></script>
-    <link xmlns="" rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
-    <link xmlns="" rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" />
-    <link xmlns="" rel="index" title="Ubuntu Danmark" href="/" />
-    <link xmlns="" rel="prev" title="Om Ubuntu" href="/om-ubuntu/" />
-    <link xmlns="" rel="next" title="Download" href="/download/" />
-    <link xmlns="" rel="canonical" href="/support/" />
-    <link xmlns="" rel="shortcut icon" href="/wp-content/themes/light-wordpress-theme/images/favicon.ico" type="image/x-icon" />
-    <meta xmlns="" http-equiv="X-UA-Compatible" content="chrome=1" />
-    <script async="true" xmlns="" type="text/javascript">
+    <script async="true" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script async="true" type="text/javascript" src="/wp-includes/js/comment-reply.js?ver=20090102"></script>
+    <script async="true" type="text/javascript" src="/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.1.1"></script>
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" />
+    <link rel="index" title="Ubuntu Danmark" href="/" />
+    <link rel="prev" title="Om Ubuntu" href="/om-ubuntu/" />
+    <link rel="next" title="Download" href="/download/" />
+    <link rel="canonical" href="/support/" />
+    <link rel="shortcut icon" href="/wp-content/themes/light-wordpress-theme/images/favicon.ico" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <script async="true" type="text/javascript">
 	var analyticsFileTypes = ['mp3','pdf','ogg'];
 	var analyticsEventTracking = 'enabled';
 </script>
-    <script async="true" xmlns="" type="text/javascript">
+    <script async="true" type="text/javascript">
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', 'UA-3824272-1']);
 	_gaq.push(['_trackPageview']);
