@@ -2,17 +2,15 @@
 Contributors: Crunchify
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8ZF6WATLYFELQ
 Tags: Facebook, Facebook Like Box, Facebook Widget, Facebook Members, Social Media, Like box, Facebook, Plugin, Facebook Plugin, Facebook Recommendation bar, Recommendation, Crunchify, Crunchify.com
-Requires at least: 4.1
-Tested up to: 4.3 Beta-3
-Stable tag: 5.9
+Requires at least: 4.2
+Tested up to: 4.5
+Stable tag: 5.9.1
 
 THE Simplest way to bring Facebook LikeBox + Facebook Recommendation Bar functionality to WordPress with lot more Options. 
 
 == Description ==
 
-`NOTE`: Please use plugin [Facebook Page Likebox](https://wordpress.org/plugins/facebook-page-likebox) going forward. Facebook Members plugin is `deprecated`.
-
-Facebook Members is a WordPres Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website. This is the simplest way to bring Facebook LikeBox + Facebook Recommendation Bar functionality to WordPress with many more Options like Background color, Border color.
+Facebook Members is a WordPress Social Plugin that enables Facebook Page owners to attract and gain Likes from their own website. This is the simplest way to bring Facebook LikeBox + Facebook Recommendation Bar functionality to WordPress with many more Options like Background color, Border color.
 
 See how many users already like this page, and which of their friends like it too. Read recent posts from the page Like the page with one click, without needing to visit the page. Get more visitors and more traffic to your site by getting more Facebook Fans. The Recommendations Bar allows users to like content, get recommendations, and share what they are reading with their friends.
 
@@ -82,9 +80,8 @@ Tags: facebook, FB members, facebook plugin, like box, likebox, facebook like bo
 
 == Changelog == 
 
-= 5.9 =
-* Please use plugin <a href="https://wordpress.org/plugins/facebook-page-likebox">Facebook Page Likebox</a> going forward. 
-* Facebook Members plugin is deprecated.
+= 5.9.1 =
+* Compatibility with WordPress 4.5
 
 = 5.8 =
 * Minor bug fix
@@ -92,7 +89,6 @@ Tags: facebook, FB members, facebook plugin, like box, likebox, facebook like bo
 
 = 5.7 =
 * Compatibility with WordPress 4.0
-* Now on <a href="https://github.com/Crunchify/Facebook-Members">Github</a>. Found a bug and want to contribute? Please fork repo and start enhancing plugin.
 
 = 5.5.1 =
 * Left 5px border issue fixed for class postbox
