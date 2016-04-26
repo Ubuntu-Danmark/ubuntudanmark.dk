@@ -599,6 +599,7 @@ $lang = array_merge($lang, array(
 
 	'LOG_ERROR_JABBER'		=> '<strong>Jabberfejl</strong><br />» %s',
 	'LOG_ERROR_EMAIL'		=> '<strong>Emailfejl</strong><br />» %s',
+	'LOG_ERROR_CAPTCHA'		=> '<strong>CAPTCHAfejl</strong><br />» %s',
 
 	'LOG_FORUM_ADD'							=> '<strong>Oprettet nyt forum</strong><br />» %s',
 	'LOG_FORUM_COPIED_PERMISSIONS'		=> '<strong>Forumtilladelser kopieret</strong> fra %1$s<br />» %2$s',
