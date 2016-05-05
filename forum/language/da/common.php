@@ -681,7 +681,7 @@ $lang = array_merge($lang, array(
 	'SEARCH_POSTS_BY'		=> 'Søg indlæg af',
 	'SEARCH_SELF'			=> 'Dine indlæg',
 	'SEARCH_TOPIC'			=> 'Søg i dette emne...',
-	'SEARCH_UNANSWERED'		=> 'Ubesvarede indlæg',
+	'SEARCH_UNANSWERED'		=> 'Ubesvarede emner',
 	'SEARCH_UNREAD'			=> 'Ulæste indlæg',
 	'SEARCH_USER_POSTS'		=> 'Brugers indlæg',
 	'SECONDS'	=> 'sekunder',
@@ -826,7 +826,7 @@ $lang = array_merge($lang, array(
 	'USERS'	=> 'Brugere',
 	'USE_PERMISSIONS'	=> 'Afprøv tilladelser',
 
-	'USER_NEW_PERMISSION_DISALLOWED'	=> 'Vi beklager, men du kan ikke bruge denne mulighed. For at anvende den skal du være tilmeldt og deltage mere aktivt.',
+	'USER_NEW_PERMISSION_DISALLOWED'	=> 'Vi beklager, men du kan ikke bruge denne mulighed. For at anvende den skal du være tilmeldt og deltage mere aktivt i debatterne.',
 
 	'VARIANT_DATE_SEPARATOR'	=> ' / ', // Used in date format dropdown, eg: "Today, 13:37 / 01 Jan 2007, 13:37" ... to join a relative date with calendar date
 	'VIEWED'	=> 'Vist',
