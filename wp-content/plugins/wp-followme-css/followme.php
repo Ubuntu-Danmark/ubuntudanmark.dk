@@ -3,7 +3,7 @@
  * Show twitter follow me badge
  *
  * @package wp-followme-css
- * @version 2.0.9
+ * @version 3.0.0
  */
 
 /*
@@ -11,7 +11,7 @@ Plugin Name: WP FollowMe CSS
 Plugin URI: https://ubuntudanmark.dk/
 Description: WP FollowMe CSS is a wordpress plugin that allow you to add a twitter "Follow Me" badge on your WordPress blog.
 Author: Anders Jenbo
-Version: 2.0.9
+Version: 3.0.0
 */
 
 register_activation_hook( __FILE__, function() {
