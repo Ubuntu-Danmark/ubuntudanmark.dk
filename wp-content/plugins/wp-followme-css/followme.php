@@ -34,6 +34,15 @@ register_activation_hook( __FILE__, function() {
 } );
 
 /**
+ * Add settings link to plugin page
+ **
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), function( $links ) {
+	$settings_link = '<a href="options-general.php?page=plugin_name">' . __( 'Settings' ) . '</a>';
+	array_push( $links, $settings_link );
+	return $links;
+} );
+
+/**
  * Setup admin warnings
  */
 add_action( 'init', function() {

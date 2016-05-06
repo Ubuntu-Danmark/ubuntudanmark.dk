@@ -41,6 +41,7 @@ You can see a demo here: [UbuntuDanmark.dk](https://ubuntudanmark.dk/)
 * Port badge from Flash to CSS3.
 * Major code cleanup.
 * Fix small issues with options.
+* Add settings link to plugin page.
 * Update jscolor to 2.0.4.
 * Correct typos in readme.
 * Update screenshot.
