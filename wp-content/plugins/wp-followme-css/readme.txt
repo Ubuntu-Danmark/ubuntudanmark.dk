@@ -1,9 +1,11 @@
 === WP FollowMe CSS ===
-Contributors: wpburn, ajenbo
+Contributors: wpburn, AJenbo
 Tags: twitter, follow, subscribe, subscription, badge, follow me, follow us, wp followme, tweet, css
 Requires at least: 2.8
 Tested up to: 4.5.1
 Stable tag: 3.0.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 WP FollowMe CSS plugin allows you to add a twitter "Follow me" badge on your WordPress blog.
 
@@ -25,11 +27,9 @@ You can see a demo here: [UbuntuDanmark.dk](https://ubuntudanmark.dk/)
 
 == Installation ==
 
-= How to use it =
-
-	* Extract all files from the zip archive to your wp-content/plugins folder
-	* Activate the plugin through the "Plugins" menu in WordPress
-	* Add your Twitter URL and configure other options as you wish
+1. Extract all files from the zip archive to your wp-content/plugins folder
+2. Activate the plugin through the "Plugins" menu in WordPress
+3. Add your Twitter URL and configure other options as you wish
 
 == Screenshots ==
 
@@ -42,6 +42,7 @@ You can see a demo here: [UbuntuDanmark.dk](https://ubuntudanmark.dk/)
 * Make compatible with HTTPS sites.
 * Major code cleanup.
 * Fix small issues with options.
+* Better image compression.
 * Add settings link to plugin page.
 * Update jscolor to 2.0.4.
 * Correct typos in readme.
@@ -65,7 +66,6 @@ You can see a demo here: [UbuntuDanmark.dk](https://ubuntudanmark.dk/)
 = 2.0.2 =
 * PHP 4 bug fixed.
 = 2.0 =
-= Now you can: =
 * Choose from 16 twitter icons or use your own.
 * Edit the icon background color.
 * Edit the "Follow Me" text.
