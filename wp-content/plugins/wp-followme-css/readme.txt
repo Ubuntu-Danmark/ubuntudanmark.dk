@@ -2,7 +2,7 @@
 Contributors: wpburn, AJenbo
 Tags: twitter, follow, subscribe, subscription, badge, follow me, follow us, wp followme, tweet, css
 Requires at least: 2.8
-Tested up to: 4.5.1
+Tested up to: 4.5.2
 Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -40,6 +40,7 @@ You can see a demo here: [UbuntuDanmark.dk](https://ubuntudanmark.dk/)
 = 3.0.0 =
 * Port badge from Flash to CSS3.
 * Make compatible with HTTPS sites.
+* Security fixes.
 * Major code cleanup.
 * Fix small issues with options.
 * Better image compression.
