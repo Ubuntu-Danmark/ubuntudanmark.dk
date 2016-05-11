@@ -39,9 +39,10 @@ register_activation_hook( __FILE__, function() {
 /**
  * Delete settings from the database on uninstall
  */
-register_uninstall_hook( __FILE__, function() {
+register_uninstall_hook( __FILE__, 'wp_followme_css_uninstall_hook' );
+function wp_followme_css_uninstall_hook() {
     delete_option('wp_followme_options');
-} );
+};
 
 /**
  * Add settings link to plugin page
