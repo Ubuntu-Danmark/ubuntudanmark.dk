@@ -14,6 +14,9 @@ Author: Anders Jenbo
 Version: 3.0.0
 */
 
+/**
+ * Set up defaults for plugin
+ */
 register_activation_hook( __FILE__, function() {
 	if ( ! get_option( 'wp_followme_options' ) ) {
 		$wp_followme = array(
@@ -31,6 +34,13 @@ register_activation_hook( __FILE__, function() {
 		);
 		update_option( 'wp_followme_options', $wp_followme );
 	}
+} );
+
+/**
+ * Delete settings from the database on uninstall
+ */
+register_uninstall_hook( __FILE__, function() {
+    delete_option('wp_followme_options');
 } );
 
 /**
