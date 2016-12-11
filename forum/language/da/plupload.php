@@ -14,6 +14,10 @@
 * the docs/CREDITS.txt file.
 *
 */
+
+/**
+* DO NOT CHANGE
+*/
 if (!defined('IN_PHPBB'))
 {
 	exit;

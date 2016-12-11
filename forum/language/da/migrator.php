@@ -53,6 +53,7 @@ $lang = array_merge($lang, array(
 	'MIGRATION_NOT_FULFILLABLE'			=> 'Migrering "%1$s" kan ikke fuldføres, migrationen "%2$s" mangler.',
 	'MIGRATION_NOT_VALID'	=> '%s er ikke en gyldig migration.',
 	'MIGRATION_SCHEMA_DONE'			=> 'Installeret skema: %1$s; tid: %2$.2f sekunder',
+	'MIGRATION_SCHEMA_IN_PROGRESS'		=> 'Installerer skema: %1$s; tid: %2$.2f sekunder',
 	'MIGRATION_SCHEMA_RUNNING'		=> 'Installerer skema: %s.',
 
 	'MIGRATION_INVALID_DATA_MISSING_CONDITION'		=> 'Migrering er ugyldig. En hjælper i en if-sætning mangler en betingelse.',
@@ -63,9 +64,12 @@ $lang = array_merge($lang, array(
 	'MIGRATION_INVALID_DATA_UNDEFINED_METHOD'		=> 'Migrering er ugyldig. Der opstod en ikke defineret metode til migration.',
 
 	'MODULE_ERROR'						=> 'Der opstod en fejl under oprettelse af et modul: %s',
+	'MODULE_EXISTS'						=> 'Et modul eksisterer allerede: %s',
+	'MODULE_EXIST_MULTIPLE'				=> 'Flere moduler med det angivne parent module langname eksisterer alleredet: %s. Prøv at bruge før/efter-tasterne for at stedfæste modulets placering.',
 	'MODULE_INFO_FILE_NOT_EXIST'		=> 'Der mangler en krævet modulinfo-fil: %2$s',
 	'MODULE_NOT_EXIST'					=> 'Det krævede modul %s findes ikke',
 
+	'PARENT_MODULE_FIND_ERROR'			=> 'Ude af stand til at bestemme parent module identifier: %s',
 	'PERMISSION_NOT_EXIST'				=> 'Tilladelseindstillingen "%s" eksisterer uventet ikke.',
 
 	'ROLE_NOT_EXIST'					=> 'Tilladelserollen "%s" findes uventet ikke.',

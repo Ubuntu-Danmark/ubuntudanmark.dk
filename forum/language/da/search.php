@@ -46,13 +46,13 @@ $lang = array_merge($lang, array(
 	'DISPLAY_RESULTS'		=> 'Vis resultater som',
 
 	'FOUND_SEARCH_MATCHES' => array(
-		1	=> 'Søgningen gav %d træffer',
-		2	=> 'Søgningen gav %d træffere',
+		1	=> 'Søgningen gav %d resultat',
+		2	=> 'Søgningen gav %d resultater',
 	),
 	
 	'FOUND_MORE_SEARCH_MATCHES' => array(
-		1 => 'Søgningen gav mere end %d træf',
-		2 => 'Søgningen gav mere end %d træffere',
+		1 => 'Søgningen gav mere end %d resultat',
+		2 => 'Søgningen gav mere end %d resultater',
 	),
 
 	'GLOBAL'				=> 'Global bekendtgørelse',
@@ -74,7 +74,7 @@ $lang = array_merge($lang, array(
 	'NO_KEYWORDS'			=> 'Du skal angive mindst et søgeord. Hvert ord skal bestå af mindst %s og højst %s tegn (eksklusiv ubekendte).',
 	'NO_RECENT_SEARCHES'	=> 'Ingen søgning er foretaget for nylig.',
 	'NO_SEARCH'				=> 'Beklager, du har ikke tilladelse til at benytte søgefunktionen.',
-	'NO_SEARCH_RESULTS'		=> 'Intet emne eller indlæg passer til dine søgekriterier.',
+	'NO_SEARCH_RESULTS'		=> 'Intet emne eller indlæg matcher dine søgekriterier.',
 	'NO_SEARCH_LOAD'		=> 'Beklager, men du kan ikke anvende søgning i øjeblikket. Serveren er overbelastet. Prøv venligst igen senere.',
 	'NO_SEARCH_TIME'		=> array(
 		1	=> 'Beklager, søgefunktionen kan ikke bruges lige nu. Prøv venligst igen om %d sekund.',
@@ -103,7 +103,7 @@ $lang = array_merge($lang, array(
 	'SEARCH_FIRST_POST'		=> 'Kun første indlæg i emnet',
 	'SEARCH_FORUMS'			=> 'Søg i fora',
 	'SEARCH_FORUMS_EXPLAIN'	=> 'Vælg det forum eller de fora du vil søge i. Der søges automatisk i underfora medmindre du fravælger "Søg i underfora" herunder.',
-	'SEARCH_IN_RESULTS'		=> 'Søg i fundne træffere',
+	'SEARCH_IN_RESULTS'		=> 'Søg i resultater',
 	'SEARCH_KEYWORDS_EXPLAIN'	=> 'Sæt <strong>+</strong> foran et søgeord der skal findes og <strong>-</strong> foran et søgeord der skal udelukkes i søgningen.<br />Skriv mange søgeord adskilt med <strong>|</strong> og omgivet af parantes, når blot et af ordene skal findes.<br />Brug * som ubekendt for ukendte tegn.',
 	'SEARCH_MSG_ONLY'		=> 'Søg kun i beskedfeltet',
 	'SEARCH_OPTIONS'		=> 'Søgemuligheder',

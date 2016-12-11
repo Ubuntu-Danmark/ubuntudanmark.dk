@@ -13,8 +13,7 @@
 * the docs/CREDITS.txt file.
 *
 */
-/**
-*/
+
 if (!defined('IN_PHPBB'))
 {
 	exit;

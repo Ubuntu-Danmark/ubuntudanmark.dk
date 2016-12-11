@@ -43,7 +43,7 @@ $lang = array_merge($lang, array(
 	'CAPTCHA_QA'				=> 'Q&amp;A',
 	'CONFIRM_QUESTION_EXPLAIN'	=> 'For at hindre automatiserede tilmeldinger og indlæg, bedes du besvare spørgsmålet.',
 	'CONFIRM_QUESTION_WRONG'	=> 'Din besvarelse er ikke korrekt.',
-	'CONFIRM_QUESTION_MISSING'	=> 'Captchaspørgsmål kunne ikke dannes. Kontakt venligst en boardadministrator.'
+	'CONFIRM_QUESTION_MISSING'	=> 'Captchaspørgsmål kunne ikke dannes. Kontakt venligst en boardadministrator.',
 
 	'QUESTION_ANSWERS'			=> 'Svar',
 	'ANSWERS_EXPLAIN'			=> 'Den eller de korrekte besvarelser. Skriv et svar pr. linie.',

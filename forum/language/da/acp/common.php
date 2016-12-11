@@ -548,7 +548,7 @@ $lang = array_merge($lang, array(
 	'LOG_CONFIG_FEED'				=> '<strong>Indstillinger for feeds ændret</strong>',
 	'LOG_CONFIG_SEARCH'			=> '<strong>Ændret indstillinger for søgning</strong>',
 	'LOG_CONFIG_SECURITY'		=> '<strong>Ændret indstillinger for sikkerhed</strong>',
-	'LOG_CONFIG_SERVER'			=> '<strong>Ændret indstillinger for gzip, stier & URL</strong>',
+	'LOG_CONFIG_SERVER'			=> '<strong>Ændret serverindstillinger</strong>',
 	'LOG_CONFIG_SETTINGS'		=> '<strong>Ændret board grundlæggende</strong>',
 	'LOG_CONFIG_SIGNATURE'		=> '<strong>Ændret indstillinger for signaturer</strong>',
 	'LOG_CONFIG_VISUAL'			=> '<strong>Indstillinger for spambot-beskyttelse ændret</strong>',
@@ -597,9 +597,9 @@ $lang = array_merge($lang, array(
 	'LOG_DOWNLOAD_IP'			=> '<strong>Tilføjet IP-adresse eller vært til downloadlisten</strong><br />» %s',
 	'LOG_DOWNLOAD_REMOVE_IP'	=> '<strong>Fjernet IP-adresse eller vært fra downloadlisten</strong><br />» %s',
 
-	'LOG_ERROR_JABBER'		=> '<strong>Jabberfejl</strong><br />» %s',
-	'LOG_ERROR_EMAIL'		=> '<strong>Emailfejl</strong><br />» %s',
-	'LOG_ERROR_CAPTCHA'		=> '<strong>CAPTCHAfejl</strong><br />» %s',
+	'LOG_ERROR_JABBER'		=> '<strong>Jabber-fejl</strong><br />» %s',
+	'LOG_ERROR_EMAIL'		=> '<strong>Email-fejl</strong><br />» %s',
+	'LOG_ERROR_CAPTCHA'		=> '<strong>CAPTCHA-fejl</strong><br />» %s',
 
 	'LOG_FORUM_ADD'							=> '<strong>Oprettet nyt forum</strong><br />» %s',
 	'LOG_FORUM_COPIED_PERMISSIONS'		=> '<strong>Forumtilladelser kopieret</strong> fra %1$s<br />» %2$s',

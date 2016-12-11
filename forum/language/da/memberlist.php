@@ -149,9 +149,9 @@ $lang = array_merge($lang, array(
 	'USERS_PER_PAGE'		=> 'Brugere pr. side',
 
 	'VIEWING_PROFILE'		=> '%s\'s profil',
-	'VIEW_FACEBOOK_PROFILE'	=> 'Se Facebookprofil',
-	'VIEW_SKYPE_PROFILE'	=> 'Se Skypeprofil',
-	'VIEW_TWITTER_PROFILE'	=> 'Se Twitterprofil',
-	'VIEW_YOUTUBE_CHANNEL'  => 'Se YouTubekanal',
+	'VIEW_FACEBOOK_PROFILE'	=> 'Se Facebook-profil',
+	'VIEW_SKYPE_PROFILE'	=> 'Se Skype-profil',
+	'VIEW_TWITTER_PROFILE'	=> 'Se Twitter-profil',
+	'VIEW_YOUTUBE_CHANNEL'  => 'Se YouTube-kanal',
 	'VIEW_GOOGLEPLUS_PROFILE' => 'Se Google+-profil',
 ));

@@ -105,7 +105,7 @@ $lang = array_merge($lang, array(
 	'EXT_GROUP_ARCHIVES'			=> 'Komprimerede filer',
 	'EXT_GROUP_DOCUMENTS'			=> 'Dokumenter',
 	'EXT_GROUP_DOWNLOADABLE_FILES'	=> 'Downloadbare filer',
-	'EXT_GROUP_FLASH_FILES'			=> 'Flashfiler',
+	'EXT_GROUP_FLASH_FILES'			=> 'Flash-filer',
 	'EXT_GROUP_IMAGES'				=> 'Billeder',
 	'EXT_GROUP_PLAIN_TEXT'			=> 'Ren tekst',
 	'EXT_GROUP_QUICKTIME_MEDIA'		=> 'Quicktime Media',
@@ -120,8 +120,8 @@ $lang = array_merge($lang, array(
 
 	'IMAGE_LINK_SIZE'			=> 'Grænse for dannelse af link',
 	'IMAGE_LINK_SIZE_EXPLAIN'	=> 'Overskrider vedhæftede billeder disse dimensioner (pixelbredde x pixelhøjde), vises link til billeder i stedet. Sættes begge værdier til 0 deaktiveres kontrollen.',
-	'IMAGICK_PATH'				=> 'Sti til imagemagick',
-	'IMAGICK_PATH_EXPLAIN'		=> 'Den fulde sti til konverteringsprogrammet imagemagick, f.eks. <samp>/usr/bin/</samp>.',
+	'IMAGICK_PATH'				=> 'Sti til ImageMagick',
+	'IMAGICK_PATH_EXPLAIN'		=> 'Den fulde sti til konverteringsprogrammet ImageMagick, f.eks. <samp>/usr/bin/</samp>.',
 
 	'MAX_ATTACHMENTS'				=> 'Maksimalt antal vedhæftede filer pr. indlæg',
 	'MAX_ATTACHMENTS_PM'			=> 'Maksimalt antal vedhæftede filer pr. privat besked',
@@ -156,7 +156,7 @@ $lang = array_merge($lang, array(
 	'REMOVE_DISALLOWED_IPS'			=> 'Fjern <em>sortlistede</em> IP-adresser eller værtsnavne',
 	'RESYNC_FILES_STATS_CONFIRM'	=> 'Er du sikker på at du vil synkronisere filstatistikker?',
 
-	'SEARCH_IMAGICK'				=> 'Søg efter Imagemagick',
+	'SEARCH_IMAGICK'				=> 'Søg efter ImageMagick',
 	'SECURE_ALLOW_DENY'				=> 'Tillad eller afvis',
 	'SECURE_ALLOW_DENY_EXPLAIN'		=> 'Sikker download baseres på en <strong>hvidliste</strong> (tillad), hvor ingen andre end de angivne kan downloade, eller på en <strong>sortliste</strong> (afvis), hvor kun de angivne ikke kan downloade.',
 	'SECURE_DOWNLOADS'				=> 'Aktiver sikker download',

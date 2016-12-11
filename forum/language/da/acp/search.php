@@ -57,7 +57,7 @@ $lang = array_merge($lang, array(
 	'DELETING_INDEX_IN_PROGRESS_EXPLAIN'	=> 'Søgemotoren er ved at slette indeks. Det kan tage nogle minutter.',
 
 	'FULLTEXT_MYSQL_INCOMPATIBLE_DATABASE'	=> 'MySQL\'s fuldtekstsøgemotor kan kun bruges fra MySQL4 og nyere.',
-	'FULLTEXT_MYSQL_NOT_SUPPORTED'				=> 'MySQL\'s fuldtekstindeksering kan kun anvendes sammen med MyISAM- eller InnoDB-tabeller. MySQL 5.6.4 eller nyere kræves for at understøtte fuldtekstindeksering med InnoDB-tabeller.',
+	'FULLTEXT_MYSQL_NOT_SUPPORTED'				=> 'MySQL\'s fuldtekstindeksering kan kun anvendes sammen med MyISAM- eller InnoDB-tabeller. For at understøtte fuldtekstindeksering med InnoDB-tabeller, kræves MySQL 5.6.8 eller nyere.',
 	'FULLTEXT_MYSQL_TOTAL_POSTS'			=> 'Det totale antal indekserede indlæg',
 	'FULLTEXT_MYSQL_MIN_SEARCH_CHARS_EXPLAIN'	=> 'Ord indeholdende mindst dette antal tegn indekseres til søgninger. Denne værdi kan kun ændres direkte i konfigurationen af mysql.',
 	'FULLTEXT_MYSQL_MAX_SEARCH_CHARS_EXPLAIN'	=> 'Ord indeholdende mindre end dette antal tegn indekseres til søgninger. Denne værdi kan kun ændres direkte i konfigurationen af mysql.',
@@ -117,8 +117,8 @@ $lang = array_merge($lang, array(
 		2  => 'Alle indlæg til og med indlægs-ID %2$d er nu indekseret, af disse %1$d indlæg i dette trin.<br />',
 	),
 	'SEARCH_INDEX_CREATE_REDIRECT_RATE'    => array(
-		1  => 'I øjeblikket indekseres ca. %1$.1f 1f indlæg i sekundet.<br />Igangværende indeksering…',
-		2  => 'I øjeblikket indekseres ca. %1$.1f 1f indlæg i sekundet.<br />Igangværende indeksering…',
+		1  => 'I øjeblikket indekseres ca. %1$.1f indlæg i sekundet.<br />Igangværende indeksering…',
+		2  => 'I øjeblikket indekseres ca. %1$.1f indlæg i sekundet.<br />Igangværende indeksering…',
 	),
 	'SEARCH_INDEX_DELETE_REDIRECT'      => array(
 		1  => 'Alle indlæg til og med indlægs-ID %2$d er nu fjernet fra søgeindekset.<br />Igangværende fjernelse af indlæg…',

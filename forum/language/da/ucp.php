@@ -8,7 +8,6 @@
 *
 * @modified and translated by Olympus DK Team
 * @version $Id: ucp.php 498 2015-12-24 06:49:52Z jan_skovsgaard $
-* @source file is copyright (c) 2005 phpBB Group
 *
 * For full copyright and license information, please see
 * the docs/CREDITS.txt file.
