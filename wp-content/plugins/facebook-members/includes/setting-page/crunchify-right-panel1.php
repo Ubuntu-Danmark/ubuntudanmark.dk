@@ -14,11 +14,9 @@
 		<div class="inside">
 			<ul>
 				<div align="left">
-					<b>NOTE:</b> v5.9 is the last update for Facebook Members plugin. <br> <br>Please
-					use plugin <a
-						href="https://wordpress.org/plugins/facebook-page-likebox">Facebook
-						Page Likebox</a> going forward. 
-				
+				<br>
+					<a href="http://crunchify.com/facebook-members/">Home Page</a> link.
+				<br> 
 				</div>
 			</ul>
 		</div>

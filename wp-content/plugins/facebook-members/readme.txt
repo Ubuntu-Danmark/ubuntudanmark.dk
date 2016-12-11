@@ -2,9 +2,9 @@
 Contributors: Crunchify
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8ZF6WATLYFELQ
 Tags: Facebook, Facebook Like Box, Facebook Widget, Facebook Members, Social Media, Like box, Facebook, Plugin, Facebook Plugin, Facebook Recommendation bar, Recommendation, Crunchify, Crunchify.com
-Requires at least: 4.2
-Tested up to: 4.5
-Stable tag: 5.9.1
+Requires at least: 4.5
+Tested up to: 4.7
+Stable tag: 6.0
 
 THE Simplest way to bring Facebook LikeBox + Facebook Recommendation Bar functionality to WordPress with lot more Options. 
 
@@ -14,10 +14,11 @@ Facebook Members is a WordPress Social Plugin that enables Facebook Page owners 
 
 See how many users already like this page, and which of their friends like it too. Read recent posts from the page Like the page with one click, without needing to visit the page. Get more visitors and more traffic to your site by getting more Facebook Fans. The Recommendations Bar allows users to like content, get recommendations, and share what they are reading with their friends.
 
-Subscribe to Twitter and Facebook to get **latest update**:
+Subscribe to <a href="https://twitter.com/Crunchify">Twitter</a> and <a href="https://www.facebook.com/Crunchify">Facebook</a> to get **latest update**
 
-[Twitter](http://twitter.com/Crunchify) |
-[Facebook](http://www.facebook.com/Crunchify) |
+> <strong>Bug Reports and Contribution</strong><br><br>
+> Bug reports for Facebook Members are [welcomed on GitHub](https://github.com/Crunchify/Facebook-Members). Please note GitHub is _not_ a support forum and issues that aren't properly qualified as bugs will be closed.
+
 [Feedback](http://Crunchify.com/facebook-members/) |
 [Screenshots - Admin Panel and Preview](http://wordpress.org/extend/plugins/facebook-members/screenshots/)
 
@@ -80,8 +81,9 @@ Tags: facebook, FB members, facebook plugin, like box, likebox, facebook like bo
 
 == Changelog == 
 
-= 5.9.1 =
-* Compatibility with WordPress 4.5
+= 6.0 =
+* Compatibility with WordPress 4.7
+* Minor bug fix
 
 = 5.8 =
 * Minor bug fix

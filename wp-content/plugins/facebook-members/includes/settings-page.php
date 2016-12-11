@@ -34,10 +34,7 @@
 
 			<br>
 			<br>
-			<br> <b>NOTE:</b> Please use plugin <a
-				href="https://wordpress.org/plugins/facebook-page-likebox">Facebook
-				Page Likebox</a> going forward. Facebook Members plugin is
-			deprecated.. <br>
+		    <br>
 
 		</div>
 		<div id="poststuff" class="metabox-holder has-right-sidebar">
