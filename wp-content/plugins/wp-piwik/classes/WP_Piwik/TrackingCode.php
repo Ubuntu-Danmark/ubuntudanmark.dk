@@ -26,6 +26,7 @@ class TrackingCode {
 			$this->applySearchChanges ();
 		if (is_single () || is_page())
 			$this->addCustomValues ();
+		$this->trackingCode = apply_filters('wp-piwik_tracking_code', $this->trackingCode);
 		return $this->trackingCode;
 	}
 
@@ -115,8 +116,7 @@ class TrackingCode {
 		if (\is_user_logged_in()) {
 			// Get the User ID Admin option, and the current user's data
 			$uidFrom = self::$wpPiwik->getGlobalOption ( 'track_user_id' );
-			global $current_user;
-			\get_currentuserinfo(); // $current_user
+			$current_user = wp_get_current_user(); // current user
 			// Get the user ID based on the admin setting
 			if ( $uidFrom == 'uid' ) {
 				$pkUserId = $current_user->ID;
