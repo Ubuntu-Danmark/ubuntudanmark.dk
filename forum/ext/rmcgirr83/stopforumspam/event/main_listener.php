@@ -130,13 +130,13 @@ class main_listener implements EventSubscriberInterface
 
 			if ($check)
 			{
-				if ($this->config['sfs_down'] && $check === 'sfs_down')
+				if ($this->config['sfs_down'] && is_string($check))
 				{
 					return;
 				}
 				$error_array[] = $this->show_message($check);
 				// now ban the spammer by IP
-				if ($this->config['sfs_ban_ip'])
+				if ($this->config['sfs_ban_ip'] && !is_string($check))
 				{
 					$this->ban_by_ip($this->user->ip);
 				}
@@ -202,14 +202,14 @@ class main_listener implements EventSubscriberInterface
 
 				if ($check)
 				{
-					if ($this->config['sfs_down'] && $check === 'sfs_down')
+					if ($this->config['sfs_down'] && is_string($check))
 					{
 						return;
 					}
 					$error_array[] = $this->show_message($check);
 
 					// now ban the spammer by IP
-					if ($this->config['sfs_ban_ip'])
+					if ($this->config['sfs_ban_ip'] && !is_string($check))
 					{
 						$this->ban_by_ip($this->user->ip);
 					}
@@ -334,7 +334,7 @@ class main_listener implements EventSubscriberInterface
 		if ($json_decode['success'])
 		{
 			$username_freq = $json_decode['username']['frequency'];
-			$email_freq = $json_decode['emailhash']['frequency'];
+			$email_freq = $json_decode['email']['frequency'];
 			$ip_freq = $json_decode['ip']['frequency'];
 
 			// ACP settings in effect
