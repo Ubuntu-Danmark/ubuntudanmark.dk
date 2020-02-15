@@ -1,16 +1,16 @@
 <?php
 /*
-Plugin Name: WP-Piwik
+Plugin Name: WP-Matomo
 
 Plugin URI: http://wordpress.org/extend/plugins/wp-piwik/
 
-Description: Adds Piwik stats to your dashboard menu and Piwik code to your wordpress header.
+Description: Adds Matomo statistics to your WordPress dashboard and is also able to add the Matomo Tracking Code to your blog.
 
-Version: 1.0.14
+Version: 1.0.22
 Author: Andr&eacute; Br&auml;kling
-Author URI: http://www.braekling.de
+Author URI: https://www.braekling.de
 Text Domain: wp-piwik
-Domain Path: /languages/
+Domain Path: /languages
 License: GPL3
 
 ****************************************************************************************** 
@@ -61,8 +61,10 @@ function wp_piwik_phperror() {
 	echo '</p></div>';
 }
 
-if (is_admin())
-	load_plugin_textdomain ( 'wp-piwik', false, 'wp-piwik' . DIRECTORY_SEPARATOR . 'languages' . DIRECTORY_SEPARATOR );
+function wp_piwik_load_textdomain() {
+    load_plugin_textdomain( 'wp-piwik', false, plugin_basename( dirname( __FILE__ ) ) . DIRECTORY_SEPARATOR . 'languages' . DIRECTORY_SEPARATOR );
+}
+add_action( 'plugins_loaded', 'wp_piwik_load_textdomain' );
 
 if (version_compare ( PHP_VERSION, '5.3.0', '<' ))
 	add_action ( 'admin_notices', 'wp_piwik_phperror' );

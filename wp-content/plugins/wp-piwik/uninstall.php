@@ -11,6 +11,7 @@ $globalSettings = array(
 	'piwik_url',
 	'piwik_path',
 	'piwik_user',
+	'matomo_user',
 	'piwik_token',
 	'auto_site_config',
 	'default_date',
@@ -44,6 +45,7 @@ $globalSettings = array(
 	'capability_stealth',
 	'track_across',
 	'track_across_alias',
+	'track_crossdomain_linking',
 	'track_feed',
 	'track_feed_addcampaign',
 	'track_feed_campaign',
@@ -72,17 +74,12 @@ $settings = array (
 global $wpdb;
 
 if (function_exists('is_multisite') && is_multisite()) {
-	if ( !wp_is_large_network() )
-		$aryBlogs = wp_get_sites ( array('limit' => $limit, 'offset' => $page?($page - 1) * $limit:null));
-	else {
-		if ($limit && $page) 
-			$queryLimit = 'LIMIT '.(int) (($page - 1) * $limit).','.(int) $limit.' ';
-		$aryBlogs = $wpdb->get_results('SELECT blog_id FROM '.$wpdb->blogs.' '.$queryLimit.'ORDER BY blog_id', ARRAY_A);
-	}
-
+	if ($limit && $page)
+		$queryLimit = 'LIMIT '.(int) (($page - 1) * $limit).','.(int) $limit.' ';
+	$aryBlogs = $wpdb->get_results('SELECT blog_id FROM '.$wpdb->blogs.' '.$queryLimit.'ORDER BY blog_id', ARRAY_A);
 	if (is_array($aryBlogs))
 		foreach ($aryBlogs as $aryBlog) {
-			foreach ($settings as $key) {
+	        foreach ($settings as $key) {
 				delete_blog_option($aryBlog['blog_id'], 'wp-piwik-'.$key);
 			}
 			switch_to_blog($aryBlog['blog_id']);

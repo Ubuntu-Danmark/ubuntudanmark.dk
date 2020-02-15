@@ -41,12 +41,15 @@ class Settings {
 			'piwik_url' => '',
 			'piwik_path' => '',
 			'piwik_user' => '',
+			'matomo_user' => '',
 			'piwik_token' => '',
 			'auto_site_config' => true,
 			// User settings: Stats configuration
 			'default_date' => 'yesterday',
 			'stats_seo' => false,
+            'stats_ecommerce' => false,
 			'dashboard_widget' => false,
+			'dashboard_ecommerce' => false,
 			'dashboard_chart' => false,
 			'dashboard_seo' => false,
 			'toolbar' => false,
@@ -66,10 +69,12 @@ class Settings {
 			'track_content' => 'disabled',
 			'track_search' => false,
 			'track_404' => false,
-			'add_post_annotations' => false,
+			'add_post_annotations' => array(),
 			'add_customvars_box' => false,
 			'add_download_extensions' => '',
 			'set_download_extensions' => '',
+			'set_link_classes' => '',
+			'set_download_classes' => '',
 			'disable_cookies' => false,
 			'limit_cookies' => false,
 			'limit_cookies_visitor' => 34186669, // Piwik default 13 months
@@ -79,6 +84,7 @@ class Settings {
 			'capability_stealth' => array (),
 			'track_across' => false,
 			'track_across_alias' => false,
+			'track_crossdomain_linking' => false,
 			'track_feed' => false,
 			'track_feed_addcampaign' => false,
 			'track_feed_campaign' => 'feed',
@@ -89,11 +95,13 @@ class Settings {
 			'http_connection' => 'curl',
 			'http_method' => 'post',
 			'disable_timelimit' => false,
+			'filter_limit' => '',
 			'connection_timeout' => 5,
 			'disable_ssl_verify' => false,
 			'disable_ssl_verify_host' => false,
 			'piwik_useragent' => 'php',
 			'piwik_useragent_string' => 'WP-Piwik',
+            'dnsprefetch' => false,
 			'track_datacfasync' => false,
 			'track_cdnurl' => '',
 			'track_cdnurlssl' => '',
@@ -237,7 +245,7 @@ class Settings {
 			$aryBlogs = self::getBlogList();
 			if (is_array($aryBlogs))
 				foreach ($aryBlogs as $aryBlog) {
-					switch_to_blog($aryBlog['blog_id']);
+                    switch_to_blog($aryBlog['blog_id']);
 					$wpdb->query("DELETE FROM $wpdb->options WHERE option_name LIKE 'wp-piwik-%'");
 					restore_current_blog();
 				}
@@ -249,13 +257,11 @@ class Settings {
 	/**
 	 * Get blog list
 	 */
-	public static function getBlogList($limit = null, $page = null) {
-		if ( !\wp_is_large_network() )
-			return \wp_get_sites ( array('limit' => $limit, 'offset' => $page?($page - 1) * $limit:null));
+	public static function getBlogList($limit = null, $page = null, $search = '') {
 		if ($limit && $page)
 			$queryLimit = ' LIMIT '.(int) (($page - 1) * $limit).','.(int) $limit;
 		global $wpdb;
-		return $wpdb->get_results('SELECT blog_id FROM '.$wpdb->blogs.' ORDER BY blog_id'.$queryLimit, ARRAY_A);
+		return $wpdb->get_results($wpdb->prepare('SELECT blog_id FROM '.$wpdb->blogs.' WHERE CONCAT(domain, path) LIKE "%%%s%%" AND spam = 0 AND deleted = 0 ORDER BY blog_id'.$queryLimit, $search), ARRAY_A);
 	}
 
 	/**
